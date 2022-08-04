@@ -1,14 +1,15 @@
 import React from "react";
 import { FooterC, FooterUl } from "../styles/FooterStyles";
 import { Icon } from "@iconify/react";
+import isologo from "../assets/isologo.png";
 
 const Footer = () => {
   return (
     <FooterC>
       <FooterUl>
-        <li>isologotipo</li>
-        <li>anio</li>
-        <li>copyright</li>
+        <img src={isologo} alt="isologo" />
+        <li>@2021</li>
+        <li>Digital Booking</li>
       </FooterUl>
       <FooterUl>
         <Icon icon="akar-icons:facebook-fill" />
