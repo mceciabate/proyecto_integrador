@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { cities } from "../data/cities";
-import Calendar from "react-calendar";
+import cities from "../data/cities";
 import "react-calendar/dist/Calendar.css";
 import {
   SearchContainer,
@@ -10,25 +9,37 @@ import {
   SearchButton,
   CalendarDiv,
 } from "../styles/SearcherStyles";
+import { DateRange } from "react-date-range";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 
 const Searcher = () => {
-  const [startDate, setsstartDate] = useState(new Date());
-  const [finishDate, setfinishDate] = useState(new Date());
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: null,
+      key: "selection",
+    },
+  ]);
   const [showCalendar, setshowCalendar] = useState(false);
   return (
     <SearchContainer>
-      <h1>Searcher</h1>
+      <h1>Car finder</h1>
       <p>Please pick you first and last day, and then choose your city</p>
       <SearchForm>
-        <SearchButton onClick={() => setshowCalendar(true)}>
-          Pick dates
-        </SearchButton>
-        {showCalendar ? (
           <CalendarDiv>
-            <Calendar onChange={setsstartDate} value={startDate} required />
-            <Calendar onChange={setfinishDate} value={finishDate} required />
+            <SearchButton onClick={() => setshowCalendar(true)}>
+              Pick dates
+            </SearchButton>
+            {showCalendar ? 
+            <DateRange
+              editableDateInputs={true}
+              onChange={(item) => setState([item.selection])}
+              moveRangeOnFirstSelection={false}
+              ranges={state}
+              rangeColors={["#F0572D"]}
+            /> : null }
           </CalendarDiv>
-        ) : null}
         <SearchSelect required>
           <option value="">Select a city</option>
           {cities.map((city) => (

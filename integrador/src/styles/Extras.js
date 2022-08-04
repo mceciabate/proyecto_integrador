@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const LayoutC = styled.div`
-  background-color: aquamarine;
+  background-color: lightsalmon;
   height: 100vh;
   width: 100vw;
-`
+  overflow: hidden; ;
+`;

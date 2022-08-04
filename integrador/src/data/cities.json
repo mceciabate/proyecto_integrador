@@ -1,0 +1,12 @@
+[
+  {"name": "Buenos Aires", "value":"BSAS", "id": 1},
+  {"name": "Córdoba", "value":"COR", "id": 2},
+  {"name": "La Plata", "value":"LAP", "id": 3},
+  {"name": "Mar del Plata", "value":"MDQ", "id": 4},
+  {"name": "Mendoza", "value":"MDZ", "id": 5},
+  {"name": "Paraná", "value":"PAR", "id": 6},
+  {"name": "Salta", "value":"SLA", "id": 7},
+  {"name": "San Juan", "value":"SJU", "id": 8},
+  {"name": "San Luis", "value":"LUQ",  "id": 9},
+  {"name": "Santa Fe", "value":"SFN", "id": 10}
+]

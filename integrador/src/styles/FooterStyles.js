@@ -7,13 +7,15 @@ export const FooterC = styled.footer`
   width: 100%;
   position: absolute;
   bottom: 0;
+  background-color: #F0572D;
+  height: 8vh;
 `;
 
 export const FooterUl = styled.ul`
   display: flex;
   list-style: none;
-  display: flex;
   align-items: center;
-  gap: 25px;
-  margin: 15px;
+  gap: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
 `
