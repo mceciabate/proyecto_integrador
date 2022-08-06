@@ -1,10 +1,15 @@
 package equipo10.integrador_v01.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
-
+//Mapear los atributos de la tabla “categorías” con una clase de nuestro modelo.
 @Entity // El ORM hibernate va a leer esto como bdd
 @Table // no especifico el nombre xq quiero que mi bdd se llame Categorias
+@Getter
+@Setter
 public class Categorias {
 
     @Id
