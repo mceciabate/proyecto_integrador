@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import { useNavigate } from "react-router-dom";
+import { LoginC, LoginXButton } from "./LoginStyles";
 
 
 const Login = ({argument, setIsLogged}) => {
@@ -14,14 +15,14 @@ const Login = ({argument, setIsLogged}) => {
     setView(view);
   }
   return (
-    <div>
-      <button onClick={()=> navigate('/')} >X</button>
+    <LoginC>
+      <LoginXButton onClick={()=> navigate('/')} >X</LoginXButton>
       {view === "login" ? (
         <LoginForm handleView={handleView} setIsLogged={setIsLogged}  />
       ) : view === "register" ? (
         <RegisterForm handleView={handleView} />
       ) : null}
-    </div>
+    </LoginC>
   );
 
 }

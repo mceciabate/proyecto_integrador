@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 export const LayoutC = styled.div`
+  display: flex;
+  flex-direction: column;
   background-color: lightsalmon;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden; ;
+  min-height: 100vh;
+  max-height: max-content;
+  min-width: 100vw;
+  max-width: max-content;
 `;

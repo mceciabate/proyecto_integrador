@@ -1,10 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import categories from "../data/categories.json";
 
 const Categories = () => {
-  const [categories, setCategories] = useState([]);
+/*  const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
+   useEffect(() => {
     const request = async () => {
       const response = await fetch(
         ""
@@ -13,7 +14,7 @@ const Categories = () => {
       setCategories(result);
     };
     request();
-  } , []);
+  } , []); */
 
 
   return (
@@ -23,7 +24,7 @@ const Categories = () => {
       <div>
         {categories.map((category) => (
           <div key={category.id}>
-            <h3>{category.img}</h3>
+            <img src={category.img} alt={category.caption} />
             <p>{category.caption}</p>
           </div>
           ))}
