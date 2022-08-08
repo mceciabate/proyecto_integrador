@@ -4,9 +4,12 @@ import equipo10.integrador_v01.model.Categorias;
 import equipo10.integrador_v01.repository.ICategoriasRepository;
 import equipo10.integrador_v01.service.ICategoriasService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoriasService implements ICategoriasService {
@@ -41,7 +44,14 @@ public class CategoriasService implements ICategoriasService {
     }
 
     @Override
-    public void actualizarCategoria(Categorias categoria) {
-        categoriasRepository.saveAndFlush(categoria);
+    public void actualizarCategoria(Long id, Categorias categoria) {
+        Optional<Categorias> categoriaOptional = categoriasRepository.findById(id);
+        Categorias categoriaOp = categoriaOptional.get();
+        if (categoriaOptional.isPresent()) {
+            categoriaOp.setDescripcion(categoria.getDescripcion());
+            categoriaOp.setTitulo(categoria.getTitulo());
+            categoriaOp.setUrlImg(categoria.getTitulo());
+            categoriasRepository.saveAndFlush(categoriaOp);
+        }
     }
 }

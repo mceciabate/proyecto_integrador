@@ -38,8 +38,8 @@ public class CategoriasController {
 
     @PutMapping
     @RequestMapping("/editar")
-    public ResponseEntity<?> actualizarCategoria(@RequestBody Categorias categoria){
-        categoriasService.actualizarCategoria(categoria);
+    public ResponseEntity<?> actualizarCategoria(@RequestParam Long id, @RequestBody Categorias categoria){
+        categoriasService.actualizarCategoria(id, categoria);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
