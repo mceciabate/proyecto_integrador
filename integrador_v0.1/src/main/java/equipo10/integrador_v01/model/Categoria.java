@@ -37,4 +37,11 @@ public class Categoria {
         this.descripcion = descripcion;
         this.urlImg = urlImg;
     }
+
+    @Override
+    public String toString() {
+        return "Categoria{" +
+                "titulo='" + titulo + '\'' +
+                '}';
+    }
 }

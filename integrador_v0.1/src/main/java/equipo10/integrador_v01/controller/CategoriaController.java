@@ -1,5 +1,7 @@
 package equipo10.integrador_v01.controller;
 
+import equipo10.integrador_v01.exceptions.ResourceCreateException;
+import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.Categoria;
 import equipo10.integrador_v01.service.ICategoriaService;
 import org.apache.log4j.Logger;
@@ -18,31 +20,47 @@ public class CategoriaController {
 
 
     @GetMapping(path = "/all")
-    public ResponseEntity<?> listarCategoria() {
+    public ResponseEntity<?> listarCategoria() throws ResourceNotFoundException {
         return ResponseEntity.ok(categoriasService.listarCategoria());
     }
 
     @GetMapping
-    public ResponseEntity<?> buscarCategoriaPorId(@RequestParam Long id) {
+    public ResponseEntity<?> listarTodasCategorias() throws ResourceNotFoundException {
+        log.debug("Listado de categorías");
+        return ResponseEntity.ok(categoriasService.listarCategoria());
+    }
+
+    @PostMapping
+    public ResponseEntity<?> guardarCategoria(@RequestBody Categoria categoria) throws ResourceCreateException {
+
+    {
         return ResponseEntity.ok(categoriasService.buscarCategoriaPorId(id));
     }
 
     @PostMapping
-    public ResponseEntity<?> guardarCategoria(@RequestBody Categoria categoria) {
+    public ResponseEntity<?> guardarCategoria(@RequestBody Categoria categoria) throw ResourceCreateException {
+
         categoriasService.guardarCategoria(categoria);
+        log.debug("Guardando nueva categoría " + categoria.toString());
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @DeleteMapping
-    public ResponseEntity<?> eliminarCategoria(@RequestParam Long id) {
+        public ResponseEntity<?> eliminarCategoria(@RequestParam Long id) throws ResourceNotFoundException{
         categoriasService.eliminarCategoria(id);
+        log.debug("Se ha eliminado la categoría con id " + id);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity<?> actualizarCategoria(@RequestParam Long id, @RequestBody Categoria categoria) {
+
+    public ResponseEntity<?> actualizarCategoria(@RequestParam Long id, @RequestBody Categoria categoria) throws ResourceNotFoundException{
+
+
+
         categoriasService.actualizarCategoria(id, categoria);
+        log.debug("Se ha acualizado la categoría " + categoria.toString());
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-}
+
