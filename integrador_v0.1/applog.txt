@@ -2,3 +2,42 @@ DEBUG   2022-08-09 01:44:16,908 [http-nio-8080-exec-1] equipo10.integrador_v01.s
 DEBUG   2022-08-09 01:44:23,779 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría Categoria{titulo='dportivo'}
 DEBUG   2022-08-09 01:45:22,635 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría Categoria{titulo='dportivo'}
 DEBUG   2022-08-09 01:45:26,124 [http-nio-8080-exec-7] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-09 16:00:58,065 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría Categoria{titulo='prueba'}
+DEBUG   2022-08-09 16:01:02,219 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría Categoria{titulo='prueba'}
+DEBUG   2022-08-09 16:03:25,692 [http-nio-8080-exec-2] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-09 16:13:04,899 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-09 16:13:27,195 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Categoría 4
+DEBUG   2022-08-09 16:19:23,732 [http-nio-8080-exec-8] equipo10.integrador_v01.service.ICategoriaService  - Categoría 3
+DEBUG   2022-08-09 16:19:39,709 [http-nio-8080-exec-9] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-09 16:19:45,620 [http-nio-8080-exec-10] equipo10.integrador_v01.service.ICategoriaService  - Categoría 3
+DEBUG   2022-08-09 16:19:46,986 [http-nio-8080-exec-2] equipo10.integrador_v01.service.ICategoriaService  - Categoría 3
+DEBUG   2022-08-09 16:19:48,223 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Categoría 3
+DEBUG   2022-08-09 16:19:49,481 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Categoría 3
+DEBUG   2022-08-09 16:20:47,964 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 3
+DEBUG   2022-08-09 16:20:54,338 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-09 16:39:49,028 [http-nio-8080-exec-2] equipo10.integrador_v01.service.ICategoriaService  - Categoría 4
+DEBUG   2022-08-09 16:39:53,600 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-09 16:39:56,528 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría Categoria{titulo='prueba'}
+DEBUG   2022-08-09 16:40:07,244 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 4
+DEBUG   2022-08-09 16:40:11,431 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 1
+DEBUG   2022-08-09 16:40:15,243 [http-nio-8080-exec-8] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 2
+DEBUG   2022-08-09 16:40:19,260 [http-nio-8080-exec-7] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 5
+DEBUG   2022-08-09 16:40:21,647 [http-nio-8080-exec-9] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-09 16:40:26,074 [http-nio-8080-exec-10] equipo10.integrador_v01.service.ICategoriaService  - Categoría 4
+DEBUG   2022-08-09 16:40:29,795 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría Categoria{titulo='prueba'}
+DEBUG   2022-08-09 16:40:34,407 [http-nio-8080-exec-2] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 5
+DEBUG   2022-08-09 16:58:02,727 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-09 16:58:05,918 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Categoría 4
+DEBUG   2022-08-09 16:58:12,620 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Categoría 6
+DEBUG   2022-08-09 16:58:16,376 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría equipo10.integrador_v01.model.dto.CategoriaDTO@1697cb55
+DEBUG   2022-08-09 16:58:19,305 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 5
+DEBUG   2022-08-09 16:58:23,734 [http-nio-8080-exec-8] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 6
+DEBUG   2022-08-09 16:58:29,686 [http-nio-8080-exec-9] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-09 16:59:33,688 [http-nio-8080-exec-2] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-09 16:59:46,995 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 8
+DEBUG   2022-08-09 16:59:50,294 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-09 16:59:59,953 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-09 17:22:31,176 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-09 17:22:52,825 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-09 17:25:08,370 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-09 17:25:26,467 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías

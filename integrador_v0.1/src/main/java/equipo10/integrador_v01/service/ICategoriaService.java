@@ -1,22 +1,23 @@
 package equipo10.integrador_v01.service;
 
-import equipo10.integrador_v01.model.Categoria;
+import equipo10.integrador_v01.model.dto.CategoriaDTO;
+import equipo10.integrador_v01.model.entity.Categoria;
 
 import java.util.List;
 
 public interface ICategoriaService {
 
-    List<Categoria> listarCategoria();
+    List<CategoriaDTO> listarCategoria();
 
     //read
-    Categoria buscarCategoriaPorId(Long id);
+    CategoriaDTO buscarCategoriaPorId(Long id);
 
     //create
-    Categoria guardarCategoria(Categoria categoria);
+    CategoriaDTO guardarCategoria(CategoriaDTO categoriaDTO);
 
     //delete
     void eliminarCategoria(Long id);
 
     //update
-    Categoria actualizarCategoria(Long id, Categoria categoria);
+    void actualizarCategoria(Long id, CategoriaDTO categoriaDTO);
 }
