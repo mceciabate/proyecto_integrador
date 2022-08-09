@@ -16,28 +16,24 @@ public class CategoriasController {
 
 
     @GetMapping
-    @RequestMapping("/listar")
     public ResponseEntity<?> listarTodasCategorias(){
         categoriasService.listarTodasCategorias();
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @PostMapping
-    @RequestMapping("/guardar")
     public ResponseEntity<?> guardarCategoria(@RequestBody Categorias categoria){
         categoriasService.guardarCategoria(categoria);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @DeleteMapping
-    @RequestMapping("/eliminar")
     public ResponseEntity<?> eliminarCategoria(@RequestParam Long id){
         categoriasService.eliminarCategoria(id);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @PutMapping
-    @RequestMapping("/editar")
     public ResponseEntity<?> actualizarCategoria(@RequestParam Long id, @RequestBody Categorias categoria){
         categoriasService.actualizarCategoria(id, categoria);
         return ResponseEntity.ok(HttpStatus.OK);
