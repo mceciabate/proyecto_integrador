@@ -1,5 +1,4 @@
 package equipo10.integrador_v01.service.impl;
-
 import equipo10.integrador_v01.model.Categoria;
 import equipo10.integrador_v01.repository.ICategoriaRepository;
 import equipo10.integrador_v01.service.ICategoriaService;
@@ -32,8 +31,9 @@ public class CategoriaService implements ICategoriaService {
     }
 
     @Override
-    public void guardarCategoria(Categoria categoria) {
+    public Categoria guardarCategoria(Categoria categoria) {
         categoriasRepository.save(categoria);
+        return categoria;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class CategoriaService implements ICategoriaService {
     }
 
     @Override
-    public void actualizarCategoria(Long id, Categoria categoria) {
+    public Categoria actualizarCategoria(Long id, Categoria categoria) {
         Optional<Categoria> categoriaOptional = categoriasRepository.findById(id);
         Categoria categoriaOp = categoriaOptional.get();
         if (categoriaOptional.isPresent()) {
@@ -51,5 +51,6 @@ public class CategoriaService implements ICategoriaService {
             categoriaOp.setUrlImg(categoria.getTitulo());
             categoriasRepository.saveAndFlush(categoriaOp);
         }
+        return categoriaOp;
     }
 }

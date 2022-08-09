@@ -12,11 +12,11 @@ public interface ICategoriaService {
     Categoria buscarCategoriaPorId(Long id);
 
     //create
-    void guardarCategoria(Categoria categoria);
+    Categoria guardarCategoria(Categoria categoria);
 
     //delete
     void eliminarCategoria(Long id);
 
     //update
-    void actualizarCategoria(Long id, Categoria categoria);
+    Categoria actualizarCategoria(Long id, Categoria categoria);
 }

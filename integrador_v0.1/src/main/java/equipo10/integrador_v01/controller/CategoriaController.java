@@ -1,5 +1,5 @@
 package equipo10.integrador_v01.controller;
-
+import java.util.*;
 import equipo10.integrador_v01.exceptions.ResourceCreateException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.Categoria;
@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/categoria")
 public class CategoriaController {
@@ -19,48 +21,36 @@ public class CategoriaController {
     final static Logger log = Logger.getLogger(ICategoriaService.class);
 
 
-    @GetMapping(path = "/all")
-    public ResponseEntity<?> listarCategoria() throws ResourceNotFoundException {
-        return ResponseEntity.ok(categoriasService.listarCategoria());
-    }
-
     @GetMapping
-    public ResponseEntity<?> listarTodasCategorias() throws ResourceNotFoundException {
+    @RequestMapping("/listar")
+    public ResponseEntity<List<Categoria>> listarTodasCategorias() throws ResourceNotFoundException {
+        categoriasService.listarCategoria();
         log.debug("Listado de categorías");
         return ResponseEntity.ok(categoriasService.listarCategoria());
     }
 
     @PostMapping
-    public ResponseEntity<?> guardarCategoria(@RequestBody Categoria categoria) throws ResourceCreateException {
-
-    {
-        return ResponseEntity.ok(categoriasService.buscarCategoriaPorId(id));
-    }
-
-    @PostMapping
-    public ResponseEntity<?> guardarCategoria(@RequestBody Categoria categoria) throw ResourceCreateException {
-
-        categoriasService.guardarCategoria(categoria);
+    @RequestMapping("/guardar")
+    public ResponseEntity<Categoria> guardarCategoria(@RequestBody Categoria categoria) throws ResourceCreateException {
         log.debug("Guardando nueva categoría " + categoria.toString());
-        return ResponseEntity.ok(HttpStatus.OK);
+        return ResponseEntity.ok(categoriasService.guardarCategoria(categoria));
     }
 
-    @DeleteMapping
-        public ResponseEntity<?> eliminarCategoria(@RequestParam Long id) throws ResourceNotFoundException{
-        categoriasService.eliminarCategoria(id);
-        log.debug("Se ha eliminado la categoría con id " + id);
-        return ResponseEntity.ok(HttpStatus.OK);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> eliminarCategoria(@PathVariable Long id) throws ResourceNotFoundException {
+        log.debug("Eliminando la categoria " + id);
+       categoriasService.eliminarCategoria(id);
+        return null;
     }
 
-    @PutMapping
 
-    public ResponseEntity<?> actualizarCategoria(@RequestParam Long id, @RequestBody Categoria categoria) throws ResourceNotFoundException{
-
-
-
+    @PutMapping("/{id}")
+    public ResponseEntity<Categoria> actualizarCategoria(@PathVariable Long id, @RequestBody Categoria categoria) throws ResourceNotFoundException {
         categoriasService.actualizarCategoria(id, categoria);
-        log.debug("Se ha acualizado la categoría " + categoria.toString());
-        return ResponseEntity.ok(HttpStatus.OK);
+
+
+        return null;
     }
 
 
+}
