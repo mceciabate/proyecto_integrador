@@ -15,4 +15,8 @@ public class GlobalExceptions {
     public ResponseEntity<String> procesarErrorCreateResourse(ResourceCreateException ex) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
     }
+    @ExceptionHandler({BadRequestException.class})
+    public ResponseEntity<String> procesarBadRequestError(BadRequestException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+    }
 }
