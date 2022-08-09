@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface ICategoriaService {
 
-    List<Categoria> listarTodasCategorias();
+    List<Categoria> listarCategoria();
 
     //read
-    Categoria buscarCategoriaXId(Long id);
+    Categoria buscarCategoriaPorId(Long id);
 
     //create
     void guardarCategoria(Categoria categoria);

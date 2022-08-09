@@ -8,31 +8,36 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/categorias")
+@RequestMapping("/categoria")
 public class CategoriaController {
 
     @Autowired
     ICategoriaService categoriasService;
 
+    @GetMapping(path = "/all")
+    public ResponseEntity<?> listarCategoria() {
+        return ResponseEntity.ok(categoriasService.listarCategoria());
+    }
+
     @GetMapping
-    public ResponseEntity<?> listarTodasCategorias(){
-        return ResponseEntity.ok(categoriasService.listarTodasCategorias());
+    public ResponseEntity<?> buscarCategoriaPorId(@RequestParam Long id) {
+        return ResponseEntity.ok(categoriasService.buscarCategoriaPorId(id));
     }
 
     @PostMapping
-    public ResponseEntity<?> guardarCategoria(@RequestBody Categoria categoria){
+    public ResponseEntity<?> guardarCategoria(@RequestBody Categoria categoria) {
         categoriasService.guardarCategoria(categoria);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @DeleteMapping
-    public ResponseEntity<?> eliminarCategoria(@RequestParam Long id){
+    public ResponseEntity<?> eliminarCategoria(@RequestParam Long id) {
         categoriasService.eliminarCategoria(id);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity<?> actualizarCategoria(@RequestParam Long id, @RequestBody Categoria categoria){
+    public ResponseEntity<?> actualizarCategoria(@RequestParam Long id, @RequestBody Categoria categoria) {
         categoriasService.actualizarCategoria(id, categoria);
         return ResponseEntity.ok(HttpStatus.OK);
     }
