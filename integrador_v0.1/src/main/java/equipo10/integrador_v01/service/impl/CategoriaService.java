@@ -3,7 +3,6 @@ package equipo10.integrador_v01.service.impl;
 import equipo10.integrador_v01.model.Categoria;
 import equipo10.integrador_v01.repository.ICategoriaRepository;
 import equipo10.integrador_v01.service.ICategoriaService;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +11,6 @@ import java.util.Optional;
 
 @Service
 public class CategoriaService implements ICategoriaService {
-
-    Logger LOG = Logger.getLogger(CategoriaService.class);
 
     //Inyección de dependencias
     //repository de hibernate (donde esta todos los metodos)
@@ -24,12 +21,12 @@ public class CategoriaService implements ICategoriaService {
 
     @Override
     //implementar a futuro la excepcion de q no encuentre el id
-    public List<Categoria> listarTodasCategorias() {
+    public List<Categoria> listarCategoria() {
         return categoriasRepository.findAll();
     }
 
     @Override
-    public Categoria buscarCategoriaXId(Long id) {
+    public Categoria buscarCategoriaPorId(Long id) {
         Categoria categoriaEncontrada = categoriasRepository.findById(id).orElse(null);
         return categoriaEncontrada;
     }
