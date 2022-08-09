@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Table // no especifico el nombre xq quiero que mi bdd se llame Categorias
 @Getter
 @Setter
-public class Categorias {
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //id autoincremental
@@ -22,16 +22,16 @@ public class Categorias {
 
 
     //constructores
-    public Categorias() {
+    public Categoria() {
     }
 
-    public Categorias(String titulo, String descripcion, String urlImg) {
+    public Categoria(String titulo, String descripcion, String urlImg) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.urlImg = urlImg;
     }
 
-    public Categorias(Long id, String titulo, String descripcion, String urlImg) {
+    public Categoria(Long id, String titulo, String descripcion, String urlImg) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
