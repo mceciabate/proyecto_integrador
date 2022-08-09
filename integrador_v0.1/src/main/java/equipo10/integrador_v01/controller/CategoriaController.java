@@ -2,6 +2,7 @@ package equipo10.integrador_v01.controller;
 
 import equipo10.integrador_v01.model.Categoria;
 import equipo10.integrador_v01.service.ICategoriaService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,8 @@ public class CategoriaController {
 
     @Autowired
     ICategoriaService categoriasService;
+    final static Logger log = Logger.getLogger(ICategoriaService.class);
+
 
     @GetMapping
     public ResponseEntity<?> listarTodasCategorias(){
