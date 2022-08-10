@@ -19,37 +19,33 @@ public class CategoriaController {
     ICategoriaService categoriasService;
     final static Logger log = Logger.getLogger(ICategoriaService.class);
 
-    @GetMapping
-    @RequestMapping("/listar")
+    @RequestMapping(value = "/listar", method = RequestMethod.GET)
     public ResponseEntity<List<CategoriaDTO>> listarTodasCategorias() throws ResourceNotFoundException {
         categoriasService.listarCategoria();
         log.debug("Listado de categorías");
         return ResponseEntity.ok(categoriasService.listarCategoria());
     }
-
-    @GetMapping
-    @RequestMapping("/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<CategoriaDTO> buscarCategoriaPorId(@PathVariable Long id) throws ResourceNotFoundException {
         categoriasService.listarCategoria();
         log.debug("Categoría " + id);
         return ResponseEntity.ok(categoriasService.buscarCategoriaPorId(id));
     }
 
-    @PostMapping
-    @RequestMapping("/guardar")
+    @RequestMapping(value = "/guardar", method = RequestMethod.POST)
     public ResponseEntity<CategoriaDTO> guardarCategoria(@RequestBody CategoriaDTO categoriaDTO) throws ResourceCreateException {
         log.debug("Guardando nueva categoría " + categoriaDTO.toString());
         return ResponseEntity.ok(categoriasService.guardarCategoria(categoriaDTO));
     }
 
-    @DeleteMapping("/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> eliminarCategoria(@PathVariable Long id) throws ResourceNotFoundException {
         log.debug("Eliminando la categoria " + id);
        categoriasService.eliminarCategoria(id);
         return null;
     }
 
-    @PutMapping("/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<CategoriaDTO> actualizarCategoria(@PathVariable Long id, @RequestBody CategoriaDTO categoriaDTO) throws ResourceNotFoundException {
         categoriasService.actualizarCategoria(id, categoriaDTO);
         return null;
