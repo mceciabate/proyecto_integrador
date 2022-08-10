@@ -124,3 +124,5 @@ DEBUG   2022-08-10 12:06:11,336 [http-nio-8080-exec-3] equipo10.integrador_v01.s
 ERROR   2022-08-10 12:06:11,337 [http-nio-8080-exec-3] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: El id no existe
 DEBUG   2022-08-10 12:06:34,553 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
 ERROR   2022-08-10 12:06:34,554 [http-nio-8080-exec-1] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: No se puede actualizar el recurso
+DEBUG   2022-08-10 12:07:02,275 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
+ERROR   2022-08-10 12:07:02,279 [http-nio-8080-exec-1] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: El recurso que intenta actualizar no existe
