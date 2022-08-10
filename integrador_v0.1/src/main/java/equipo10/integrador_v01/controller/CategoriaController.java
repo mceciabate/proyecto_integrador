@@ -37,7 +37,7 @@ public class CategoriaController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> eliminarCategoria(@PathVariable Long id) throws ResourceNotFoundException, BadRequestException {
-       categoriasService.eliminarCategoria(id);
+        categoriasService.eliminarCategoria(id);
         return null;
     }
 
