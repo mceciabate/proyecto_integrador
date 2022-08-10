@@ -1,4 +1,5 @@
 package equipo10.integrador_v01.controller;
+import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceCreateException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.CategoriaDTO;
@@ -20,13 +21,13 @@ public class CategoriaController {
     final static Logger log = Logger.getLogger(ICategoriaService.class);
 
     @RequestMapping(value = "/listar", method = RequestMethod.GET)
-    public ResponseEntity<List<CategoriaDTO>> listarTodasCategorias() throws ResourceNotFoundException {
+    public ResponseEntity<List<CategoriaDTO>> listarTodasCategorias() throws ResourceNotFoundException, BadRequestException {
         categoriasService.listarCategoria();
         log.debug("Listado de categorías");
         return ResponseEntity.ok(categoriasService.listarCategoria());
     }
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<CategoriaDTO> buscarCategoriaPorId(@PathVariable Long id) throws ResourceNotFoundException {
+    public ResponseEntity<CategoriaDTO> buscarCategoriaPorId(@PathVariable Long id) throws ResourceNotFoundException, BadRequestException {
         categoriasService.listarCategoria();
         log.debug("Categoría " + id);
         return ResponseEntity.ok(categoriasService.buscarCategoriaPorId(id));
@@ -39,14 +40,14 @@ public class CategoriaController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> eliminarCategoria(@PathVariable Long id) throws ResourceNotFoundException {
+    public ResponseEntity<?> eliminarCategoria(@PathVariable Long id) throws ResourceNotFoundException, BadRequestException {
         log.debug("Eliminando la categoria " + id);
        categoriasService.eliminarCategoria(id);
         return null;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<CategoriaDTO> actualizarCategoria(@PathVariable Long id, @RequestBody CategoriaDTO categoriaDTO) throws ResourceNotFoundException {
+    public ResponseEntity<CategoriaDTO> actualizarCategoria(@PathVariable Long id, @RequestBody CategoriaDTO categoriaDTO) throws ResourceNotFoundException, BadRequestException {
         categoriasService.actualizarCategoria(id, categoriaDTO);
         return null;
     }
