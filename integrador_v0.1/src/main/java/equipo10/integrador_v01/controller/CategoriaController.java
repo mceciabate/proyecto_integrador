@@ -2,6 +2,7 @@ package equipo10.integrador_v01.controller;
 import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceCreateException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
+import equipo10.integrador_v01.exceptions.ValidationException;
 import equipo10.integrador_v01.model.dto.CategoriaDTO;
 import equipo10.integrador_v01.service.ICategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,19 +32,17 @@ public class CategoriaController {
         categoriasService.listarCategoria();
         return ResponseEntity.ok(categoriasService.listarCategoria());
     }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<CategoriaDTO> buscarCategoriaPorId(@PathVariable Long id) throws ResourceNotFoundException, BadRequestException {
         Optional<CategoriaDTO> categoria = Optional.ofNullable(categoriasService.buscarCategoriaPorId(id));
-        int i = 2/0;
-        if(categoria.isPresent()){
+        if (categoria.isPresent()) {
             return ResponseEntity.ok(categoriasService.buscarCategoriaPorId(id));
-        }
-        else throw new ResourceNotFoundException("No se encuentra el id");//Bien
-
+        } else throw new ResourceNotFoundException("No se encuentra el id");
     }
 
     @RequestMapping(value = "/guardar", method = RequestMethod.POST)
-    public ResponseEntity<Map<String, Object>> guardarCategoria(@Valid @RequestBody CategoriaDTO categoriaDTO, BindingResult result) throws BadRequestException {
+    public ResponseEntity<Map<String, Object>> guardarCategoria(@Valid @RequestBody CategoriaDTO categoriaDTO, BindingResult result) throws BadRequestException, ValidationException {
         Map<String, Object> response = new HashMap<>();
         if (result.hasErrors()) {
             List<String> errors = result.getFieldErrors().stream()
@@ -51,21 +50,11 @@ public class CategoriaController {
                     .collect(Collectors.toList());
             response.put("error", errors);
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
-        }
-        if (categoriaDTO==null){
-            throw new BadRequestException("Body vacio");
-
-        }
-        if(categoriaDTO.getTitulo()==null || categoriaDTO.getTitulo().equals("") ){
-            throw new BadRequestException("Titulo vacio");
-        }
-
-        //if (categoriaDTO){
-            response.put("Categoria", categoriasService.guardarCategoria(categoriaDTO) );
+        } else {
+            response.put("Categoria", categoriasService.guardarCategoria(categoriaDTO));
             return ResponseEntity.ok(response);
-        //}
-        //else throw new BadRequestException("No se puede crear el recurso");//No muestra el mensaje
-    }
+        }
+    }//todo la excepcion no pasa por el handler
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<CategoriaDTO> eliminarCategoria(@PathVariable Long id) throws ResourceNotFoundException {
@@ -78,14 +67,12 @@ public class CategoriaController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<CategoriaDTO> actualizarCategoria(@PathVariable Long id, @RequestBody CategoriaDTO categoriaDTO) throws ResourceNotFoundException, BadRequestException {
+    public ResponseEntity<CategoriaDTO> actualizarCategoria(@PathVariable Long id,@Valid @RequestBody CategoriaDTO categoriaDTO) throws ResourceNotFoundException, BadRequestException {
         Optional<CategoriaDTO> categoria = Optional.ofNullable(categoriasService.buscarCategoriaPorId(id));
-       if(categoria.isPresent()){
-           categoriasService.actualizarCategoria(id, categoriaDTO);
-           return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-       }
-       else throw new ResourceNotFoundException("El recurso que intenta actualizar no existe");
+        if (categoria.isPresent()) {
+            categoriasService.actualizarCategoria(id, categoriaDTO);
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } else throw new ResourceNotFoundException("El recurso que intenta actualizar no existe");
     }
-
 
 }

@@ -1,15 +1,14 @@
 package equipo10.integrador_v01.model.dto;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class CategoriaDTO {
-
-
     private Long id;
-    @NotEmpty(message = "must not be empty")
-    @NotNull(message = "must not be null")
+    @NotBlank(message = "debe incluir un título")
     private String titulo;
+    @NotBlank(message = "debe incluir una descripción")
     private String descripcion;
     private String urlImg;
 
