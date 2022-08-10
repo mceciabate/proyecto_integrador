@@ -89,3 +89,38 @@ DEBUG   2022-08-10 10:53:07,861 [main] equipo10.integrador_v01.service.ICategori
 DEBUG   2022-08-10 10:53:07,866 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoría 4
 DEBUG   2022-08-10 10:53:07,879 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test5'}
 DEBUG   2022-08-10 10:53:07,909 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test5 Modif'} actualizada
+DEBUG   2022-08-10 11:06:42,006 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:06:42,013 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:06:53,127 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:06:53,147 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Categoría 6
+DEBUG   2022-08-10 11:25:55,761 [http-nio-8080-exec-2] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:25:55,768 [http-nio-8080-exec-2] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:26:23,896 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Categoría 6
+ERROR   2022-08-10 11:26:23,901 [http-nio-8080-exec-3] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: No se encuentra el id
+DEBUG   2022-08-10 11:27:41,104 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:27:41,109 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:27:46,673 [http-nio-8080-exec-7] equipo10.integrador_v01.service.ICategoriaService  - Categoría 2
+DEBUG   2022-08-10 11:27:46,686 [http-nio-8080-exec-7] equipo10.integrador_v01.service.ICategoriaService  - Categoría 2
+DEBUG   2022-08-10 11:27:51,847 [http-nio-8080-exec-8] equipo10.integrador_v01.service.ICategoriaService  - Categoría 6
+ERROR   2022-08-10 11:27:51,848 [http-nio-8080-exec-8] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: No se encuentra el id
+DEBUG   2022-08-10 11:27:57,435 [http-nio-8080-exec-9] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
+ERROR   2022-08-10 11:27:57,435 [http-nio-8080-exec-9] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: No se encuentra el id
+DEBUG   2022-08-10 11:35:18,385 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='null'}
+DEBUG   2022-08-10 11:44:40,884 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:44:40,896 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:44:47,812 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
+ERROR   2022-08-10 11:44:47,815 [http-nio-8080-exec-3] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: El id no existe
+DEBUG   2022-08-10 12:00:28,660 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
+ERROR   2022-08-10 12:00:28,665 [http-nio-8080-exec-1] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: No se puede actualizar el recurso
+DEBUG   2022-08-10 12:01:03,701 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 12:01:03,710 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 12:01:11,245 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Categoría 2
+DEBUG   2022-08-10 12:01:11,314 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='lujo'} actualizada
+DEBUG   2022-08-10 12:01:17,984 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 12:01:17,991 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 12:02:08,524 [http-nio-8080-exec-7] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
+ERROR   2022-08-10 12:02:08,525 [http-nio-8080-exec-7] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: No se encuentra el id
+DEBUG   2022-08-10 12:06:11,336 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
+ERROR   2022-08-10 12:06:11,337 [http-nio-8080-exec-3] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: El id no existe
+DEBUG   2022-08-10 12:06:34,553 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
+ERROR   2022-08-10 12:06:34,554 [http-nio-8080-exec-1] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: No se puede actualizar el recurso
