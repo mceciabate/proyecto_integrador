@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FormDiv, UserForm, MainButton, SecondButton } from "./LoginStyles";
+import { FormDiv2, UserForm, MainButton, SecondButton } from "./LoginStyles";
 
 const RegisterForm = ({ handleView }) => {
   const navigate = useNavigate();
@@ -9,15 +9,15 @@ const RegisterForm = ({ handleView }) => {
     navigate("/");
   }
   return (
-    <FormDiv>
-      <h2>Register</h2>
+    <FormDiv2>
+      <h2>Crea tu cuenta</h2>
       <UserForm onSubmit={handleSubmit}>
         <label>
-          Name:
+          Nombre:
           <input required type="text" />
         </label>
         <label>
-          Lastname:
+          Apellido:
           <input required type="text" />
         </label>
         <label>
@@ -25,17 +25,17 @@ const RegisterForm = ({ handleView }) => {
           <input required type="email" />
         </label>
         <label>
-          Password:
+          Contraeña:
           <input required type="password" />
         </label>
         <label>
-          Confirm Password:
+          Confirmar contraeña:
           <input required type="password" />
         </label>
-        <MainButton type="submit">Register</MainButton>
+        <MainButton type="submit">Crear cuenta</MainButton>
       </UserForm>
-      <p>Already have an account?       <SecondButton onClick={() => handleView("login")}>Login</SecondButton> </p>
-    </FormDiv>
+      <p>Ya tienes una cuenta?       <SecondButton onClick={() => handleView("login")}>Inicia Sesion</SecondButton> </p>
+    </FormDiv2>
   );
 }
 

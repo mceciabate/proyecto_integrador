@@ -51,7 +51,7 @@ export const SearchButton = styled.button`
   min-width: 100px;
   margin: 10px 0px 10px;
   margin-right: 32px;
-
+  cursor: pointer;
 `;
 
 export const CalendarDiv = styled.div`

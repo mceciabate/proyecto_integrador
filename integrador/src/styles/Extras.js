@@ -10,5 +10,4 @@ export const LayoutC = styled.div`
   max-width: max-content;
   background: url(${slider1}) no-repeat center center fixed;
   background-size: cover;
-  background-position: sticky;
 `;

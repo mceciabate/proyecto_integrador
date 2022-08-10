@@ -3,30 +3,63 @@ import styled from "styled-components";
 export const LoginC = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: start;
   flex-grow: 1;
-  background-color: #C4C4C4;
-
-`
+  background: rgba(243, 241, 237, 0.5);
+  backdrop-filter: blur(4px);
+`;
 
 export const LoginXButton = styled.button`
-  background-color: #fff;
-  border: 1px solid #000;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
   height: 25px;
   width: 25px;
   align-self: flex-end;
-`
+  margin-right: 50px;
+  margin-top: 50px;
+  cursor: pointer;
+`;
 
 export const FormDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  h2{
-    color: #F0572D;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  width: 584px;
+  height: 428px;
+  margin-top: 100px;
+  h2 {
+    color: #f0572d;
     font-weight: 700;
     font-size: 24px;
+    line-height: 28px;
   }
-`
+`;
+
+export const FormDiv2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  width: 584px;
+  height: 573px;
+  h2 {
+    color: #f0572d;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+  }
+`;
 
 export const UserForm = styled.form`
   display: flex;
@@ -34,26 +67,27 @@ export const UserForm = styled.form`
   align-items: center;
   justify-content: space-around;
   width: 30vw;
-  label{
+  label {
     width: 100%;
     margin: 10px;
-    input{
+    input {
       width: 100%;
-    }  
+    }
   }
-`
+`;
 
 export const MainButton = styled.button`
   font-weight: 100;
-  border: 1px solid #F0572D;
-  background-color: #F0572D;
+  border: 1px solid #f0572d;
+  background-color: #f0572d;
   color: white;
   box-shadow: 0 0 30px rgba(125, 33, 129, 0.4);
   height: 2rem;
   width: 10rem;
   border-radius: 10px;
   margin: 10px;
-`
+  cursor: pointer;
+`;
 
 export const SecondButton = styled.button`
   font-weight: 500;
@@ -61,5 +95,6 @@ export const SecondButton = styled.button`
   color: blue;
   border: none;
   text-decoration: underline;
-  background-color: #C4C4C4;
-`
+  background: rgba(255, 255, 255, 0.0);
+  cursor: pointer;
+`;

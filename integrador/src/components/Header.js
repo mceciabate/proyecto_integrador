@@ -21,10 +21,10 @@ const Header = ({ isLogged, setIsLogged }) => {
       ) : (
         <SectionC>
           <Link to="/login">
-            <HeaderButton>Crear cuenta</HeaderButton>
+            <HeaderButton>Iniciar sesion</HeaderButton>
           </Link>
           <Link to="/register">
-            <HeaderButton >Iniciar Sesion</HeaderButton>
+            <HeaderButton >Crear cuenta</HeaderButton>
           </Link>
         </SectionC>
       )}

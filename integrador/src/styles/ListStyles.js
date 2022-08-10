@@ -75,4 +75,5 @@ export const StyledButton = styled.button`
   width: 296px;
   height: 40px;
   border: none;
+  cursor: pointer;
 `;

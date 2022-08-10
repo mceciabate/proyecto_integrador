@@ -22,19 +22,19 @@ const LoginForm = ({ handleView, setIsLogged }) => {
   }
   return (
     <FormDiv>
-      <h2>Login</h2>
+      <h2>Iniciar Sesion</h2>
       <UserForm onSubmit={handleSubmit}>
         <label>
           Email:
           <input required type="email" placeholder="e-mail" name="email"/>
         </label>
         <label>
-          Password:
+          Contraeña:
           <input required type="password" minLength={6} placeholder="password" name="password" />
         </label>
-        <MainButton type="submit">Login</MainButton>
+        <MainButton type="submit">Ingresar</MainButton>
       </UserForm>
-      <p>Dont have an account? <SecondButton onClick={() => handleView("register")}>Register</SecondButton> </p>
+      <p>Aun no tienes cuenta?<SecondButton onClick={() => handleView("register")}>Registrate</SecondButton> </p>
     </FormDiv>
   );
 }
