@@ -69,7 +69,7 @@ export const UserForm = styled.form`
   justify-content: space-around;
   width: 30vw;
   label {
-    width: 100%;
+    width: 448px;
     margin: 10px;
     input {
       width: 100%;

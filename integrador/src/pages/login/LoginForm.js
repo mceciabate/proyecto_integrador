@@ -25,11 +25,11 @@ const LoginForm = ({ handleView, setIsLogged }) => {
       <h2>Iniciar Sesion</h2>
       <UserForm onSubmit={handleSubmit}>
         <label>
-          Email:
+          Email:                     
           <input required type="email" placeholder="e-mail" name="email"/>
         </label>
         <label>
-          Contraeña:
+          Contraeña:                      
           <input required type="password" minLength={6} placeholder="password" name="password" />
         </label>
         <MainButton type="submit">Ingresar</MainButton>
