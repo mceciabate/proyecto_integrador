@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ListDiv = styled.div`
   display: flex;
   flex-direction: column;
-  background: #F5F4F1;
+  background: #f5f4f1;
 `;
 
 export const ListC = styled.div`
@@ -21,7 +21,7 @@ export const ListH3 = styled.h3`
   line-height: 28px;
   margin: 20px;
   color: #191b1d;
-`
+`;
 
 export const CardC = styled.div`
   display: flex;
@@ -29,6 +29,9 @@ export const CardC = styled.div`
   height: 283px;
   margin: 10px;
   background-color: white;
+  border: 1px solid #dfe4ea;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 `;
 
 export const StyledImg = styled.img`
@@ -69,6 +72,9 @@ export const StyledP2 = styled.p`
 `;
 
 export const StyledButton = styled.button`
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
   background-color: #f0572d;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
   border-radius: 10px;

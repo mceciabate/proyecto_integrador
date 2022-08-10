@@ -53,6 +53,7 @@ export const FormDiv2 = styled.div`
   border-radius: 10px;
   width: 584px;
   height: 573px;
+  margin-top: 40px;
   h2 {
     color: #f0572d;
     font-weight: 700;
