@@ -18,30 +18,25 @@ public class CategoriaController {
 
     @Autowired
     ICategoriaService categoriasService;
-    final static Logger log = Logger.getLogger(ICategoriaService.class);
 
     @RequestMapping(value = "/listar", method = RequestMethod.GET)
     public ResponseEntity<List<CategoriaDTO>> listarTodasCategorias() throws ResourceNotFoundException, BadRequestException {
         categoriasService.listarCategoria();
-        log.debug("Listado de categorías");
         return ResponseEntity.ok(categoriasService.listarCategoria());
     }
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<CategoriaDTO> buscarCategoriaPorId(@PathVariable Long id) throws ResourceNotFoundException, BadRequestException {
         categoriasService.listarCategoria();
-        log.debug("Categoría " + id);
         return ResponseEntity.ok(categoriasService.buscarCategoriaPorId(id));
     }
 
     @RequestMapping(value = "/guardar", method = RequestMethod.POST)
     public ResponseEntity<CategoriaDTO> guardarCategoria(@RequestBody CategoriaDTO categoriaDTO) throws ResourceCreateException {
-        log.debug("Guardando nueva categoría " + categoriaDTO.toString());
         return ResponseEntity.ok(categoriasService.guardarCategoria(categoriaDTO));
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> eliminarCategoria(@PathVariable Long id) throws ResourceNotFoundException, BadRequestException {
-        log.debug("Eliminando la categoria " + id);
        categoriasService.eliminarCategoria(id);
         return null;
     }

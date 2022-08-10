@@ -43,4 +43,11 @@ public class CategoriaDTO {
     public void setUrlImg(String urlImg) {
         this.urlImg = urlImg;
     }
+
+    @Override
+    public String toString() {
+        return "CategoriaDTO{" +
+                "titulo='" + titulo + '\'' +
+                '}';
+    }
 }
