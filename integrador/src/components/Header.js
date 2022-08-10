@@ -11,9 +11,6 @@ const Header = ({ isLogged, setIsLogged }) => {
         <Link to="/">
           <img src={logo} alt="logo" />
         </Link>
-        <Link className="lema" to="/">
-          Cars when and where you need
-        </Link>
       </SectionC>
       {isLogged ? (
         <SectionC>
@@ -24,10 +21,10 @@ const Header = ({ isLogged, setIsLogged }) => {
       ) : (
         <SectionC>
           <Link to="/login">
-            <HeaderButton>Log in</HeaderButton>
+            <HeaderButton>Crear cuenta</HeaderButton>
           </Link>
           <Link to="/register">
-            <HeaderButton >Register</HeaderButton>
+            <HeaderButton >Iniciar Sesion</HeaderButton>
           </Link>
         </SectionC>
       )}

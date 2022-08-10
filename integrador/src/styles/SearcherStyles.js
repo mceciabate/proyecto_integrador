@@ -1,25 +1,36 @@
 import styled from "styled-components";
 
 export const SearchContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 92vh;
   h1 {
-    margin: 5px;
-  }
-  p {
-    margin: 5px;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
+    grid-column: 2 / 4;
+    grid-row: 2 / 4;
+    width: 336px;
+    padding: 10px;
+    text-align: center;
   }
 `;
 
 export const SearchForm = styled.form`
+  grid-column: 2 / 4;
+  grid-row: 3 / 4;
   width: 80vw;
+  background-color: #FFF;
+  height: 151px;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   gap: 35px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid #dfe4ea;
 `;
 
 export const SearchSelect = styled.select`
@@ -31,17 +42,21 @@ export const SearchSelect = styled.select`
 export const SearchButton = styled.button`
   font-weight: 400;
   border: none;
-  color: #F0572D;
+  background-color: #F0572D;
+  color: white;
   border-radius: 25px;
   box-shadow: 0 0 30px rgba(125, 33, 129, 0.4);
   height: 1.5rem;
   width: 30%;
   min-width: 100px;
   margin: 10px 0px 10px;
+  margin-right: 32px;
+
 `;
 
 export const CalendarDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin-left: 32px;
 `

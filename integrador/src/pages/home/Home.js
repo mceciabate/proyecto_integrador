@@ -7,8 +7,8 @@ const Home = () => {
   return (
     <div>
       <Searcher />
-      <List />
       <Categories/>
+      <List />
     </div>
   );
 }

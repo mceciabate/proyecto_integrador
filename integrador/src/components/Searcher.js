@@ -24,13 +24,9 @@ const Searcher = () => {
   const [showCalendar, setshowCalendar] = useState(false);
   return (
     <SearchContainer>
-      <h1>Car finder</h1>
-      <p>Please pick you first and last day, and then choose your city</p>
+      <h1>La forma mas facil y segura de rentar tu carro</h1>
       <SearchForm>
           <CalendarDiv>
-            <SearchButton onClick={() => setshowCalendar(true)}>
-              Pick dates
-            </SearchButton>
             {showCalendar ? 
             <DateRange
               editableDateInputs={true}
@@ -38,10 +34,20 @@ const Searcher = () => {
               moveRangeOnFirstSelection={false}
               ranges={state}
               rangeColors={["#F0572D"]}
-            /> : null }
+            /> :             <SearchButton onClick={() => setshowCalendar(true)}>
+            Pick dates
+          </SearchButton> }
           </CalendarDiv>
         <SearchSelect required>
-          <option value="">Select a city</option>
+          <option value="S">Lugar de entrega</option>
+          {cities.map((city) => (
+            <option key={city.id} value={city.value}>
+              {city.name}
+            </option>
+          ))}
+        </SearchSelect>
+        <SearchSelect required>
+          <option value="S">Lugar de recogida</option>
           {cities.map((city) => (
             <option key={city.id} value={city.value}>
               {city.name}
@@ -49,7 +55,7 @@ const Searcher = () => {
           ))}
         </SearchSelect>
         <SearchButton type="submit" onClick={() => setshowCalendar(false)}>
-          Search
+          Buscar Carro
         </SearchButton>
       </SearchForm>
     </SearchContainer>

@@ -1,19 +1,19 @@
 import React from "react";
-import { CardC } from "../styles/ListStyles";
+import { CardC, StyledImg, CardDiv, StyledP1, StyledP2, StyledButton } from "../styles/ListStyles";
 
 const Card = ({ car }) => {
   return (
     <CardC>
-      <div className="card-image">
-        <img src={car.img} alt={car.name} />
+      <div>
+        <StyledImg src={car.img} alt={car.name} />
       </div>
-      <div className="card-content">
-        <p>{car.category}</p>
+      <CardDiv>
+        <StyledP1>{car.category}</StyledP1>
         <h3>{car.title}</h3>
-        <p>{car.location}</p>
-        <p>{car.description}</p>
-        <button>Ver detalle</button>
-      </div>
+        <StyledP2>{car.location}</StyledP2>
+        <StyledP2>{car.description}</StyledP2>
+        <StyledButton>ver mas</StyledButton>
+      </CardDiv>
     </CardC>
   );
 };

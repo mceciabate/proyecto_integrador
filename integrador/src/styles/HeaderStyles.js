@@ -6,19 +6,15 @@ export const HeaderC = styled.header`
   justify-content: space-between;
   width: 100vw;
   height: 8vh;
-  background-color: white;
+  background-color: transparent;
 `;
 
 export const SectionC = styled.section`
-  margin: 10px;
+  margin: 15px 30px 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 25px;
-  .lema {
-    text-decoration: none;
-    color: #F0572D;
-  }
 `;
 
 export const HeaderButton = styled.button`

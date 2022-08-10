@@ -9,7 +9,7 @@ const Footer = () => {
       <FooterUl>
         <img src={isologo} alt="isologo" />
         <li>@2021</li>
-        <li>Digital Booking</li>
+        <li>UbiCar</li>
       </FooterUl>
       <FooterUl>
         <Icon icon="akar-icons:facebook-fill" />
