@@ -20,14 +20,14 @@ public class GlobalExceptions {
         log.error("Error " + ex);
         return new ResponseEntity<>(apiException, HttpStatus.NOT_FOUND);
     }
-    @ExceptionHandler({ResourceCreateException.class})
-    public ResponseEntity<Object> procesarErrorCreateResourse(ResourceCreateException ex) {
+    @ExceptionHandler({ResourceCreateException.class, Exception.class})
+    public ResponseEntity<Object> procesarErrorCreateResourse(Exception ex) {
         ApiException apiException = new ApiException(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, ZonedDateTime.now(ZoneId.of("Z")));
         log.error("Error " + ex);
         return new ResponseEntity<>(apiException, HttpStatus.INTERNAL_SERVER_ERROR);
     }
     @ExceptionHandler({BadRequestException.class})
-    public ResponseEntity<Object> procesarBadRequestError(BadRequestException ex) {
+    public ResponseEntity<Object> procesarBadRequestError(Exception ex) {
         ApiException apiException = new ApiException(ex.getMessage(), HttpStatus.BAD_REQUEST, ZonedDateTime.now(ZoneId.of("Z")));
         log.error("Error "+ ex);
         return new ResponseEntity<>(apiException, HttpStatus.BAD_REQUEST);
