@@ -1,8 +1,14 @@
 package equipo10.integrador_v01.model.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 public class CategoriaDTO {
     private Long id;
+    @NotBlank(message = "debe incluir un título")
     private String titulo;
+    @NotBlank(message = "debe incluir una descripción")
     private String descripcion;
     private String urlImg;
 
@@ -42,5 +48,12 @@ public class CategoriaDTO {
 
     public void setUrlImg(String urlImg) {
         this.urlImg = urlImg;
+    }
+
+    @Override
+    public String toString() {
+        return "CategoriaDTO{" +
+                "titulo='" + titulo + '\'' +
+                '}';
     }
 }

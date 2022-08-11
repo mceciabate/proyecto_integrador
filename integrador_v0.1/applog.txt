@@ -45,3 +45,84 @@ DEBUG   2022-08-09 19:59:41,367 [http-nio-8080-exec-2] equipo10.integrador_v01.s
 DEBUG   2022-08-09 20:03:04,733 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Categoría 888
 DEBUG   2022-08-09 20:08:16,808 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Categoría 8885
 DEBUG   2022-08-09 20:08:39,712 [http-nio-8080-exec-9] equipo10.integrador_v01.service.ICategoriaService  - Categoría 321312
+DEBUG   2022-08-10 09:53:15,854 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 09:53:15,866 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 09:53:24,183 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría equipo10.integrador_v01.model.dto.CategoriaDTO@39c9d3c6
+DEBUG   2022-08-10 09:53:36,212 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 09:53:36,224 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Categoría 1
+DEBUG   2022-08-10 09:54:10,376 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 09:54:10,378 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Categoría 1
+DEBUG   2022-08-10 09:54:43,854 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría equipo10.integrador_v01.model.dto.CategoriaDTO@49d5a406
+DEBUG   2022-08-10 09:54:56,826 [http-nio-8080-exec-7] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 09:54:56,835 [http-nio-8080-exec-7] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 09:55:00,443 [http-nio-8080-exec-8] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría equipo10.integrador_v01.model.dto.CategoriaDTO@607f9341
+DEBUG   2022-08-10 09:55:06,675 [http-nio-8080-exec-9] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 3
+DEBUG   2022-08-10 09:55:57,966 [http-nio-8080-exec-10] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 09:55:57,970 [http-nio-8080-exec-10] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 09:56:18,276 [http-nio-8080-exec-2] equipo10.integrador_v01.service.ICategoriaService  - Categoria equipo10.integrador_v01.model.dto.CategoriaDTO@50dad81a actualizada
+DEBUG   2022-08-10 09:56:22,911 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 09:56:22,917 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 09:58:50,398 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 09:58:50,404 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 09:58:59,446 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría equipo10.integrador_v01.model.dto.CategoriaDTO@73e043fc
+DEBUG   2022-08-10 09:59:47,832 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='lujo'}
+DEBUG   2022-08-10 10:00:47,193 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='lujo'} actualizada
+DEBUG   2022-08-10 10:05:38,656 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 3
+DEBUG   2022-08-10 10:06:45,021 [http-nio-8080-exec-8] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 3
+DEBUG   2022-08-10 10:06:57,998 [http-nio-8080-exec-10] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 1
+ERROR   2022-08-10 10:08:02,519 [http-nio-8080-exec-2] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceCreateException: No se puede actualizar el recurso
+DEBUG   2022-08-10 10:16:58,063 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
+DEBUG   2022-08-10 10:16:58,132 [main] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 1
+DEBUG   2022-08-10 10:16:58,163 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test2'}
+DEBUG   2022-08-10 10:16:58,172 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test3'}
+DEBUG   2022-08-10 10:16:58,367 [main] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 10:16:58,386 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test4'}
+DEBUG   2022-08-10 10:16:58,395 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoría 4
+DEBUG   2022-08-10 10:16:58,414 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test5'}
+DEBUG   2022-08-10 10:16:58,496 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test5 Modif'} actualizada
+DEBUG   2022-08-10 10:53:07,564 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
+DEBUG   2022-08-10 10:53:07,624 [main] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 1
+DEBUG   2022-08-10 10:53:07,675 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test2'}
+DEBUG   2022-08-10 10:53:07,684 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test3'}
+DEBUG   2022-08-10 10:53:07,849 [main] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 10:53:07,861 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test4'}
+DEBUG   2022-08-10 10:53:07,866 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoría 4
+DEBUG   2022-08-10 10:53:07,879 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test5'}
+DEBUG   2022-08-10 10:53:07,909 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test5 Modif'} actualizada
+DEBUG   2022-08-10 11:06:42,006 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:06:42,013 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:06:53,127 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:06:53,147 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Categoría 6
+DEBUG   2022-08-10 11:25:55,761 [http-nio-8080-exec-2] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:25:55,768 [http-nio-8080-exec-2] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:26:23,896 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Categoría 6
+ERROR   2022-08-10 11:26:23,901 [http-nio-8080-exec-3] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: No se encuentra el id
+DEBUG   2022-08-10 11:27:41,104 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:27:41,109 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:27:46,673 [http-nio-8080-exec-7] equipo10.integrador_v01.service.ICategoriaService  - Categoría 2
+DEBUG   2022-08-10 11:27:46,686 [http-nio-8080-exec-7] equipo10.integrador_v01.service.ICategoriaService  - Categoría 2
+DEBUG   2022-08-10 11:27:51,847 [http-nio-8080-exec-8] equipo10.integrador_v01.service.ICategoriaService  - Categoría 6
+ERROR   2022-08-10 11:27:51,848 [http-nio-8080-exec-8] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: No se encuentra el id
+DEBUG   2022-08-10 11:27:57,435 [http-nio-8080-exec-9] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
+ERROR   2022-08-10 11:27:57,435 [http-nio-8080-exec-9] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: No se encuentra el id
+DEBUG   2022-08-10 11:35:18,385 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='null'}
+DEBUG   2022-08-10 11:44:40,884 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:44:40,896 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 11:44:47,812 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
+ERROR   2022-08-10 11:44:47,815 [http-nio-8080-exec-3] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: El id no existe
+DEBUG   2022-08-10 12:00:28,660 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
+ERROR   2022-08-10 12:00:28,665 [http-nio-8080-exec-1] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: No se puede actualizar el recurso
+DEBUG   2022-08-10 12:01:03,701 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 12:01:03,710 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 12:01:11,245 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Categoría 2
+DEBUG   2022-08-10 12:01:11,314 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='lujo'} actualizada
+DEBUG   2022-08-10 12:01:17,984 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 12:01:17,991 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-10 12:02:08,524 [http-nio-8080-exec-7] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
+ERROR   2022-08-10 12:02:08,525 [http-nio-8080-exec-7] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: No se encuentra el id
+DEBUG   2022-08-10 12:06:11,336 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
+ERROR   2022-08-10 12:06:11,337 [http-nio-8080-exec-3] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: El id no existe
+DEBUG   2022-08-10 12:06:34,553 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
+ERROR   2022-08-10 12:06:34,554 [http-nio-8080-exec-1] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: No se puede actualizar el recurso
+DEBUG   2022-08-10 12:07:02,275 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
+ERROR   2022-08-10 12:07:02,279 [http-nio-8080-exec-1] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: El recurso que intenta actualizar no existe
