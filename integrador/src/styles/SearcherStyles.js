@@ -14,6 +14,9 @@ export const SearchContainer = styled.div`
     width: 336px;
     padding: 10px;
     text-align: center;
+    @media only screen and (max-width: 770px) {
+      grid-row: 1 / 4;
+  }
   }
 `;
 
@@ -31,12 +34,19 @@ export const SearchForm = styled.form`
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 1px solid #dfe4ea;
+  @media only screen and (max-width: 770px) {
+    height: 110px;
+    width: 90vw;
+  }
 `;
 
 export const SearchSelect = styled.select`
   width: 30%;
   height: 2rem;
   margin: 10px 0px 10px;
+  @media only screen and (max-width: 770px) {
+    width: 60px;
+  }
 `;
 
 export const SearchButton = styled.button`
@@ -59,4 +69,4 @@ export const CalendarDiv = styled.div`
   flex-direction: column;
   align-items: flex-end;
   margin-left: 32px;
-`
+  `

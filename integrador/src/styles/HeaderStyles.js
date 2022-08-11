@@ -7,6 +7,7 @@ export const HeaderC = styled.header`
   width: 100vw;
   height: 8vh;
   background-color: transparent;
+  padding: 10px;
 `;
 
 export const SectionC = styled.section`

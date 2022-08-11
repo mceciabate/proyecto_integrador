@@ -20,6 +20,11 @@ export const LoginXButton = styled.button`
   margin-right: 50px;
   margin-top: 50px;
   cursor: pointer;
+  @media only screen and (max-width: 770px) {
+    margin-top: 20px;
+    margin-right: 20px;
+
+  }
 `;
 
 export const FormDiv = styled.div`
@@ -40,6 +45,9 @@ export const FormDiv = styled.div`
     font-size: 24px;
     line-height: 28px;
   }
+  @media only screen and (max-width: 770px) {
+    margin-top: 20px;
+  }
 `;
 
 export const FormDiv2 = styled.div`
@@ -59,6 +67,11 @@ export const FormDiv2 = styled.div`
     font-weight: 700;
     font-size: 24px;
     line-height: 28px;
+  }
+  @media only screen and (max-width: 770px) {
+    margin-top: 20px;
+    height: 480px;
+    margin-bottom: 20px;
   }
 `;
 

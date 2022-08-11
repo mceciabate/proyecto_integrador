@@ -2,16 +2,18 @@ import styled from "styled-components";
 
 export const CategoriesContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
+  flex-wrap: wrap;
   background-color: #ffffff;
-  height: 40vh;
+  height: max-content;
+  padding: 25px;
 `;
 
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 `;
 
 export const CategoryCard = styled.div`
@@ -23,6 +25,8 @@ export const CategoryCard = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   background-color: #ffffff;
+  padding: 10px;
+  margin-bottom: 20px;
   h3 {
     margin: 5px;
     line-height: 23px;
