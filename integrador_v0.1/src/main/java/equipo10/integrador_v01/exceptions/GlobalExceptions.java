@@ -38,15 +38,17 @@ public class GlobalExceptions {
         return new ResponseEntity<>(apiException, HttpStatus.BAD_REQUEST);
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler({ValidationException.class})
-    public Map<String, String> handleValidationExceptions (MethodArgumentNotValidException ex) {
+    @ExceptionHandler({MethodArgumentNotValidException.class})
+    public Map<String, String> handleValidationException(
+            MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();
         ex.getBindingResult().getAllErrors().forEach((error) -> {
             String fieldName = ((FieldError) error).getField();
             String errorMessage = error.getDefaultMessage();
             errors.put(fieldName, errorMessage);
-            log.error("Error " + ex);
+
         });
+        log.error("Error " +ex);
         return errors;
     }
 

@@ -54,7 +54,7 @@ public class CategoriaController {
             response.put("Categoria", categoriasService.guardarCategoria(categoriaDTO));
             return ResponseEntity.ok(response);
         }
-    }//todo la excepcion no pasa por el handler
+    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<CategoriaDTO> eliminarCategoria(@PathVariable Long id) throws ResourceNotFoundException {
@@ -67,12 +67,22 @@ public class CategoriaController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<CategoriaDTO> actualizarCategoria(@PathVariable Long id,@Valid @RequestBody CategoriaDTO categoriaDTO) throws ResourceNotFoundException, BadRequestException {
-        Optional<CategoriaDTO> categoria = Optional.ofNullable(categoriasService.buscarCategoriaPorId(id));
-        if (categoria.isPresent()) {
-            categoriasService.actualizarCategoria(id, categoriaDTO);
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-        } else throw new ResourceNotFoundException("El recurso que intenta actualizar no existe");
+    public ResponseEntity<Map<String, Object>> actualizarCategoria(@PathVariable Long id,@Valid @RequestBody CategoriaDTO categoriaDTO, BindingResult result) throws ResourceNotFoundException, BadRequestException {
+        Map<String, Object> response = new HashMap<>();
+        if (result.hasErrors()){
+            List<String> errors = result.getFieldErrors().stream()
+                    .map(err -> "El campo '" + err.getField() + "' " + err.getDefaultMessage())
+                    .collect(Collectors.toList());
+            response.put("error", errors);
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
+        } else {
+            Optional<CategoriaDTO> categoria = Optional.ofNullable(categoriasService.buscarCategoriaPorId(id));
+            if (categoria.isPresent()) {
+                categoriasService.actualizarCategoria(id, categoriaDTO);
+                return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+            } else throw new ResourceNotFoundException("El recurso que intenta actualizar no existe");
+        }
+
     }
 
 }
