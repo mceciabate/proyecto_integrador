@@ -48,6 +48,9 @@ export const FormDiv = styled.div`
   @media only screen and (max-width: 770px) {
     margin-top: 20px;
   }
+  @media only screen and (max-width: 482px) {
+    width: 80vw;
+  }
 `;
 
 export const FormDiv2 = styled.div`
@@ -73,6 +76,9 @@ export const FormDiv2 = styled.div`
     height: 480px;
     margin-bottom: 20px;
   }
+  @media only screen and (max-width: 4820px) {
+    width: 80vw;
+  }
 `;
 
 export const UserForm = styled.form`
@@ -84,6 +90,9 @@ export const UserForm = styled.form`
   label {
     width: 448px;
     margin: 10px;
+    @media only screen and (max-width: 770px) {
+    width: 70vw;
+  }
     input {
       width: 100%;
     }

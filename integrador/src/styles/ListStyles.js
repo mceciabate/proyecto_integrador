@@ -32,11 +32,21 @@ export const CardC = styled.div`
   border: 1px solid #dfe4ea;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  @media only screen and (max-width: 482px) {
+    width: 80vw;
+    flex-direction: column;
+    height: fit-content;
+    align-items: center;
+  }
 `;
 
 export const StyledImg = styled.img`
   width: 315px;
   height: 283px;
+  @media only screen and (max-width: 482px) {
+    width: 100%;
+    height: 200px;
+  }
 `;
 
 export const CardDiv = styled.div`

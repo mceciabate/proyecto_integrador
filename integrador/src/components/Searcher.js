@@ -26,18 +26,21 @@ const Searcher = () => {
     <SearchContainer>
       <h1>La forma mas facil y segura de rentar tu carro</h1>
       <SearchForm>
-          <CalendarDiv>
-            {showCalendar ? 
+        <CalendarDiv>
+          {showCalendar ? (
             <DateRange
               editableDateInputs={true}
               onChange={(item) => setState([item.selection])}
               moveRangeOnFirstSelection={false}
               ranges={state}
               rangeColors={["#F0572D"]}
-            /> :             <SearchButton onClick={() => setshowCalendar(true)}>
-            Pick dates
-          </SearchButton> }
-          </CalendarDiv>
+            />
+          ) : (
+            <SearchButton onClick={() => setshowCalendar(true)}>
+              Pick dates
+            </SearchButton>
+          )}
+        </CalendarDiv>
         <SearchSelect required>
           <option value="S">Lugar de entrega</option>
           {cities.map((city) => (
@@ -54,9 +57,11 @@ const Searcher = () => {
             </option>
           ))}
         </SearchSelect>
-        <SearchButton type="submit" onClick={() => setshowCalendar(false)}>
-          Buscar Carro
-        </SearchButton>
+        <CalendarDiv>
+          <SearchButton type="submit" onClick={() => setshowCalendar(false)}>
+            Buscar Carro
+          </SearchButton>
+        </CalendarDiv>
       </SearchForm>
     </SearchContainer>
   );

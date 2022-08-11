@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import logo1 from "../assets/logo.png";
 
 export const HeaderC = styled.header`
   display: flex;
@@ -8,6 +9,9 @@ export const HeaderC = styled.header`
   height: 8vh;
   background-color: transparent;
   padding: 10px;
+  @media only screen and (max-width: 482px) {
+    display: none;
+  }
 `;
 
 export const SectionC = styled.section`
@@ -29,3 +33,10 @@ export const HeaderButton = styled.button`
   border-radius: 10px;
   cursor: pointer;
 `;
+
+export const Logo = styled.div`
+  background: url(${logo1});
+  background-repeat: no-repeat;
+  width: 210px;
+  height: 55px;
+`

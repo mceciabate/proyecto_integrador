@@ -38,6 +38,12 @@ export const SearchForm = styled.form`
     height: 110px;
     width: 90vw;
   }
+  @media only screen and (max-width: 480px) {
+    height: max-content;
+    flex-direction: column;
+    gap: 5px;
+
+  }
 `;
 
 export const SearchSelect = styled.select`
@@ -46,6 +52,9 @@ export const SearchSelect = styled.select`
   margin: 10px 0px 10px;
   @media only screen and (max-width: 770px) {
     width: 60px;
+  }
+  @media only screen and (max-width: 480px) {
+    width: 90%;
   }
 `;
 
@@ -62,6 +71,11 @@ export const SearchButton = styled.button`
   margin: 10px 0px 10px;
   margin-right: 32px;
   cursor: pointer;
+  @media only screen and (max-width: 480px) {
+    width: 90%;
+    margin: 10px;
+  }
+
 `;
 
 export const CalendarDiv = styled.div`
@@ -69,4 +83,10 @@ export const CalendarDiv = styled.div`
   flex-direction: column;
   align-items: flex-end;
   margin-left: 32px;
+  @media only screen and (max-width: 480px) {
+    margin-left: 0;
+    width: 50vw;
+    align-self: center;
+    align-items: center;
+  }
   `
