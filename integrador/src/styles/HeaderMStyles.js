@@ -48,3 +48,26 @@ export const Logo = styled.div`
   height: 55px;
   margin-top: 10px;
 `
+
+export const DeployMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 25px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 45vw;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(125, 33, 129, 0.4);
+  z-index: 1;
+  height: 50vh;
+  background: rgba(243, 241, 237, 0.5);
+  backdrop-filter: blur(4px);
+  button{
+    margin-top: 15px;
+    margin-right: 30px;
+  }
+  `;

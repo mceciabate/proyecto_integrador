@@ -1,8 +1,22 @@
 import React from "react";
-import { HeaderC, SectionC, HeaderButton, Logo, MenuButton } from "../styles/HeaderMStyles";
+import { HeaderC, SectionC, HeaderButton, Logo, MenuButton, DeployMenu } from "../styles/HeaderMStyles";
 import { Link } from "react-router-dom";
 
 const Header = ({ isLogged, setIsLogged }) => {
+  const [ deployMenu, setDeployMenu ] = React.useState(false);
+  const menu = () => {
+    return(
+      <DeployMenu>
+        <MenuButton onClick={()=> setDeployMenu(false)}/>
+        <Link to="/login">
+          <HeaderButton>Iniciar Sesion</HeaderButton>
+        </Link>
+        <Link to="/register">
+          <HeaderButton>Registrarse</HeaderButton>
+        </Link>
+      </DeployMenu>
+    )
+  }
   const handleLoggin = () => {
     if (isLogged) {
       return (
@@ -17,7 +31,8 @@ const Header = ({ isLogged, setIsLogged }) => {
     } else {
       return (
         <SectionC>
-          <MenuButton/>
+          <MenuButton onClick={() => setDeployMenu(true)}/>
+          {(deployMenu) ? menu() : null}
         </SectionC>
       );
     }
