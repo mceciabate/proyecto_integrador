@@ -4,22 +4,29 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 //Mapear los atributos de la tabla “categorías” con una clase de nuestro modelo.
 @Entity // El ORM hibernate va a leer esto como bdd
-@Table // no especifico el nombre xq quiero que mi bdd se llame Categorias
+@Table(name = "CATEGORIA")
 @Getter
 @Setter
 public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //id autoincremental
+    @Column(name = "ID")
     private Long id;
 
+    @Column(name = "TITULO")
     private String titulo;
+    @Column(name = "DESCRIPCION")
     private String descripcion;
+    @Column(name = "URL_IMG")
     private String urlImg;
 
+    @OneToMany(mappedBy = "categoria")
+    private Set<Producto> producto;
 
     //constructores
     public Categoria() {
