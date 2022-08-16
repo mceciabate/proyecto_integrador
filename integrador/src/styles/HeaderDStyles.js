@@ -20,6 +20,11 @@ export const SectionC = styled.section`
   align-items: center;
   justify-content: space-between;
   gap: 25px;
+  span{
+    background-color: #F0572D;
+    border-radius: 25px;
+    padding: 10px 10px;
+  }
 `;
 
 export const HeaderButton = styled.button`

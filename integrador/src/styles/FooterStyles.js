@@ -7,7 +7,7 @@ export const FooterC = styled.footer`
   width: 100%;
   bottom: 0;
   background-color: #F0572D;
-  height: 8vh;
+  height: 12vh;
 `;
 
 export const FooterUl = styled.ul`
