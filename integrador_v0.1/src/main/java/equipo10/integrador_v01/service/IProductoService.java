@@ -1,23 +1,23 @@
 package equipo10.integrador_v01.service;
 
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
-import equipo10.integrador_v01.model.dto.CategoriaDTO;
-import equipo10.integrador_v01.model.entity.Producto;
+import equipo10.integrador_v01.model.dto.ProductoDTO;
 
 import java.util.List;
+import java.util.Set;
 
 public interface IProductoService {
-    List<Producto> listarProductos();
+    Set<ProductoDTO> listarProductos();
 
     //read
-    Producto buscarProductosPorId(Long id);
+    ProductoDTO buscarProductosPorId(Long id);
 
     //create
-    Producto guardarProductos(Producto producto);
+    ProductoDTO guardarProductos(ProductoDTO productoDTO);
 
     //delete
     void eliminarProductos(Long id) throws ResourceNotFoundException;
 
     //update
-    void actualizarProductos(Producto producto) throws ResourceNotFoundException;
+    void actualizarProductos(ProductoDTO productoDTO) throws ResourceNotFoundException;
 }

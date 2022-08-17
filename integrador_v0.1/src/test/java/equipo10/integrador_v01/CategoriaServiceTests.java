@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+import java.util.Set;
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -41,7 +44,9 @@ public class CategoriaServiceTests {
         CategoriaDTO categoriaDTO3 = new CategoriaDTO("Imagen Test3", "Test3: test test test, test test test.", ":./img/test3");
         categoriaService.guardarCategoria(categoriaDTO3);
 
-        Assert.assertEquals(2, categoriaService.listarCategoria().size());
+        List<CategoriaDTO> listaCategoriasEncontradas = categoriaService.listarCategoria();
+
+        Assert.assertEquals(2, listaCategoriasEncontradas.size());
     }
     @Test
     public void dBuscarCategoriaPorIdTest() {

@@ -25,7 +25,7 @@ public class Categoria {
     @Column(name = "URL_IMG")
     private String urlImg;
 
-    @OneToMany(mappedBy = "categoria")
+    @OneToMany(fetch=FetchType.EAGER, mappedBy = "categoria") //la lista de productos se instancia junto con el resto de los atributos.
     private Set<Producto> producto;
 
     //constructores
