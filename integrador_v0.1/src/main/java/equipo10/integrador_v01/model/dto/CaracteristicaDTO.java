@@ -1,5 +1,10 @@
 package equipo10.integrador_v01.model.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class CaracteristicaDTO {
     private Long id;
     private Integer nombre;
