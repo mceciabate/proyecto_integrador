@@ -21,10 +21,12 @@ public class Producto {
     private String titulo;
     @Column(name = "DESCRIPCION")
     private String descripcion;
+    /* A implementar a futuro en el opcional
     @Column(name = "LATITUD")
     private Double lalitud;
     @Column(name = "LONGITUD")
-    private Double longitud;
+    private Double longitud; 3
+    */
 
     @ManyToMany
     @JoinTable(
@@ -47,7 +49,7 @@ public class Producto {
             nullable = false)
     private Ciudad ciudad;
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(
             name = "CATEGORIA_ID",
             referencedColumnName = "ID",
@@ -55,7 +57,9 @@ public class Producto {
     )
     private Categoria categoria;
 
+    /* Electiva a implementar a futuro
     @OneToMany(mappedBy = "producto")
     private Set<Puntuacion> puntuacion = new HashSet<>();
+    */
 
 }

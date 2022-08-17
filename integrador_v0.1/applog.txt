@@ -126,3 +126,94 @@ DEBUG   2022-08-10 12:06:34,553 [http-nio-8080-exec-1] equipo10.integrador_v01.s
 ERROR   2022-08-10 12:06:34,554 [http-nio-8080-exec-1] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: No se puede actualizar el recurso
 DEBUG   2022-08-10 12:07:02,275 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Categoría 10
 ERROR   2022-08-10 12:07:02,279 [http-nio-8080-exec-1] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: El recurso que intenta actualizar no existe
+DEBUG   2022-08-16 21:43:46,463 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
+DEBUG   2022-08-16 21:43:46,622 [main] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 1
+DEBUG   2022-08-16 21:43:46,951 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test2'}
+DEBUG   2022-08-16 21:43:47,040 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test3'}
+DEBUG   2022-08-16 21:43:47,940 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test4'}
+DEBUG   2022-08-16 21:43:48,040 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test5'}
+DEBUG   2022-08-16 21:43:48,240 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test5 Modif'} actualizada
+DEBUG   2022-08-16 21:50:37,252 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test4'}
+DEBUG   2022-08-16 21:54:38,077 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
+DEBUG   2022-08-16 21:54:38,174 [main] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 1
+DEBUG   2022-08-16 21:54:39,210 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test2'}
+DEBUG   2022-08-16 21:54:39,585 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test3'}
+DEBUG   2022-08-16 21:54:49,937 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test4'}
+DEBUG   2022-08-16 21:54:50,187 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test5'}
+DEBUG   2022-08-16 21:54:50,635 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test5 Modif'} actualizada
+DEBUG   2022-08-16 21:56:22,831 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
+DEBUG   2022-08-16 21:56:22,918 [main] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 1
+DEBUG   2022-08-16 21:56:23,498 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test2'}
+DEBUG   2022-08-16 21:56:23,963 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test3'}
+DEBUG   2022-08-16 21:56:24,520 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test4'}
+DEBUG   2022-08-16 21:56:24,852 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test5'}
+DEBUG   2022-08-16 21:56:25,148 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test5 Modif'} actualizada
+DEBUG   2022-08-16 22:41:30,320 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
+DEBUG   2022-08-16 22:41:30,546 [main] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 1
+DEBUG   2022-08-16 22:41:30,670 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test2'}
+DEBUG   2022-08-16 22:41:30,790 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test3'}
+DEBUG   2022-08-16 22:41:31,756 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test4'}
+DEBUG   2022-08-16 22:41:31,856 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test5'}
+DEBUG   2022-08-16 22:41:31,973 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test5 Modif'} actualizada
+DEBUG   2022-08-16 22:44:33,504 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
+DEBUG   2022-08-16 22:44:33,579 [main] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 1
+DEBUG   2022-08-16 22:44:34,291 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test2'}
+DEBUG   2022-08-16 22:44:34,661 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test3'}
+DEBUG   2022-08-16 22:44:35,042 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test4'}
+DEBUG   2022-08-16 22:44:35,405 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test5'}
+DEBUG   2022-08-16 22:44:35,879 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test5 Modif'} actualizada
+DEBUG   2022-08-16 22:58:52,049 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test2'}
+DEBUG   2022-08-16 22:58:52,199 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test3'}
+DEBUG   2022-08-16 23:02:54,917 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
+DEBUG   2022-08-16 23:02:55,099 [main] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 1
+DEBUG   2022-08-16 23:02:55,130 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test2'}
+DEBUG   2022-08-16 23:02:55,200 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test3'}
+DEBUG   2022-08-16 23:02:55,624 [main] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-16 23:02:55,646 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test4'}
+DEBUG   2022-08-16 23:02:55,731 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoría 4
+DEBUG   2022-08-16 23:02:55,740 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test5'}
+DEBUG   2022-08-16 23:02:55,822 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test5 Modif'} actualizada
+DEBUG   2022-08-16 23:03:56,395 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
+DEBUG   2022-08-16 23:03:56,706 [main] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 1
+DEBUG   2022-08-16 23:03:57,035 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test2'}
+DEBUG   2022-08-16 23:03:57,262 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test3'}
+DEBUG   2022-08-16 23:03:57,678 [main] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-16 23:03:57,689 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test4'}
+DEBUG   2022-08-16 23:03:57,993 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoría 4
+DEBUG   2022-08-16 23:03:58,002 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test5'}
+DEBUG   2022-08-16 23:03:58,355 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test5 Modif'} actualizada
+DEBUG   2022-08-16 23:07:54,039 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
+DEBUG   2022-08-16 23:07:54,128 [main] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 1
+DEBUG   2022-08-16 23:07:54,643 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test2'}
+DEBUG   2022-08-16 23:07:54,887 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test3'}
+DEBUG   2022-08-16 23:07:55,243 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test4'}
+DEBUG   2022-08-16 23:07:55,437 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test5'}
+DEBUG   2022-08-16 23:07:55,759 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test5 Modif'} actualizada
+DEBUG   2022-08-16 23:09:08,561 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
+DEBUG   2022-08-16 23:09:08,639 [main] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 1
+DEBUG   2022-08-16 23:09:08,747 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test2'}
+DEBUG   2022-08-16 23:09:08,814 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test3'}
+DEBUG   2022-08-16 23:09:09,075 [main] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-16 23:09:09,202 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test4'}
+DEBUG   2022-08-16 23:09:09,210 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoría 4
+DEBUG   2022-08-16 23:09:09,292 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test5'}
+DEBUG   2022-08-16 23:09:09,324 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test5 Modif'} actualizada
+DEBUG   2022-08-16 23:10:30,849 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
+DEBUG   2022-08-16 23:10:30,955 [main] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 1
+DEBUG   2022-08-16 23:10:31,243 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test2'}
+DEBUG   2022-08-16 23:10:31,422 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test3'}
+DEBUG   2022-08-16 23:10:31,616 [main] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-16 23:10:31,721 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test4'}
+DEBUG   2022-08-16 23:10:31,727 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoría 4
+DEBUG   2022-08-16 23:10:31,843 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test5'}
+DEBUG   2022-08-16 23:10:31,948 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test5 Modif'} actualizada
+INFO    2022-08-16 23:28:12,720 [main] equipo10.integrador_v01.service.IProductoService  - Producto: 1
+DEBUG   2022-08-17 17:54:11,500 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
+DEBUG   2022-08-17 17:54:11,611 [main] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 1
+DEBUG   2022-08-17 17:54:12,082 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test2'}
+DEBUG   2022-08-17 17:54:12,407 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test3'}
+DEBUG   2022-08-17 17:54:12,881 [main] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-17 17:54:13,004 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test4'}
+DEBUG   2022-08-17 17:54:13,010 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoría 4
+DEBUG   2022-08-17 17:54:13,160 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test5'}
+DEBUG   2022-08-17 17:54:13,449 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test5 Modif'} actualizada
