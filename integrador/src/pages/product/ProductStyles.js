@@ -74,18 +74,19 @@ export const ImageContainer = styled.div`
   grid-template-rows: 1fr 1fr;
   width: 90vw;
   height: 400px;
-  background: #ffffff;
-  border: 1px solid #f3f1ed;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
+  background: transparent;
   margin-bottom: 60px;
+  gap: 5px;
   .main-image {
     grid-column: 1 / span 2;
     grid-row: 1 / span 2;
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.5);
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
     img {
+      border-radius: 8px;
       width: 100%;
       height: 100%;
     }
@@ -94,8 +95,11 @@ export const ImageContainer = styled.div`
     width: auto;
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.5);
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
     img {
+      border-radius: 8px;
       width: 100%;
       height: 100%;
     }
