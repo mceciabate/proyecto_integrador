@@ -8,6 +8,7 @@ import equipo10.integrador_v01.repository.IProductoRepository;
 import equipo10.integrador_v01.service.IProductoService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -80,6 +81,17 @@ public class ProductoService implements IProductoService {
             productoActualizado.setCategoria(productoDTO.getCategoria());
             productoRepository.saveAndFlush(productoActualizado);
         }
+    }
+
+    @Override
+    public List<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException {
+        List<ProductoDTO> productosEncontrados = new ArrayList<>();
+        List<ProductoDTO> listadoCompleto = (List<ProductoDTO>) this.listarProductos();
+        for (ProductoDTO productoDTO : listadoCompleto) {
+            if (productoDTO.getCiudad().getId() == id) {
+                listadoCompleto.add(productoDTO);
+            }
+        } return productosEncontrados;
     }
 
 
