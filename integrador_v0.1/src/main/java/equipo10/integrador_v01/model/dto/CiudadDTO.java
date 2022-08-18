@@ -1,8 +1,17 @@
 package equipo10.integrador_v01.model.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.validation.constraints.NotBlank;
+
+@Getter
+@Setter
 public class CiudadDTO {
     private Long id;
+    @NotBlank(message = "debe incluir una localidad")
     private String localidad;
+    @NotBlank(message = "debe incluir una provincia")
     private String provincia;
 
     public CiudadDTO(String localidad, String provincia) {
@@ -10,27 +19,10 @@ public class CiudadDTO {
         this.provincia = provincia;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLocalidad() {
-        return localidad;
-    }
-
-    public void setLocalidad(String localidad) {
-        this.localidad = localidad;
-    }
-
-    public String getProvincia() {
-        return provincia;
-    }
-
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
+    @Override
+    public String toString() {
+        return "CiudadDTO{" +
+                "localidad='" + localidad + '\'' +
+                '}';
     }
 }

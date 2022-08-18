@@ -1,5 +1,6 @@
 package equipo10.integrador_v01.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Table(name = "CIUDAD")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Ciudad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

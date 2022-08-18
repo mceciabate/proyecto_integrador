@@ -3,7 +3,6 @@ package equipo10.integrador_v01.controller;
 
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.ProductoDTO;
-import equipo10.integrador_v01.model.entity.Producto;
 import equipo10.integrador_v01.service.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,5 +46,11 @@ public class ProductoController {
     public ResponseEntity<?> actualizarProducto(@PathVariable Long id, @RequestBody ProductoDTO productoDTO) throws ResourceNotFoundException {
         productoService.actualizarProductos(productoDTO);
         return ResponseEntity.ok(HttpStatus.OK);
+    }
+    @GetMapping("/ciudad/{id}")
+    public ResponseEntity<List<ProductoDTO>> filtrarPorCiudad(@PathVariable Long id) throws ResourceNotFoundException{
+        productoService.filtrarProductoPorCiudad(id);
+        return ResponseEntity.ok(productoService.filtrarProductoPorCiudad(id));
+
     }
 }

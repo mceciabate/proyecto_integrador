@@ -1,5 +1,6 @@
 package equipo10.integrador_v01.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import java.util.Set;
 //Mapear los atributos de la tabla “categorías” con una clase de nuestro modelo.
 @Entity // El ORM hibernate va a leer esto como bdd
 @Table(name = "CATEGORIA")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Getter
 @Setter
 public class Categoria {
