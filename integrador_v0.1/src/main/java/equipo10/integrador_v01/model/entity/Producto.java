@@ -11,46 +11,53 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@Table(name = "PRODUCTO")
+@Table
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column
     private Long id;
-    @Column(name = "TITULO")
+    @Column
     private String titulo;
-    @Column(name = "DESCRIPCION")
+    @Column
     private String descripcion;
-    @Column(name = "LATITUD")
+    @Column
     private Double lalitud;
-    @Column(name = "LONGITUD")
+    @Column
     private Double longitud;
 
     @ManyToMany
     @JoinTable(
-            name = "PRODUCTO_HAS_IMAGEN",
-            joinColumns = @JoinColumn(name = "PRODUCTO_ID"),
-            inverseJoinColumns = @JoinColumn(name = "IMAGEN_ID"))
+            name = "producto_has_imagen",
+            joinColumns = @JoinColumn(name = "producto_id"),
+            inverseJoinColumns = @JoinColumn(name = "imagen_id"))
     private Set<Imagen> imagen = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
-            name = "PRODUCTO_HAS_CARACTERISTICA",
-            joinColumns = @JoinColumn(name = "PRODUCTO_ID"),
-            inverseJoinColumns = @JoinColumn(name = "CARACTERISTICA_ID"))
+            name = "producto_has_caracteristica",
+            joinColumns = @JoinColumn(name = "producto_id"),
+            inverseJoinColumns = @JoinColumn(name = "caracteristica_id"))
     private Set<Caracteristica> caracteristica = new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "producto_has_politica",
+            joinColumns = @JoinColumn(name = "producto_id"),
+            inverseJoinColumns = @JoinColumn(name = "politica_id"))
+    private Set<Politica> politica = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(
-            name = "CIUDAD_ID",
-            referencedColumnName = "ID",
+            name = "ciudad_id",
+            referencedColumnName = "id",
             nullable = false)
     private Ciudad ciudad;
 
     @ManyToOne
     @JoinColumn(
-            name = "CATEGORIA_ID",
-            referencedColumnName = "ID",
+            name = "categoria_id",
+            referencedColumnName = "id",
             nullable = false
     )
     private Categoria categoria;

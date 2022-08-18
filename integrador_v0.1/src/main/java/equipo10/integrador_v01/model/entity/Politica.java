@@ -4,24 +4,22 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table
 @Getter
 @Setter
-@Table
-public class Ciudad {
+public class Politica {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
     private Long id;
 
-    @Column
-    private String localidad;
-    @Column
-    private String provincia;
+    private String titulo;
+    private String descripcion;
 
-    @OneToMany(mappedBy = "ciudad")
-    private Set<Producto> producto;
+    @ManyToMany(mappedBy = "politica")
+    Set<Producto> producto;
 
 }

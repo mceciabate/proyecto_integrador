@@ -10,20 +10,20 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@Table(name = "USUARIO")
+@Table
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column
     private Long id;
 
-    @Column(name = "NOMBRE")
+    @Column
     private String nombre;
-    @Column(name = "APELLIDO")
+    @Column
     private String apellido;
-    @Column(name = "EMAIL")
+    @Column
     private String email;
-    @Column(name = "CONTRASENIA")
+    @Column
     private String contrasenia;
 
     @OneToMany(mappedBy = "usuario")

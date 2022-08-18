@@ -9,17 +9,17 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@Table(name = "CARACTERISTICA")
+@Table
 public class Caracteristica {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column
     private Long id;
 
-    @Column(name = "NOMBRE")
-    private Integer nombre;
-    @Column(name = "ICONO")
-    private Integer icono;
+    @Column
+    private String nombre;
+    @Column
+    private String icono;
 
     @ManyToMany(mappedBy = "caracteristica")
     Set<Producto> producto;

@@ -8,29 +8,29 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "PUNTUACION")
+@Table
 @Getter
 @Setter
 public class Puntuacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column
     private Long id;
 
-    @Column(name = "PUNTUACION")
+    @Column
     private int puntuacion;
 
     @ManyToOne
     @JoinColumn(
-            name = "PUNTUACION_ID",
-            referencedColumnName = "ID",
+            name = "puntuacion_id",
+            referencedColumnName = "id",
             nullable = false)
     private Producto producto;
 
     @ManyToOne
     @JoinColumn(
-            name = "USUARIO_ID",
-            referencedColumnName = "ID",
+            name = "usuario_id",
+            referencedColumnName = "id",
             nullable = false)
     private Usuario usuario;
 }

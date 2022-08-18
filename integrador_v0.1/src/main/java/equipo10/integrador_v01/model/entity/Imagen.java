@@ -9,20 +9,24 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@Table(name = "IMAGEN")
+@Table
 public class Imagen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ID")
+    @Column
     private Long id;
 
-    @Column(name="TITULO")
+    @Column
     private String titulo;
-    @Column(name="URL")
+    @Column
     private String urlImg;
 
     @ManyToMany(mappedBy = "imagen")
     Set<Producto> producto;
+
+    @OneToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
 
     public Imagen() {
     }

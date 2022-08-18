@@ -1,6 +1,7 @@
 package equipo10.integrador_v01;
 
 import equipo10.integrador_v01.model.dto.CategoriaDTO;
+import equipo10.integrador_v01.model.entity.Categoria;
 import equipo10.integrador_v01.repository.ICategoriaRepository;
 import equipo10.integrador_v01.service.impl.CategoriaService;
 import org.junit.Assert;
@@ -8,9 +9,14 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.sql.SQLException;
+import java.util.Optional;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(SpringRunner.class)
@@ -18,11 +24,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class CategoriaServiceTests {
     @Autowired
     private CategoriaService categoriaService;
-    @Autowired
+    @MockBean
     private ICategoriaRepository categoriaRepository;
     @Test
     public void aGuardarCategoriaTest() {
         CategoriaDTO categoriaDTO1 = new CategoriaDTO("Imagen Test", "Test: test test test, test test test.", ":./img/test1");
+        Categoria categoria = new Categoria();
+        categoria.setTitulo("Imagen Test");
+
+        Mockito.when(categoriaRepository.findById(1L)).thenReturn(Optional.of(categoria));
         categoriaService.guardarCategoria(categoriaDTO1);
 
         Assert.assertEquals(categoriaDTO1.getTitulo(), categoriaRepository.findById(1L).get().getTitulo());
@@ -30,8 +40,13 @@ public class CategoriaServiceTests {
 
     @Test
     public void bEliminarCategoriaTest() {
-        categoriaService.eliminarCategoria(1L);
-        Assert.assertTrue(categoriaRepository.findById(1L).isEmpty());
+        Mockito.doNothing().when(categoriaRepository).deleteById(2L);
+        Mockito.when(categoriaRepository.findById(2L)).thenReturn(Optional.empty());
+
+        //Mockito.doThrow(new SQLException("No")).when(categoriaRepository).deleteById(2L);
+
+        categoriaService.eliminarCategoria(2L);
+        Assert.assertTrue(categoriaRepository.findById(2L).isEmpty());
     }
     @Test
     public void cListarCategoriaTest() {
