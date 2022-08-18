@@ -257,9 +257,21 @@ export const GalleryItem = styled.div`
   width: 638px;
   height: 476px;
   background: rgba(255, 255, 255, 0.5);
-  border: 2px solid #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
+`;
+
+export const MainImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 323px;
+  border-radius: 8px;
+`;
+
+export const MainImage = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 8px 8px 0 0;
 `;
 
 export const GalleryButton = styled.button`
@@ -270,18 +282,8 @@ export const GalleryButton = styled.button`
   font-size: 24px;
   font-weight: 500;
   line-height: 28px;
-  align-self: flex-end;
-`;
-
-export const MainImageContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: 323px;
-`;
-
-export const MainImage = styled.img`
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  right: 0;
 `;
 
 export const ArrowButton = styled.button`
@@ -296,10 +298,21 @@ export const ArrowButton = styled.button`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
   cursor: pointer;
+  position: absolute;
+  right: 0;
+  bottom: 40%;
 `;
 
+export const MyP = styled.p`
+  font-size:16px;
+  margin: 0;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 3px;
+`
+
 export const Carrousel = styled.div`
-  height: 121px;
+  height: 130px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
