@@ -79,27 +79,26 @@ export const ImageContainer = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   margin-bottom: 60px;
-  .MainImg {
+  .main-image {
     grid-column: 1 / span 2;
     grid-row: 1 / span 2;
-    margin-top: 44px;
-    margin-left: 51px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
-  .SecondImg {
-    grid-column: 3;
-    grid-row: 1;
-  }
-  .ThirdImg {
-    grid-column: 4;
-    grid-row: 1;
-  }
-  .FourthImg {
-    grid-column: 3;
-    grid-row: 2;
-  }
-  .FifthImg {
-    grid-column: 4;
-    grid-row: 2;
+  .image {
+    width: auto;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 
@@ -195,4 +194,64 @@ export const CalendarItem = styled.div`
     height: 40px;
     border: none;
   }
+`;
+
+export const FooterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90vw;
+  h2 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #1a1a1a;
+  }
+`;
+export const FooterItemContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+`;
+
+export const FooterItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  h4 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #1a1a1a;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    line-height: 16px;
+  }
+`;
+
+export const GalleryContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(243, 241, 237, 0.5);
+  backdrop-filter: blur(4px);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+`;
+
+export const GalleryItem = styled.div`
+  width: 638px;
+  height: 476px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
 `;
