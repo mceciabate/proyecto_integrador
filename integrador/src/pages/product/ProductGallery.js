@@ -1,5 +1,5 @@
 import React from "react";
-import { GalleryContainer, GalleryItem } from "./ProductStyles";
+import { GalleryContainer, GalleryItem, GalleryButton, MainImageContainer, MainImage, ArrowButton, Carrousel, CarrouselImg } from "./ProductStyles";
 
 const ProductGallery = ({ pictures, current, handleClose, setCurrentIndex }) => {
   const handleArrow = () => {
@@ -13,29 +13,29 @@ const ProductGallery = ({ pictures, current, handleClose, setCurrentIndex }) => 
   return (
     <GalleryContainer>
       <GalleryItem>
-        <button onClick={handleClose}>X</button>
+        <GalleryButton onClick={handleClose}>X</GalleryButton>
         {current != null && (
-          <>
-            <div style={{ width: "100%", border: "2px solid blue" }}>
-              <img
-                style={{ width: "200px", height: "200px" }}
+          <div>
+            <MainImageContainer>
+              <MainImage
                 src={pictures[current]}
                 alt="product"
               />
-              <button onClick={() => handleArrow()}>></button>
-            </div>
-            <div style={{display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr", gap: "8px" }}>
+              <ArrowButton onClick={() => handleArrow()}>></ArrowButton>
+            </MainImageContainer>
+            <Carrousel>
               {pictures.map((pic, index) => (
-                <img
+                index!==current && (
+                <CarrouselImg
                   onClick={() => setCurrentIndex(index)}
                   src={pic}
                   alt="product"
-                  style={{ width: "100%", height: "auto" }}
                   key={index}
                 />
+                )
               ))}
-            </div>
-          </>
+            </Carrousel>
+          </div>
         )}
       </GalleryItem>
     </GalleryContainer>

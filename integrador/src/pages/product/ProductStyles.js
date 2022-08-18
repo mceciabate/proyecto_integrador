@@ -252,10 +252,63 @@ export const GalleryContainer = styled.div`
 `;
 
 export const GalleryItem = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 638px;
   height: 476px;
   background: rgba(255, 255, 255, 0.5);
   border: 2px solid #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+`;
+
+export const GalleryButton = styled.button`
+  color: #191b1d;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+  align-self: flex-end;
+`;
+
+export const MainImageContainer = styled.div`
+  display: flex;
+  width: 100%;
+  height: 323px;
+`;
+
+export const MainImage = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+export const ArrowButton = styled.button`
+  align-self: center;
+  font-weight: 700;
+  font-size: 24px;
+  height: 35px;
+  width: 35px;
+  background: #f3f1ed;
+  opacity: 0.5;
+  border: 0.5px solid #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  cursor: pointer;
+`;
+
+export const Carrousel = styled.div`
+  height: 121px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+`;
+
+export const CarrouselImg = styled.img`
+  align-self: center;
+  justify-self: center;
+  width: 148px;
+  height: 91px;
   border-radius: 8px;
 `;
