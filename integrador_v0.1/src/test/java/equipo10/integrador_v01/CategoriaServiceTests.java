@@ -15,7 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -26,6 +26,7 @@ public class CategoriaServiceTests {
     private CategoriaService categoriaService;
     @MockBean
     private ICategoriaRepository categoriaRepository;
+
     @Test
     public void aGuardarCategoriaTest() {
         CategoriaDTO categoriaDTO1 = new CategoriaDTO("Imagen Test", "Test: test test test, test test test.", ":./img/test1");
@@ -48,6 +49,7 @@ public class CategoriaServiceTests {
         categoriaService.eliminarCategoria(2L);
         Assert.assertTrue(categoriaRepository.findById(2L).isEmpty());
     }
+
     @Test
     public void cListarCategoriaTest() {
         CategoriaDTO categoriaDTO2 = new CategoriaDTO("Imagen Test2", "Test2: test test test, test test test.", ":./img/test2");
@@ -56,8 +58,11 @@ public class CategoriaServiceTests {
         CategoriaDTO categoriaDTO3 = new CategoriaDTO("Imagen Test3", "Test3: test test test, test test test.", ":./img/test3");
         categoriaService.guardarCategoria(categoriaDTO3);
 
-        Assert.assertEquals(2, categoriaService.listarCategoria().size());
+        List<CategoriaDTO> listaCategoriasEncontradas = categoriaService.listarCategoria();
+
+        Assert.assertEquals(2, listaCategoriasEncontradas.size());
     }
+
     @Test
     public void dBuscarCategoriaPorIdTest() {
         CategoriaDTO categoriaDTO4 = new CategoriaDTO("Imagen Test4", "Test4: test test test, test test test.", ":./img/test4");

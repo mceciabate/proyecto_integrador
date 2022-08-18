@@ -1,6 +1,7 @@
 package equipo10.integrador_v01.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +13,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Table
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,11 +23,12 @@ public class Producto {
     private String titulo;
     @Column
     private String descripcion;
-    @Column
+    /* A implementar a futuro en el opcional
+    @Column(name = "LATITUD")
     private Double lalitud;
-    @Column
-    private Double longitud;
-
+    @Column(name = "LONGITUD")
+    private Double longitud; 3
+    */
     @ManyToMany
     @JoinTable(
             name = "producto_has_imagen",
@@ -54,7 +57,7 @@ public class Producto {
             nullable = false)
     private Ciudad ciudad;
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(
             name = "categoria_id",
             referencedColumnName = "id",
@@ -62,7 +65,9 @@ public class Producto {
     )
     private Categoria categoria;
 
+    /* Electiva a implementar a futuro
     @OneToMany(mappedBy = "producto")
     private Set<Puntuacion> puntuacion = new HashSet<>();
+    */
 
 }

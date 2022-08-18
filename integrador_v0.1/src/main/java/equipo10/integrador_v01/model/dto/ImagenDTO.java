@@ -1,10 +1,18 @@
 package equipo10.integrador_v01.model.dto;
 
-import javax.persistence.Column;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.Column;
+import javax.validation.constraints.NotBlank;
+
+@Getter
+@Setter
 public class ImagenDTO {
     private Long id;
+    @NotBlank(message = "debe incluir un titulo")
     private String titulo;
+    @NotBlank(message = "debe incluir una url")
     private String urlImg;
 
     public ImagenDTO(String titulo, String urlImg) {
@@ -12,27 +20,10 @@ public class ImagenDTO {
         this.urlImg = urlImg;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getUrlImg() {
-        return urlImg;
-    }
-
-    public void setUrlImg(String urlImg) {
-        this.urlImg = urlImg;
+    @Override
+    public String toString() {
+        return "ImagenDTO{" +
+                "titulo='" + titulo + '\'' +
+                '}';
     }
 }
