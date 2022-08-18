@@ -74,32 +74,35 @@ export const ImageContainer = styled.div`
   grid-template-rows: 1fr 1fr;
   width: 90vw;
   height: 400px;
-  background: #ffffff;
-  border: 1px solid #f3f1ed;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
+  background: transparent;
   margin-bottom: 60px;
-  .MainImg {
+  gap: 5px;
+  .main-image {
     grid-column: 1 / span 2;
     grid-row: 1 / span 2;
-    margin-top: 44px;
-    margin-left: 51px;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    img {
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+    }
   }
-  .SecondImg {
-    grid-column: 3;
-    grid-row: 1;
-  }
-  .ThirdImg {
-    grid-column: 4;
-    grid-row: 1;
-  }
-  .FourthImg {
-    grid-column: 3;
-    grid-row: 2;
-  }
-  .FifthImg {
-    grid-column: 4;
-    grid-row: 2;
+  .image {
+    width: auto;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    img {
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 
@@ -195,4 +198,130 @@ export const CalendarItem = styled.div`
     height: 40px;
     border: none;
   }
+`;
+
+export const FooterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90vw;
+  h2 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #1a1a1a;
+  }
+`;
+export const FooterItemContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+`;
+
+export const FooterItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  h4 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #1a1a1a;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    line-height: 16px;
+  }
+`;
+
+export const GalleryContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(243, 241, 237, 0.5);
+  backdrop-filter: blur(4px);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+`;
+
+export const GalleryItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 638px;
+  height: 476px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+`;
+
+export const MainImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 323px;
+  border-radius: 8px;
+`;
+
+export const MainImage = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 8px 8px 0 0;
+`;
+
+export const GalleryButton = styled.button`
+  color: #191b1d;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+  position: absolute;
+  right: 0;
+`;
+
+export const ArrowButton = styled.button`
+  align-self: center;
+  font-weight: 700;
+  font-size: 24px;
+  height: 35px;
+  width: 35px;
+  background: #f3f1ed;
+  opacity: 0.5;
+  border: 0.5px solid #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  bottom: 40%;
+`;
+
+export const MyP = styled.p`
+  font-size:16px;
+  margin: 0;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 3px;
+`
+
+export const Carrousel = styled.div`
+  height: 130px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+`;
+
+export const CarrouselImg = styled.img`
+  align-self: center;
+  justify-self: center;
+  width: 148px;
+  height: 91px;
+  border-radius: 8px;
 `;
