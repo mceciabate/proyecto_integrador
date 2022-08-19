@@ -1,6 +1,6 @@
 package equipo10.integrador_v01.controller;
+
 import equipo10.integrador_v01.exceptions.BadRequestException;
-import equipo10.integrador_v01.exceptions.ResourceCreateException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.exceptions.ValidationException;
 import equipo10.integrador_v01.model.dto.CategoriaDTO;
@@ -9,15 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
-import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
