@@ -9,10 +9,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "PRODUCTO")
 @Getter
 @Setter
-@Table(name = "PRODUCTO")
 public class Producto {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
@@ -49,7 +50,7 @@ public class Producto {
             nullable = false)
     private Ciudad ciudad;
 
-    @ManyToOne (fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(
             name = "CATEGORIA_ID",
             referencedColumnName = "ID",

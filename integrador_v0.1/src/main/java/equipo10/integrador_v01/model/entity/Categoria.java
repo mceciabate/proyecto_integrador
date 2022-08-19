@@ -17,7 +17,6 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //id autoincremental
     @Column(name = "ID")
     private Long id;
-
     @Column(name = "TITULO")
     private String titulo;
     @Column(name = "DESCRIPCION")
