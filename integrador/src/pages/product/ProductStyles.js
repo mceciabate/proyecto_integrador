@@ -333,18 +333,23 @@ export const GalleryItem = styled.div`
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
+  @media (max-width: 482px) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const MainImageContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 323px;
+  height: auto;
+  max-height: 323px;
   border-radius: 8px;
 `;
 
 export const MainImage = styled.img`
   width: 100%;
-  height: 100%;
+  height: auto;
   border-radius: 8px 8px 0 0;
 `;
 
@@ -390,6 +395,10 @@ export const Carrousel = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
+  @media (max-width: 482px) {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+  }
 `;
 
 export const CarrouselImg = styled.img`
@@ -398,4 +407,8 @@ export const CarrouselImg = styled.img`
   width: 148px;
   height: 91px;
   border-radius: 8px;
+  @media (max-width: 482px) {
+    height: auto;
+    margin-bottom: 15px;
+  }
 `;

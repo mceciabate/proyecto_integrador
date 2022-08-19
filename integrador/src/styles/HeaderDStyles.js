@@ -8,7 +8,11 @@ export const HeaderC = styled.header`
   width: 100vw;
   height: 8vh;
   background-color: transparent;
-  padding: 10px;
+  @media (max-width: 770px) {
+    height: 10vh;
+    justify-content: space-around;
+    padding-top: 10px;
+  }
   @media only screen and (max-width: 482px) {
     display: none;
   }
