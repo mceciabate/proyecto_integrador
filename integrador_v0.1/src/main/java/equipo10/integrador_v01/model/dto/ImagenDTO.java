@@ -3,7 +3,6 @@ package equipo10.integrador_v01.model.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 
 @Getter

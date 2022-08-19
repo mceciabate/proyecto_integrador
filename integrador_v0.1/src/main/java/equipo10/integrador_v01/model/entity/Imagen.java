@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -17,20 +16,17 @@ public class Imagen {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
-
     @Column
     private String titulo;
     @Column
     private String urlImg;
 
-    @ManyToMany(mappedBy = "imagen")
-    Set<Producto> producto;
-
-    @OneToOne
-    @JoinColumn(name = "categoria_id")
-    private Categoria categoria;
-
     public Imagen() {
+    }
+
+    public Imagen(String titulo, String urlImg) {
+        this.titulo = titulo;
+        this.urlImg = urlImg;
     }
 
     public Long getId() {

@@ -21,29 +21,29 @@ public class Categoria {
 
     private String titulo;
     private String descripcion;
-    private String urlImg;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "imagen_id", referencedColumnName = "id")
+    private Imagen imagenCategoria;
 
     @OneToMany(fetch=FetchType.EAGER, mappedBy = "categoria") //la lista de productos se instancia junto con el resto de los atributos.
     private Set<Producto> producto;
-
-    @OneToOne(mappedBy = "categoria")
-    private Imagen imagen;
 
     //constructores
     public Categoria() {
     }
 
-    public Categoria(String titulo, String descripcion, String urlImg) {
+    public Categoria(String titulo, String descripcion, Imagen imagenCategoria) {
         this.titulo = titulo;
         this.descripcion = descripcion;
-        this.urlImg = urlImg;
+        this.imagenCategoria = imagenCategoria;
     }
 
-    public Categoria(Long id, String titulo, String descripcion, String urlImg) {
+    public Categoria(Long id, String titulo, String descripcion, Imagen imagenCategoria) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
-        this.urlImg = urlImg;
+        this.imagenCategoria = imagenCategoria;
     }
 
     @Override

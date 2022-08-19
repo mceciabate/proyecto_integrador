@@ -1,8 +1,8 @@
 package equipo10.integrador_v01.model.dto;
 
+import equipo10.integrador_v01.model.entity.Imagen;
+
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 public class CategoriaDTO {
     private Long id;
@@ -10,9 +10,9 @@ public class CategoriaDTO {
     private String titulo;
     @NotBlank(message = "debe incluir una descripción")
     private String descripcion;
-    private String urlImg;
+    private Imagen urlImg;
 
-    public CategoriaDTO(String titulo, String descripcion, String urlImg) {
+    public CategoriaDTO(String titulo, String descripcion, Imagen urlImg) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.urlImg = urlImg;
@@ -30,7 +30,7 @@ public class CategoriaDTO {
         return descripcion;
     }
 
-    public String getUrlImg() {
+    public Imagen getUrlImg() {
         return urlImg;
     }
 
@@ -46,7 +46,7 @@ public class CategoriaDTO {
         this.descripcion = descripcion;
     }
 
-    public void setUrlImg(String urlImg) {
+    public void setUrlImg(Imagen urlImg) {
         this.urlImg = urlImg;
     }
 

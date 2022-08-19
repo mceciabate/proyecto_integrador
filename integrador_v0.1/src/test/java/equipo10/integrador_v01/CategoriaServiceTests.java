@@ -1,7 +1,9 @@
 package equipo10.integrador_v01;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import equipo10.integrador_v01.model.dto.CategoriaDTO;
 import equipo10.integrador_v01.model.entity.Categoria;
+import equipo10.integrador_v01.model.entity.Imagen;
 import equipo10.integrador_v01.repository.ICategoriaRepository;
 import equipo10.integrador_v01.service.impl.CategoriaService;
 import org.junit.Assert;
@@ -15,6 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,14 +25,18 @@ import java.util.Optional;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CategoriaServiceTests {
+
     @Autowired
     private CategoriaService categoriaService;
-    @MockBean
+    @Autowired
+    ObjectMapper mapper;
+    @Autowired //@MockBean
     private ICategoriaRepository categoriaRepository;
 
     @Test
     public void aGuardarCategoriaTest() {
-        CategoriaDTO categoriaDTO1 = new CategoriaDTO("Imagen Test", "Test: test test test, test test test.", ":./img/test1");
+        Imagen imagen = new Imagen("img", ":./img/test");
+        CategoriaDTO categoriaDTO1 = new CategoriaDTO("Imagen Test", "Test: test test test, test test test.", imagen);
         Categoria categoria = new Categoria();
         categoria.setTitulo("Imagen Test");
 
@@ -45,18 +52,28 @@ public class CategoriaServiceTests {
         Mockito.when(categoriaRepository.findById(2L)).thenReturn(Optional.empty());
 
         //Mockito.doThrow(new SQLException("No")).when(categoriaRepository).deleteById(2L);
-
+        //Mockito.when(asasas).thenThrow(new NullPointerException);
         categoriaService.eliminarCategoria(2L);
         Assert.assertTrue(categoriaRepository.findById(2L).isEmpty());
     }
 
     @Test
     public void cListarCategoriaTest() {
-        CategoriaDTO categoriaDTO2 = new CategoriaDTO("Imagen Test2", "Test2: test test test, test test test.", ":./img/test2");
-        categoriaService.guardarCategoria(categoriaDTO2);
+        Imagen imagen2 = new Imagen("img", ":./img/test");
+        Imagen imagen3 = new Imagen("img", ":./img/test");
 
-        CategoriaDTO categoriaDTO3 = new CategoriaDTO("Imagen Test3", "Test3: test test test, test test test.", ":./img/test3");
+        CategoriaDTO categoriaDTO3 = new CategoriaDTO("Imagen Test3", "Test3: test test test, test test test.", imagen2);
+        CategoriaDTO categoriaDTO4 = new CategoriaDTO("Imagen Test4", "Test4: test test test, test test test.", imagen3);
+
+        List<Categoria> categoriaLista = new ArrayList<>();
+        categoriaLista.add(mapper.convertValue(categoriaDTO3, Categoria.class));
+        categoriaLista.add(mapper.convertValue(categoriaDTO4, Categoria.class));
+
+
+        Mockito.when(categoriaRepository.findAll()).thenReturn(categoriaLista);
+
         categoriaService.guardarCategoria(categoriaDTO3);
+        categoriaService.guardarCategoria(categoriaDTO4);
 
         List<CategoriaDTO> listaCategoriasEncontradas = categoriaService.listarCategoria();
 
@@ -65,21 +82,37 @@ public class CategoriaServiceTests {
 
     @Test
     public void dBuscarCategoriaPorIdTest() {
-        CategoriaDTO categoriaDTO4 = new CategoriaDTO("Imagen Test4", "Test4: test test test, test test test.", ":./img/test4");
-        categoriaService.guardarCategoria(categoriaDTO4);
+        Imagen imagen4 = new Imagen("img", ":./img/test");
+        CategoriaDTO categoriaDTO5 = new CategoriaDTO("Imagen Test5", "Test5: test test test, test test test.", imagen4);
+        categoriaService.guardarCategoria(categoriaDTO5);
 
-        Assert.assertEquals(categoriaDTO4.getTitulo(), categoriaService.buscarCategoriaPorId(4L).getTitulo());
+        Categoria categoria5 = new Categoria();
+        categoria5.setTitulo("Imagen Test5");
+
+        Mockito.when(categoriaRepository.findById(5L)).thenReturn(Optional.of(categoria5));
+
+        Assert.assertEquals(categoriaDTO5.getTitulo(), categoriaService.buscarCategoriaPorId(5L).getTitulo());
     }
 
     @Test
     public void eActualizarCategoriaTest() {
-        CategoriaDTO categoriaDTO5 = new CategoriaDTO("Imagen Test5", "Test5: test test test, test test test.", ":./img/test5");
-        categoriaService.guardarCategoria(categoriaDTO5);
+        Imagen imagen = new Imagen("img", ":./img/test");
 
-        CategoriaDTO categoriaDTO5M = new CategoriaDTO("Imagen Test5 Modif", "Test5 Modif: test test test, test test test.", ":./img/test5Modif");
-        categoriaService.actualizarCategoria(5L, categoriaDTO5M);
+        CategoriaDTO categoriaDTO6 = new CategoriaDTO("Imagen Test", "Test: test test test, test test test.", imagen);
+        categoriaService.guardarCategoria(categoriaDTO6);
+        categoriaDTO6.setId(100L);
+        categoriaDTO6.setTitulo("Imagen Test6 Modif");
 
-        Assert.assertEquals("Imagen Test5 Modif", categoriaRepository.findById(5L).get().getTitulo());
+        categoriaService.actualizarCategoria(categoriaDTO6.getId(), categoriaDTO6);
+
+        //Categoria categoria = new Categoria();
+        //categoria.setTitulo("Imagen Test6 Modif");
+        //Mockito.when(categoriaRepository.findById(6L)).thenReturn(Optional.of(categoria));
+
+        // Mockito.doNothing().when(categoriaService).actualizarCategoria(6L,categoriaDTO6M);
+
+        Assert.assertEquals(categoriaDTO6.getTitulo(), categoriaRepository.findById(100L).get().getTitulo());
+
     }
 
 }
