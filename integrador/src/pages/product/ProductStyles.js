@@ -22,7 +22,7 @@ export const LHeader = styled.div`
   grid-row: 1;
   margin-left: 65px;
   margin-top: 27px;
-  @media (max-width: 7770px) {
+  @media (max-width: 770px) {
     margin-left: 34px;
     margin-top: 15px;
   }
@@ -67,7 +67,7 @@ export const RHeader = styled.div`
   align-items: flex-end;
   margin-right: 70px;
   margin-top: 27px;
-  @media (max-width: 7770px) {
+  @media (max-width: 770px) {
     margin-right: 34px;
     margin-top: 15px;
   }
