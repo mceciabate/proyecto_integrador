@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   ProductContainer,
@@ -12,12 +12,16 @@ import {
   CalendarContainer,
   CalendarSection,
   CalendarItem,
+  FooterContainer,
+  FooterItemContainer,
+  FooterItem,
 } from "./ProductStyles";
 import { BsFillPinMapFill } from "react-icons/bs";
 import arrow from "../../assets/arrow.png";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
+import ProductGallery from "./ProductGallery";
 
 const Product = ({ product }) => {
   const [state, setState] = useState([
@@ -27,6 +31,21 @@ const Product = ({ product }) => {
       key: "selection",
     },
   ]);
+  const [showModal, setShowModal] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.removeProperty("overflow");
+    }
+  }, [showModal]);
+  const handleModal = (index) => {
+    setCurrentIndex(index);
+    setShowModal(true);
+  };
+  console.log(showModal);
+  console.log(currentIndex);
   return (
     <ProductContainer>
       <HeaderContainer>
@@ -45,12 +64,24 @@ const Product = ({ product }) => {
           <p>estrellas</p>
         </RHeader>
       </HeaderContainer>
+      {showModal && 
+        <ProductGallery
+          pictures={product}
+          current={currentIndex}
+          handleClose={() => setShowModal(false)}
+          setCurrentIndex={setCurrentIndex}
+        />
+      }
       <ImageContainer>
-        <img src={arrow} alt="product" className="MainImg" />
-        <img src={arrow} alt="product" className="SecondImg" />
-        <img src={arrow} alt="product" className="ThirdImg" />
-        <img src={arrow} alt="product" className="FourthImg" />
-        <img src={arrow} alt="product" className="FifthImg" />
+        {product.map((pic, index) => (
+          <div
+            className={index === 0 ? "main-image" : "image"}
+            onClick={()=>handleModal(index)}
+            key={index}
+          >
+            <img src={pic} alt="product" />
+          </div>
+        ))}
       </ImageContainer>
       <DescriptionContainer>
         <h2>Disfruta un automóvil moderno y 100% eléctrico</h2>
@@ -82,40 +113,42 @@ const Product = ({ product }) => {
         <h2>Fechas disponibles</h2>
         <CalendarSection>
           <DateRange
-              editableDateInputs={true}
-              onChange={(item) => setState([item.selection])}
-              moveRangeOnFirstSelection={false}
-              ranges={state}
-              rangeColors={["#F0572D"]}
-            />
+            editableDateInputs={true}
+            onChange={(item) => setState([item.selection])}
+            moveRangeOnFirstSelection={false}
+            ranges={state}
+            rangeColors={["#F0572D"]}
+          />
           <CalendarItem>
             <h3>Agregá tus fechas de viaje para obtener precios exactos</h3>
             <button>Iniciar reserva</button>
           </CalendarItem>
         </CalendarSection>
       </CalendarContainer>
-      <div>
-        {" "}
-        "map"
-        <h2>¿Dónde vas a estar? </h2>
-        <p>m country</p>
-        <div>map</div>
-      </div>
-      <div>
+      <div></div>
+      <FooterContainer>
         <h2>Qué tenés que saber</h2>
-        <div>
-          <h4>Normas</h4>
-          <p>c1 description</p>
-        </div>
-        <div>
-          <h4>Seguridad</h4>
-          <p>c2 description</p>
-        </div>
-        <div>
-          <h4>Cancelacion</h4>
-          <p>c3 description</p>
-        </div>
-      </div>
+        <FooterItemContainer>
+          <FooterItem>
+            <h4>Normas</h4>
+            <p>norma</p>
+            <p>norma</p>
+            <p>norma</p>
+          </FooterItem>
+          <FooterItem>
+            <h4>Seguridad</h4>
+            <p>seguridad</p>
+            <p>seguridad</p>
+            <p>seguridad</p>
+          </FooterItem>
+          <FooterItem>
+            <h4>Cancelacion</h4>
+            <p>cancelacion</p>
+            <p>cancelacion</p>
+            <p>cancelacion</p>
+          </FooterItem>
+        </FooterItemContainer>
+      </FooterContainer>
     </ProductContainer>
   );
 };
