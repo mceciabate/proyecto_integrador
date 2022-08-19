@@ -22,6 +22,13 @@ export const LHeader = styled.div`
   grid-row: 1;
   margin-left: 65px;
   margin-top: 27px;
+  @media (max-width: 7770px) {
+    margin-left: 34px;
+    margin-top: 15px;
+  }
+  @media (max-width: 480px) {
+    margin-left: 24px;
+  }
   p {
     font-size: 14px;
     font-weight: 700;
@@ -60,6 +67,13 @@ export const RHeader = styled.div`
   align-items: flex-end;
   margin-right: 70px;
   margin-top: 27px;
+  @media (max-width: 7770px) {
+    margin-right: 34px;
+    margin-top: 15px;
+  }
+  @media (max-width: 480px) {
+    margin-right: 24px;
+  }
   .arrow {
     width: 20px;
     height: 30px;
@@ -73,7 +87,7 @@ export const ImageContainer = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   width: 90vw;
-  height: 400px;
+  height: auto;
   background: transparent;
   margin-bottom: 60px;
   gap: 5px;
@@ -90,9 +104,13 @@ export const ImageContainer = styled.div`
       width: 100%;
       height: 100%;
     }
+    @media (max-width: 480px) {
+      grid-column: 1 / span 4;
+    }
   }
   .image {
     width: auto;
+    height: auto;
     display: flex;
     align-items: center;
     background: #ffffff;
@@ -102,6 +120,12 @@ export const ImageContainer = styled.div`
       border-radius: 8px;
       width: 100%;
       height: 100%;
+    }
+    @media (max-width: 770px) {
+      
+    }
+    @media (max-width: 480px) {
+      display: none;
     }
   }
 `;
@@ -113,6 +137,9 @@ export const DescriptionContainer = styled.div`
   width: 90vw;
   height: 288px;
   background-color: #f3f1ed;
+  @media (max-width: 480px) {
+    height: 380px;
+  }
   h2 {
     font-weight: 700;
     font-size: 24px;
@@ -120,6 +147,14 @@ export const DescriptionContainer = styled.div`
     color: #1a1a1a;
     margin-top: 56px;
     margin-left: 34px;
+    @media (max-width: 770px) {
+      margin-top: 40px;
+      margin-left: 28px;
+    }
+    @media (max-width: 480px) {
+      margin-top: 24px;
+      margin-left: 24px;
+    }
   }
   p {
     font-size: 14px;
@@ -128,6 +163,10 @@ export const DescriptionContainer = styled.div`
     line-height: 16px;
     margin-top: 18px;
     margin-left: 34px;
+    @media (max-width: 480px) {
+      margin-top: 24px;
+      margin-left: 24px;
+    }
   }
 `;
 
@@ -137,6 +176,12 @@ export const FeaturesContainer = styled.div`
   align-items: flex-start;
   width: 90vw;
   height: 288px;
+  @media (max-width: 770px) {
+    height: 330px;
+  }
+  @media (max-width: 480px) {
+      height: 400px;    
+  }
   h2 {
     font-weight: 700;
     font-size: 24px;
@@ -147,19 +192,32 @@ export const FeaturesContainer = styled.div`
     width: 90vw;
     height: 288px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      margin-left: 20px;
+    }
   }
 `;
 
 export const CalendarContainer = styled.div`
   width: 90vw;
   height: 488px;
+  @media (max-width: 770px) {
+    height: 680px;
+  }
   h2 {
     font-weight: 700;
     font-size: 24px;
     line-height: 28px;
     color: #1a1a1a;
+    @media (max-width: 480px) {
+      margin-left: 20px;
+    }
   }
 `;
 
@@ -169,6 +227,10 @@ export const CalendarSection = styled.div`
   align-items: center;
   justify-content: center;
   gap: 100px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 50px;
+  }
 `;
 
 export const CalendarItem = styled.div`
@@ -205,6 +267,9 @@ export const FooterContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 90vw;
+  @media (max-width: 770px) {
+      align-items: center;
+    }
   h2 {
     font-weight: 700;
     font-size: 24px;
@@ -213,14 +278,23 @@ export const FooterContainer = styled.div`
   }
 `;
 export const FooterItemContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
   width: 100%;
 `;
 
 export const FooterItem = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-bottom: 25px;
   h4 {
     font-weight: 700;
@@ -304,12 +378,12 @@ export const ArrowButton = styled.button`
 `;
 
 export const MyP = styled.p`
-  font-size:16px;
+  font-size: 16px;
   margin: 0;
   font-weight: 700;
   text-align: center;
   margin-top: 3px;
-`
+`;
 
 export const Carrousel = styled.div`
   height: 130px;
