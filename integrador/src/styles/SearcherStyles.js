@@ -68,7 +68,7 @@ export const SearchSelect = styled.select`
   @media only screen and (max-width: 770px) {
     width: 60px;
   }
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 482px) {
     width: 90%;
   }
 `;
@@ -104,6 +104,16 @@ export const CalendarButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  @media (max-width: 482px) {
+    width: 90%;
+    justify-content: center;
+  }
+  .icon {
+    @media (max-width: 482px) {
+      position: absolute;
+      left: 80px;
+    }
+  }
 `
 
 export const CalendarDiv = styled.div`
@@ -124,5 +134,8 @@ export const CalendarDiv = styled.div`
   .icon{
     right: -25px;
     position: relative;
+  }
+  @media (max-width: 480px) {
+    width: 90%;
   }
   `
