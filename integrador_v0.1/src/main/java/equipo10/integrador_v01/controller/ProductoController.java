@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+@RestController
+@RequestMapping("/producto")
 public class ProductoController {
 
     @Autowired

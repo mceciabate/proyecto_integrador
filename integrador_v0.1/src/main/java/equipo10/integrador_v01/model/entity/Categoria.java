@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 //Mapear los atributos de la tabla “categorías” con una clase de nuestro modelo.
@@ -27,23 +29,18 @@ public class Categoria {
     private Imagen imagenCategoria;
 
     @OneToMany(fetch=FetchType.EAGER, mappedBy = "categoria") //la lista de productos se instancia junto con el resto de los atributos.
-    private Set<Producto> producto;
+    private List<Producto> productosList;
 
     //constructores
     public Categoria() {
     }
 
-    public Categoria(String titulo, String descripcion, Imagen imagenCategoria) {
+    public Categoria(String titulo, String descripcion, Imagen imagenCategoria, List<Producto> productosList) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.imagenCategoria = imagenCategoria;
-    }
+        productosList = new ArrayList<>();
 
-    public Categoria(Long id, String titulo, String descripcion, Imagen imagenCategoria) {
-        this.id = id;
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.imagenCategoria = imagenCategoria;
     }
 
     @Override
