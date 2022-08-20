@@ -15,3 +15,16 @@ DEBUG   2022-08-19 19:38:48,293 [main] equipo10.integrador_v01.service.ICategori
 DEBUG   2022-08-19 19:38:48,295 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoría 5
 DEBUG   2022-08-19 19:38:48,305 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
 DEBUG   2022-08-19 19:38:48,309 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test6 Modif'} actualizada
+DEBUG   2022-08-20 08:04:47,907 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
+DEBUG   2022-08-20 08:04:47,967 [main] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 2
+DEBUG   2022-08-20 08:04:47,992 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test3'}
+DEBUG   2022-08-20 08:04:47,993 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test4'}
+DEBUG   2022-08-20 08:04:47,993 [main] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 08:04:48,024 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test5'}
+DEBUG   2022-08-20 08:04:48,027 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoría 5
+DEBUG   2022-08-20 08:04:48,052 [main] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='Imagen Test'}
+DEBUG   2022-08-20 08:04:48,053 [main] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='Imagen Test6 Modif'} actualizada
+DEBUG   2022-08-20 08:37:49,845 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 08:37:49,852 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+ERROR   2022-08-20 08:37:55,122 [http-nio-8080-exec-3] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `equipo10.integrador_v01.model.entity.Imagen` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('1234'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `equipo10.integrador_v01.model.entity.Imagen` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('1234')
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 5, column: 15] (through reference chain: equipo10.integrador_v01.model.dto.CategoriaDTO["urlImg"])

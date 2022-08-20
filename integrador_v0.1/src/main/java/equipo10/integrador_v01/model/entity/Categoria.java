@@ -10,7 +10,7 @@ import java.util.Set;
 //Mapear los atributos de la tabla “categorías” con una clase de nuestro modelo.
 @Entity // El ORM hibernate va a leer esto como bdd
 @Table
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Getter
 @Setter
 public class Categoria {

@@ -84,13 +84,13 @@ public class ProductoService implements IProductoService {
 
     @Override
     public List<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException {
-        List<ProductoDTO> productosEncontrados = new ArrayList<>();
+        //List<ProductoDTO> productosEncontrados = new ArrayList<>();
         List<ProductoDTO> listadoCompleto = (List<ProductoDTO>) this.listarProductos();
         for (ProductoDTO productoDTO : listadoCompleto) {
             if (productoDTO.getCiudad().getId() == id) {
                 listadoCompleto.add(productoDTO);
             }
-        } return productosEncontrados;
+        } return listadoCompleto;
     }
 
 
