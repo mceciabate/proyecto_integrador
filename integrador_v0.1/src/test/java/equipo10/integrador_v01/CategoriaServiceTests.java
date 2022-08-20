@@ -30,7 +30,7 @@ public class CategoriaServiceTests {
     private CategoriaService categoriaService;
     @Autowired
     ObjectMapper mapper;
-    @Autowired //@MockBean
+    @MockBean
     private ICategoriaRepository categoriaRepository;
 
     @Test
@@ -100,18 +100,19 @@ public class CategoriaServiceTests {
 
         CategoriaDTO categoriaDTO6 = new CategoriaDTO("Imagen Test", "Test: test test test, test test test.", imagen);
         categoriaService.guardarCategoria(categoriaDTO6);
-        categoriaDTO6.setId(100L);
+        categoriaDTO6.setId(6L);
         categoriaDTO6.setTitulo("Imagen Test6 Modif");
 
         categoriaService.actualizarCategoria(categoriaDTO6.getId(), categoriaDTO6);
+        Categoria categoria = new Categoria();
+        categoria.setId(6L);
+        categoria.setTitulo("Imagen Test6 Modif");
 
-        //Categoria categoria = new Categoria();
-        //categoria.setTitulo("Imagen Test6 Modif");
-        //Mockito.when(categoriaRepository.findById(6L)).thenReturn(Optional.of(categoria));
+        Mockito.when(categoriaRepository.findById(6L)).thenReturn(Optional.of(categoria));
 
         // Mockito.doNothing().when(categoriaService).actualizarCategoria(6L,categoriaDTO6M);
 
-        Assert.assertEquals(categoriaDTO6.getTitulo(), categoriaRepository.findById(100L).get().getTitulo());
+        Assert.assertEquals(categoriaDTO6.getTitulo(), categoriaRepository.findById(6L).get().getTitulo());
 
     }
 

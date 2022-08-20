@@ -69,8 +69,8 @@ public class CategoriaService implements ICategoriaService {
     @Override
     public void actualizarCategoria(Long id, CategoriaDTO categoriaDTO) {
         Optional<Categoria> categoriaOptional = categoriaRepository.findById(id);
-        Categoria categoriaOp = categoriaOptional.get();
         if (categoriaOptional.isPresent()) {
+            Categoria categoriaOp = categoriaOptional.get();
             categoriaOp.setDescripcion(categoriaDTO.getDescripcion());
             categoriaOp.setTitulo(categoriaDTO.getTitulo());
             categoriaOp.setImagenCategoria(categoriaDTO.getUrlImg());
