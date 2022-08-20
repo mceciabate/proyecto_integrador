@@ -110,8 +110,6 @@ public class CategoriaServiceTests {
 
         Mockito.when(categoriaRepository.findById(6L)).thenReturn(Optional.of(categoria));
 
-        // Mockito.doNothing().when(categoriaService).actualizarCategoria(6L,categoriaDTO6M);
-
         Assert.assertEquals(categoriaDTO6.getTitulo(), categoriaRepository.findById(6L).get().getTitulo());
 
     }
