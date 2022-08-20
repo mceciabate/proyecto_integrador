@@ -44,3 +44,8 @@ DEBUG   2022-08-20 09:28:39,638 [http-nio-8080-exec-10] equipo10.integrador_v01.
 DEBUG   2022-08-20 09:28:39,642 [http-nio-8080-exec-10] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
 ERROR   2022-08-20 09:28:44,926 [http-nio-8080-exec-2] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `equipo10.integrador_v01.model.entity.Imagen` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('1234'); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `equipo10.integrador_v01.model.entity.Imagen` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('1234')
  at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 5, column: 15] (through reference chain: equipo10.integrador_v01.model.dto.CategoriaDTO["urlImg"])
+DEBUG   2022-08-20 11:39:15,460 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:39:15,466 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:41:11,826 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='lujo'}
+DEBUG   2022-08-20 11:42:23,344 [http-nio-8080-exec-8] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:42:23,349 [http-nio-8080-exec-8] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías

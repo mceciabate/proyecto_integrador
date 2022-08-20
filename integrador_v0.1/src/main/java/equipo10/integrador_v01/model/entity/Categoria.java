@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -20,7 +21,6 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //id autoincremental
     private Long id;
-
     private String titulo;
     private String descripcion;
 
@@ -29,17 +29,17 @@ public class Categoria {
     private Imagen imagenCategoria;
 
     @OneToMany(fetch=FetchType.EAGER, mappedBy = "categoria") //la lista de productos se instancia junto con el resto de los atributos.
-    private List<Producto> productosList;
+    private Set<Producto> productos = new HashSet<>();
 
     //constructores
     public Categoria() {
     }
 
-    public Categoria(String titulo, String descripcion, Imagen imagenCategoria, List<Producto> productosList) {
+    public Categoria(String titulo, String descripcion, Imagen imagenCategoria) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.imagenCategoria = imagenCategoria;
-        productosList = new ArrayList<>();
+
 
     }
 
