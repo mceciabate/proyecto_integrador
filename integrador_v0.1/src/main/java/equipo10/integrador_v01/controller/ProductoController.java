@@ -39,6 +39,8 @@ public class ProductoController {
         productoService.guardarProductos(productoDTO);
         return ResponseEntity.ok(productoService.guardarProductos(productoDTO));
     }
+
+    //ProductoDTO productoDTO = new ProductoDTO()
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> eliminarProducto(@PathVariable Long id) throws ResourceNotFoundException{
         productoService.eliminarProductos(id);
