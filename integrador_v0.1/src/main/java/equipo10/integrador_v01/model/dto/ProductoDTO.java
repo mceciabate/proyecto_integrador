@@ -26,7 +26,7 @@ public class ProductoDTO {
     @NotBlank(message = "debe incluir una ciudad")
     private Ciudad ciudad;
 
-    @NotBlank(message = "debe incluir una categoria")
+    //@NotBlank(message = "debe incluir una categoria")
     private Categoria categoria;
 
     /* Electiva a implementar a futuro

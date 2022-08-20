@@ -49,3 +49,56 @@ DEBUG   2022-08-20 11:39:15,466 [http-nio-8080-exec-1] equipo10.integrador_v01.s
 DEBUG   2022-08-20 11:41:11,826 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='lujo'}
 DEBUG   2022-08-20 11:42:23,344 [http-nio-8080-exec-8] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
 DEBUG   2022-08-20 11:42:23,349 [http-nio-8080-exec-8] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:49:21,055 [http-nio-8080-exec-2] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='lujo'}
+DEBUG   2022-08-20 11:49:36,093 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:49:36,099 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+ERROR   2022-08-20 11:50:19,933 [http-nio-8080-exec-4] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `equipo10.integrador_v01.model.entity.Imagen` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (1); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `equipo10.integrador_v01.model.entity.Imagen` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (1)
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 5, column: 24] (through reference chain: equipo10.integrador_v01.model.dto.CategoriaDTO["imagenCategoria"])
+DEBUG   2022-08-20 11:50:55,832 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='ecologico'}
+DEBUG   2022-08-20 11:52:43,320 [http-nio-8080-exec-9] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:52:43,325 [http-nio-8080-exec-9] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+ERROR   2022-08-20 11:53:44,604 [http-nio-8080-exec-2] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error org.springframework.dao.InvalidDataAccessApiUsageException: detached entity passed to persist: equipo10.integrador_v01.model.entity.Imagen; nested exception is org.hibernate.PersistentObjectException: detached entity passed to persist: equipo10.integrador_v01.model.entity.Imagen
+DEBUG   2022-08-20 11:54:02,182 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='deportivo'}
+DEBUG   2022-08-20 11:54:10,095 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:54:10,100 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:54:35,339 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Categoría 3
+DEBUG   2022-08-20 11:54:35,339 [http-nio-8080-exec-5] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 3
+DEBUG   2022-08-20 11:54:42,128 [http-nio-8080-exec-7] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:54:42,132 [http-nio-8080-exec-7] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:55:17,034 [http-nio-8080-exec-8] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:55:17,039 [http-nio-8080-exec-8] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:55:23,771 [http-nio-8080-exec-9] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:55:23,779 [http-nio-8080-exec-9] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:55:51,254 [http-nio-8080-exec-10] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:55:51,261 [http-nio-8080-exec-10] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:55:56,269 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Guardando nueva categoría CategoriaDTO{titulo='deportivo'}
+DEBUG   2022-08-20 11:56:13,153 [http-nio-8080-exec-2] equipo10.integrador_v01.service.ICategoriaService  - Categoría 4
+DEBUG   2022-08-20 11:56:13,153 [http-nio-8080-exec-2] equipo10.integrador_v01.service.ICategoriaService  - Eliminando la categoria 4
+DEBUG   2022-08-20 11:56:18,639 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Categoría 3
+ERROR   2022-08-20 11:56:18,641 [http-nio-8080-exec-3] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error equipo10.integrador_v01.exceptions.ResourceNotFoundException: El id no existe
+DEBUG   2022-08-20 11:56:29,692 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:56:29,703 [http-nio-8080-exec-4] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:57:18,251 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Categoría 1
+DEBUG   2022-08-20 11:57:18,274 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Categoria CategoriaDTO{titulo='deportivo'} actualizada
+DEBUG   2022-08-20 11:59:57,509 [http-nio-8080-exec-8] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 11:59:57,514 [http-nio-8080-exec-8] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 12:00:14,898 [http-nio-8080-exec-9] equipo10.integrador_v01.service.ICategoriaService  - Categoría 1
+DEBUG   2022-08-20 12:00:14,900 [http-nio-8080-exec-9] equipo10.integrador_v01.service.ICategoriaService  - Categoría 1
+DEBUG   2022-08-20 12:00:36,054 [http-nio-8080-exec-10] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 12:00:36,059 [http-nio-8080-exec-10] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 12:00:40,509 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Categoría 1
+DEBUG   2022-08-20 12:00:40,512 [http-nio-8080-exec-1] equipo10.integrador_v01.service.ICategoriaService  - Categoría 1
+DEBUG   2022-08-20 12:02:15,213 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 12:02:15,218 [http-nio-8080-exec-3] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+INFO    2022-08-20 12:10:11,873 [http-nio-8080-exec-4] equipo10.integrador_v01.service.IProductoService  - Listado de categorías: 
+INFO    2022-08-20 12:10:11,878 [http-nio-8080-exec-4] equipo10.integrador_v01.service.IProductoService  - Listado de categorías: 
+ERROR   2022-08-20 12:11:38,713 [http-nio-8080-exec-8] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error javax.validation.UnexpectedTypeException: HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'equipo10.integrador_v01.model.entity.Categoria'. Check configuration for 'categoria'
+ERROR   2022-08-20 12:13:35,157 [http-nio-8080-exec-2] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+ERROR   2022-08-20 12:13:42,578 [http-nio-8080-exec-3] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+DEBUG   2022-08-20 12:14:01,511 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+DEBUG   2022-08-20 12:14:01,518 [http-nio-8080-exec-6] equipo10.integrador_v01.service.ICategoriaService  - Listado de categorías
+ERROR   2022-08-20 12:23:25,709 [http-nio-8080-exec-1] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+ERROR   2022-08-20 12:24:32,107 [http-nio-8080-exec-4] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: Not-null property references a transient value - transient instance must be saved before current operation : equipo10.integrador_v01.model.entity.Producto.ciudad -> equipo10.integrador_v01.model.entity.Ciudad; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: Not-null property references a transient value - transient instance must be saved before current operation : equipo10.integrador_v01.model.entity.Producto.ciudad -> equipo10.integrador_v01.model.entity.Ciudad
+ERROR   2022-08-20 12:26:22,236 [http-nio-8080-exec-6] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `equipo10.integrador_v01.model.entity.Ciudad` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (1); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `equipo10.integrador_v01.model.entity.Ciudad` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (1)
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 5, column: 14] (through reference chain: equipo10.integrador_v01.model.dto.ProductoDTO["ciudad"])
+ERROR   2022-08-20 12:32:58,775 [http-nio-8080-exec-8] equipo10.integrador_v01.exceptions.GlobalExceptions  - Error org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: Not-null property references a transient value - transient instance must be saved before current operation : equipo10.integrador_v01.model.entity.Producto.categoria -> equipo10.integrador_v01.model.entity.Categoria; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: Not-null property references a transient value - transient instance must be saved before current operation : equipo10.integrador_v01.model.entity.Producto.categoria -> equipo10.integrador_v01.model.entity.Categoria
