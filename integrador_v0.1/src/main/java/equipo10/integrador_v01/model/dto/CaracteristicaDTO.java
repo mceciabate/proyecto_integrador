@@ -10,10 +10,10 @@ import javax.validation.constraints.NotBlank;
 public class CaracteristicaDTO {
     private Long id;
     @NotBlank(message = "debe incluir un nombre")
-    private Integer nombre;
+    private String nombre;
     private Integer icono;
 
-    public CaracteristicaDTO(Integer nombre, Integer icono) {
+    public CaracteristicaDTO(String nombre, Integer icono) {
         this.nombre = nombre;
         this.icono = icono;
     }

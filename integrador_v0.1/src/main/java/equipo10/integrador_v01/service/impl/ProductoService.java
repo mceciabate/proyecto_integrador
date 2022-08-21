@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.ProductoDTO;
+import equipo10.integrador_v01.model.entity.Caracteristica;
 import equipo10.integrador_v01.model.entity.Producto;
 import equipo10.integrador_v01.repository.IProductoRepository;
 import equipo10.integrador_v01.service.IProductoService;
@@ -82,7 +83,7 @@ public class ProductoService implements IProductoService {
         }else{
             productoActualizado.setTitulo(productoDTO.getTitulo());
             productoActualizado.setDescripcion(productoDTO.getDescripcion());
-            productoActualizado.setCaracteristica(productoDTO.getCaracteristica());
+            productoActualizado.setCaracteristica((productoDTO.getCaracteristicas()));
             productoActualizado.setCiudad(productoDTO.getCiudad());
             productoActualizado.setCategoria(productoDTO.getCategoria());
             log.info("Producto : " + productoActualizado.getId() + " actualizado.");

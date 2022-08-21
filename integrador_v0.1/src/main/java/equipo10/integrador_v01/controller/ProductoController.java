@@ -14,35 +14,39 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+@RestController
+@RequestMapping("/producto")
 public class ProductoController {
 
     @Autowired
     IProductoService productoService;
 
-    @GetMapping
+    @RequestMapping(value = "/listar", method = RequestMethod.GET)
     public ResponseEntity<Set<ProductoDTO>> traerTodosProductos(){
         productoService.listarProductos();
         return ResponseEntity.ok(productoService.listarProductos()
         );
     }
-    @GetMapping("/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<ProductoDTO> buscarProductoPorId(@PathVariable Long id) throws ResourceNotFoundException{
         Optional<ProductoDTO> producto = Optional.ofNullable(productoService.buscarProductosPorId(id));
         if (producto.isPresent()){
             return ResponseEntity.ok(productoService.buscarProductosPorId(id));
         }else throw new ResourceNotFoundException("No se encontro el id solicitado");
     }
-    @PostMapping
-    public ResponseEntity<ProductoDTO> guardarProducto(@Valid @RequestBody ProductoDTO productoDTO){
+    @RequestMapping(value = "/guardar", method = RequestMethod.POST)
+    public ResponseEntity<ProductoDTO> guardarProducto( @RequestBody ProductoDTO productoDTO){
         productoService.guardarProductos(productoDTO);
         return ResponseEntity.ok(productoService.guardarProductos(productoDTO));
     }
-    @DeleteMapping("/{id}")
+
+    //ProductoDTO productoDTO = new ProductoDTO()
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> eliminarProducto(@PathVariable Long id) throws ResourceNotFoundException{
         productoService.eliminarProductos(id);
         return ResponseEntity.ok("Producto: "+ id +" fue eliminado con exito.");
     }
-    @PutMapping("/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> modificarProducto(@PathVariable Long id, @RequestBody ProductoDTO productoDTO) throws ResourceNotFoundException{
         productoService.actualizarProductos(productoDTO);
         return ResponseEntity.ok(HttpStatus.OK);
