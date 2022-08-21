@@ -75,4 +75,5 @@ public class ProductoDTO {
                 ", categoria=" + categoria +
                 '}';
     }
+
 }

@@ -1,5 +1,6 @@
 package equipo10.integrador_v01.controller;
 
+import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.ProductoDTO;
 import equipo10.integrador_v01.service.IProductoService;
@@ -21,32 +22,32 @@ public class ProductoController {
     @Autowired
     IProductoService productoService;
 
-    @RequestMapping(value = "/listar", method = RequestMethod.GET)
+    @GetMapping
     public ResponseEntity<Set<ProductoDTO>> traerTodosProductos(){
         productoService.listarProductos();
         return ResponseEntity.ok(productoService.listarProductos()
         );
     }
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping("/{id}")
     public ResponseEntity<ProductoDTO> buscarProductoPorId(@PathVariable Long id) throws ResourceNotFoundException{
         Optional<ProductoDTO> producto = Optional.ofNullable(productoService.buscarProductosPorId(id));
         if (producto.isPresent()){
             return ResponseEntity.ok(productoService.buscarProductosPorId(id));
         }else throw new ResourceNotFoundException("No se encontro el id solicitado");
     }
-    @RequestMapping(value = "/guardar", method = RequestMethod.POST)
-    public ResponseEntity<ProductoDTO> guardarProducto( @RequestBody ProductoDTO productoDTO){
+    @PostMapping
+    public ResponseEntity<ProductoDTO> guardarProducto( @RequestBody ProductoDTO productoDTO) throws BadRequestException {
         productoService.guardarProductos(productoDTO);
         return ResponseEntity.ok(productoService.guardarProductos(productoDTO));
     }
 
     //ProductoDTO productoDTO = new ProductoDTO()
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping
     public ResponseEntity<?> eliminarProducto(@PathVariable Long id) throws ResourceNotFoundException{
         productoService.eliminarProductos(id);
         return ResponseEntity.ok("Producto: "+ id +" fue eliminado con exito.");
     }
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @PutMapping("/{id}")
     public ResponseEntity<?> modificarProducto(@PathVariable Long id, @RequestBody ProductoDTO productoDTO) throws ResourceNotFoundException{
         productoService.actualizarProductos(productoDTO);
         return ResponseEntity.ok(HttpStatus.OK);

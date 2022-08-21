@@ -32,4 +32,9 @@ public class Imagen {
         this.urlImg = urlImg;
         this.productos = productos;
     }
+
+    public Imagen(String titulo, String urlImg) {
+        this.titulo = titulo;
+        this.urlImg = urlImg;
+    }
 }

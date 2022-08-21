@@ -1,4 +1,4 @@
-package equipo10.integrador_v01.service.impl;
+package equipo10.integrador_v01;
 
 import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
@@ -8,6 +8,7 @@ import equipo10.integrador_v01.model.entity.Categoria;
 import equipo10.integrador_v01.model.entity.Ciudad;
 import equipo10.integrador_v01.model.entity.Imagen;
 import equipo10.integrador_v01.repository.IProductoRepository;
+import equipo10.integrador_v01.service.impl.ProductoService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;

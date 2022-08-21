@@ -1,5 +1,6 @@
 package equipo10.integrador_v01.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,6 +30,7 @@ public class Categoria {
     private Imagen imagenCategoria;
 
     @OneToMany(fetch=FetchType.EAGER, mappedBy = "categoria") //la lista de productos se instancia junto con el resto de los atributos.
+    @JsonIgnore
     private Set<Producto> productos = new HashSet<>();
 
     //constructores

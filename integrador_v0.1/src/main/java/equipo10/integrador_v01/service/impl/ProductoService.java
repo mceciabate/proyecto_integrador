@@ -83,7 +83,7 @@ public class ProductoService implements IProductoService {
         }else{
             productoActualizado.setTitulo(productoDTO.getTitulo());
             productoActualizado.setDescripcion(productoDTO.getDescripcion());
-            productoActualizado.setCaracteristica((productoDTO.getCaracteristicas()));
+            productoActualizado.setCaracteristica((productoDTO.getCaracteristica()));
             productoActualizado.setCiudad(productoDTO.getCiudad());
             productoActualizado.setCategoria(productoDTO.getCategoria());
             log.info("Producto : " + productoActualizado.getId() + " actualizado.");
