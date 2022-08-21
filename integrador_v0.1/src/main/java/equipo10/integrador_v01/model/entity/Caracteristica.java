@@ -22,6 +22,9 @@ public class Caracteristica {
     private Integer icono;
 
     @ManyToMany(mappedBy = "caracteristica")
-    Set<Producto> producto;
+    private Set<Producto> producto;
 
+
+    public Caracteristica() {
+    }
 }

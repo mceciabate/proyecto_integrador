@@ -1,6 +1,7 @@
 package equipo10.integrador_v01.controller;
 
 
+import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.ProductoDTO;
 import equipo10.integrador_v01.model.entity.Producto;
@@ -34,7 +35,7 @@ public class ProductoController {
         } else throw new ResourceNotFoundException("No se encuentra el id");
     }
     @PostMapping
-    public ResponseEntity<ProductoDTO> guardarProducto(@Valid @RequestBody ProductoDTO productoDTO){
+    public ResponseEntity<ProductoDTO> guardarProducto(@Valid @RequestBody ProductoDTO productoDTO) throws BadRequestException {
         productoService.guardarProductos(productoDTO);
         return ResponseEntity.ok(productoService.guardarProductos(productoDTO));
     }

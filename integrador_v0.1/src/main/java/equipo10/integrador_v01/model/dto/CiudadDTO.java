@@ -33,4 +33,7 @@ public class CiudadDTO {
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
+
+    public CiudadDTO() {
+    }
 }

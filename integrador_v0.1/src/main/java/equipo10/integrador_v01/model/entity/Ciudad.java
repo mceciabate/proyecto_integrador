@@ -1,5 +1,6 @@
 package equipo10.integrador_v01.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +23,19 @@ public class Ciudad {
     private String provincia;
 
     @OneToMany(mappedBy = "ciudad")
+    @JsonIgnore
     private Set<Producto> producto;
 
+    public Ciudad() {
+    }
+
+    @Override
+    public String toString() {
+        return "Ciudad: " +
+                "id=" + id +
+                ", localidad='" + localidad + '\'' +
+                ", provincia='" + provincia + '\'' +
+                ", producto=" + producto +
+                '}';
+    }
 }

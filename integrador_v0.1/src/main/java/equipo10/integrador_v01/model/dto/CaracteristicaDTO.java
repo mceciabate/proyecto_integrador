@@ -33,4 +33,7 @@ public class CaracteristicaDTO {
     public void setIcono(Integer icono) {
         this.icono = icono;
     }
+
+    public CaracteristicaDTO() {
+    }
 }

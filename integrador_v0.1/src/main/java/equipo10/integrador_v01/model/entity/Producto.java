@@ -29,28 +29,30 @@ public class Producto {
     private Double longitud; 3
     */
 
-    @ManyToMany
+    @ManyToMany (cascade = CascadeType.ALL)
     @JoinTable(
             name = "PRODUCTO_HAS_IMAGEN",
             joinColumns = @JoinColumn(name = "PRODUCTO_ID"),
             inverseJoinColumns = @JoinColumn(name = "IMAGEN_ID"))
+    @JsonIgnore
     private Set<Imagen> imagen = new HashSet<>();
 
-    @ManyToMany
+    @ManyToMany (cascade = CascadeType.ALL)
     @JoinTable(
             name = "PRODUCTO_HAS_CARACTERISTICA",
             joinColumns = @JoinColumn(name = "PRODUCTO_ID"),
             inverseJoinColumns = @JoinColumn(name = "CARACTERISTICA_ID"))
+    @JsonIgnore
     private Set<Caracteristica> caracteristica = new HashSet<>();
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(
             name = "CIUDAD_ID",
             referencedColumnName = "ID",
             nullable = false)
     private Ciudad ciudad;
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(
             name = "CATEGORIA_ID",
             referencedColumnName = "ID",
@@ -63,4 +65,25 @@ public class Producto {
     private Set<Puntuacion> puntuacion = new HashSet<>();
     */
 
+    public Producto() {
+    }
+
+    public Producto(String titulo, String descripcion, Set<Imagen> imagen, Set<Caracteristica> caracteristica, Ciudad ciudad, Categoria categoria) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
+        this.caracteristica = caracteristica;
+        this.ciudad = ciudad;
+        this.categoria = categoria;
+    }
+
+    public Producto(Long id, String titulo, String descripcion, Set<Imagen> imagen, Set<Caracteristica> caracteristica, Ciudad ciudad, Categoria categoria) {
+        this.id = id;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
+        this.caracteristica = caracteristica;
+        this.ciudad = ciudad;
+        this.categoria = categoria;
+    }
 }

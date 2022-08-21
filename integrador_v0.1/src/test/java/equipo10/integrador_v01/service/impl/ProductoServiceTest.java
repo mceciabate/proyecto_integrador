@@ -1,7 +1,12 @@
 package equipo10.integrador_v01.service.impl;
 
+import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
-import equipo10.integrador_v01.model.dto.ProductoDTO;
+import equipo10.integrador_v01.model.dto.*;
+import equipo10.integrador_v01.model.entity.Caracteristica;
+import equipo10.integrador_v01.model.entity.Categoria;
+import equipo10.integrador_v01.model.entity.Ciudad;
+import equipo10.integrador_v01.model.entity.Imagen;
 import equipo10.integrador_v01.repository.IProductoRepository;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -13,6 +18,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
+import java.util.HashSet;
 import java.util.Set;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -27,11 +33,14 @@ public class ProductoServiceTest {
 
 
         @Test
-        public void aGuardarProductoTest() {
-            ProductoDTO ProductoDTO1 = new ProductoDTO("titulo1", "descrip1");
-            productoService.guardarProductos(ProductoDTO1);
-
-            Assert.assertEquals(ProductoDTO1.getTitulo(), productoRepository.findById(1L).get().getTitulo());
+        public void aGuardarProductoTest() throws BadRequestException {
+            Set<Imagen> imagen = new HashSet<>();
+            Set<Caracteristica> caracteristicas = new HashSet<>();
+            Ciudad ciudad = new Ciudad();
+            Categoria categoria = new Categoria();
+            ProductoDTO productoDTO = new ProductoDTO("titulo", "descrip", imagen, caracteristicas, ciudad, categoria);
+            productoService.guardarProductos(productoDTO);
+            Assert.assertEquals(productoDTO.getTitulo(), productoRepository.findById(1L).get().getTitulo());
         }
 
         @Test
@@ -40,34 +49,50 @@ public class ProductoServiceTest {
             Assert.assertTrue(productoRepository.findById(1L).isEmpty());
         }
         @Test
-        public void cListarCategoriaTest() {
-            ProductoDTO productoDTO2 = new ProductoDTO("titulo2", "descrip2");
-            productoService.guardarProductos(productoDTO2);
+        public void cListarCategoriaTest() throws BadRequestException {
+            Set<Imagen> imagen1 = new HashSet<>();
+            Set<Caracteristica> caracteristicas1 = new HashSet<>();
+            Ciudad ciudad1 = new Ciudad();
+            Categoria categoria1 = new Categoria();
+            ProductoDTO productoDTO1 = new ProductoDTO("titulo1", "descrip1", imagen1, caracteristicas1, ciudad1, categoria1);
+            productoService.guardarProductos(productoDTO1);
 
-            ProductoDTO productoDTO3 = new ProductoDTO("titulo3", "descrip3");
-            productoService.guardarProductos(productoDTO3);
+            Set<Imagen> imagen2 = new HashSet<>();
+            Set<Caracteristica> caracteristicas2 = new HashSet<>();
+            Ciudad ciudad2 = new Ciudad();
+            Categoria categoria2 = new Categoria();
+            ProductoDTO productoDTO2 = new ProductoDTO("titulo2", "descrip2", imagen2, caracteristicas2, ciudad2, categoria2);
+            productoService.guardarProductos(productoDTO2);
 
             Set<ProductoDTO> listaProductosEncontrados = productoService.listarProductos();
 
             Assert.assertEquals(2, listaProductosEncontrados.size());
         }
         @Test
-        public void dBuscarCategoriaPorIdTest() {
-            ProductoDTO productoDTO4 = new ProductoDTO("titulo4", "descrip4");
+        public void dBuscarCategoriaPorIdTest() throws BadRequestException {
+            Set<Imagen> imagen4 = new HashSet<>();
+            Set<Caracteristica> caracteristicas4 = new HashSet<>();
+            Ciudad ciudad4 = new Ciudad();
+            Categoria categoria4 = new Categoria();
+            ProductoDTO productoDTO4 = new ProductoDTO("titulo4", "descrip4", imagen4, caracteristicas4, ciudad4, categoria4);
             productoService.guardarProductos(productoDTO4);
 
             Assert.assertEquals(productoDTO4.getTitulo(), productoService.buscarProductosPorId(4L).getTitulo());
         }
 
         @Test
-        public void eActualizarCategoriaTest() {
-            ProductoDTO productoDTO5 = new ProductoDTO("titulo5", "decrip5");
+        public void eActualizarCategoriaTest() throws BadRequestException, ResourceNotFoundException {
+            Set<Imagen> imagen5 = new HashSet<>();
+            Set<Caracteristica> caracteristicas5 = new HashSet<>();
+            Ciudad ciudad5 = new Ciudad();
+            Categoria categoria5 = new Categoria();
+            ProductoDTO productoDTO5 = new ProductoDTO("titulo5", "descrip5", imagen5, caracteristicas5, ciudad5, categoria5);
             productoService.guardarProductos(productoDTO5);
 
-            ProductoDTO productoDTO6 = new ProductoDTO("titulo6", "descrip6");
-            productoService.guardarProductos(productoDTO6);
+            ProductoDTO productoDTO5M = new ProductoDTO(5L, "tituloMODIFICADO", "descrip5", imagen5, caracteristicas5, ciudad5, categoria5);
+            productoService.actualizarProductos(productoDTO5M);
 
-            Assert.assertEquals("titulo5 Modif", productoRepository.findById(5L).get().getTitulo());
+            Assert.assertEquals("tituloMODIFICADO", productoRepository.findById(5L).get().getTitulo());
         }
 
 

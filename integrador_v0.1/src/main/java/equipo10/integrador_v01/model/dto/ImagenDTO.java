@@ -35,4 +35,7 @@ public class ImagenDTO {
     public void setUrlImg(String urlImg) {
         this.urlImg = urlImg;
     }
+
+    public ImagenDTO() {
+    }
 }

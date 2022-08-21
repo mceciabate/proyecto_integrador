@@ -50,6 +50,9 @@ public class CategoriaDTO {
         this.urlImg = urlImg;
     }
 
+    public CategoriaDTO() {
+    }
+
     @Override
     public String toString() {
         return "CategoriaDTO{" +
