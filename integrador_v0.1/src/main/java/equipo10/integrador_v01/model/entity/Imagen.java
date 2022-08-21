@@ -12,12 +12,9 @@ import java.util.Set;
 public class Imagen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ID")
-    private Long id;
 
-    @Column(name="TITULO")
+    private Long id;
     private String titulo;
-    @Column(name="URL")
     private String urlImg;
 
     @ManyToMany(fetch=FetchType.EAGER, mappedBy = "imagen")
