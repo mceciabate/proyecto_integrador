@@ -25,4 +25,7 @@ public class ImagenDTO {
                 "titulo='" + titulo + '\'' +
                 '}';
     }
+
+    public ImagenDTO() {
+    }
 }

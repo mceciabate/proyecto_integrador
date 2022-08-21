@@ -1,55 +1,35 @@
 package equipo10.integrador_v01.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
-@Entity
-@Getter
-@Setter
-@Table
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Entity @Getter  @Setter
+@Table(name = "IMAGEN")
 public class Imagen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column(name="ID")
     private Long id;
-    @Column
+
+    @Column(name="TITULO")
     private String titulo;
-    @Column
+    @Column(name="URL")
     private String urlImg;
+
+    @ManyToMany(fetch=FetchType.EAGER, mappedBy = "imagen")
+    @JsonIgnore
+    private Set<Producto> productos;
 
     public Imagen() {
     }
 
-    public Imagen(String titulo, String urlImg) {
+    public Imagen(String titulo, String urlImg, Set<Producto> productos) {
         this.titulo = titulo;
         this.urlImg = urlImg;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getUrlImg() {
-        return urlImg;
-    }
-
-    public void setUrlImg(String urlImg) {
-        this.urlImg = urlImg;
+        this.productos = productos;
     }
 }

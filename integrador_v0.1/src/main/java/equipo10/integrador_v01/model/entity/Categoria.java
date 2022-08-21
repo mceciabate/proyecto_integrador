@@ -1,6 +1,5 @@
 package equipo10.integrador_v01.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,22 +8,21 @@ import java.util.Set;
 
 //Mapear los atributos de la tabla “categorías” con una clase de nuestro modelo.
 @Entity // El ORM hibernate va a leer esto como bdd
-@Table
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name = "CATEGORIA")
 @Getter
 @Setter
 public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //id autoincremental
+    @Column(name = "ID")
     private Long id;
-
+    @Column(name = "TITULO")
     private String titulo;
+    @Column(name = "DESCRIPCION")
     private String descripcion;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "imagen_id", referencedColumnName = "id")
-    private Imagen imagenCategoria;
+    @Column(name = "URL_IMG")
+    private String urlImg;
 
     @OneToMany(fetch=FetchType.EAGER, mappedBy = "categoria") //la lista de productos se instancia junto con el resto de los atributos.
     private Set<Producto> producto;
@@ -33,17 +31,17 @@ public class Categoria {
     public Categoria() {
     }
 
-    public Categoria(String titulo, String descripcion, Imagen imagenCategoria) {
+    public Categoria(String titulo, String descripcion, String urlImg) {
         this.titulo = titulo;
         this.descripcion = descripcion;
-        this.imagenCategoria = imagenCategoria;
+        this.urlImg = urlImg;
     }
 
-    public Categoria(Long id, String titulo, String descripcion, Imagen imagenCategoria) {
+    public Categoria(Long id, String titulo, String descripcion, String urlImg) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
-        this.imagenCategoria = imagenCategoria;
+        this.urlImg = urlImg;
     }
 
     @Override

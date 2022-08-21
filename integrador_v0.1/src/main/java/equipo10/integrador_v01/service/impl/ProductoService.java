@@ -1,6 +1,7 @@
 package equipo10.integrador_v01.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.ProductoDTO;
 import equipo10.integrador_v01.model.entity.Producto;
@@ -33,7 +34,7 @@ public class ProductoService implements IProductoService {
         for(Producto producto: listaProductos){
             listaProductosDTO.add(mapper.convertValue(producto, ProductoDTO.class));
         }
-        log.info("Listado de categorías: ");
+        log.info("Listado de categorías: "+listaProductos.toString());
         return listaProductosDTO;
     }
 
@@ -44,16 +45,22 @@ public class ProductoService implements IProductoService {
         if(producto.isPresent())
             productoDTO=mapper.convertValue(producto, ProductoDTO.class);
 
-        log.info("Producto: " + id);
+        log.info("Producto: " + id + productoDTO.toString());
         return productoDTO;
     }
 
     @Override
-    public ProductoDTO guardarProductos(ProductoDTO productoDTO) {
-        Producto productoAGuardar = mapper.convertValue(productoDTO, Producto.class);
-        productoRepository.save(productoAGuardar);
-        log.info("Guardando nuevo producto: ");
-        return productoDTO;
+    public ProductoDTO guardarProductos(ProductoDTO productoDTO) throws BadRequestException {
+        if(productoDTO.getImagen() == null || productoDTO.getCaracteristica() == null || productoDTO.getCiudad() == null || productoDTO.getCategoria() == null){
+            throw new BadRequestException("No se pudo guardar el producto");
+        } else {
+            Producto productoAGuardar = mapper.convertValue(productoDTO, Producto.class);
+            productoRepository.save(productoAGuardar);
+            log.info("Guardando nuevo producto: " +productoDTO.toString());
+            return productoDTO;
+        }
+
+
     }
 
     @Override
@@ -78,6 +85,7 @@ public class ProductoService implements IProductoService {
             productoActualizado.setCaracteristica(productoDTO.getCaracteristica());
             productoActualizado.setCiudad(productoDTO.getCiudad());
             productoActualizado.setCategoria(productoDTO.getCategoria());
+            log.info("Producto : " + productoActualizado.getId() + " actualizado.");
             productoRepository.saveAndFlush(productoActualizado);
         }
     }

@@ -25,4 +25,7 @@ public class CiudadDTO {
                 "localidad='" + localidad + '\'' +
                 '}';
     }
+
+    public CiudadDTO() {
+    }
 }

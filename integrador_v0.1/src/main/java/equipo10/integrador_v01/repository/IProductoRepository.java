@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository //le aviso que voy a usar el repo de hibernate en la tabla de categorias
 public interface IProductoRepository extends JpaRepository<Producto, Long> {
+
 }
