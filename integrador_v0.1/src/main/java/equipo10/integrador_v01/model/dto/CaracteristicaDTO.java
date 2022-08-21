@@ -1,7 +1,15 @@
 package equipo10.integrador_v01.model.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.validation.constraints.NotBlank;
+
+@Getter
+@Setter
 public class CaracteristicaDTO {
     private Long id;
+    @NotBlank(message = "debe incluir un nombre")
     private Integer nombre;
     private Integer icono;
 
@@ -10,30 +18,10 @@ public class CaracteristicaDTO {
         this.icono = icono;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(Integer nombre) {
-        this.nombre = nombre;
-    }
-
-    public Integer getIcono() {
-        return icono;
-    }
-
-    public void setIcono(Integer icono) {
-        this.icono = icono;
-    }
-
-    public CaracteristicaDTO() {
+    @Override
+    public String toString() {
+        return "CaracteristicaDTO{" +
+                "nombre=" + nombre +
+                '}';
     }
 }
