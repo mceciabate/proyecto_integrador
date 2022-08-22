@@ -1,0 +1,10 @@
+[
+  {"id": 1, "img": "lujosos.png", "caption":"Lujo",
+  "total":"807.105"},
+  {"id": 2, "img": "deportivos.png", "caption":"Deportivo",
+  "total":"807.105"},
+  {"id": 3, "img": "economicos.png", "caption":"Economico",
+  "total":"807.105"},
+  {"id": 4, "img": "ecologicos.png", "caption":"Ecologico",
+  "total":"807.105"}
+]
