@@ -57,6 +57,8 @@ public class ProductoService implements IProductoService {
         } else {
             Producto productoAGuardar = mapper.convertValue(productoDTO, Producto.class);
             productoRepository.save(productoAGuardar);
+         //   productoAGuardar.setImagen(productoDTO.getImagen());
+         //   productoAGuardar.setId(productoDTO.getId());
             log.info("Guardando nuevo producto: " +productoDTO.toString());
             return productoDTO;
         }

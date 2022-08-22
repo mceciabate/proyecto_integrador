@@ -13,7 +13,6 @@ public class CategoriaDTO {
     private String titulo;
     @NotBlank(message = "debe incluir una descripción")
     private String descripcion;
-
     private Imagen imagenCategoria;
 
     public CategoriaDTO(String titulo, String descripcion, Imagen imagenCategoria) {

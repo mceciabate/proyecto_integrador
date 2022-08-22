@@ -72,7 +72,7 @@ public class CategoriaService implements ICategoriaService {
             Categoria categoriaOp = categoriaOptional.get();
             categoriaOp.setDescripcion(categoriaDTO.getDescripcion());
             categoriaOp.setTitulo(categoriaDTO.getTitulo());
-            categoriaOp.setImagenCategoria(categoriaDTO.getImagenCategoria());
+            categoriaOp.setImagenCategoria(categoriaOp.getImagenCategoria());
             categoriaRepository.saveAndFlush(categoriaOp);
         }
         log.debug("Categoria " + categoriaDTO.toString() + " actualizada");

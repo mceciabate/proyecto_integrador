@@ -54,13 +54,15 @@ public class Producto {
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(
-            name = "ciudad_id")
+            name = "ciudad_id",
+            referencedColumnName = "id")
     private Ciudad ciudad;
 
     @JsonIgnore
     @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(
-            name = "categoria_id")
+            name = "categoria_id",
+            referencedColumnName = "id")
     private Categoria categoria;
 
     public Producto() {

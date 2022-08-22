@@ -1,14 +1,11 @@
 package equipo10.integrador_v01.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 //Mapear los atributos de la tabla “categorías” con una clase de nuestro modelo.
@@ -25,7 +22,7 @@ public class Categoria {
     private String titulo;
     private String descripcion;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "imagen_id", referencedColumnName = "id")
     private Imagen imagenCategoria;
 
@@ -41,8 +38,6 @@ public class Categoria {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.imagenCategoria = imagenCategoria;
-
-
     }
 
     @Override
