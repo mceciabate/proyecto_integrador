@@ -1,5 +1,7 @@
 package equipo10.integrador_v01.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,7 +19,8 @@ public class Politica {
 
     private String titulo;
     private String descripcion;
-
+    @JsonBackReference
+    @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
     @ManyToMany(mappedBy = "politica")
     Set<Producto> producto;
 

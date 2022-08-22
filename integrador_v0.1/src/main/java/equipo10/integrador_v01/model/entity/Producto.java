@@ -2,6 +2,7 @@ package equipo10.integrador_v01.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -44,7 +45,9 @@ public class Producto {
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "caracteristica_id"))
     private Set<Caracteristica> caracteristica = new HashSet<>();
-    @JsonIgnore
+    @JsonManagedReference
+    @JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"}, allowSetters = true)
+
     @ManyToMany
     @JoinTable(
             name = "producto_has_politica",
