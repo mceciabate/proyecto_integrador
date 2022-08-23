@@ -3,22 +3,20 @@ package equipo10.integrador_v01.service.impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
-import equipo10.integrador_v01.model.dto.CategoriaDTO;
 import equipo10.integrador_v01.model.dto.ProductoDTO;
-<<<<<<< HEAD
+import equipo10.integrador_v01.model.entity.Categoria;
+import equipo10.integrador_v01.model.entity.Ciudad;
 import equipo10.integrador_v01.model.entity.Producto;
-import equipo10.integrador_v01.repository.IProductoRepository;
-=======
-import equipo10.integrador_v01.model.entity.*;
 import equipo10.integrador_v01.repository.*;
-import equipo10.integrador_v01.service.ICiudadService;
->>>>>>> 84a7b5e9610859b6466762817f633cc01719dedc
 import equipo10.integrador_v01.service.IProductoService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class ProductoService implements IProductoService {
