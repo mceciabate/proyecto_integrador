@@ -25,6 +25,7 @@ import ProductGallery from "./ProductGallery";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
 import { Rating } from 'react-simple-star-rating'
+import { Wrapper, Status } from "@googlemaps/react-wrapper"
 
 const Product = ({ product }) => {
   const getWindowSize = () => {
@@ -59,6 +60,9 @@ const Product = ({ product }) => {
   };
   const hanldeRating = (rate) => {
     setRating(rate)
+  }
+  const render = (status) => {
+    return <h1>{status}</h1>
   }
   return (
     <ProductContainer>
