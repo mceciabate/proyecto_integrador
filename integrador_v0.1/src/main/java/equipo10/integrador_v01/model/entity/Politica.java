@@ -19,9 +19,9 @@ public class Politica {
 
     private String titulo;
     private String descripcion;
-    @JsonBackReference
-    @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
+  //  @JsonBackReference
+  //  @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
     @ManyToMany(mappedBy = "politica")
-    Set<Producto> producto;
+    private Set<Producto> producto;
 
 }

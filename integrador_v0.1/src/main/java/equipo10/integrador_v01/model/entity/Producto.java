@@ -45,9 +45,9 @@ public class Producto {
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "caracteristica_id"))
     private Set<Caracteristica> caracteristica = new HashSet<>();
-    @JsonManagedReference
-    @JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"}, allowSetters = true)
-
+   // @JsonManagedReference
+    // @JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"}, allowSetters = true)
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "producto_has_politica",

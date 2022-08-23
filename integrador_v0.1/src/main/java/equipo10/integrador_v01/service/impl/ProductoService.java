@@ -3,9 +3,16 @@ package equipo10.integrador_v01.service.impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
+import equipo10.integrador_v01.model.dto.CategoriaDTO;
 import equipo10.integrador_v01.model.dto.ProductoDTO;
+<<<<<<< HEAD
 import equipo10.integrador_v01.model.entity.Producto;
 import equipo10.integrador_v01.repository.IProductoRepository;
+=======
+import equipo10.integrador_v01.model.entity.*;
+import equipo10.integrador_v01.repository.*;
+import equipo10.integrador_v01.service.ICiudadService;
+>>>>>>> 84a7b5e9610859b6466762817f633cc01719dedc
 import equipo10.integrador_v01.service.IProductoService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +28,17 @@ public class ProductoService implements IProductoService {
     //Inyección de dependencias
     @Autowired
     IProductoRepository productoRepository;
+    @Autowired
+    IImagenRepository imagenRepository;
+    @Autowired
+    ICaracteristicaRepository caracteristicaRepository;
+    @Autowired
+    IPoliticaRepository politicaRepository;
+    @Autowired
+    ICiudadRepository ciudadRepository;
+    @Autowired
+    ICategoriaRepository categoriaRepository;
+
 
     @Autowired
     ObjectMapper mapper;
@@ -60,15 +78,16 @@ public class ProductoService implements IProductoService {
             throw new BadRequestException("No se pudo guardar el producto");
         } else {
             Producto productoAGuardar = mapper.convertValue(productoDTO, Producto.class);
+            Ciudad ciudadSeteada = ciudadRepository.findById(productoAGuardar.getCiudad().getId()).get();
+            Categoria categoriaSeteada = categoriaRepository.findById(productoAGuardar.getCategoria().getId()).get();
+            productoAGuardar.setCiudad(ciudadSeteada);
+            productoAGuardar.setCategoria(categoriaSeteada);
             productoRepository.save(productoAGuardar);
-         //   productoAGuardar.setImagen(productoDTO.getImagen());
-         //   productoAGuardar.setId(productoDTO.getId());
             log.info("Guardando nuevo producto: " +productoDTO.toString());
-            return productoDTO;
+            return mapper.convertValue(productoAGuardar, ProductoDTO.class);
+
         }
-
-
-    }
+   }
 
     @Override
     public void eliminarProductos(Long id) throws ResourceNotFoundException {
