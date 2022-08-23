@@ -9,6 +9,7 @@ import {
   ImageContainer,
   DescriptionContainer,
   FeaturesContainer,
+  MyH2,
   CalendarContainer,
   CalendarSection,
   CalendarItem,
@@ -122,14 +123,14 @@ const Product = ({ product }) => {
           <p>wifi</p>
         </div>
       </FeaturesContainer>
+      <MyH2>Fechas disponibles</MyH2>
       <CalendarContainer>
         <Calendar
-          showDoubleView={windowSize.innerWidth > 480 ? true : false}
+          showDoubleView={windowSize.innerWidth > 500 ? true : false}
           next2Label={null}
           prev2Label={null}
         />
         <CalendarSection>
-          <h2>Fechas disponibles</h2>
           <CalendarItem>
             <h3>Agregá tus fechas de viaje para obtener precios exactos</h3>
             <button>Iniciar reserva</button>

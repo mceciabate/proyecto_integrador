@@ -8,12 +8,12 @@ export const HeaderC = styled.header`
   width: 100vw;
   height: 8vh;
   background-color: transparent;
-  @media (max-width: 770px) {
+  @media (max-width: 800px) {
     height: 10vh;
     justify-content: space-around;
     padding-top: 10px;
   }
-  @media only screen and (max-width: 482px) {
+  @media only screen and (max-width: 500px) {
     display: none;
   }
 `;

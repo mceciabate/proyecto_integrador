@@ -14,7 +14,7 @@ export const SearchContainer = styled.div`
     width: 336px;
     padding: 10px;
     text-align: center;
-    @media only screen and (max-width: 770px) {
+    @media only screen and (max-width: 800px) {
       grid-row: 1 / 4;
   }
   }
@@ -36,11 +36,11 @@ export const SearchForm = styled.form`
   border: 1px solid #dfe4ea;
   top: auto;
   bottom: 100%;
-  @media only screen and (max-width: 770px) {
+  @media only screen and (max-width: 800px) {
     height: 110px;
     width: 90vw;
   }
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 500px) {
     height: max-content;
     flex-direction: column;
     gap: 5px;
@@ -65,10 +65,10 @@ export const SearchSelect = styled.select`
     font-size: 16px;
     line-height: 20px;
   }
-  @media only screen and (max-width: 770px) {
-    width: 60px;
+  @media only screen and (max-width: 800px) {
+    width: 130px;
   }
-  @media only screen and (max-width: 482px) {
+  @media only screen and (max-width: 500px) {
     width: 90%;
   }
 `;
@@ -87,7 +87,7 @@ export const SearchButton = styled.button`
   margin: 10px 0px 10px;
   margin-right: 32px;
   cursor: pointer;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 500px) {
     width: 90%;
     margin: 10px;
   }
@@ -104,12 +104,12 @@ export const CalendarButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  @media (max-width: 482px) {
+  @media (max-width: 500px) {
     width: 90%;
     justify-content: center;
   }
   .icon {
-    @media (max-width: 482px) {
+    @media (max-width: 500px) {
       position: absolute;
       left: 80px;
     }
@@ -119,7 +119,7 @@ export const CalendarButton = styled.button`
 export const CalendarDiv = styled.div`
   position: relative;
   top: -120px;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 500px) {
     margin-left: 0;
     width: 50vw;
     align-self: center;
@@ -135,7 +135,7 @@ export const CalendarDiv = styled.div`
     right: -25px;
     position: relative;
   }
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
     width: 90%;
   }
   `

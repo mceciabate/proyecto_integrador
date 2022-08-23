@@ -20,7 +20,7 @@ export const LoginXButton = styled.button`
   margin-right: 50px;
   margin-top: 50px;
   cursor: pointer;
-  @media only screen and (max-width: 770px) {
+  @media only screen and (max-width: 800px) {
     margin-top: 20px;
     margin-right: 20px;
 
@@ -45,10 +45,10 @@ export const FormDiv = styled.div`
     font-size: 24px;
     line-height: 28px;
   }
-  @media only screen and (max-width: 770px) {
+  @media only screen and (max-width: 800px) {
     margin-top: 20px;
   }
-  @media only screen and (max-width: 482px) {
+  @media only screen and (max-width: 500px) {
     width: 80vw;
   }
 `;
@@ -71,12 +71,12 @@ export const FormDiv2 = styled.div`
     font-size: 24px;
     line-height: 28px;
   }
-  @media only screen and (max-width: 770px) {
+  @media only screen and (max-width: 800px) {
     margin-top: 20px;
     height: 480px;
     margin-bottom: 20px;
   }
-  @media only screen and (max-width: 4820px) {
+  @media only screen and (max-width: 500px) {
     width: 80vw;
   }
 `;
@@ -90,7 +90,7 @@ export const UserForm = styled.form`
   label {
     width: 448px;
     margin: 10px;
-    @media only screen and (max-width: 770px) {
+    @media only screen and (max-width: 800px) {
     width: 70vw;
   }
     input {

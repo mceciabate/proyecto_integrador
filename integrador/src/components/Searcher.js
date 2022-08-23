@@ -36,7 +36,7 @@ const Searcher = () => {
       <BsFillPinMapFill className="icon"/>
         <SearchSelect required>
           <option value="S">
-            Lugar de recogida
+            Recogida
           </option>
           {cities.map((city) => (
             <option key={city.id} value={city.value}>
@@ -48,7 +48,7 @@ const Searcher = () => {
         <IconSelect>
         <BsFillPinMapFill className="icon" />
         <SearchSelect required>
-          <option value="S">Lugar de entrega</option>
+          <option value="S">Entrega</option>
           {cities.map((city) => (
             <option key={city.id} value={city.value}>
               <Icon icon="akar-icons:twitter-fill" />
