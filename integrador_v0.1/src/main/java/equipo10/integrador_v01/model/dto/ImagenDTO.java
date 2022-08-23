@@ -1,12 +1,14 @@
 package equipo10.integrador_v01.model.dto;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class ImagenDTO {
     private Long id;
     @NotBlank(message = "debe incluir un titulo")
@@ -26,6 +28,5 @@ public class ImagenDTO {
                 '}';
     }
 
-    public ImagenDTO() {
-    }
+
 }

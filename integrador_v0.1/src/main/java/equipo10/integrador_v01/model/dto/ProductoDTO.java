@@ -5,6 +5,7 @@ import equipo10.integrador_v01.model.entity.Categoria;
 import equipo10.integrador_v01.model.entity.Ciudad;
 import equipo10.integrador_v01.model.entity.Imagen;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
@@ -12,6 +13,7 @@ import java.util.Set;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class ProductoDTO {
     private Long id;
 
@@ -41,8 +43,7 @@ public class ProductoDTO {
     //constructores
 
 
-    public ProductoDTO() {
-    }
+
 
     public ProductoDTO(String titulo, String descripcion, Set<Imagen> imagen, Set<Caracteristica> caracteristica, Ciudad ciudad, Categoria categoria) {
         this.titulo = titulo;
@@ -65,15 +66,8 @@ public class ProductoDTO {
 
     @Override
     public String toString() {
-        return "Producto " +
-                "id=" + id +
-                ", titulo='" + titulo + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", imagen=" + imagen +
-                ", caracteristica=" + caracteristica +
-                ", ciudad=" + ciudad +
-                ", categoria=" + categoria +
+        return "ProductoDTO{" +
+                "titulo='" + titulo + '\'' +
                 '}';
     }
-
 }

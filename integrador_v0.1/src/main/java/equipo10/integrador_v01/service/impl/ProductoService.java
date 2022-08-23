@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.ProductoDTO;
-import equipo10.integrador_v01.model.entity.Caracteristica;
 import equipo10.integrador_v01.model.entity.Producto;
 import equipo10.integrador_v01.repository.IProductoRepository;
 import equipo10.integrador_v01.service.IProductoService;
@@ -28,16 +27,21 @@ public class ProductoService implements IProductoService {
 
 
     //sobreescribo el CRUD
-    @Override
-    public Set<ProductoDTO> listarProductos() {
+
+
+
+
+    public List<T> listarProductos() {
         Set<ProductoDTO> listaProductosDTO = new HashSet<>();
         List<Producto> listaProductos = productoRepository.findAll();
         for(Producto producto: listaProductos){
             listaProductosDTO.add(mapper.convertValue(producto, ProductoDTO.class));
         }
         log.info("Listado de categorías: "+listaProductos.toString());
-        return listaProductosDTO;
+        return (List<ProductoDTO>) listaProductosDTO;
     }
+
+
 
     @Override
     public ProductoDTO buscarProductosPorId(Long id) {
