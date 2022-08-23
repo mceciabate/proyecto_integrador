@@ -31,14 +31,14 @@ public class ProductoService implements IProductoService {
 
 
 
-    public List<T> listarProductos() {
+    public Set<ProductoDTO> listarProductos() {
         Set<ProductoDTO> listaProductosDTO = new HashSet<>();
         List<Producto> listaProductos = productoRepository.findAll();
         for(Producto producto: listaProductos){
             listaProductosDTO.add(mapper.convertValue(producto, ProductoDTO.class));
         }
         log.info("Listado de categorías: "+listaProductos.toString());
-        return (List<ProductoDTO>) listaProductosDTO;
+        return listaProductosDTO;
     }
 
 
