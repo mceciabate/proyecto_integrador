@@ -21,8 +21,7 @@ public class CategoriaService implements ICategoriaService {
     //repository de hibernate (donde esta todos los metodos)
     @Autowired
     ICategoriaRepository categoriaRepository;
-    @Autowired
-    private IImagenRepository imagenRespository;
+
     final static Logger log = Logger.getLogger(ICategoriaService.class);
 
     @Autowired
@@ -72,7 +71,7 @@ public class CategoriaService implements ICategoriaService {
             Categoria categoriaOp = categoriaOptional.get();
             categoriaOp.setDescripcion(categoriaDTO.getDescripcion());
             categoriaOp.setTitulo(categoriaDTO.getTitulo());
-            categoriaOp.setImagenCategoria(categoriaDTO.getImagenCategoria());
+            categoriaOp.setImagenCategoria(categoriaOp.getImagenCategoria());
             categoriaRepository.saveAndFlush(categoriaOp);
         }
         log.debug("Categoria " + categoriaDTO.toString() + " actualizada");

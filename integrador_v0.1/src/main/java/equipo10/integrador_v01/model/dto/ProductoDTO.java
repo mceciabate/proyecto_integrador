@@ -1,10 +1,8 @@
 package equipo10.integrador_v01.model.dto;
 
-import equipo10.integrador_v01.model.entity.Caracteristica;
-import equipo10.integrador_v01.model.entity.Categoria;
-import equipo10.integrador_v01.model.entity.Ciudad;
-import equipo10.integrador_v01.model.entity.Imagen;
+import equipo10.integrador_v01.model.entity.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
@@ -12,6 +10,7 @@ import java.util.Set;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class ProductoDTO {
     private Long id;
 
@@ -27,6 +26,9 @@ public class ProductoDTO {
     @NotBlank(message = "debe incluir caracteristica")
     private Set<Caracteristica> caracteristica;
 
+    @NotBlank(message = "debe incluir politicas")
+    private Set<Politica> politica;
+
     @NotBlank(message = "debe incluir una ciudad")
     private Ciudad ciudad;
 
@@ -41,39 +43,33 @@ public class ProductoDTO {
     //constructores
 
 
-    public ProductoDTO() {
-    }
 
-    public ProductoDTO(String titulo, String descripcion, Set<Imagen> imagen, Set<Caracteristica> caracteristica, Ciudad ciudad, Categoria categoria) {
+
+    public ProductoDTO(String titulo, String descripcion, Set<Imagen> imagen, Set<Caracteristica> caracteristica, Set<Politica> politica, Ciudad ciudad, Categoria categoria) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.imagen = imagen;
         this.caracteristica = caracteristica;
+        this.politica = politica;
         this.ciudad = ciudad;
         this.categoria = categoria;
     }
 
-    public ProductoDTO(Long id, String titulo, String descripcion, Set<Imagen> imagen, Set<Caracteristica> caracteristica, Ciudad ciudad, Categoria categoria) {
+    public ProductoDTO(Long id, String titulo, String descripcion, Set<Imagen> imagen, Set<Caracteristica> caracteristica, Set<Politica> politica, Ciudad ciudad, Categoria categoria) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.imagen = imagen;
         this.caracteristica = caracteristica;
+        this.politica = politica;
         this.ciudad = ciudad;
         this.categoria = categoria;
     }
 
     @Override
     public String toString() {
-        return "Producto " +
-                "id=" + id +
-                ", titulo='" + titulo + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", imagen=" + imagen +
-                ", caracteristica=" + caracteristica +
-                ", ciudad=" + ciudad +
-                ", categoria=" + categoria +
+        return "ProductoDTO{" +
+                "titulo='" + titulo + '\'' +
                 '}';
     }
-
 }

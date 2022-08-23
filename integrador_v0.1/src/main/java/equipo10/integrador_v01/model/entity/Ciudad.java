@@ -18,7 +18,6 @@ public class Ciudad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
-
     @Column
     private String localidad;
     @Column
