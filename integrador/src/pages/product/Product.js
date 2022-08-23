@@ -23,20 +23,15 @@ import "react-date-range/dist/theme/default.css";
 import ProductGallery from "./ProductGallery";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
+import { Rating } from 'react-simple-star-rating'
 
 const Product = ({ product }) => {
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerWidth, innerHeight };
   };
+  const [rating, setRating] = useState(0)
   const [windowSize, setWindowSize] = useState(getWindowSize());
-  const [date, setDate] = useState([
-    {
-      startDate: new Date(),
-      endDate: null,
-      key: "selection",
-    },
-  ]);
   const [showModal, setShowModal] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
@@ -61,8 +56,9 @@ const Product = ({ product }) => {
     setCurrentIndex(index);
     setShowModal(true);
   };
-  console.log(showModal);
-  console.log(currentIndex);
+  const hanldeRating = (rate) => {
+    setRating(rate)
+  }
   return (
     <ProductContainer>
       <HeaderContainer>
@@ -78,7 +74,7 @@ const Product = ({ product }) => {
           <Link to="/">
             <img src={arrow} alt="home" className="arrow" />
           </Link>
-          <p>estrellas</p>
+          <Rating onClick={hanldeRating} ratingValue={rating} size={(windowSize.innerWidth > 700) ? 25 : 15} fillColor={"#f0572d"} allowHalfIcon={true} transition={true} />
         </RHeader>
       </HeaderContainer>
       {showModal && (
