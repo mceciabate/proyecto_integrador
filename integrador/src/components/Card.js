@@ -1,7 +1,13 @@
 import React from "react";
 import { CardC, StyledImg, CardDiv, StyledP1, StyledP2, StyledButton } from "../styles/ListStyles";
+import { useNavigate } from "react-router-dom"
 
 const Card = ({ car }) => {
+  let navigate = useNavigate()
+  const routeChange = () =>{
+    let path = "/product"
+    navigate(path)
+  }
   return (
     <CardC>
       <div>
@@ -12,7 +18,7 @@ const Card = ({ car }) => {
         <h3>{car.title}</h3>
         <StyledP2>{car.location}</StyledP2>
         <StyledP2>{car.description}</StyledP2>
-        <StyledButton>ver mas</StyledButton>
+        <StyledButton onClick={routeChange} >ver mas</StyledButton>
       </CardDiv>
     </CardC>
   );

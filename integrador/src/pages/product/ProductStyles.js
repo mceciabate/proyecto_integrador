@@ -205,31 +205,41 @@ export const FeaturesContainer = styled.div`
 `;
 
 export const CalendarContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
   width: 90vw;
   height: 488px;
+  column-gap: 5vw;
   @media (max-width: 770px) {
-    height: 680px;
-  }
-  h2 {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 28px;
-    color: #1a1a1a;
-    @media (max-width: 480px) {
-      margin-left: 20px;
-    }
+    height: 600px;
+    grid-template-columns: 2;
+    grid-template-rows: 2;
   }
 `;
 
 export const CalendarSection = styled.div`
+  margin-top: 4vh;
+  grid-column: 3;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 100px;
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 50px;
+    gap: 10px;
+    grid-column: 1/ span 2;
+    grid-row: 2;
+  }
+  h2 {
+    grid-column: 3;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #1a1a1a;
+    height: fit-content;
+    @media (max-width: 480px) {
+      margin-left: 20px;
+    }
   }
 `;
 

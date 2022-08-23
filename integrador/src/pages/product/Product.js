@@ -18,13 +18,19 @@ import {
 } from "./ProductStyles";
 import { BsFillPinMapFill } from "react-icons/bs";
 import arrow from "../../assets/arrow.png";
-import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import ProductGallery from "./ProductGallery";
+import Calendar from "react-calendar";
+import "./calendarStyles.css";
 
 const Product = ({ product }) => {
-  const [state, setState] = useState([
+  const getWindowSize = () => {
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
+  };
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+  const [date, setDate] = useState([
     {
       startDate: new Date(),
       endDate: null,
@@ -40,6 +46,17 @@ const Product = ({ product }) => {
       document.body.style.removeProperty("overflow");
     }
   }, [showModal]);
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
   const handleModal = (index) => {
     setCurrentIndex(index);
     setShowModal(true);
@@ -64,19 +81,19 @@ const Product = ({ product }) => {
           <p>estrellas</p>
         </RHeader>
       </HeaderContainer>
-      {showModal && 
+      {showModal && (
         <ProductGallery
           pictures={product}
           current={currentIndex}
           handleClose={() => setShowModal(false)}
           setCurrentIndex={setCurrentIndex}
         />
-      }
+      )}
       <ImageContainer>
         {product.map((pic, index) => (
           <div
             className={index === 0 ? "main-image" : "image"}
-            onClick={()=>handleModal(index)}
+            onClick={() => handleModal(index)}
             key={index}
           >
             <img src={pic} alt="product" />
@@ -99,7 +116,7 @@ const Product = ({ product }) => {
         </p>
       </DescriptionContainer>
       <FeaturesContainer>
-        <h2>¿Qué ofrece este lugar?</h2>
+        <h2>¿Qué ofrece este auto?</h2>
         <div>
           <p>cocina</p>
           <p>televisor</p>
@@ -110,15 +127,13 @@ const Product = ({ product }) => {
         </div>
       </FeaturesContainer>
       <CalendarContainer>
-        <h2>Fechas disponibles</h2>
+        <Calendar
+          showDoubleView={windowSize.innerWidth > 480 ? true : false}
+          next2Label={null}
+          prev2Label={null}
+        />
         <CalendarSection>
-          <DateRange
-            editableDateInputs={true}
-            onChange={(item) => setState([item.selection])}
-            moveRangeOnFirstSelection={false}
-            ranges={state}
-            rangeColors={["#F0572D"]}
-          />
+          <h2>Fechas disponibles</h2>
           <CalendarItem>
             <h3>Agregá tus fechas de viaje para obtener precios exactos</h3>
             <button>Iniciar reserva</button>
