@@ -14,7 +14,8 @@
 	<name>integrador_v0.1</name>
 	<description>proyecto integrador v0.1</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>8</java.version>
+		<start-class>equipo10.integrador_v01.Application</start-class>
 	</properties>
 	<dependencies>
 
