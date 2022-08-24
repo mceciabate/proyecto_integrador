@@ -71,21 +71,21 @@ public class ProductoService implements IProductoService {
 
     @Override
     public void eliminarProductos(Long id) throws ResourceNotFoundException {
-        if (buscarProductosPorId(id) == null) {
-            throw new ResourceNotFoundException("No se encontro ningun producto con el id: " + id);
-        } else {
+        Optional<Producto> productoEncontrado = productoRepository.findById(id);
+        if (productoEncontrado.isPresent()) {
             log.info("Eliminando el producto: " + id);
             productoRepository.deleteById(id);
+        }else
+            throw new ResourceNotFoundException("No se encontro ningun producto con el id: " + id);
+
         }
-    }
+
 
     @Override
     public void actualizarProductos(ProductoDTO productoDTO) throws ResourceNotFoundException {
         Optional<Producto> productoEncontrado = productoRepository.findById(productoDTO.getId());
-        Producto productoActualizado = productoEncontrado.get();
-        if (productoEncontrado == null) {
-            throw new ResourceNotFoundException("No se encontro el producto para actualizar");
-        }else{
+        if (productoEncontrado.isPresent()) {
+            Producto productoActualizado = productoEncontrado.get();
             productoActualizado.setTitulo(productoDTO.getTitulo());
             productoActualizado.setDescripcion(productoDTO.getDescripcion());
             productoActualizado.setCaracteristica((productoDTO.getCaracteristica()));
@@ -93,8 +93,10 @@ public class ProductoService implements IProductoService {
             productoActualizado.setCategoria(productoDTO.getCategoria());
             log.info("Producto : " + productoActualizado.getId() + " actualizado.");
             productoRepository.saveAndFlush(productoActualizado);
-        }
+        } else throw new ResourceNotFoundException("No se puede modificar un id inexistente");
     }
+
+
 
     @Override
     public List<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException {

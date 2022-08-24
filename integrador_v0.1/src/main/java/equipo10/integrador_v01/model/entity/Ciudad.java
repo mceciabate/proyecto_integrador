@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Ciudad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Ciudad {
     @Column
     private String provincia;
     @JsonIgnore
-    @OneToMany(mappedBy = "ciudad")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "ciudad")
     private Set<Producto> producto = new HashSet<>();
 
     public Ciudad() {
