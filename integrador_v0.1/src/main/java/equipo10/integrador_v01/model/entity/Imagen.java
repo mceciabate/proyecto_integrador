@@ -7,7 +7,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity @Getter  @Setter
+@Entity
+@Getter
+@Setter
 @Table
 public class Imagen {
     @Id
@@ -17,7 +19,7 @@ public class Imagen {
     private String titulo;
     private String urlImg;
 
-    @ManyToMany(fetch=FetchType.EAGER, mappedBy = "imagen")
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "imagen")
     @JsonIgnore
     private Set<Producto> productos;
 

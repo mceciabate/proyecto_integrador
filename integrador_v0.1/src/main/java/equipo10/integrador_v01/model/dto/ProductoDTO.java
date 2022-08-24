@@ -43,8 +43,6 @@ public class ProductoDTO {
     //constructores
 
 
-
-
     public ProductoDTO(String titulo, String descripcion, Set<Imagen> imagen, Set<Caracteristica> caracteristica, Set<Politica> politica, Ciudad ciudad, Categoria categoria) {
         this.titulo = titulo;
         this.descripcion = descripcion;

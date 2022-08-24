@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import equipo10.integrador_v01.model.dto.CategoriaDTO;
 import equipo10.integrador_v01.model.entity.Categoria;
 import equipo10.integrador_v01.repository.ICategoriaRepository;
-import equipo10.integrador_v01.repository.IImagenRepository;
 import equipo10.integrador_v01.service.ICategoriaService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,13 +31,13 @@ public class CategoriaService implements ICategoriaService {
     @Override
     //implementar a futuro la excepcion de q no encuentre el id
     public List<CategoriaDTO> listarCategoria() {
-            List<CategoriaDTO> listaCategoriasDTO = new ArrayList<>();
-            List<Categoria> listaCategorias = categoriaRepository.findAll();
-            for (Categoria categoria : listaCategorias) {
-                listaCategoriasDTO.add(mapper.convertValue(categoria, CategoriaDTO.class));
-            }
-            log.debug("Listado de categorías");
-            return listaCategoriasDTO;
+        List<CategoriaDTO> listaCategoriasDTO = new ArrayList<>();
+        List<Categoria> listaCategorias = categoriaRepository.findAll();
+        for (Categoria categoria : listaCategorias) {
+            listaCategoriasDTO.add(mapper.convertValue(categoria, CategoriaDTO.class));
+        }
+        log.debug("Listado de categorías");
+        return listaCategoriasDTO;
     }
 
     @Override

@@ -57,17 +57,16 @@ public class CategoriaController {
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<CategoriaDTO> eliminarCategoria(@PathVariable Long id) throws ResourceNotFoundException {
         Optional<CategoriaDTO> categoria = Optional.ofNullable(categoriasService.buscarCategoriaPorId(id));
-        if(categoria.isPresent()) {
+        if (categoria.isPresent()) {
             categoriasService.eliminarCategoria(id);
-        }
-       else throw new ResourceNotFoundException("El id no existe");
+        } else throw new ResourceNotFoundException("El id no existe");
         return null;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Map<String, Object>> actualizarCategoria(@PathVariable Long id,@Valid @RequestBody CategoriaDTO categoriaDTO, BindingResult result) throws ResourceNotFoundException, BadRequestException {
+    public ResponseEntity<Map<String, Object>> actualizarCategoria(@PathVariable Long id, @Valid @RequestBody CategoriaDTO categoriaDTO, BindingResult result) throws ResourceNotFoundException, BadRequestException {
         Map<String, Object> response = new HashMap<>();
-        if (result.hasErrors()){
+        if (result.hasErrors()) {
             List<String> errors = result.getFieldErrors().stream()
                     .map(err -> "El campo '" + err.getField() + "' " + err.getDefaultMessage())
                     .collect(Collectors.toList());

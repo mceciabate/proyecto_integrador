@@ -22,11 +22,12 @@ public class Categoria {
     private String titulo;
     private String descripcion;
 
-    @OneToOne(fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "imagen_id", referencedColumnName = "id")
     private Imagen imagenCategoria;
 
-    @OneToMany(fetch=FetchType.EAGER, mappedBy = "categoria") //la lista de productos se instancia junto con el resto de los atributos.
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "categoria")
+    //la lista de productos se instancia junto con el resto de los atributos.
     @JsonIgnore
     private Set<Producto> productos = new HashSet<>();
 

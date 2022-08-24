@@ -71,14 +71,14 @@ public class ProductoService implements IProductoService {
         /*if (productoDTO.getImagen() == null || productoDTO.getCaracteristica() == null || productoDTO.getCiudad() == null || productoDTO.getCategoria() == null) {
             throw new BadRequestException("No se pudo guardar el producto");
         } else {*/
-            Producto productoAGuardar = mapper.convertValue(productoDTO, Producto.class);
-            Ciudad ciudadSeteada = ciudadRepository.findById(productoAGuardar.getCiudad().getId()).get();
-            Categoria categoriaSeteada = categoriaRepository.findById(productoAGuardar.getCategoria().getId()).get();
-            productoAGuardar.setCiudad(ciudadSeteada);
-            productoAGuardar.setCategoria(categoriaSeteada);
-            productoRepository.save(productoAGuardar);
-            log.info("Guardando nuevo producto: " + productoDTO.toString());
-            return mapper.convertValue(productoAGuardar, ProductoDTO.class);
+        Producto productoAGuardar = mapper.convertValue(productoDTO, Producto.class);
+        Ciudad ciudadSeteada = ciudadRepository.findById(productoAGuardar.getCiudad().getId()).get();
+        Categoria categoriaSeteada = categoriaRepository.findById(productoAGuardar.getCategoria().getId()).get();
+        productoAGuardar.setCiudad(ciudadSeteada);
+        productoAGuardar.setCategoria(categoriaSeteada);
+        productoRepository.save(productoAGuardar);
+        log.info("Guardando nuevo producto: " + productoDTO.toString());
+        return mapper.convertValue(productoAGuardar, ProductoDTO.class);
 
         /*}*/
 
