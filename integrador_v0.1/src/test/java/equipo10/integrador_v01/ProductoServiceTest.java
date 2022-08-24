@@ -37,7 +37,7 @@ public class ProductoServiceTest {
             Set<Politica> politicas = new HashSet<>();
             Ciudad ciudad = new Ciudad();
             Categoria categoria = new Categoria();
-            ProductoDTO productoDTO = new ProductoDTO("titulo", "descrip", imagen, caracteristicas, politicas ,ciudad, categoria);
+            ProductoDTO productoDTO = new ProductoDTO("titulo1", "descrip", imagen, caracteristicas, politicas ,ciudad, categoria);
             productoService.guardarProductos(productoDTO);
             Assert.assertEquals(productoDTO.getTitulo(), productoRepository.findById(1L).get().getTitulo());
         }
