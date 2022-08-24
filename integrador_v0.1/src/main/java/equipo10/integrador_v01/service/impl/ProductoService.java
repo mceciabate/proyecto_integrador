@@ -37,34 +37,29 @@ public class ProductoService implements IProductoService {
     @Autowired
     ICategoriaRepository categoriaRepository;
 
-
     @Autowired
     ObjectMapper mapper;
 
-
     //sobreescribo el CRUD
 
-
-
-
     public Set<ProductoDTO> listarProductos() {
-        Set<ProductoDTO> listaProductosDTO = new HashSet<>();
         List<Producto> listaProductos = productoRepository.findAll();
-        for(Producto producto: listaProductos){
+        Set<ProductoDTO> listaProductosDTO = new HashSet<>();
+
+        for (Producto producto : listaProductos) {
             listaProductosDTO.add(mapper.convertValue(producto, ProductoDTO.class));
         }
-        log.info("Listado de categorías: "+listaProductos.toString());
+
+        log.info("Listado de categorías: " + listaProductos.toString());
         return listaProductosDTO;
     }
-
-
 
     @Override
     public ProductoDTO buscarProductosPorId(Long id) {
         Optional<Producto> producto = productoRepository.findById(id);
         ProductoDTO productoDTO = null;
-        if(producto.isPresent())
-            productoDTO=mapper.convertValue(producto, ProductoDTO.class);
+        if (producto.isPresent())
+            productoDTO = mapper.convertValue(producto, ProductoDTO.class);
 
         log.info("Producto: " + id + productoDTO.toString());
         return productoDTO;
@@ -72,20 +67,26 @@ public class ProductoService implements IProductoService {
 
     @Override
     public ProductoDTO guardarProductos(ProductoDTO productoDTO) throws BadRequestException {
-        if(productoDTO.getImagen() == null || productoDTO.getCaracteristica() == null || productoDTO.getCiudad() == null || productoDTO.getCategoria() == null){
+
+        /*if (productoDTO.getImagen() == null || productoDTO.getCaracteristica() == null || productoDTO.getCiudad() == null || productoDTO.getCategoria() == null) {
             throw new BadRequestException("No se pudo guardar el producto");
-        } else {
+        } else {*/
             Producto productoAGuardar = mapper.convertValue(productoDTO, Producto.class);
             Ciudad ciudadSeteada = ciudadRepository.findById(productoAGuardar.getCiudad().getId()).get();
             Categoria categoriaSeteada = categoriaRepository.findById(productoAGuardar.getCategoria().getId()).get();
             productoAGuardar.setCiudad(ciudadSeteada);
             productoAGuardar.setCategoria(categoriaSeteada);
             productoRepository.save(productoAGuardar);
-            log.info("Guardando nuevo producto: " +productoDTO.toString());
+            log.info("Guardando nuevo producto: " + productoDTO.toString());
             return mapper.convertValue(productoAGuardar, ProductoDTO.class);
 
-        }
-   }
+        /*}*/
+
+        /*Producto producto = mapper.convertValue(productoDTO, Producto.class);
+        productoRepository.save(producto);
+        log.info("Guardando nuevo producto: " + productoDTO.toString());
+        return productoDTO;*/
+    }
 
     @Override
     public void eliminarProductos(Long id) throws ResourceNotFoundException {
@@ -103,7 +104,7 @@ public class ProductoService implements IProductoService {
         Producto productoActualizado = productoEncontrado.get();
         if (productoEncontrado == null) {
             throw new ResourceNotFoundException("No se encontro el producto para actualizar");
-        }else{
+        } else {
             productoActualizado.setTitulo(productoDTO.getTitulo());
             productoActualizado.setDescripcion(productoDTO.getDescripcion());
             productoActualizado.setCaracteristica((productoDTO.getCaracteristica()));
@@ -122,7 +123,8 @@ public class ProductoService implements IProductoService {
             if (productoDTO.getCiudad().getId() == id) {
                 listadoCompleto.add(productoDTO);
             }
-        } return listadoCompleto;
+        }
+        return listadoCompleto;
     }
 
 

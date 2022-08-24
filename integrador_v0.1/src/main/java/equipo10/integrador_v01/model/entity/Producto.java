@@ -31,13 +31,15 @@ public class Producto {
     @Column(name = "LONGITUD")
     private Double longitud; 3
     */
-    @JsonIgnore
+
     @ManyToMany
+    @JsonIgnore
     @JoinTable(
             name = "producto_has_imagen",
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "imagen_id"))
     private Set<Imagen> imagen = new HashSet<>();
+
     @JsonIgnore
     @ManyToMany
     @JoinTable(
@@ -45,8 +47,9 @@ public class Producto {
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "caracteristica_id"))
     private Set<Caracteristica> caracteristica = new HashSet<>();
-   // @JsonManagedReference
+    // @JsonManagedReference
     // @JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"}, allowSetters = true)
+
     @JsonIgnore
     @ManyToMany
     @JoinTable(
@@ -54,6 +57,7 @@ public class Producto {
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "politica_id"))
     private Set<Politica> politica = new HashSet<>();
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(
@@ -62,7 +66,7 @@ public class Producto {
     private Ciudad ciudad;
 
     @JsonIgnore
-    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(
             name = "categoria_id",
             referencedColumnName = "id")
