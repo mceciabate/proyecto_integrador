@@ -8,8 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
-@EnableAutoConfiguration
-@ComponentScan(basePackages = "equipo10.integrador_v01.controller")
+
 
 public class Application {
 
@@ -18,6 +17,3 @@ public class Application {
 	}
 
 }
-/*@ComponentScan(basePackages = "com.baeldung.componentscan.springapp.animals;com.baeldung.componentscan.springapp.flowers")
-@ComponentScan(basePackages = "com.baeldung.componentscan.springapp.animals,com.baeldung.componentscan.springapp.flowers")
-@ComponentScan(basePackages = "com.baeldung.componentscan.springapp.animals com.baeldung.componentscan.springapp.flowers")*/
