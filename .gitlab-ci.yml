@@ -26,9 +26,9 @@ cache:
     - .m2/repository
     - target
 
-before_script:
-  - cd ./integrador_v0.1    
-  - mvn -f  pom.xml
+#before_script:
+#  - cd ./integrador_v0.1    
+#  - mvn -f  pom.xml
 
 
 build_job:
