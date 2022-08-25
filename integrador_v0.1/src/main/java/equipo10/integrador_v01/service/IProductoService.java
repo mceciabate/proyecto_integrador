@@ -23,6 +23,6 @@ public interface IProductoService {
     //update
     void actualizarProductos(ProductoDTO productoDTO) throws ResourceNotFoundException;
 
-    List<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException;
+    Set<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException;
 
 }

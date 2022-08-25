@@ -6,8 +6,6 @@ import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.ProductoDTO;
 import equipo10.integrador_v01.model.entity.Producto;
 import equipo10.integrador_v01.repository.IProductoRepository;
-import equipo10.integrador_v01.model.entity.*;
-import equipo10.integrador_v01.repository.*;
 import equipo10.integrador_v01.service.IProductoService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,15 +97,22 @@ public class ProductoService implements IProductoService {
 
 
     @Override
-    public List<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException {
-        //List<ProductoDTO> productosEncontrados = new ArrayList<>();
-        List<ProductoDTO> listadoCompleto = (List<ProductoDTO>) this.listarProductos();
-        for (ProductoDTO productoDTO : listadoCompleto) {
-            if (productoDTO.getCiudad().getId() == id) {
-                listadoCompleto.add(productoDTO);
-            }
-        } return listadoCompleto;
+    public Set<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException {
+       Set<ProductoDTO> listaProductosDTO = this.listarProductos();
+       List<Producto> listaProductos = productoRepository.findAll();
+        for(Producto producto: listaProductos){
+            if (producto.getCiudad().getId()==id){
+                listaProductosDTO.add(mapper.convertValue(producto, ProductoDTO.class));
+            return listaProductosDTO ;
+        } else throw new ResourceNotFoundException("no se han encontrado productos para la ciudad seleccionada");
+
+        } return null;
     }
-
-
 }
+
+
+
+
+
+
+
