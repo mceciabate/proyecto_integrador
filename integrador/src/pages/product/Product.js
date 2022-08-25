@@ -24,12 +24,10 @@ import "react-date-range/dist/theme/default.css";
 import ProductGallery from "./ProductGallery";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
-import { Rating } from 'react-simple-star-rating'
-import { Wrapper, Status } from "@googlemaps/react-wrapper"
-
+import { Rating } from 'react-simple-star-rating';
 const Product = ({ img }) => {
   const { id } = useParams();
-  const [product, setProduct] = useState()
+  const [product, setProduct] = useState({})
   useEffect(() => {
     const request = async () => {
         const response = await fetch(
@@ -39,7 +37,7 @@ const Product = ({ img }) => {
         setProduct(result[id]);
     };
     request();
-  }, [id]);
+  },);
   
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
@@ -78,19 +76,15 @@ const Product = ({ img }) => {
   const hanldeRating = (rate) => {
     setRating(rate)
   }
-  const render = (status) => {
-    return <h1>{status}</h1>
-  }
-  console.log(product)
   return (
     <ProductContainer>
       <HeaderContainer>
         <LHeader>
-          <p>a</p>
-          <h1>{product.name}</h1>
+          <p>{product.category && product.category.name}</p>
+          <h1>{product && product.name}</h1>
           <div>
             <BsFillPinMapFill />
-            <p></p>
+            <p>{product.city && product.city.name}</p>
           </div>
         </LHeader>
         <RHeader>
@@ -120,29 +114,18 @@ const Product = ({ img }) => {
         ))}
       </ImageContainer>
       <DescriptionContainer>
-        <h2>Disfruta un automóvil moderno y 100% eléctrico</h2>
-        <p>
-          Rentar un Renault Zoe te permite disfrutar un automóvil 100%
-          Eléctrico, cuenta con una bateria de iones de litio con celdas de LG
-          Chem, va situada debajo del habitaculo y refrigerada por aire
-          (refrigeración pasiva), el conector "Camaleón" se adapta a diferentes
-          intensidades y potencias disponibles, tanto en monofásico como en
-          trifásico. En una carga semi rápida a 50W se puede conseguir 150 Km de
-          autonomía en 30 minutos, obtener una carga al 80% en aproxímadamente 1
-          hora y media, en la conexión habitual en los hogares que es de menor
-          potencia le tomará aproxímadamente 10 horas para obtener una carga al
-          100%.
-        </p>
+        <h2>Disfruta un automóvil pensado para tus necesidades</h2>
+        <p>{product && product.description}</p>
       </DescriptionContainer>
       <FeaturesContainer>
         <h2>¿Qué ofrece este auto?</h2>
         <div>
-          <p>cocina</p>
-          <p>televisor</p>
-          <p>aire acondicionado</p>
+          <p>bluetooth</p>
+          <p>gps</p>
+          <p>automaticp</p>
           <p>parking</p>
-          <p>pileta</p>
-          <p>wifi</p>
+          <p>feature</p>
+          <p>feature</p>
         </div>
       </FeaturesContainer>
       <MyH2>Fechas disponibles</MyH2>
