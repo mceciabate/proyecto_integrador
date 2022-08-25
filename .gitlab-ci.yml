@@ -1,5 +1,5 @@
-services: 
-  - mysql:latest
+#services: 
+#  - mysql:latest
 
 variables:
 #  MYSQL_DATABASE: PI_GRUPO10
@@ -39,12 +39,12 @@ build_job:
     - cd ./integrador_v0.1
     - mvn compile
 
-test_job:
-  stage: test
-  script:
-    - echo "Maven test started"
-    - cd ./integrador_v0.1
-    - mvn clean test
+#test_job:
+#  stage: test
+#  script:
+#    - echo "Maven test started"
+#    - cd ./integrador_v0.1
+#    - mvn clean test
 
 package_job: 
   stage: package
