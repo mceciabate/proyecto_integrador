@@ -1,5 +1,4 @@
 import React from "react";
-import cars from "../data/cars.json";
 import { useState, useEffect } from "react";
 import Card from "./Card";
 import { ListC, ListDiv, ListH3 } from "../styles/ListStyles";
@@ -9,7 +8,7 @@ const List = () => {
   useEffect(() => {
     const request = async () => {
         const response = await fetch(
-            `http://18.219.33.103:8080/products`
+            `http://localhost:8080/producto`
         );
         const result = await response.json();
         setProducts(result);

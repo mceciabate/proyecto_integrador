@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   ProductContainer,
   HeaderContainer,
@@ -24,27 +24,13 @@ import "react-date-range/dist/theme/default.css";
 import ProductGallery from "./ProductGallery";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
-import { Rating } from 'react-simple-star-rating';
-const Product = ({ img }) => {
-  const { id } = useParams();
-  const [product, setProduct] = useState({})
-  useEffect(() => {
-    const request = async () => {
-        const response = await fetch(
-            `http://18.219.33.103:8080/products`
-        );
-        const result = await response.json();
-        setProduct(result[id]);
-    };
-    request();
-  },);
-  
+import { Rating } from "react-simple-star-rating";
+const Product = ({ img, product }) => {
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerWidth, innerHeight };
   };
-
-  const [rating, setRating] = useState(0)
+  const [rating, setRating] = useState(0);
   const [windowSize, setWindowSize] = useState(getWindowSize());
   const [showModal, setShowModal] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -74,24 +60,33 @@ const Product = ({ img }) => {
     setShowModal(true);
   };
   const hanldeRating = (rate) => {
-    setRating(rate)
-  }
+    setRating(rate);
+  };
+  console.log(product);
+
   return (
     <ProductContainer>
       <HeaderContainer>
         <LHeader>
-          <p>{product.category && product.category.name}</p>
-          <h1>{product && product.name}</h1>
+          <p>{product.categoria && product.categoria.titulo}</p>
+          <h1>{product && product.titulo}</h1>
           <div>
             <BsFillPinMapFill />
-            <p>{product.city && product.city.name}</p>
+            <p>{product && product.ciudad && product.ciudad.localidad}</p>
           </div>
         </LHeader>
         <RHeader>
           <Link to="/">
             <img src={arrow} alt="home" className="arrow" />
           </Link>
-          <Rating onClick={hanldeRating} ratingValue={rating} size={(windowSize.innerWidth > 700) ? 25 : 15} fillColor={"#f0572d"} allowHalfIcon={true} transition={true} />
+          <Rating
+            onClick={hanldeRating}
+            ratingValue={rating}
+            size={windowSize.innerWidth > 700 ? 25 : 15}
+            fillColor={"#f0572d"}
+            allowHalfIcon={true}
+            transition={true}
+          />
         </RHeader>
       </HeaderContainer>
       {showModal && (
@@ -115,12 +110,14 @@ const Product = ({ img }) => {
       </ImageContainer>
       <DescriptionContainer>
         <h2>Disfruta un automóvil pensado para tus necesidades</h2>
-        <p>{product && product.description}</p>
+        <p>{product && product.descripcion}</p>
       </DescriptionContainer>
       <FeaturesContainer>
         <h2>¿Qué ofrece este auto?</h2>
         <div>
-          <p>bluetooth</p>
+        {product.caracteristica.map((product) => (
+            <p key={product.id} >{product.nombre}</p>
+        ))}
           <p>gps</p>
           <p>automaticp</p>
           <p>parking</p>
