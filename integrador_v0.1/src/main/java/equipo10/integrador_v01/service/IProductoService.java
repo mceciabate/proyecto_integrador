@@ -4,7 +4,6 @@ import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.ProductoDTO;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -23,6 +22,6 @@ public interface IProductoService {
     //update
     void actualizarProductos(ProductoDTO productoDTO) throws ResourceNotFoundException;
 
-    List<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException;
+    Set<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException;
 
 }

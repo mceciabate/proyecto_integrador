@@ -22,7 +22,7 @@ public class Categoria {
     private String titulo;
     private String descripcion;
 
-    @OneToOne(fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "imagen_id", referencedColumnName = "id")
     private Imagen imagenCategoria;
 

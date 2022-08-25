@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login argument="login" setIsLogged={setIsLogged}/>} />
           <Route path="/register" element={<Login argument="register" setIsLogged={setIsLogged} />} />
-          <Route path="/product" element={<ProductPage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>
