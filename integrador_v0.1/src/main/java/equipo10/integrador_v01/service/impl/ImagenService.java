@@ -5,5 +5,4 @@ import equipo10.integrador_v01.service.IImagenService;
 public class ImagenService implements IImagenService {
 
 
-
 }

@@ -20,7 +20,7 @@ public class Puntuacion {
 
     @ManyToOne
     @JoinColumn(
-            name = "puntuacion_id",
+            name = "producto_id",
             referencedColumnName = "id",
             nullable = false)
     private Producto producto;

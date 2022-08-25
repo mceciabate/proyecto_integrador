@@ -1,5 +1,4 @@
 package equipo10.integrador_v01.model.entity;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -20,6 +19,7 @@ public class Politica {
 
     private String titulo;
     private String descripcion;
+
   //  @JsonBackReference
   //  @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, allowSetters = true)
     @JsonIgnore

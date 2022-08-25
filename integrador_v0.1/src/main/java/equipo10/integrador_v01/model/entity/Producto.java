@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -29,6 +28,7 @@ public class Producto {
     */
 
     @ManyToMany
+    @JsonIgnore
     @JoinTable(
             name = "producto_has_imagen",
             joinColumns = @JoinColumn(name = "producto_id"),
@@ -57,7 +57,6 @@ public class Producto {
             name = "ciudad_id",
             referencedColumnName = "id")
     private Ciudad ciudad;
-
 
     @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(
