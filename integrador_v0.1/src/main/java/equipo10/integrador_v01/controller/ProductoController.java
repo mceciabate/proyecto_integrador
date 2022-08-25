@@ -19,7 +19,7 @@ public class ProductoController {
     @Autowired
     IProductoService productoService;
 
-    @RequestMapping(value = "/listarTodos/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/listarTodos", method = RequestMethod.GET)
     public ResponseEntity<Set<ProductoDTO>> traerTodosProductos(){
         productoService.listarProductos();
         return ResponseEntity.ok(productoService.listarProductos()
