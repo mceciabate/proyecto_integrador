@@ -1,11 +1,12 @@
 services: 
   - mysql:latest
 
-#variables:
+variables:
 # MYSQL_DATABASE: cd_prod
 #  MYSQL_ROOT_PASSWORD: root
 #  MYSQL_HOST: mysql
   MAVEN_OPTS: -Dmaven.repo.local=.m2/repository
+#change ip
 
 #connect:
 #  image: mysql
