@@ -8,7 +8,7 @@ const Categories = () => {
   useEffect(() => {
     const request = async () => {
         const response = await fetch(
-            `http://localhost:8080/categoria/listar`
+            `http://13.59.92.254:8080/categoria/listar`
         );
         const result = await response.json();
         setCategories(result);

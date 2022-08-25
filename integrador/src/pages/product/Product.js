@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   ProductContainer,
   HeaderContainer,
@@ -27,15 +27,30 @@ import "./calendarStyles.css";
 import { Rating } from 'react-simple-star-rating'
 import { Wrapper, Status } from "@googlemaps/react-wrapper"
 
-const Product = ({ product }) => {
+const Product = ({ img }) => {
+  const { id } = useParams();
+  const [product, setProduct] = useState([])
+  useEffect(() => {
+    const request = async () => {
+        const response = await fetch(
+            `http://18.219.33.103:8080/products`
+        );
+        const result = await response.json();
+        setProduct(result[id]);
+    };
+    request();
+  }, [id]);
+  
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerWidth, innerHeight };
   };
+
   const [rating, setRating] = useState(0)
   const [windowSize, setWindowSize] = useState(getWindowSize());
   const [showModal, setShowModal] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+
   useEffect(() => {
     if (showModal) {
       document.body.style.overflow = "hidden";
@@ -43,6 +58,7 @@ const Product = ({ product }) => {
       document.body.style.removeProperty("overflow");
     }
   }, [showModal]);
+
   useEffect(() => {
     function handleWindowResize() {
       setWindowSize(getWindowSize());
@@ -54,6 +70,7 @@ const Product = ({ product }) => {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
+
   const handleModal = (index) => {
     setCurrentIndex(index);
     setShowModal(true);
@@ -64,15 +81,16 @@ const Product = ({ product }) => {
   const render = (status) => {
     return <h1>{status}</h1>
   }
+  console.log(product)
   return (
     <ProductContainer>
       <HeaderContainer>
         <LHeader>
-          <p>p category</p>
-          <h1>p name</h1>
+          <p>cat</p>
+          <h1>auto name</h1>
           <div>
             <BsFillPinMapFill />
-            <p>p location</p>
+            <p>auto city</p>
           </div>
         </LHeader>
         <RHeader>
@@ -84,14 +102,14 @@ const Product = ({ product }) => {
       </HeaderContainer>
       {showModal && (
         <ProductGallery
-          pictures={product}
+          pictures={img}
           current={currentIndex}
           handleClose={() => setShowModal(false)}
           setCurrentIndex={setCurrentIndex}
         />
       )}
       <ImageContainer>
-        {product.map((pic, index) => (
+        {img.map((pic, index) => (
           <div
             className={index === 0 ? "main-image" : "image"}
             onClick={() => handleModal(index)}
