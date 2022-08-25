@@ -45,10 +45,9 @@ const Searcher = () => {
           <BsFillPinMapFill className="icon" />
           <SearchSelect required>
             <option value="S">Recogida</option>
-            {products &&
-              products.map((product, index) => (
-                <option key={index} value={product.city.value}>
-                  {product.city.name}
+            {cities.map((city) => (
+                <option key={city.id} value={city.value}>
+                  {city.name}
                 </option>
               ))}
           </SearchSelect>
@@ -57,12 +56,11 @@ const Searcher = () => {
           <BsFillPinMapFill className="icon" />
           <SearchSelect required>
             <option value="S">Entrega</option>
-            {products &&
-              products.map((product) => {
+            {cities.map((city) => {
                 return (
-                <option key={product.city.id} value={product.city.value}>
+                <option key={city.id} value={city.value}>
                   <Icon icon="akar-icons:twitter-fill" />
-                  {product.city.name}
+                  {city.name}
                 </option>
                 )
               })}
