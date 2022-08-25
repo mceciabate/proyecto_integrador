@@ -115,9 +115,6 @@ const Product = ({ img, product }) => {
       <FeaturesContainer>
         <h2>¿Qué ofrece este auto?</h2>
         <div>
-        {product.caracteristica.map((product) => (
-            <p key={product.id} >{product.nombre}</p>
-        ))}
           <p>gps</p>
           <p>automaticp</p>
           <p>parking</p>
