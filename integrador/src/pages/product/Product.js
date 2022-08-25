@@ -29,7 +29,7 @@ import { Wrapper, Status } from "@googlemaps/react-wrapper"
 
 const Product = ({ img }) => {
   const { id } = useParams();
-  const [product, setProduct] = useState([])
+  const [product, setProduct] = useState()
   useEffect(() => {
     const request = async () => {
         const response = await fetch(
@@ -86,11 +86,11 @@ const Product = ({ img }) => {
     <ProductContainer>
       <HeaderContainer>
         <LHeader>
-          <p>cat</p>
-          <h1>auto name</h1>
+          <p>a</p>
+          <h1>{product.name}</h1>
           <div>
             <BsFillPinMapFill />
-            <p>auto city</p>
+            <p></p>
           </div>
         </LHeader>
         <RHeader>
