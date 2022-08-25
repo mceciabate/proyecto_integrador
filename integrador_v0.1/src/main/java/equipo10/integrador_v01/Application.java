@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
-@ComponentScan(basePackages = {"equipo10.integrador_v01.controller"})
+@ComponentScan(basePackages = "equipo10.integrador_v01.controller")
 
 
 
