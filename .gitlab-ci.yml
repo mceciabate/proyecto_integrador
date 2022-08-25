@@ -1,22 +1,22 @@
 services: 
   - mysql:latest
 
-variables:
-  MYSQL_DATABASE: cd_prod
-  MYSQL_ROOT_PASSWORD: root
+#variables:
+# MYSQL_DATABASE: cd_prod
+#  MYSQL_ROOT_PASSWORD: root
 #  MYSQL_HOST: mysql
   MAVEN_OPTS: -Dmaven.repo.local=.m2/repository
 
-connect:
-  image: mysql
-  script: 
-  - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE"
+#connect:
+#  image: mysql
+#  script: 
+#  - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE"
 
 image: maven:latest
 
 stages:
   - build
-  - test
+#  - test
   - package
   - deploy
 
@@ -37,12 +37,12 @@ build_job:
     - cd ./integrador_v0.1
     - mvn compile
 
-test_job:
-  stage: test
-  script:
-    - echo "Maven test started"
-    - cd ./integrador_v0.1
-    - mvn clean test
+#test_job:
+#  stage: test
+#  script:
+#    - echo "Maven test started"
+#    - cd ./integrador_v0.1
+#    - mvn clean test
 
 package_job: 
   stage: package
