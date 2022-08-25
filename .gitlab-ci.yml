@@ -1,7 +1,7 @@
 services: 
   - mysql:latest
 
-#variables:
+variables:
 # MYSQL_DATABASE: cd_prod
 #  MYSQL_ROOT_PASSWORD: root
 #  MYSQL_HOST: mysql
