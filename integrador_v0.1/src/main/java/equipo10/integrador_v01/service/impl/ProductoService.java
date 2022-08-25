@@ -11,7 +11,10 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class ProductoService implements IProductoService {
@@ -25,30 +28,26 @@ public class ProductoService implements IProductoService {
     @Autowired
     ObjectMapper mapper;
 
-
     //sobreescribo el CRUD
 
-
-
-
     public Set<ProductoDTO> listarProductos() {
-        Set<ProductoDTO> listaProductosDTO = new HashSet<>();
         List<Producto> listaProductos = productoRepository.findAll();
-        for(Producto producto: listaProductos){
+        Set<ProductoDTO> listaProductosDTO = new HashSet<>();
+
+        for (Producto producto : listaProductos) {
             listaProductosDTO.add(mapper.convertValue(producto, ProductoDTO.class));
         }
-        log.info("Listado de categorías: "+listaProductos.toString());
+
+        log.info("Listado de categorías: " + listaProductos.toString());
         return listaProductosDTO;
     }
-
-
 
     @Override
     public ProductoDTO buscarProductosPorId(Long id) {
         Optional<Producto> producto = productoRepository.findById(id);
         ProductoDTO productoDTO = null;
-        if(producto.isPresent())
-            productoDTO=mapper.convertValue(producto, ProductoDTO.class);
+        if (producto.isPresent())
+            productoDTO = mapper.convertValue(producto, ProductoDTO.class);
 
         log.info("Producto: " + id + productoDTO.toString());
         return productoDTO;
@@ -64,7 +63,6 @@ public class ProductoService implements IProductoService {
             log.info("Guardando nuevo producto: " + productoAGuardar.getId());
             return mapper.convertValue(productoAGuardar, ProductoDTO.class);
         }
-
    }
 
     @Override
@@ -77,7 +75,6 @@ public class ProductoService implements IProductoService {
             throw new ResourceNotFoundException("No se encontro ningun producto con el id: " + id);
 
         }
-
 
     @Override
     public void actualizarProductos(ProductoDTO productoDTO) throws ResourceNotFoundException {
@@ -109,10 +106,3 @@ public class ProductoService implements IProductoService {
         } return null;
     }
 }
-
-
-
-
-
-
-
