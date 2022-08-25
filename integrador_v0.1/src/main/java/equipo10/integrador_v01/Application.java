@@ -8,7 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
-@ComponentScan(basePackages = "equipo10.integrador_v01.controller" )
+@ComponentScan(basePackages = "equipo10.integrador_v01.controller.ProductoController")
+@ComponentScan(basePackages = "equipo10.integrador_v01.controller.CategoriaController")
 public class Application {
 
 	public static void main(String[] args) {
@@ -16,3 +17,6 @@ public class Application {
 	}
 
 }
+/*@ComponentScan(basePackages = "com.baeldung.componentscan.springapp.animals;com.baeldung.componentscan.springapp.flowers")
+@ComponentScan(basePackages = "com.baeldung.componentscan.springapp.animals,com.baeldung.componentscan.springapp.flowers")
+@ComponentScan(basePackages = "com.baeldung.componentscan.springapp.animals com.baeldung.componentscan.springapp.flowers")*/
