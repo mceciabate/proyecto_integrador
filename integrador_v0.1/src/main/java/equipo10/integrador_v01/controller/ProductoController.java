@@ -19,32 +19,32 @@ public class ProductoController {
     @Autowired
     IProductoService productoService;
 
-    @GetMapping
+    @GetMapping("/listarTodos")
     public ResponseEntity<Set<ProductoDTO>> traerTodosProductos(){
         productoService.listarProductos();
         return ResponseEntity.ok(productoService.listarProductos()
         );
     }
-    @GetMapping("/{id}")
+    @GetMapping("/listarUno/{id}")
     public ResponseEntity<ProductoDTO> buscarProductoPorId(@PathVariable Long id) throws ResourceNotFoundException{
         Optional<ProductoDTO> producto = Optional.ofNullable(productoService.buscarProductosPorId(id));
         if (producto.isPresent()){
             return ResponseEntity.ok(productoService.buscarProductosPorId(id));
         }else throw new ResourceNotFoundException("No se encontro el id solicitado");
     }
-    @PostMapping
+    @PostMapping("/guardar")
     public ResponseEntity<ProductoDTO> guardarProducto( @RequestBody ProductoDTO productoDTO) throws BadRequestException {
         productoService.guardarProductos(productoDTO);
         return ResponseEntity.ok(productoService.guardarProductos(productoDTO));
     }
 
     //ProductoDTO productoDTO = new ProductoDTO()
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<?> eliminarProducto(@PathVariable Long id) throws ResourceNotFoundException{
         productoService.eliminarProductos(id);
         return ResponseEntity.ok("Producto: "+ id +" fue eliminado con exito.");
     }
-    @PutMapping("/{id}")
+    @PutMapping("/actualizar/{id}")
     public ResponseEntity<?> modificarProducto(@PathVariable Long id, @RequestBody ProductoDTO productoDTO) throws ResourceNotFoundException{
         productoService.actualizarProductos(productoDTO);
         return ResponseEntity.ok(HttpStatus.OK);
