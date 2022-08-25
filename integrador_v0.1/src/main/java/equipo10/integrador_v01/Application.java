@@ -8,7 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
-
+@ComponentScan(basePackages = "equipo10/integrador_v01/controller/CategoriaController.java")
+@ComponentScan(basePackages = "equipo10/integrador_v01/controller/ProductoController.java")
 
 public class Application {
 
@@ -17,3 +18,8 @@ public class Application {
 	}
 
 }
+
+
+/*@ComponentScan(basePackages = "com/dh/proyectoIntegrador/controllers/ CategoryController.java")
+@ComponentScan(basePackages = "com/dh/proyectoIntegrador/controllers/CityController.java")
+@ComponentScan(basePackages = "com/dh/proyectoIntegrador/controllers/ProductController.java")*/
