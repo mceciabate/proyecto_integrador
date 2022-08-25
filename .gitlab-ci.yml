@@ -2,22 +2,22 @@ services:
   - mysql:latest
 
 variables:
-# MYSQL_DATABASE: cd_prod
-#  MYSQL_ROOT_PASSWORD: root
-#  MYSQL_HOST: mysql
+  MYSQL_DATABASE: PI_GRUPO10
+  MYSQL_ROOT_PASSWORD: Thichei2
+  MYSQL_HOST: db.ctd.academy:3306
   MAVEN_OPTS: -Dmaven.repo.local=.m2/repository
 #change ip
 
-#connect:
-#  image: mysql
-#  script: 
-#  - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE"
+connect:
+  image: mysql
+  script: 
+  - echo "SELECT 'OK';" | mysql --user=PI_GRUPO10 --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE"
 
 image: maven:latest
 
 stages:
   - build
-#  - test
+  - test
   - package
   - deploy
 
@@ -26,9 +26,9 @@ cache:
     - .m2/repository
     - target
 
-#before_script:
-#  - cd ./integrador_v0.1    
-#  - mvn -f  pom.xml
+before_script:
+  - cd ./integrador_v0.1    
+  - mvn -f  pom.xml
 
 
 build_job:
@@ -38,12 +38,12 @@ build_job:
     - cd ./integrador_v0.1
     - mvn compile
 
-#test_job:
-#  stage: test
-#  script:
-#    - echo "Maven test started"
-#    - cd ./integrador_v0.1
-#    - mvn clean test
+test_job:
+  stage: test
+  script:
+    - echo "Maven test started"
+    - cd ./integrador_v0.1
+    - mvn clean test
 
 package_job: 
   stage: package
