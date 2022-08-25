@@ -19,8 +19,8 @@ public class Imagen {
     private String titulo;
     private String urlImg;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "imagen")
     @JsonIgnore
+    @ManyToMany(fetch=FetchType.EAGER, mappedBy = "imagen")
     private Set<Producto> productos;
 
     public Imagen() {

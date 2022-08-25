@@ -1,5 +1,6 @@
 package equipo10.integrador_v01.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ public class Caracteristica {
     @Column
     private String icono;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "caracteristica")
     Set<Producto> productos = new HashSet<>();
 

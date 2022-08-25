@@ -7,7 +7,7 @@ const CardCategories = ({ category }) => {
   return (
     <>
     <CategoryCard>
-      <Link to={'/product'}>
+      <Link to={'/'}>
         <CategoryImage src={category.imagenCategoria.urlImg} alt={category.titulo} />
       </Link>
       <h3>{category.titulo}</h3>

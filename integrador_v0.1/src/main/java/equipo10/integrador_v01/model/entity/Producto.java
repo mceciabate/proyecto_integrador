@@ -2,18 +2,15 @@ package equipo10.integrador_v01.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Getter
-@Setter
 @Table
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,17 +35,16 @@ public class Producto {
             inverseJoinColumns = @JoinColumn(name = "imagen_id"))
     private Set<Imagen> imagen = new HashSet<>();
 
-    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "producto_has_caracteristica",
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "caracteristica_id"))
     private Set<Caracteristica> caracteristica = new HashSet<>();
-    // @JsonManagedReference
-    // @JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"}, allowSetters = true)
 
-    @JsonIgnore
+    //@JsonManagedReference
+    //@JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"}, allowSetters = true)
+
     @ManyToMany
     @JoinTable(
             name = "producto_has_politica",
@@ -56,15 +52,13 @@ public class Producto {
             inverseJoinColumns = @JoinColumn(name = "politica_id"))
     private Set<Politica> politica = new HashSet<>();
 
-    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(
             name = "ciudad_id",
             referencedColumnName = "id")
     private Ciudad ciudad;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(
             name = "categoria_id",
             referencedColumnName = "id")
@@ -88,4 +82,67 @@ public class Producto {
     private Set<Puntuacion> puntuacion = new HashSet<>();
     */
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Set<Imagen> getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Set<Imagen> imagen) {
+        this.imagen = imagen;
+    }
+
+    public Set<Caracteristica> getCaracteristica() {
+        return caracteristica;
+    }
+
+    public void setCaracteristica(Set<Caracteristica> caracteristica) {
+        this.caracteristica = caracteristica;
+    }
+
+    public Set<Politica> getPolitica() {
+        return politica;
+    }
+
+    public void setPolitica(Set<Politica> politica) {
+        this.politica = politica;
+    }
+
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 }

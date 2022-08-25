@@ -1,7 +1,7 @@
 .react-calendar { 
   grid-column: 1 / span 2;
   grid-row: 1 / span 2;
-  width: 400px;
+  width: 390px;
   max-width: 95vw;
   height: fit-content;
   background-color: #fff;
@@ -14,7 +14,7 @@
   justify-self: center;
 }
 .react-calendar--doubleView {
-  width: 700px;
+  width: 600px;
 }
 .react-calendar--doubleView .react-calendar__viewContainer {
   display: flex;

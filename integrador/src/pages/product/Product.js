@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   ProductContainer,
   HeaderContainer,
@@ -9,6 +9,7 @@ import {
   ImageContainer,
   DescriptionContainer,
   FeaturesContainer,
+  MyH2,
   CalendarContainer,
   CalendarSection,
   CalendarItem,
@@ -23,22 +24,33 @@ import "react-date-range/dist/theme/default.css";
 import ProductGallery from "./ProductGallery";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
+import { Rating } from 'react-simple-star-rating'
+import { Wrapper, Status } from "@googlemaps/react-wrapper"
 
-const Product = ({ product }) => {
+const Product = ({ img }) => {
+  const { id } = useParams();
+  const [product, setProduct] = useState()
+  useEffect(() => {
+    const request = async () => {
+        const response = await fetch(
+            `http://18.219.33.103:8080/products`
+        );
+        const result = await response.json();
+        setProduct(result[id]);
+    };
+    request();
+  }, [id]);
+  
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerWidth, innerHeight };
   };
+
+  const [rating, setRating] = useState(0)
   const [windowSize, setWindowSize] = useState(getWindowSize());
-  const [date, setDate] = useState([
-    {
-      startDate: new Date(),
-      endDate: null,
-      key: "selection",
-    },
-  ]);
   const [showModal, setShowModal] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+
   useEffect(() => {
     if (showModal) {
       document.body.style.overflow = "hidden";
@@ -46,6 +58,7 @@ const Product = ({ product }) => {
       document.body.style.removeProperty("overflow");
     }
   }, [showModal]);
+
   useEffect(() => {
     function handleWindowResize() {
       setWindowSize(getWindowSize());
@@ -57,40 +70,46 @@ const Product = ({ product }) => {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
+
   const handleModal = (index) => {
     setCurrentIndex(index);
     setShowModal(true);
   };
-  console.log(showModal);
-  console.log(currentIndex);
+  const hanldeRating = (rate) => {
+    setRating(rate)
+  }
+  const render = (status) => {
+    return <h1>{status}</h1>
+  }
+  console.log(product)
   return (
     <ProductContainer>
       <HeaderContainer>
         <LHeader>
-          <p>p category</p>
-          <h1>p name</h1>
+          <p>a</p>
+          <h1>{product.name}</h1>
           <div>
             <BsFillPinMapFill />
-            <p>p location</p>
+            <p></p>
           </div>
         </LHeader>
         <RHeader>
           <Link to="/">
             <img src={arrow} alt="home" className="arrow" />
           </Link>
-          <p>estrellas</p>
+          <Rating onClick={hanldeRating} ratingValue={rating} size={(windowSize.innerWidth > 700) ? 25 : 15} fillColor={"#f0572d"} allowHalfIcon={true} transition={true} />
         </RHeader>
       </HeaderContainer>
       {showModal && (
         <ProductGallery
-          pictures={product}
+          pictures={img}
           current={currentIndex}
           handleClose={() => setShowModal(false)}
           setCurrentIndex={setCurrentIndex}
         />
       )}
       <ImageContainer>
-        {product.map((pic, index) => (
+        {img.map((pic, index) => (
           <div
             className={index === 0 ? "main-image" : "image"}
             onClick={() => handleModal(index)}
@@ -126,14 +145,14 @@ const Product = ({ product }) => {
           <p>wifi</p>
         </div>
       </FeaturesContainer>
+      <MyH2>Fechas disponibles</MyH2>
       <CalendarContainer>
         <Calendar
-          showDoubleView={windowSize.innerWidth > 480 ? true : false}
+          showDoubleView={windowSize.innerWidth > 500 ? true : false}
           next2Label={null}
           prev2Label={null}
         />
         <CalendarSection>
-          <h2>Fechas disponibles</h2>
           <CalendarItem>
             <h3>Agregá tus fechas de viaje para obtener precios exactos</h3>
             <button>Iniciar reserva</button>
