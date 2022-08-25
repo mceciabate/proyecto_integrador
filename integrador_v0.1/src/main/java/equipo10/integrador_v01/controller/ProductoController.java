@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -51,9 +50,11 @@ public class ProductoController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
     @GetMapping("/ciudad/{id}")
-    public ResponseEntity<List<ProductoDTO>> buscarPorCiudad(@PathVariable Long id) throws ResourceNotFoundException{
+    public ResponseEntity<Set<ProductoDTO>> buscarPorCiudad(@PathVariable Long id) throws ResourceNotFoundException{
         productoService.filtrarProductoPorCiudad(id);
         return ResponseEntity.ok(productoService.filtrarProductoPorCiudad(id));
     }
+
+
 
 }
