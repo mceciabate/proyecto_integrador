@@ -5,7 +5,7 @@ variables:
   MYSQL_DATABASE: PI_GRUPO10
   MYSQL_USER: PI_GRUPO10
   MYSQL_ROOT_PASSWORD: Thichei2
-  MYSQL_HOST: db.ctd.academy:3306
+  MYSQL_HOST: mysql
   MAVEN_OPTS: -Dmaven.repo.local=.m2/repository
 #change ip
 
