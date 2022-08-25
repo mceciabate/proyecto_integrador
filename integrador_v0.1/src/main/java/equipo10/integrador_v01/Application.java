@@ -22,6 +22,3 @@ public class Application {
 }
 
 
-/*@ComponentScan(basePackages = "com/dh/proyectoIntegrador/controllers/ CategoryController.java")
-@ComponentScan(basePackages = "com/dh/proyectoIntegrador/controllers/CityController.java")
-@ComponentScan(basePackages = "com/dh/proyectoIntegrador/controllers/ProductController.java")*/
