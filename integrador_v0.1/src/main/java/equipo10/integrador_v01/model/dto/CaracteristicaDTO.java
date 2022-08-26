@@ -1,29 +1,32 @@
 package equipo10.integrador_v01.model.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class CaracteristicaDTO {
-    private Long id;
-    @NotBlank(message = "debe incluir un nombre")
-    private String nombre;
-    private Integer icono;
 
-    public CaracteristicaDTO(String nombre, Integer icono) {
+    private Long id;
+
+
+    private String nombre;
+
+    private String icono;
+
+    /*
+    @JsonIgnore
+    @ManyToMany(mappedBy = "caracteristica")
+    Set<Producto> productos = new HashSet<>();
+    */
+
+    public CaracteristicaDTO(String nombre, String icono) {
         this.nombre = nombre;
         this.icono = icono;
-    }
-
-    @Override
-    public String toString() {
-        return "CaracteristicaDTO{" +
-                "nombre=" + nombre +
-                '}';
     }
 }

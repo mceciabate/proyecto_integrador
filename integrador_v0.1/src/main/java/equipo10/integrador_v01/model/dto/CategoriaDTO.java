@@ -1,33 +1,28 @@
 package equipo10.integrador_v01.model.dto;
 
-import equipo10.integrador_v01.model.entity.Imagen;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
+import java.util.HashSet;
+import java.util.Set;
 
+//Mapear los atributos de la tabla “categorías” con una clase de nuestro modelo.
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
 public class CategoriaDTO {
+
+
     private Long id;
-    @NotBlank(message = "debe incluir un título")
     private String titulo;
-    @NotBlank(message = "debe incluir una descripción")
     private String descripcion;
-    private Imagen imagenCategoria;
 
-    public CategoriaDTO(String titulo, String descripcion, Imagen imagenCategoria) {
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.imagenCategoria = imagenCategoria;
-    }
+    private ImagenDTO imagenCategoria;
 
-    @Override
-    public String toString() {
-        return "CategoriaDTO{" +
-                "titulo='" + titulo + '\'' +
-                '}';
-    }
+    private Set<ProductoDTO> productos = new HashSet<>();
+
+
 }

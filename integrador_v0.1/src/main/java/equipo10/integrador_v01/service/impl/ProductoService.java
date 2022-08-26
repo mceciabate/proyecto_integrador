@@ -35,7 +35,11 @@ public class ProductoService implements IProductoService {
         Set<ProductoDTO> listaProductosDTO = new HashSet<>();
 
         for (Producto producto : listaProductos) {
+
+
             listaProductosDTO.add(mapper.convertValue(producto, ProductoDTO.class));
+
+
         }
 
         log.info("Listado de categorías: " + listaProductos.toString());
@@ -55,7 +59,7 @@ public class ProductoService implements IProductoService {
 
     @Override
     public ProductoDTO guardarProductos(ProductoDTO productoDTO) throws BadRequestException {
-        if (productoDTO.getImagen() == null || productoDTO.getCaracteristica() == null || productoDTO.getCiudad() == null || productoDTO.getCategoria() == null) {
+        if (productoDTO.getImagen() == null || productoDTO.getCaracteristicaDTO() == null || productoDTO.getCiudad() == null /*|| productoDTO.getCategoria() == null*/) {
             throw new BadRequestException("No se pudo guardar el producto");
         } else {
             Producto productoAGuardar = mapper.convertValue(productoDTO, Producto.class);
@@ -83,9 +87,9 @@ public class ProductoService implements IProductoService {
             Producto productoActualizado = productoEncontrado.get();
             productoActualizado.setTitulo(productoDTO.getTitulo());
             productoActualizado.setDescripcion(productoDTO.getDescripcion());
-            productoActualizado.setCaracteristica((productoDTO.getCaracteristica()));
+            /*productoActualizado.setCaracteristica((productoDTO.getCaracteristica()));
             productoActualizado.setCiudad(productoDTO.getCiudad());
-            productoActualizado.setCategoria(productoDTO.getCategoria());
+            productoActualizado.setCategoria(productoDTO.getCategoria());*/
             log.info("Producto : " + productoActualizado.getId() + " actualizado.");
             productoRepository.saveAndFlush(productoActualizado);
         } else throw new ResourceNotFoundException("No se puede modificar un id inexistente");
