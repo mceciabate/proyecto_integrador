@@ -4,11 +4,13 @@ import Layout from "./components/layout/Layout";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import ProductPage from "./pages/product/ProductPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   return (
     <BrowserRouter>
+      <ScrollToTop/>
       <Layout isLogged={isLogged} setIsLogged={setIsLogged}>
         <Routes>
           <Route path="/" element={<Home />} />

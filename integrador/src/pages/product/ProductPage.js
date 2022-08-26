@@ -1,25 +1,35 @@
 import React from "react";
 import Product from "./Product";
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'
-
-const arrawimg = ["https://assets.iprofesional.com/cdn-cgi/image/w=880,f=webp/https://assets.iprofesional.com/assets/jpg/2020/03/492392.jpg", "https://assets.iprofesional.com/cdn-cgi/image/w=880,f=webp/https://assets.iprofesional.com/assets/jpg/2020/03/492391.jpg", "https://assets.iprofesional.com/cdn-cgi/image/w=880,f=webp/https://assets.iprofesional.com/assets/jpg/2020/03/492394.jpg", "https://assets.iprofesional.com/cdn-cgi/image/w=880,f=webp/https://assets.iprofesional.com/assets/jpg/2020/03/492395.jpg", "https://assets.iprofesional.com/cdn-cgi/image/w=880,f=webp/https://assets.iprofesional.com/assets/jpg/2020/03/492390.jpg"];
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const ProductPage = () => {
-  const { id } = useParams()
-  const [product, setProduct] = useState({})
+  const { id } = useParams();
+  const [policy, setPolicy] = useState([
+    {
+      id: undefined,
+      titulo: "loading",
+      descripcion: "loading",
+    },
+    {
+      id: undefined,
+      titulo: "loading",
+      descripcion: "loading",
+    },
+  ]);
+  const [images, setImages] = useState([{}]);
+  const [product, setProduct] = useState({});
   useEffect(() => {
     const request = async () => {
-        const response = await fetch(
-            `http://localhost:8080/producto/${id}`
-        );
-        const result = await response.json();
-        setProduct(result);
+      const response = await fetch(`http://13.59.92.254:8080/producto/${id}`);
+      const result = await response.json();
+      setProduct(result);
+      setImages(result.imagen);
+      setPolicy(result.politica);
     };
     request();
-  },[id]);
-  console.log(product)
-  return <Product img={arrawimg} product={product}/>;
-}
+  }, [id]);
+  return <Product images={images} product={product} policy={policy} />;
+};
 
 export default ProductPage;

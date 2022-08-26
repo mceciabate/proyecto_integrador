@@ -2,11 +2,12 @@ import React from "react";
 import { CardC, StyledImg, CardDiv, StyledP1, StyledP2, StyledButton } from "../styles/ListStyles";
 import { Link } from "react-router-dom"
 
-const Card = ({ product }) => {
+const Card = ({ product, images }) => {
+  const updatedImg = [...images].sort((a, b) => a.id - b.id);
   return (
     <CardC>
       <div>
-        <StyledImg src={product.imagen && product.imagen[0].url} alt={product.name} />
+        <StyledImg src={updatedImg[0].urlImg} alt={product.name} />
       </div>
       <CardDiv>
         <StyledP1>{product.categoria.titulo}</StyledP1>

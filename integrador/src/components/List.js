@@ -8,19 +8,20 @@ const List = () => {
   useEffect(() => {
     const request = async () => {
         const response = await fetch(
-            `http://localhost:8080/producto`
+            `http://13.59.92.254:8080/producto/listar`
         );
         const result = await response.json();
         setProducts(result);
     };
     request();
   }, []);
+  const updatedProducts = [...products].sort((a, b) => a.id - b.id);
   return (
     <ListDiv>
       <ListH3>Recomendaciones</ListH3>
       <ListC>
-        {products.map((product) => (
-          <Card key={product.id} product={product} />
+        {updatedProducts.map((product) => (
+          <Card key={product.id} product={product} images={product.imagen} />
         ))}
       </ListC>
     </ListDiv>

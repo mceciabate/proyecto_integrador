@@ -25,7 +25,7 @@ import ProductGallery from "./ProductGallery";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
 import { Rating } from "react-simple-star-rating";
-const Product = ({ img, product }) => {
+const Product = ({ images, product, policy }) => {
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerWidth, innerHeight };
@@ -62,8 +62,7 @@ const Product = ({ img, product }) => {
   const hanldeRating = (rate) => {
     setRating(rate);
   };
-  console.log(product);
-
+  const updatedImg = [...images].sort((a, b) => a.id - b.id);
   return (
     <ProductContainer>
       <HeaderContainer>
@@ -91,20 +90,20 @@ const Product = ({ img, product }) => {
       </HeaderContainer>
       {showModal && (
         <ProductGallery
-          pictures={img}
+          arrayImg={updatedImg}
           current={currentIndex}
           handleClose={() => setShowModal(false)}
           setCurrentIndex={setCurrentIndex}
         />
       )}
       <ImageContainer>
-        {img.map((pic, index) => (
+        {updatedImg.map((pic, index) => (
           <div
             className={index === 0 ? "main-image" : "image"}
             onClick={() => handleModal(index)}
             key={index}
           >
-            <img src={pic} alt="product" />
+            <img src={pic.urlImg} alt={pic.titulo} />
           </div>
         ))}
       </ImageContainer>
@@ -115,6 +114,7 @@ const Product = ({ img, product }) => {
       <FeaturesContainer>
         <h2>¿Qué ofrece este auto?</h2>
         <div>
+          git
           <p>gps</p>
           <p>automaticp</p>
           <p>parking</p>
@@ -141,16 +141,24 @@ const Product = ({ img, product }) => {
         <h2>Qué tenés que saber</h2>
         <FooterItemContainer>
           <FooterItem>
-            <h4>Normas</h4>
-            <p>norma</p>
-            <p>norma</p>
-            <p>norma</p>
+            <h4>
+              {policy[0].titulo === undefined ? "loading" : policy[0].titulo}
+            </h4>
+            <p>
+              {policy[0].descripcion === undefined
+                ? "loading"
+                : policy[0].descripcion}
+            </p>
           </FooterItem>
           <FooterItem>
-            <h4>Seguridad</h4>
-            <p>seguridad</p>
-            <p>seguridad</p>
-            <p>seguridad</p>
+            <h4>
+              {policy[1].titulo === undefined ? "loading" : policy[1].titulo}
+            </h4>
+            <p>
+              {policy[1].descripcion === undefined
+                ? "loading"
+                : policy[1].descripcion}
+            </p>
           </FooterItem>
           <FooterItem>
             <h4>Cancelacion</h4>
