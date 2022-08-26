@@ -28,7 +28,7 @@ public class Producto {
     */
 
     @ManyToMany
-    @JsonIgnore
+    //@JsonIgnore
     @JoinTable(
             name = "producto_has_imagen",
             joinColumns = @JoinColumn(name = "producto_id"),
