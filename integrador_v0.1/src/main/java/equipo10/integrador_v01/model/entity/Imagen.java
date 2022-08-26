@@ -20,7 +20,7 @@ public class Imagen {
     private String urlImg;
 
     @JsonIgnore
-    @ManyToMany(fetch=FetchType.EAGER, mappedBy = "imagen")
+    @ManyToMany(fetch=FetchType.LAZY, mappedBy = "imagen")
     private Set<Producto> productos;
 
     public Imagen() {

@@ -19,11 +19,9 @@ public class ProductoController {
     @Autowired
     IProductoService productoService;
 
-    @GetMapping
+    @RequestMapping(value = "/listar", method = RequestMethod.GET)
     public ResponseEntity<Set<ProductoDTO>> traerTodosProductos(){
-        productoService.listarProductos();
-        return ResponseEntity.ok(productoService.listarProductos()
-        );
+        return ResponseEntity.ok(productoService.listarProductos());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -36,7 +34,6 @@ public class ProductoController {
 
     @RequestMapping(value = "/guardar", method = RequestMethod.POST)
     public ResponseEntity<ProductoDTO> guardarProducto(@RequestBody ProductoDTO productoDTO) throws BadRequestException {
-        productoService.guardarProductos(productoDTO);
         return ResponseEntity.ok(productoService.guardarProductos(productoDTO));
     }
 
