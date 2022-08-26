@@ -15,7 +15,6 @@ const Categories = () => {
     };
     request();
   }, []);
-  console.log(categories);
   return (
     <CategoriesContainer>
       <h2>Buscar por tipo</h2>

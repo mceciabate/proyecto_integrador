@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import cities from "../data/cities";
 import "react-calendar/dist/Calendar.css";
 import {
@@ -18,8 +18,16 @@ import { BsCalendarCheck } from "react-icons/bs";
 import { BsFillPinMapFill } from "react-icons/bs";
 import { Icon } from "@iconify/react";
 
-
 const Searcher = () => {
+  const [products, setProducts] = useState();
+  useEffect(() => {
+    const request = async () => {
+      const response = await fetch(`http://18.219.33.103:8080/products`);
+      const result = await response.json();
+      setProducts(result);
+    };
+    request();
+  });
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -28,34 +36,35 @@ const Searcher = () => {
     },
   ]);
   const [showCalendar, setshowCalendar] = useState(false);
+  const array = [];
   return (
     <SearchContainer>
       <h1>La forma mas facil y segura de rentar tu carro</h1>
       <SearchForm>
         <IconSelect>
-      <BsFillPinMapFill className="icon"/>
-        <SearchSelect required>
-          <option value="S">
-            Recogida
-          </option>
-          {cities.map((city) => (
-            <option key={city.id} value={city.value}>
-                {city.name}
-            </option>
-          ))}
-        </SearchSelect>
+          <BsFillPinMapFill className="icon" />
+          <SearchSelect required>
+            <option value="S">Recogida</option>
+            {cities.map((city) => (
+                <option key={city.id} value={city.value}>
+                  {city.name}
+                </option>
+              ))}
+          </SearchSelect>
         </IconSelect>
         <IconSelect>
-        <BsFillPinMapFill className="icon" />
-        <SearchSelect required>
-          <option value="S">Entrega</option>
-          {cities.map((city) => (
-            <option key={city.id} value={city.value}>
-              <Icon icon="akar-icons:twitter-fill" />
-              {city.name}
-            </option>
-          ))}
-        </SearchSelect>
+          <BsFillPinMapFill className="icon" />
+          <SearchSelect required>
+            <option value="S">Entrega</option>
+            {cities.map((city) => {
+                return (
+                <option key={city.id} value={city.value}>
+                  <Icon icon="akar-icons:twitter-fill" />
+                  {city.name}
+                </option>
+                )
+              })}
+          </SearchSelect>
         </IconSelect>
         {showCalendar ? (
           <CalendarDiv>

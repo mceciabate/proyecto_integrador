@@ -27,9 +27,11 @@ public class Caracteristica {
     @Column
     private String icono;
 
+    /*
     @JsonIgnore
     @ManyToMany(mappedBy = "caracteristica")
     Set<Producto> productos = new HashSet<>();
+    */
 
     public Caracteristica(String nombre, String icono) {
         this.nombre = nombre;

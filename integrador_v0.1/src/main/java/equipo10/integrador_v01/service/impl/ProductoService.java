@@ -7,7 +7,7 @@ import equipo10.integrador_v01.model.dto.ProductoDTO;
 import equipo10.integrador_v01.model.entity.Producto;
 import equipo10.integrador_v01.repository.IProductoRepository;
 import equipo10.integrador_v01.service.IProductoService;
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +16,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+@Slf4j
 @Service
 public class ProductoService implements IProductoService {
 
-    final static Logger log = Logger.getLogger(IProductoService.class);
 
     //Inyección de dependencias
     @Autowired
@@ -55,7 +55,7 @@ public class ProductoService implements IProductoService {
 
     @Override
     public ProductoDTO guardarProductos(ProductoDTO productoDTO) throws BadRequestException {
-        if(productoDTO.getImagen() == null || productoDTO.getCaracteristica() == null || productoDTO.getCiudad() == null || productoDTO.getCategoria() == null){
+        if (productoDTO.getImagen() == null || productoDTO.getCaracteristica() == null || productoDTO.getCiudad() == null || productoDTO.getCategoria() == null) {
             throw new BadRequestException("No se pudo guardar el producto");
         } else {
             Producto productoAGuardar = mapper.convertValue(productoDTO, Producto.class);
@@ -63,7 +63,7 @@ public class ProductoService implements IProductoService {
             log.info("Guardando nuevo producto: " + productoAGuardar.getId());
             return mapper.convertValue(productoAGuardar, ProductoDTO.class);
         }
-   }
+    }
 
     @Override
     public void eliminarProductos(Long id) throws ResourceNotFoundException {
@@ -71,10 +71,10 @@ public class ProductoService implements IProductoService {
         if (productoEncontrado.isPresent()) {
             log.info("Eliminando el producto: " + id);
             productoRepository.deleteById(id);
-        }else
+        } else
             throw new ResourceNotFoundException("No se encontro ningun producto con el id: " + id);
 
-        }
+    }
 
     @Override
     public void actualizarProductos(ProductoDTO productoDTO) throws ResourceNotFoundException {
@@ -92,17 +92,17 @@ public class ProductoService implements IProductoService {
     }
 
 
-
     @Override
     public Set<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException {
-       Set<ProductoDTO> listaProductosDTO = this.listarProductos();
-       List<Producto> listaProductos = productoRepository.findAll();
-        for(Producto producto: listaProductos){
-            if (producto.getCiudad().getId()==id){
+        Set<ProductoDTO> listaProductosDTO = this.listarProductos();
+        List<Producto> listaProductos = productoRepository.findAll();
+        for (Producto producto : listaProductos) {
+            if (producto.getCiudad().getId() == id) {
                 listaProductosDTO.add(mapper.convertValue(producto, ProductoDTO.class));
-            return listaProductosDTO ;
-        } else throw new ResourceNotFoundException("no se han encontrado productos para la ciudad seleccionada");
+                return listaProductosDTO;
+            } else throw new ResourceNotFoundException("no se han encontrado productos para la ciudad seleccionada");
 
-        } return null;
+        }
+        return null;
     }
 }

@@ -3,7 +3,6 @@ import { CategoryCard, CategoryImage } from "../styles/CategoriesStyles";
 import { Link } from "react-router-dom";
 
 const CardCategories = ({ category }) => {
-  console.log(category.imagenCategoria);
   return (
     <>
     <CategoryCard>
