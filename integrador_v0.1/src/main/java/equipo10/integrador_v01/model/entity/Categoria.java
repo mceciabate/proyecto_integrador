@@ -1,6 +1,7 @@
 package equipo10.integrador_v01.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,9 +23,11 @@ public class Categoria {
     private String titulo;
     private String descripcion;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "imagen_id", referencedColumnName = "id")
     private Imagen imagenCategoria;
+
 
     @OneToMany(mappedBy = "categoria") //la lista de productos se instancia junto con el resto de los atributos.
     @JsonIgnore

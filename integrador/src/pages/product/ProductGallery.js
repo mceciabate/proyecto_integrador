@@ -12,19 +12,19 @@ import {
 } from "./ProductStyles";
 
 const ProductGallery = ({
-  pictures,
+  arrayImg,
   current,
   handleClose,
   setCurrentIndex,
 }) => {
   const handleArrow = () => {
-    if (current === 4) {
+    if (current === arrayImg.length - 1 ) {
       setCurrentIndex(0);
     } else {
       setCurrentIndex(current + 1);
     }
   };
-
+  console.log(arrayImg.length)
   return (
     <GalleryContainer>
       <GalleryItem>
@@ -32,17 +32,17 @@ const ProductGallery = ({
           <div>
             <MainImageContainer>
               <GalleryButton onClick={handleClose}>X</GalleryButton>
-              <MainImage src={pictures[current]} alt="product" />
+              <MainImage src={arrayImg[current].urlImg} alt="product" />
               <ArrowButton onClick={() => handleArrow()}>></ArrowButton>
             </MainImageContainer>
             <MyP>{(current+1) + "/5"}</MyP>
             <Carrousel>
-              {pictures.map(
+              {arrayImg.map(
                 (pic, index) =>
                   index !== current && (
                     <CarrouselImg
                       onClick={() => setCurrentIndex(index)}
-                      src={pic}
+                      src={pic.urlImg}
                       alt="product"
                       key={index}
                     />

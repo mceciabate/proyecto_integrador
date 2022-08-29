@@ -14,7 +14,8 @@ export const HeaderContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   width: 100vw;
-  height: 121px;
+  height: 140px;
+  max-height: fit-content;
 `;
 
 export const LHeader = styled.div`
@@ -88,6 +89,7 @@ export const ImageContainer = styled.div`
   grid-template-rows: 1fr 1fr;
   width: 90vw;
   height: auto;
+  max-height: 500px;
   background: transparent;
   margin-bottom: 60px;
   gap: 5px;
@@ -99,10 +101,14 @@ export const ImageContainer = styled.div`
     background: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
+    max-height: 500px;
+    justify-content: center;
     img {
       border-radius: 8px;
       width: 100%;
       height: 100%;
+      max-height: 500px;
+      max-width: max-content;
     }
     @media (max-width: 500px) {
       grid-column: 1 / span 4;
@@ -116,10 +122,13 @@ export const ImageContainer = styled.div`
     background: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
+    justify-content: center;
     img {
       border-radius: 8px;
       width: 100%;
       height: 100%;
+      max-height: 197.5px;
+      max-width: max-content;
     }
     @media (max-width: 800px) {
       
@@ -306,6 +315,7 @@ export const FooterItem = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 25px;
+  margin: 0 5vw 0 5vw;
   h4 {
     font-weight: 700;
     font-size: 20px;
@@ -355,11 +365,14 @@ export const MainImageContainer = styled.div`
   height: auto;
   max-height: 323px;
   border-radius: 8px;
+  display: flex;
+  justify-content: center;
 `;
 
 export const MainImage = styled.img`
-  width: 100%;
+  width: auto;
   height: auto;
+  max-height: 350px;
   border-radius: 8px 8px 0 0;
 `;
 
@@ -414,8 +427,8 @@ export const Carrousel = styled.div`
 export const CarrouselImg = styled.img`
   align-self: center;
   justify-self: center;
-  width: 148px;
-  height: 91px;
+  max-width: 148px;
+  max-height: 91px;
   border-radius: 8px;
   @media (max-width: 500px) {
     height: auto;
