@@ -18,13 +18,12 @@ const ProductGallery = ({
   setCurrentIndex,
 }) => {
   const handleArrow = () => {
-    if (current === arrayImg.length - 1 ) {
+    if (current === arrayImg.length - 1) {
       setCurrentIndex(0);
     } else {
       setCurrentIndex(current + 1);
     }
   };
-  console.log(arrayImg.length)
   return (
     <GalleryContainer>
       <GalleryItem>
@@ -33,9 +32,9 @@ const ProductGallery = ({
             <MainImageContainer>
               <GalleryButton onClick={handleClose}>X</GalleryButton>
               <MainImage src={arrayImg[current].urlImg} alt="product" />
-              <ArrowButton onClick={() => handleArrow()}>></ArrowButton>
+              <ArrowButton onClick={() => handleArrow()}>{`>`}</ArrowButton>
             </MainImageContainer>
-            <MyP>{(current+1) + "/5"}</MyP>
+            <MyP>{current + 1 + "/5"}</MyP>
             <Carrousel>
               {arrayImg.map(
                 (pic, index) =>
