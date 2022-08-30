@@ -12,7 +12,6 @@ import lombok.Setter;
 public class PoliticaDTO {
 
     private Long id;
-
     private String titulo;
     private String descripcion;
 

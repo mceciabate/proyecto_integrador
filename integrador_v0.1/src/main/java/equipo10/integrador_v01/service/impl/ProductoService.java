@@ -59,7 +59,7 @@ public class ProductoService implements IProductoService {
 
     @Override
     public ProductoDTO guardarProductos(ProductoDTO productoDTO) throws BadRequestException {
-        if (productoDTO.getImagen() == null || productoDTO.getCaracteristicaDTO() == null || productoDTO.getCiudad() == null /*|| productoDTO.getCategoria() == null*/) {
+        if (productoDTO.getImagen() == null || productoDTO.getCaracteristica() == null || productoDTO.getCiudad() == null /*|| productoDTO.getCategoria() == null*/) {
             throw new BadRequestException("No se pudo guardar el producto");
         } else {
             Producto productoAGuardar = mapper.convertValue(productoDTO, Producto.class);

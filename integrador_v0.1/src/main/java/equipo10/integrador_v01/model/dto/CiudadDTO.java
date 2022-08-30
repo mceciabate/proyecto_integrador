@@ -1,5 +1,6 @@
 package equipo10.integrador_v01.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,11 +16,9 @@ import java.util.Set;
 public class CiudadDTO {
 
     private Long id;
-
     private String localidad;
-
     private String provincia;
-
+    @JsonIgnore
     private Set<ProductoDTO> producto = new HashSet<>();
 
 }

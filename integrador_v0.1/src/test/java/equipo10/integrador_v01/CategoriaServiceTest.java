@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import equipo10.integrador_v01.model.dto.CategoriaDTO;
 import equipo10.integrador_v01.model.dto.ImagenDTO;
 import equipo10.integrador_v01.model.entity.Categoria;
-import equipo10.integrador_v01.model.entity.Imagen;
-import equipo10.integrador_v01.model.entity.Producto;
 import equipo10.integrador_v01.repository.ICategoriaRepository;
 import equipo10.integrador_v01.service.impl.CategoriaService;
 import org.junit.Assert;
@@ -19,13 +17,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CategoriaDTOServiceTests {
-/*
+public class CategoriaServiceTest {
+
     @Autowired
     private CategoriaService categoriaService;
     @Autowired
@@ -113,5 +113,5 @@ public class CategoriaDTOServiceTests {
         Assert.assertEquals(categoriaDTO6.getTitulo(), categoriaRepository.findById(6L).get().getTitulo());
 
     }
-*/
+
 }

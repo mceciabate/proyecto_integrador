@@ -15,23 +15,26 @@ import java.util.Set;
 public class ProductoDTO {
 
     private Long id;
-
     private String titulo;
-
     private String descripcion;
-
     private Set<ImagenDTO> imagen = new HashSet<>();
-
-
-    private Set<CaracteristicaDTO> caracteristicaDTO = new HashSet<>();
-
+    private Set<CaracteristicaDTO> caracteristica = new HashSet<>();
     //@JsonManagedReference
     //@JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"}, allowSetters = true)
     private Set<PoliticaDTO> politica = new HashSet<>();
-
-
     private CiudadDTO ciudad;
-
     private CategoriaDTO categoria;
 
+    //Constructor sin id
+
+
+    public ProductoDTO(String titulo, String descripcion, Set<ImagenDTO> imagen, Set<CaracteristicaDTO> caracteristica, Set<PoliticaDTO> politica, CiudadDTO ciudad, CategoriaDTO categoria) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
+        this.caracteristica = caracteristica;
+        this.politica = politica;
+        this.ciudad = ciudad;
+        this.categoria = categoria;
+    }
 }
