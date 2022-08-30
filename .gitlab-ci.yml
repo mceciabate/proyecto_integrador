@@ -35,6 +35,7 @@ build_job:
 #    - echo "Maven test started"
 #    - cd ./integrador_v0.1
 #    - mvn clean test
+#esto es una prueba
 
 package_job: 
   stage: package
