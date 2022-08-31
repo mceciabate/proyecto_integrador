@@ -62,6 +62,4 @@ public class ProductoController {
         return ResponseEntity.ok(productoService.filtrarProductoPorCategoria(id));
     }
 
-
-
 }
