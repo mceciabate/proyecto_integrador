@@ -19,7 +19,7 @@ public class Application {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://ubicarfront.s3-website.us-east-2.amazonaws.com/").allowedMethods("GET", "POST", "PUT", "DELETE");
+                registry.addMapping("/**").allowedOrigins("http://ubicarfront.s3-website.us-east-2.amazonaws.com/", "http://localhost:3000/").allowedMethods("GET", "POST", "PUT", "DELETE");
             }
         };
     }
