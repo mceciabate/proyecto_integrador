@@ -24,4 +24,6 @@ public interface IProductoService {
 
     Set<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException;
 
+    Set<ProductoDTO> filtrarProductoPorCategoria(Long id) throws ResourceNotFoundException;
+
 }
