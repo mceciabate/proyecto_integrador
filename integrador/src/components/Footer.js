@@ -8,7 +8,7 @@ const Footer = () => {
     <FooterC>
       <FooterUl>
         <img src={isologo} alt="isologo" />
-        <li>@2021</li>
+        <li>@2022</li>
         <li>UbiCar</li>
       </FooterUl>
       <FooterUl>
