@@ -25,6 +25,8 @@ public class Usuario {
     private String email;
     @Column
     private String contrasenia;
+    @Column
+    private String ciudad;
 
     @OneToMany(mappedBy = "usuario")
     private Set<Puntuacion> puntuacion = new HashSet<>();

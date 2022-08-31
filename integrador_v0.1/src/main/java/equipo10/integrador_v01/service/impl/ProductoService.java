@@ -104,8 +104,19 @@ public class ProductoService implements IProductoService {
             if (producto.getCiudad().getId() == id) {
                 listaProductosDTO.add(mapper.convertValue(producto, ProductoDTO.class));
                 return listaProductosDTO;
-            } else throw new ResourceNotFoundException("no se han encontrado productos para la ciudad seleccionada");
+            } else throw new ResourceNotFoundException("No se han encontrado productos para la ciudad seleccionada");
 
+        }
+        return null;
+    }
+    public Set<ProductoDTO> filtrarProductoPorCategoria(Long id) throws ResourceNotFoundException {
+        Set<ProductoDTO> listaProductosDTO = this.listarProductos();
+        List<Producto> listaProductos = productoRepository.findAll();
+        for (Producto producto : listaProductos) {
+            if (producto.getCategoria().getId() == id) {
+                listaProductosDTO.add(mapper.convertValue(producto, ProductoDTO.class));
+                return listaProductosDTO;
+            } else throw new ResourceNotFoundException("No se han encontrado productos de la categoria seleccionada");
         }
         return null;
     }
