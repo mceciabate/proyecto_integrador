@@ -48,7 +48,7 @@ const Searcher = () => {
           <SearchSelect required>
             <option value="S">Recogida</option>
             {updatedCities.map((city) => (
-              <option key={city.id} value={city.id}>
+              <option key={city.id} value={city.localidad}>
                 <Icon icon="akar-icons:twitter-fill" />
                 {city.localidad + " , " + city.provincia}
               </option>
@@ -60,7 +60,7 @@ const Searcher = () => {
           <SearchSelect required>
           <option value="S">Recogida</option>
             {updatedCities.map((city) => (
-              <option key={city.id} value={city.id}>
+              <option key={city.id} value={city.localidad}>
                 <Icon icon="akar-icons:twitter-fill" />
                 {city.localidad + " , " + city.provincia}
               </option>

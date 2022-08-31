@@ -26,10 +26,10 @@ const List = ({ selectedCategory, title }) => {
     }
   }, []);
   const updatedProducts = [...products].sort((a, b) => a.id - b.id);
-
+  console.log(title);
   return (
     <ListDiv>
-      <ListH3>{(title === null)? "Recomendaciones" : `Autos ${title}`}</ListH3>
+      <ListH3>{(title === null) ? "Recomendaciones" : `Autos ${title}`}</ListH3>
       <ListC>
         {updatedProducts.map((product) => (
           <Card key={product.id} product={product} images={product.imagen} />
