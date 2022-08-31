@@ -1,8 +1,11 @@
 package equipo10.integrador_v01.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.CategoriaDTO;
+import equipo10.integrador_v01.model.dto.ProductoDTO;
 import equipo10.integrador_v01.model.entity.Categoria;
+import equipo10.integrador_v01.model.entity.Producto;
 import equipo10.integrador_v01.repository.ICategoriaRepository;
 import equipo10.integrador_v01.service.ICategoriaService;
 import org.apache.log4j.Logger;
@@ -12,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class CategoriaService implements ICategoriaService {
@@ -78,5 +82,6 @@ public class CategoriaService implements ICategoriaService {
         }
         log.debug("Categoria " + categoriaDTO.toString() + " actualizada");
     }
+
 
 }
