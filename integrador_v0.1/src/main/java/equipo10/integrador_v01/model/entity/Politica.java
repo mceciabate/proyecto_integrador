@@ -17,7 +17,9 @@ public class Politica {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column
     private String titulo;
+    @Column(length=700)
     private String descripcion;
 
     //  @JsonBackReference
