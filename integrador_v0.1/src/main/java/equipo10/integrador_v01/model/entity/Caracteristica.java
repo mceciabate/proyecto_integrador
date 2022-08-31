@@ -27,6 +27,8 @@ public class Caracteristica {
     private String nombre;
     @Column
     private String icono;
+    @Column
+    private String valor;
 
     /*
     @JsonIgnore
@@ -34,8 +36,9 @@ public class Caracteristica {
     Set<Producto> productos = new HashSet<>();
     */
 
-    public Caracteristica(String nombre, String icono) {
+    public Caracteristica(String nombre, String icono, String valor) {
         this.nombre = nombre;
         this.icono = icono;
+        this.valor = valor;
     }
 }

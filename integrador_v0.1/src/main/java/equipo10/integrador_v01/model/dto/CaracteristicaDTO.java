@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,6 +14,7 @@ public class CaracteristicaDTO {
     private Long id;
     private String nombre;
     private String icono;
+    private String valor;
 
     /*
     @JsonIgnore
@@ -22,8 +22,9 @@ public class CaracteristicaDTO {
     Set<Producto> productos = new HashSet<>();
     */
 
-    public CaracteristicaDTO(String nombre, String icono) {
+    public CaracteristicaDTO(String nombre, String icono, String valor) {
         this.nombre = nombre;
         this.icono = icono;
+        this.valor = valor;
     }
 }
