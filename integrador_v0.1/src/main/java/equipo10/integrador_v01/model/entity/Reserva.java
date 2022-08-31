@@ -4,19 +4,26 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table
 @Getter
 @Setter
-public class Puntuacion {
+public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 
     @Column
-    private Integer puntuacion;
+    private String horaInicio;
+
+    @Column
+    private LocalDate fechaRecogida;
+
+    @Column
+    private LocalDate fechaEntrega;
 
     @ManyToOne
     @JoinColumn(
@@ -31,4 +38,5 @@ public class Puntuacion {
             referencedColumnName = "id",
             nullable = false)
     private Usuario usuario;
+
 }
