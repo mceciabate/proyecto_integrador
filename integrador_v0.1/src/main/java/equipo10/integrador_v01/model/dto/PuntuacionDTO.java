@@ -10,7 +10,7 @@ public class PuntuacionDTO {
     private Long id;
 
 
-    private int puntuacion;
+    private Integer puntuacion;
 
     private ProductoDTO producto;
 

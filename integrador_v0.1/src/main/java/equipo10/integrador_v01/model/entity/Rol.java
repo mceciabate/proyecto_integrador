@@ -9,21 +9,13 @@ import javax.persistence.*;
 @Table
 @Getter
 @Setter
-public class Puntuacion {
+public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
-
     @Column
-    private Integer puntuacion;
-
-    @ManyToOne
-    @JoinColumn(
-            name = "producto_id",
-            referencedColumnName = "id",
-            nullable = false)
-    private Producto producto;
+    private String nombre;
 
     @ManyToOne
     @JoinColumn(
