@@ -3,15 +3,13 @@ import CardCategories from "./CardCategories";
 import { useState, useEffect } from "react";
 import { CategoriesContainer, CardContainer } from "../styles/CategoriesStyles";
 
-const Categories = () => {
+const Categories = ({ setSelectedCategories, setTitle }) => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     const request = async () => {
-        const response = await fetch(
-            `http://13.59.92.254:8080/categoria/listar`
-        );
-        const result = await response.json();
-        setCategories(result);
+      const response = await fetch(`http://13.59.92.254:8080/categoria/listar`);
+      const result = await response.json();
+      setCategories(result);
     };
     request();
   }, []);
@@ -20,7 +18,11 @@ const Categories = () => {
       <h2>Buscar por tipo</h2>
       <CardContainer>
         {categories.map((category) => (
-            <CardCategories key={category.id} category={category} />
+          <CardCategories
+            key={category.id}
+            category={category}
+            onClick={() => {setSelectedCategories(category.id) ; setTitle(category.titulo)}}
+          />
         ))}
       </CardContainer>
     </CategoriesContainer>
