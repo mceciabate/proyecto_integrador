@@ -133,7 +133,9 @@ const Product = ({ images, product, policy }) => {
         <CalendarSection>
           <CalendarItem>
             <h3>Agregá tus fechas de viaje para obtener precios exactos</h3>
+            <Link to={`/product/${product.id}/reserve`}>
             <button>Iniciar reserva</button>
+            </Link>
           </CalendarItem>
         </CalendarSection>
       </CalendarContainer>

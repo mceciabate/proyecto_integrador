@@ -12,11 +12,25 @@ import {
   Schedule,
   Detail,
 } from "./ReserveStyles";
+import { useParams } from "react-router-dom";
 import arrow from "../../assets/arrow.png";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
 
 const Reserve = () => {
+  const { id } = useParams();
+  const [product, setProduct] = useState({})
+  const [images, setImages] = useState([{}]);
+  useEffect(() => {
+    const request = async () => {
+      const response = await fetch(`http://13.59.92.254:8080/producto/${id}`);
+      const result = await response.json();
+      setProduct(result);
+      setImages(result.imagen);
+      /* setPolicy(result.politica); */
+    };
+    request();
+  }, [id]);
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerWidth, innerHeight };
@@ -33,12 +47,13 @@ const Reserve = () => {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
+  console.log(images)
   return (
     <ReserveContainer>
       <HeaderContainer>
         <LHeader>
-          <p>P category</p>
-          <h1>p title</h1>
+          <p>{product.categoria && product.categoria.titulo}</p>
+          <h1>{product && product.titulo}</h1>
         </LHeader>
         <RHeader>
           <Link to="/">
@@ -117,12 +132,12 @@ const Reserve = () => {
         </Schedule>
         <Detail>
           <h2 className="htop">Detalle de la reserva</h2>
-          <img src="" alt="auto" />
+          <img src={images && images[0].urlImg} alt="auto" />
           <div>
-            <p className="pcategory">cat</p>
-            <h2 className="hbottom">title</h2>
+            <p className="pcategory">{product.categoria && product.categoria.titulo}</p>
+            <h2 className="hbottom">{product && product.titulo}</h2>
             <p className="pstars">stars</p>
-            <p className="plocation">direction</p>
+            <p className="plocation">{product.ciudad && product.ciudad.provincia}</p>
           </div>
           <div>
             <p className="paccion">Recogida</p>

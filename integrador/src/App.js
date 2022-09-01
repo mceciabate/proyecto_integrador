@@ -18,7 +18,7 @@ function App() {
           <Route path="/login" element={<Login argument="login" setIsLogged={setIsLogged}/>} />
           <Route path="/register" element={<Login argument="register" setIsLogged={setIsLogged} />} />
           <Route path="/product/:id" element={<ProductPage />} />
-          <Route path="/reserve" element={<Reserve />} />
+          <Route path="/product/:id/reserve" element={<Reserve />} />
         </Routes>
       </Layout>
     </BrowserRouter>
