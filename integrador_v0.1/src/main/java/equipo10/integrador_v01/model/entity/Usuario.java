@@ -30,8 +30,11 @@ public class Usuario {
     @Column
     private String contrasenia;
 
-    @OneToMany(mappedBy = "usuario")
-    private List<Puntuacion> puntuacion = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(
+            name = "rol_id",
+            referencedColumnName = "id")
+    private Rol rol;
 
     //constructor sin id ni puntuación list
 

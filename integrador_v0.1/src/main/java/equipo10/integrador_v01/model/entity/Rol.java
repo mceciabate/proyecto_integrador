@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -21,14 +23,10 @@ public class Rol {
     @Column
     private String nombre;
 
-    @ManyToOne
-    @JoinColumn(
-            name = "usuario_id",
-            referencedColumnName = "id",
-            nullable = false)
-    private Usuario usuario;
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "rol")
+    private List<Usuario> usuario = new ArrayList<>();
 
-    public Rol(String nombre, Usuario usuario) {
+    public Rol(String nombre, List<Usuario> usuario) {
         this.nombre = nombre;
         this.usuario = usuario;
     }
