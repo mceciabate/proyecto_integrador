@@ -51,7 +51,6 @@ public class CategoriaService implements ICategoriaService {
     public CategoriaDTO guardarCategoria(CategoriaDTO categoriaDTO) {
         //Imagen imagen = imagenRespository.findById(categoriaDTO.getUrlImg().getId()).get();
         //Categoria categoriaAGuardar = new Categoria(categoriaDTO.getTitulo(), categoriaDTO.getDescripcion(), imagen);
-
         //implementar traer los datos de imagen para q se vea en la response
 
         Categoria categoriaAGuardar = mapper.convertValue(categoriaDTO, Categoria.class);

@@ -53,7 +53,7 @@ public class ProductoController {
 
     @RequestMapping(value = "/ciudad/{id}", method = RequestMethod.GET)
     public ResponseEntity<List<ProductoDTO>> buscarPorCiudad(@PathVariable Long id) throws ResourceNotFoundException{
-        productoService.filtrarProductoPorCiudad(id);
+        //productoService.filtrarProductoPorCiudad(id);
         return ResponseEntity.ok(productoService.filtrarProductoPorCiudad(id));
     }
     @RequestMapping(value = "/categoria/{id}", method = RequestMethod.GET)

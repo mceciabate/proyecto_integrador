@@ -30,15 +30,9 @@ public class ProductoService implements IProductoService {
     public List<ProductoDTO> listarProductos() {
         List<Producto> listaProductos = productoRepository.findAll();
         List<ProductoDTO> listaProductosDTO = new ArrayList<>();
-
         for (Producto producto : listaProductos) {
-
-
             listaProductosDTO.add(mapper.convertValue(producto, ProductoDTO.class));
-
-
         }
-
         log.info("Listado de categorías: " + listaProductos.toString());
         return listaProductosDTO;
     }
@@ -95,15 +89,15 @@ public class ProductoService implements IProductoService {
 
     @Override
     public List<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException {
-        List<ProductoDTO> listaProductosDTO = this.listarProductos();
+        List<ProductoDTO> listaProductosDTO = new ArrayList<>();
         List<Producto> listaProductos = productoRepository.findAll();
         for (Producto producto : listaProductos) {
             if (producto.getCiudad().getId() == id) {
                 listaProductosDTO.add(mapper.convertValue(producto, ProductoDTO.class));
-                return listaProductosDTO;
-            } else throw new ResourceNotFoundException("no se han encontrado productos para la ciudad seleccionada");
+            }
         }
-        return null;
+        log.info("productos seleccionados para la ciudad número " + id);
+        return listaProductosDTO;
     }
     public List<ProductoDTO> filtrarProductoPorCategoria(Long id) throws ResourceNotFoundException {
         List<ProductoDTO> listaProductosDTO = this.listarProductos();

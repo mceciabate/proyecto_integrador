@@ -16,8 +16,8 @@ import java.util.Set;
 @Entity
 @Table
 @NoArgsConstructor
-@AllArgsConstructor
-@Getter
+//@AllArgsConstructor
+//@Getter
 @Setter
 // @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Ciudad {
@@ -38,5 +38,28 @@ public class Ciudad {
     public Ciudad(String localidad, String provincia) {
         this.localidad = localidad;
         this.provincia = provincia;
+    }
+
+    public Ciudad(Long id, String localidad, String provincia, List<Producto> producto) {
+        this.id = id;
+        this.localidad = localidad;
+        this.provincia = provincia;
+        this.producto = producto;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getLocalidad() {
+        return localidad;
+    }
+
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public List<Producto> getProducto() {
+        return producto;
     }
 }

@@ -58,13 +58,13 @@ public class Producto {
             inverseJoinColumns = @JoinColumn(name = "politica_id"))
     private List<Politica> politica = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(
             name = "ciudad_id",
             referencedColumnName = "id")
     private Ciudad ciudad;
 
-    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @ManyToOne (fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(
             name = "categoria_id",
             referencedColumnName = "id")
