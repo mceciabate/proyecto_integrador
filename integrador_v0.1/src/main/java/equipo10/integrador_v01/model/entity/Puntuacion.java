@@ -1,6 +1,8 @@
 package equipo10.integrador_v01.model.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +11,8 @@ import javax.persistence.*;
 @Table
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Puntuacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,4 +35,10 @@ public class Puntuacion {
             referencedColumnName = "id",
             nullable = false)
     private Usuario usuario;
+
+    public Puntuacion(Integer puntuacion, Producto producto, Usuario usuario) {
+        this.puntuacion = puntuacion;
+        this.producto = producto;
+        this.usuario = usuario;
+    }
 }

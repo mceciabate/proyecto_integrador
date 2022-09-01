@@ -1,14 +1,12 @@
 package equipo10.integrador_v01.model.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class PoliticaDTO {
 
     private Long id;
@@ -22,4 +20,9 @@ public class PoliticaDTO {
     @ManyToMany(mappedBy = "politica")
     private Set<Producto> producto;
     */
+
+    public PoliticaDTO(String titulo, String descripcion) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+    }
 }

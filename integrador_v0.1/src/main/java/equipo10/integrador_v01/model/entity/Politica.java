@@ -29,4 +29,9 @@ public class Politica {
     @ManyToMany(mappedBy = "politica")
     private Set<Producto> producto;
     */
+
+    public Politica(String titulo, String descripcion) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+    }
 }

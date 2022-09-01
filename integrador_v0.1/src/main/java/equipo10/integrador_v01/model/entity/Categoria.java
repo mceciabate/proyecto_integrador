@@ -6,10 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+
 
 //Mapear los atributos de la tabla “categorías” con una clase de nuestro modelo.
 @Entity // El ORM hibernate va a leer esto como bdd
@@ -34,7 +34,7 @@ public class Categoria {
 
     @JsonIgnore
     @OneToMany(mappedBy = "categoria") //la lista de productos se instancia junto con el resto de los atributos.
-    private Set<Producto> productos = new HashSet<>();
+    private List<Producto> productos = new ArrayList<>();
 
     //constructor sin id y producto
         public Categoria(String titulo, String descripcion, Imagen imagenCategoria) {

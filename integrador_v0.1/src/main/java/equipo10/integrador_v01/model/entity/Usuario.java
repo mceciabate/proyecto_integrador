@@ -1,16 +1,20 @@
 package equipo10.integrador_v01.model.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Getter
 @Setter
 @Table
+@NoArgsConstructor
+@AllArgsConstructor
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,5 +31,14 @@ public class Usuario {
     private String contrasenia;
 
     @OneToMany(mappedBy = "usuario")
-    private Set<Puntuacion> puntuacion = new HashSet<>();
+    private List<Puntuacion> puntuacion = new ArrayList<>();
+
+    //constructor sin id ni puntuación list
+
+    public Usuario(String nombre, String apellido, String email, String contrasenia) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.contrasenia = contrasenia;
+    }
 }

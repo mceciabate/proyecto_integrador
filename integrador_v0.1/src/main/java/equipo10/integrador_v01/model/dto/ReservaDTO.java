@@ -1,9 +1,6 @@
 package equipo10.integrador_v01.model.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -11,10 +8,16 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class ReservaDTO {
     private Long id;
     private String horaInicio;
     private LocalDate fechaRecogida;
     private LocalDate fechaEntrega;
 
+    public ReservaDTO(String horaInicio, LocalDate fechaRecogida, LocalDate fechaEntrega) {
+        this.horaInicio = horaInicio;
+        this.fechaRecogida = fechaRecogida;
+        this.fechaEntrega = fechaEntrega;
+    }
 }

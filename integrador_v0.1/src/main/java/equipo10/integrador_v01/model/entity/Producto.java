@@ -7,9 +7,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 
 @Entity
 @Table
@@ -47,7 +46,7 @@ public class Producto {
             name = "producto_has_caracteristica",
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "caracteristica_id"))
-    private Set<Caracteristica> caracteristica = new HashSet<>();
+    private List<Caracteristica> caracteristica = new ArrayList<>();
 
     //@JsonManagedReference
     //@JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"}, allowSetters = true)
@@ -57,7 +56,7 @@ public class Producto {
             name = "producto_has_politica",
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "politica_id"))
-    private Set<Politica> politica = new HashSet<>();
+    private List<Politica> politica = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(
@@ -78,7 +77,7 @@ public class Producto {
     */
 
     //constructor sin id
-    public Producto(String titulo, String descripcion, List<Imagen> imagen, Set<Caracteristica> caracteristica, Set<Politica> politica, Ciudad ciudad, Categoria categoria) {
+    public Producto(String titulo, String descripcion, List<Imagen> imagen, List<Caracteristica> caracteristica, List<Politica> politica, Ciudad ciudad, Categoria categoria) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.imagen = imagen;

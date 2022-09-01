@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -30,7 +32,7 @@ public class Ciudad {
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "ciudad")
-    private Set<Producto> producto = new HashSet<>();
+    private List<Producto> producto = new ArrayList<>();
 
     // constructor sin id y producto
     public Ciudad(String localidad, String provincia) {

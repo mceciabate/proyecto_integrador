@@ -1,18 +1,17 @@
 package equipo10.integrador_v01.model.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+
 
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class UsuarioDTO {
     private Long id;
 
@@ -25,5 +24,13 @@ public class UsuarioDTO {
 
     private String contrasenia;
 
-    private Set<PuntuacionDTO> puntuacion = new HashSet<>();
+    private List<PuntuacionDTO> puntuacion = new ArrayList<>();
+
+    //constructor sin id ni puntuación list
+    public UsuarioDTO(String nombre, String apellido, String email, String contrasenia) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.contrasenia = contrasenia;
+    }
 }

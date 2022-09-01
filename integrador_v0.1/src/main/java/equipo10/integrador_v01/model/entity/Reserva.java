@@ -1,6 +1,8 @@
 package equipo10.integrador_v01.model.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,6 +12,8 @@ import java.time.LocalDate;
 @Table
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,4 +43,11 @@ public class Reserva {
             nullable = false)
     private Usuario usuario;
 
+    public Reserva(String horaInicio, LocalDate fechaRecogida, LocalDate fechaEntrega, Producto producto, Usuario usuario) {
+        this.horaInicio = horaInicio;
+        this.fechaRecogida = fechaRecogida;
+        this.fechaEntrega = fechaEntrega;
+        this.producto = producto;
+        this.usuario = usuario;
+    }
 }

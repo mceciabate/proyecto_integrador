@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
+
 
 @Entity
 @Getter
@@ -25,7 +26,7 @@ public class Imagen {
 
     @JsonIgnore
     @ManyToMany(fetch=FetchType.LAZY, mappedBy = "imagen")
-    private Set<Producto> productos;
+    private List<Producto> productos;
 
     // constructor sin id y producto
     public Imagen(String titulo, String urlImg) {

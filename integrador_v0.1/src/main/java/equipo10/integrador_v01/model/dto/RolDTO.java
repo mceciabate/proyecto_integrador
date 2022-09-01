@@ -1,16 +1,17 @@
 package equipo10.integrador_v01.model.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class RolDTO {
     private Long id;
     private String nombre;
 
+    public RolDTO(String nombre) {
+        this.nombre = nombre;
+    }
 }
