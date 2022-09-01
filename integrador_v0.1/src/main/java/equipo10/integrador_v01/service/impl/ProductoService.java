@@ -96,18 +96,19 @@ public class ProductoService implements IProductoService {
                 listaProductosDTO.add(mapper.convertValue(producto, ProductoDTO.class));
             }
         }
-        log.info("productos seleccionados para la ciudad número " + id);
+        log.info("Productos seleccionados para la ciudad número " + id);
         return listaProductosDTO;
     }
     public List<ProductoDTO> filtrarProductoPorCategoria(Long id) throws ResourceNotFoundException {
-        List<ProductoDTO> listaProductosDTO = this.listarProductos();
+        List<ProductoDTO> listaProductosDTO = new ArrayList<>();
         List<Producto> listaProductos = productoRepository.findAll();
         for (Producto producto : listaProductos) {
             if (producto.getCategoria().getId() == id) {
                 listaProductosDTO.add(mapper.convertValue(producto, ProductoDTO.class));
-                return listaProductosDTO;
-            } else throw new ResourceNotFoundException("No se han encontrado productos de la categoria seleccionada");
+            }
         }
-        return null;
+        log.info("Productos seleccionados para la categoría número " + id);
+        return listaProductosDTO;
+
     }
 }
