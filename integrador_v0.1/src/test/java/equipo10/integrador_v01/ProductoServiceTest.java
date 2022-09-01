@@ -33,8 +33,8 @@ public class ProductoServiceTest {
         @Test
         public void aGuardarProductoTest() throws BadRequestException {
             List<ImagenDTO> imagen = new ArrayList<>();
-            Set<CaracteristicaDTO> caracteristicas = new HashSet<>();
-            Set<PoliticaDTO> politicas = new HashSet<>();
+            List<CaracteristicaDTO> caracteristicas = new ArrayList<>();
+            List<PoliticaDTO> politicas = new ArrayList<>();
             CiudadDTO ciudad = new CiudadDTO();
             CategoriaDTO categoria = new CategoriaDTO();
             ProductoDTO productoDTO = new ProductoDTO("titulo1", "descrip", imagen, caracteristicas, politicas ,ciudad, categoria);
@@ -51,16 +51,16 @@ public class ProductoServiceTest {
         @Test
         public void cListarCategoriaTest() throws BadRequestException {
             ArrayList<ImagenDTO> imagen1 = new ArrayList<>();
-            Set<CaracteristicaDTO> caracteristicas1 = new HashSet<>();
-            Set<PoliticaDTO> politicas1 = new HashSet<>();
+            ArrayList<CaracteristicaDTO> caracteristicas1 = new ArrayList<>();
+            ArrayList<PoliticaDTO> politicas1 = new ArrayList<>();
             CiudadDTO ciudad1 = new CiudadDTO();
             CategoriaDTO categoria1 = new CategoriaDTO();
             ProductoDTO productoDTO1 = new ProductoDTO("titulo1", "descrip1", imagen1, caracteristicas1, politicas1,ciudad1, categoria1);
             productoService.guardarProductos(productoDTO1);
 
-            List<ImagenDTO> imagen2 = new ArrayList<>();
-            Set<CaracteristicaDTO> caracteristicas2 = new HashSet<>();
-            Set<PoliticaDTO> politicas2 = new HashSet<>();
+            ArrayList<ImagenDTO> imagen2 = new ArrayList<>();
+            ArrayList<CaracteristicaDTO> caracteristicas2 = new ArrayList<>();
+            ArrayList<PoliticaDTO> politicas2 = new ArrayList<>();
             CiudadDTO ciudad2 = new CiudadDTO();
             CategoriaDTO categoria2 = new CategoriaDTO();
             ProductoDTO productoDTO2 = new ProductoDTO("titulo2", "descrip2", imagen2, caracteristicas2, politicas2 ,ciudad2, categoria2);
@@ -73,8 +73,8 @@ public class ProductoServiceTest {
         @Test
         public void dBuscarCategoriaPorIdTest() throws BadRequestException {
             ArrayList<ImagenDTO> imagen4 = new ArrayList<>();
-            Set<CaracteristicaDTO> caracteristicas4 = new HashSet<>();
-            Set<PoliticaDTO> politicas4 = new HashSet<>();
+            ArrayList<CaracteristicaDTO> caracteristicas4 = new ArrayList<>();
+            ArrayList<PoliticaDTO> politicas4 = new ArrayList<>();
             CiudadDTO ciudad4 = new CiudadDTO();
             CategoriaDTO categoria4 = new CategoriaDTO();
             ProductoDTO productoDTO4 = new ProductoDTO("titulo4", "descrip4", imagen4, caracteristicas4, politicas4 ,ciudad4, categoria4);
@@ -86,8 +86,8 @@ public class ProductoServiceTest {
         @Test
         public void eActualizarCategoriaTest() throws BadRequestException, ResourceNotFoundException {
             ArrayList<ImagenDTO> imagen5 = new ArrayList<>();
-            Set<CaracteristicaDTO> caracteristicas5 = new HashSet<>();
-            Set<PoliticaDTO> politicas5 = new HashSet<>();
+            List<CaracteristicaDTO> caracteristicas5 = new ArrayList<>();
+            List<PoliticaDTO> politicas5 = new ArrayList<>();
             CiudadDTO ciudad5 = new CiudadDTO();
             CategoriaDTO categoria5 = new CategoriaDTO();
             ProductoDTO productoDTO5 = new ProductoDTO("titulo5", "descrip5", imagen5, caracteristicas5, politicas5 ,ciudad5, categoria5);
