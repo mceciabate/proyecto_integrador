@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -31,7 +32,7 @@ public class ProductoServiceTest {
 
         @Test
         public void aGuardarProductoTest() throws BadRequestException {
-            Set<ImagenDTO> imagen = new HashSet<>();
+            List<ImagenDTO> imagen = new ArrayList<>();
             Set<CaracteristicaDTO> caracteristicas = new HashSet<>();
             Set<PoliticaDTO> politicas = new HashSet<>();
             CiudadDTO ciudad = new CiudadDTO();
@@ -44,11 +45,12 @@ public class ProductoServiceTest {
         @Test
         public void bEliminarProductoTest() throws ResourceNotFoundException {
             productoService.eliminarProductos(1L);
-            Assert.assertTrue(productoRepository.findById(1L).isEmpty());
+            Assert.assertNull(productoRepository.findById(1L));
+            //Assert.assertTrue(productoRepository.findById(1L).isEmpty());
         }
         @Test
         public void cListarCategoriaTest() throws BadRequestException {
-            Set<ImagenDTO> imagen1 = new HashSet<>();
+            ArrayList<ImagenDTO> imagen1 = new ArrayList<>();
             Set<CaracteristicaDTO> caracteristicas1 = new HashSet<>();
             Set<PoliticaDTO> politicas1 = new HashSet<>();
             CiudadDTO ciudad1 = new CiudadDTO();
@@ -56,7 +58,7 @@ public class ProductoServiceTest {
             ProductoDTO productoDTO1 = new ProductoDTO("titulo1", "descrip1", imagen1, caracteristicas1, politicas1,ciudad1, categoria1);
             productoService.guardarProductos(productoDTO1);
 
-            Set<ImagenDTO> imagen2 = new HashSet<>();
+            List<ImagenDTO> imagen2 = new ArrayList<>();
             Set<CaracteristicaDTO> caracteristicas2 = new HashSet<>();
             Set<PoliticaDTO> politicas2 = new HashSet<>();
             CiudadDTO ciudad2 = new CiudadDTO();
@@ -70,7 +72,7 @@ public class ProductoServiceTest {
         }
         @Test
         public void dBuscarCategoriaPorIdTest() throws BadRequestException {
-            Set<ImagenDTO> imagen4 = new HashSet<>();
+            ArrayList<ImagenDTO> imagen4 = new ArrayList<>();
             Set<CaracteristicaDTO> caracteristicas4 = new HashSet<>();
             Set<PoliticaDTO> politicas4 = new HashSet<>();
             CiudadDTO ciudad4 = new CiudadDTO();
@@ -83,7 +85,7 @@ public class ProductoServiceTest {
 
         @Test
         public void eActualizarCategoriaTest() throws BadRequestException, ResourceNotFoundException {
-            Set<ImagenDTO> imagen5 = new HashSet<>();
+            ArrayList<ImagenDTO> imagen5 = new ArrayList<>();
             Set<CaracteristicaDTO> caracteristicas5 = new HashSet<>();
             Set<PoliticaDTO> politicas5 = new HashSet<>();
             CiudadDTO ciudad5 = new CiudadDTO();

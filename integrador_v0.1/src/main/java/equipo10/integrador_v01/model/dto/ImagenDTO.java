@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -18,7 +19,7 @@ public class ImagenDTO {
     private String titulo;
     private String urlImg;
     @JsonIgnore
-    private Set<ProductoDTO> productos;
+    private List<ProductoDTO> productos;
 
     // constructor sin id y prodcutos
 
