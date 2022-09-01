@@ -5,7 +5,6 @@ import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.ProductoDTO;
 
 import java.util.List;
-import java.util.Set;
 
 public interface IProductoService {
     List<ProductoDTO> listarProductos();

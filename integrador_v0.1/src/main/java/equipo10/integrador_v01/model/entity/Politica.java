@@ -19,7 +19,7 @@ public class Politica {
     private Long id;
     @Column
     private String titulo;
-    @Column(length=700)
+    @Column(length = 700)
     private String descripcion;
 
     //  @JsonBackReference

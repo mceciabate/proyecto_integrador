@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 //Mapear los atributos de la tabla “categorías” con una clase de nuestro modelo.
 @AllArgsConstructor

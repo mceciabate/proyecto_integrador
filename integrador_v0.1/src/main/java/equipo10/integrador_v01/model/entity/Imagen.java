@@ -25,7 +25,7 @@ public class Imagen {
     private String urlImg;
 
     @JsonIgnore
-    @ManyToMany(fetch=FetchType.LAZY, mappedBy = "imagen")
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "imagen")
     private List<Producto> productos;
 
     // constructor sin id y producto

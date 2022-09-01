@@ -5,7 +5,6 @@ import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.exceptions.ValidationException;
 import equipo10.integrador_v01.model.dto.CategoriaDTO;
 import equipo10.integrador_v01.service.ICategoriaService;
-import org.hibernate.mapping.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

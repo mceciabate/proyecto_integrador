@@ -1,11 +1,11 @@
 package equipo10.integrador_v01.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +37,7 @@ public class Categoria {
     private List<Producto> productos = new ArrayList<>();
 
     //constructor sin id y producto
-        public Categoria(String titulo, String descripcion, Imagen imagenCategoria) {
+    public Categoria(String titulo, String descripcion, Imagen imagenCategoria) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.imagenCategoria = imagenCategoria;

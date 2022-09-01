@@ -11,7 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -99,6 +101,7 @@ public class ProductoService implements IProductoService {
         log.info("Productos seleccionados para la ciudad número " + id);
         return listaProductosDTO;
     }
+
     public List<ProductoDTO> filtrarProductoPorCategoria(Long id) throws ResourceNotFoundException {
         List<ProductoDTO> listaProductosDTO = new ArrayList<>();
         List<Producto> listaProductos = productoRepository.findAll();

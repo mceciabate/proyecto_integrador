@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/producto")
@@ -21,7 +20,7 @@ public class ProductoController {
     IProductoService productoService;
 
     @RequestMapping(value = "/listar", method = RequestMethod.GET)
-    public ResponseEntity<List<ProductoDTO>> traerTodosProductos(){
+    public ResponseEntity<List<ProductoDTO>> traerTodosProductos() {
         return ResponseEntity.ok(productoService.listarProductos());
     }
 
@@ -52,11 +51,12 @@ public class ProductoController {
     }
 
     @RequestMapping(value = "/ciudad/{id}", method = RequestMethod.GET)
-    public ResponseEntity<List<ProductoDTO>> buscarPorCiudad(@PathVariable Long id) throws ResourceNotFoundException{
+    public ResponseEntity<List<ProductoDTO>> buscarPorCiudad(@PathVariable Long id) throws ResourceNotFoundException {
         return ResponseEntity.ok(productoService.filtrarProductoPorCiudad(id));
     }
+
     @RequestMapping(value = "/categoria/{id}", method = RequestMethod.GET)
-    public ResponseEntity <List<ProductoDTO>> filtrarPorCategoria(@PathVariable Long id) throws ResourceNotFoundException{
+    public ResponseEntity<List<ProductoDTO>> filtrarPorCategoria(@PathVariable Long id) throws ResourceNotFoundException {
         return ResponseEntity.ok(productoService.filtrarProductoPorCategoria(id));
     }
 }

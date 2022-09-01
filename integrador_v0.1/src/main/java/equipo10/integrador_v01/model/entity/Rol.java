@@ -23,7 +23,7 @@ public class Rol {
     @Column
     private String nombre;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "rol")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "rol")
     private List<Usuario> usuario = new ArrayList<>();
 
     public Rol(String nombre, List<Usuario> usuario) {

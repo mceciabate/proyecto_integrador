@@ -1,23 +1,16 @@
 package equipo10.integrador_v01.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.model.dto.CiudadDTO;
-import equipo10.integrador_v01.model.dto.ProductoDTO;
 import equipo10.integrador_v01.model.entity.Ciudad;
-import equipo10.integrador_v01.model.entity.Producto;
 import equipo10.integrador_v01.repository.ICiudadRepository;
-import equipo10.integrador_v01.repository.IProductoRepository;
 import equipo10.integrador_v01.service.ICiudadService;
-import equipo10.integrador_v01.service.IProductoService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class CiudadService implements ICiudadService {

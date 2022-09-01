@@ -64,7 +64,7 @@ public class Producto {
             referencedColumnName = "id")
     private Ciudad ciudad;
 
-    @ManyToOne (fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(
             name = "categoria_id",
             referencedColumnName = "id")

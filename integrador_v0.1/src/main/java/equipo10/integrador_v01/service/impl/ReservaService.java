@@ -1,7 +1,6 @@
 package equipo10.integrador_v01.service.impl;
 
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
@@ -25,10 +24,11 @@ public class ReservaService implements IReservaService {
 
     @Autowired
     ObjectMapper mapper;
+
     @Override
     public ReservaDTO guardarReserva(ReservaDTO reservaDTO) throws BadRequestException {
         Reserva nuevaReserva = mapper.convertValue(reservaDTO, Reserva.class);
-         reservaRepository.save(nuevaReserva);
+        reservaRepository.save(nuevaReserva);
         log.info("Se ha creado la reserva " + nuevaReserva.toString());
         return mapper.convertValue(nuevaReserva, ReservaDTO.class);
     }
@@ -38,7 +38,7 @@ public class ReservaService implements IReservaService {
         List<Reserva> listaReservas = reservaRepository.findAll();
         List<ReservaDTO> listaDTO = new ArrayList<>();
         for (Reserva reserva : listaReservas) {
-            if (reserva.getProducto().getId() == id){
+            if (reserva.getProducto().getId() == id) {
                 listaDTO.add(mapper.convertValue(reserva, ReservaDTO.class));
             }
         }
