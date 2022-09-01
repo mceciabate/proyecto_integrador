@@ -6,9 +6,7 @@ const CardCategories = ({ category }) => {
   return (
     <>
     <CategoryCard>
-      <Link to={'/'}>
         <CategoryImage src={category.imagenCategoria.urlImg} alt={category.titulo} />
-      </Link>
       <h3>{category.titulo}</h3>
       <p>807.105 carros</p>
     </CategoryCard>

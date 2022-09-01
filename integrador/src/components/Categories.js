@@ -3,7 +3,7 @@ import CardCategories from "./CardCategories";
 import { useState, useEffect } from "react";
 import { CategoriesContainer, CardContainer } from "../styles/CategoriesStyles";
 
-const Categories = ({ setSelectedCategories, setTitle }) => {
+const Categories = ({ handleCategory }) => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     const request = async () => {
@@ -18,11 +18,12 @@ const Categories = ({ setSelectedCategories, setTitle }) => {
       <h2>Buscar por tipo</h2>
       <CardContainer>
         {categories.map((category) => (
+          <div key={category.id} onClick={()=>handleCategory(category)}>
           <CardCategories
             key={category.id}
             category={category}
-            onClick={() => {setSelectedCategories(category.id) ; setTitle(category.titulo)}}
           />
+          </div>
         ))}
       </CardContainer>
     </CategoriesContainer>

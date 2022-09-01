@@ -63,6 +63,7 @@ const Product = ({ images, product, policy }) => {
     setRating(rate);
   };
   const updatedImg = [...images].sort((a, b) => a.id - b.id);
+  updatedImg.pop();
   return (
     <ProductContainer>
       <HeaderContainer>

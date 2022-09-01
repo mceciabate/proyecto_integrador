@@ -25,7 +25,7 @@ const ProductPage = () => {
       const result = await response.json();
       setProduct(result);
       setImages(result.imagen);
-      setPolicy(result.politica);
+      /* setPolicy(result.politica); */
     };
     request();
   }, [id]);
