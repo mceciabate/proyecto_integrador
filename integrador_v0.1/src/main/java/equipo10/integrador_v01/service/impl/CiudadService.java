@@ -1,4 +1,5 @@
 package equipo10.integrador_v01.service.impl;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.model.dto.CiudadDTO;
@@ -13,6 +14,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -28,24 +30,25 @@ public class CiudadService implements ICiudadService {
 
     @Autowired
     ObjectMapper mapper;
+
     @Override
-    public Set<CiudadDTO> listarCiudades() {
-            Set<CiudadDTO> listaCiudadesDTO = new HashSet<>();
-            List<Ciudad> listaCiudades = ciudadRepository.findAll();
-            for(Ciudad ciudad: listaCiudades){
-                listaCiudadesDTO.add(mapper.convertValue(ciudad, CiudadDTO.class));
-            }
-            log.info("Total de ciudades: "+listaCiudades.toArray().length);
-            return listaCiudadesDTO;
+    public List<CiudadDTO> listarCiudades() {
+        List<CiudadDTO> listaCiudadesDTO = new ArrayList<>();
+        List<Ciudad> listaCiudades = ciudadRepository.findAll();
+        for (Ciudad ciudad : listaCiudades) {
+            listaCiudadesDTO.add(mapper.convertValue(ciudad, CiudadDTO.class));
         }
+        log.info("Total de ciudades: " + listaCiudades.toArray().length);
+        return listaCiudadesDTO;
+    }
 
     @Override
     public CiudadDTO guardarCiudad(CiudadDTO ciudadDTO) {
-            Ciudad ciudadAGuardar = mapper.convertValue(ciudadDTO, Ciudad.class);
-            ciudadRepository.save(ciudadAGuardar);
-            log.info("Guardando nueva ciudad: " + ciudadAGuardar.getLocalidad());
-            return mapper.convertValue(ciudadAGuardar, CiudadDTO.class);
-        }
+        Ciudad ciudadAGuardar = mapper.convertValue(ciudadDTO, Ciudad.class);
+        ciudadRepository.save(ciudadAGuardar);
+        log.info("Guardando nueva ciudad: " + ciudadAGuardar.getLocalidad());
+        return mapper.convertValue(ciudadAGuardar, CiudadDTO.class);
     }
+}
 
 

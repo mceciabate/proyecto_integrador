@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -38,7 +40,7 @@ public class Producto {
             name = "producto_has_imagen",
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "imagen_id"))
-    private Set<Imagen> imagen = new HashSet<>();
+    private List<Imagen> imagen = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
@@ -76,7 +78,7 @@ public class Producto {
     */
 
     //constructor sin id
-    public Producto(String titulo, String descripcion, Set<Imagen> imagen, Set<Caracteristica> caracteristica, Set<Politica> politica, Ciudad ciudad, Categoria categoria) {
+    public Producto(String titulo, String descripcion, List<Imagen> imagen, Set<Caracteristica> caracteristica, Set<Politica> politica, Ciudad ciudad, Categoria categoria) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.imagen = imagen;

@@ -22,7 +22,7 @@ public class CiudadController {
     ICiudadService ciudadService;
 
     @GetMapping
-    public ResponseEntity<Set<CiudadDTO>> listarCiudades() {
+    public ResponseEntity<List<CiudadDTO>> listarCiudades() {
         //ciudadService.listarCiudades();
         return ResponseEntity.ok(ciudadService.listarCiudades());
     }
