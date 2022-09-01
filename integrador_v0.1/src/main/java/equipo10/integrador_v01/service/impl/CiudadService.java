@@ -48,6 +48,7 @@ public class CiudadService implements ICiudadService {
         ciudadRepository.save(ciudadAGuardar);
         log.info("Guardando nueva ciudad: " + ciudadAGuardar.getLocalidad());
         return mapper.convertValue(ciudadAGuardar, CiudadDTO.class);
+
     }
 }
 
