@@ -28,7 +28,7 @@ public class CategoriaController {
 
     @RequestMapping(value = "/listar", method = RequestMethod.GET)
     public ResponseEntity<List<CategoriaDTO>> listarTodasCategorias() throws ResourceNotFoundException, BadRequestException {
-        categoriasService.listarCategoria();
+        //categoriasService.listarCategoria();
         return ResponseEntity.ok(categoriasService.listarCategoria());
     }
 

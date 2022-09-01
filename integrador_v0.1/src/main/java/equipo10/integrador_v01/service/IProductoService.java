@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 public interface IProductoService {
-    Set<ProductoDTO> listarProductos();
+    List<ProductoDTO> listarProductos();
 
     //read
     ProductoDTO buscarProductosPorId(Long id);
@@ -22,8 +22,8 @@ public interface IProductoService {
     //update
     void actualizarProductos(ProductoDTO productoDTO) throws ResourceNotFoundException;
 
-    Set<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException;
+    List<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException;
 
-    Set<ProductoDTO> filtrarProductoPorCategoria(Long id) throws ResourceNotFoundException;
+    List<ProductoDTO> filtrarProductoPorCategoria(Long id) throws ResourceNotFoundException;
 
 }

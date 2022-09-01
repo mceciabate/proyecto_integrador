@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -20,7 +21,7 @@ public class ProductoController {
     IProductoService productoService;
 
     @RequestMapping(value = "/listar", method = RequestMethod.GET)
-    public ResponseEntity<Set<ProductoDTO>> traerTodosProductos(){
+    public ResponseEntity<List<ProductoDTO>> traerTodosProductos(){
         return ResponseEntity.ok(productoService.listarProductos());
     }
 
@@ -51,12 +52,12 @@ public class ProductoController {
     }
 
     @RequestMapping(value = "/ciudad/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Set<ProductoDTO>> buscarPorCiudad(@PathVariable Long id) throws ResourceNotFoundException{
+    public ResponseEntity<List<ProductoDTO>> buscarPorCiudad(@PathVariable Long id) throws ResourceNotFoundException{
         productoService.filtrarProductoPorCiudad(id);
         return ResponseEntity.ok(productoService.filtrarProductoPorCiudad(id));
     }
     @RequestMapping(value = "/categoria/{id}", method = RequestMethod.GET)
-    public ResponseEntity <Set<ProductoDTO>> filtrarPorCategoria(@PathVariable Long id) throws ResourceNotFoundException{
+    public ResponseEntity <List<ProductoDTO>> filtrarPorCategoria(@PathVariable Long id) throws ResourceNotFoundException{
         productoService.filtrarProductoPorCategoria(id);
         return ResponseEntity.ok(productoService.filtrarProductoPorCategoria(id));
     }

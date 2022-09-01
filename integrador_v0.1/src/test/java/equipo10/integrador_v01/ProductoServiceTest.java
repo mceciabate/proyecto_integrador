@@ -15,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -63,7 +64,7 @@ public class ProductoServiceTest {
             ProductoDTO productoDTO2 = new ProductoDTO("titulo2", "descrip2", imagen2, caracteristicas2, politicas2 ,ciudad2, categoria2);
             productoService.guardarProductos(productoDTO2);
 
-            Set<ProductoDTO> listaProductosEncontrados = productoService.listarProductos();
+            List<ProductoDTO> listaProductosEncontrados = productoService.listarProductos();
 
             Assert.assertEquals(2, listaProductosEncontrados.size());
         }

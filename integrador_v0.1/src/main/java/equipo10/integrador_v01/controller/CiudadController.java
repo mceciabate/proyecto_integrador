@@ -23,13 +23,13 @@ public class CiudadController {
 
     @GetMapping
     public ResponseEntity<Set<CiudadDTO>> listarCiudades() {
-        ciudadService.listarCiudades();
+        //ciudadService.listarCiudades();
         return ResponseEntity.ok(ciudadService.listarCiudades());
     }
 
     @PostMapping
     public ResponseEntity<CiudadDTO> guardarCiudad(@RequestBody CiudadDTO ciudadDTO){
-        ciudadService.guardarCiudad(ciudadDTO);
+        //ciudadService.guardarCiudad(ciudadDTO);
         return ResponseEntity.ok(ciudadService.guardarCiudad(ciudadDTO));
     }
 }

@@ -11,10 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -30,9 +27,9 @@ public class ProductoService implements IProductoService {
 
     //sobreescribo el CRUD
 
-    public Set<ProductoDTO> listarProductos() {
+    public List<ProductoDTO> listarProductos() {
         List<Producto> listaProductos = productoRepository.findAll();
-        Set<ProductoDTO> listaProductosDTO = new HashSet<>();
+        List<ProductoDTO> listaProductosDTO = new ArrayList<>();
 
         for (Producto producto : listaProductos) {
 
@@ -97,8 +94,8 @@ public class ProductoService implements IProductoService {
 
 
     @Override
-    public Set<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException {
-        Set<ProductoDTO> listaProductosDTO = this.listarProductos();
+    public List<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException {
+        List<ProductoDTO> listaProductosDTO = this.listarProductos();
         List<Producto> listaProductos = productoRepository.findAll();
         for (Producto producto : listaProductos) {
             if (producto.getCiudad().getId() == id) {
@@ -108,8 +105,8 @@ public class ProductoService implements IProductoService {
         }
         return null;
     }
-    public Set<ProductoDTO> filtrarProductoPorCategoria(Long id) throws ResourceNotFoundException {
-        Set<ProductoDTO> listaProductosDTO = this.listarProductos();
+    public List<ProductoDTO> filtrarProductoPorCategoria(Long id) throws ResourceNotFoundException {
+        List<ProductoDTO> listaProductosDTO = this.listarProductos();
         List<Producto> listaProductos = productoRepository.findAll();
         for (Producto producto : listaProductos) {
             if (producto.getCategoria().getId() == id) {
