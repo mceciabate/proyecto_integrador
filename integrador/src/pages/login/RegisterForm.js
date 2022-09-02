@@ -8,6 +8,7 @@ const RegisterForm = ({ handleView }) => {
     e.preventDefault();
     navigate("/");
   }
+  
   return (
     <FormDiv2>
       <h2>Crea tu cuenta</h2>
@@ -29,12 +30,12 @@ const RegisterForm = ({ handleView }) => {
           <input required type="password" />
         </label>
         <label>
-          Confirmar contraeña:
+          Confirmar contraseña:
           <input required type="password" />
         </label>
         <MainButton type="submit">Crear cuenta</MainButton>
       </UserForm>
-      <p>Ya tienes una cuenta?       <SecondButton onClick={() => handleView("login")}>Inicia Sesion</SecondButton> </p>
+      <p>Ya tienes una cuenta? <SecondButton onClick={() => handleView("login")}>Inicia Sesion</SecondButton> </p>
     </FormDiv2>
   );
 }

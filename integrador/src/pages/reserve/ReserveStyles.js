@@ -141,6 +141,7 @@ export const CalendarContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 40px;
+  margin-top: -40px;
   h2 {
     font-size: 20px;
     font-weight: 700;
@@ -163,6 +164,7 @@ export const Schedule = styled.div`
 
 export const Detail = styled.div`
   margin-top: 55px;
+  margin-button: 50px;
   grid-column: 3;
   grid-row: 1 / span 3;
   display: flex;
@@ -172,7 +174,7 @@ export const Detail = styled.div`
   border: 1px solid #dfe4ea;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
-  height: 995px;
+  height: 900px;
   width: 420px;
   .htop {
     margin-left: 21px;
@@ -197,6 +199,7 @@ export const Detail = styled.div`
       font-size: 24px;
       line-height: 28px;
       color: #1a1a1a;
+      
     }
     .plocation {
       font-weight: 500;

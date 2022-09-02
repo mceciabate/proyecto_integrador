@@ -16,6 +16,7 @@ import arrow from "../../assets/arrow.png";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
 
+
 const Reserve = () => {
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
@@ -33,6 +34,7 @@ const Reserve = () => {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
+
   return (
     <ReserveContainer>
       <HeaderContainer>
@@ -98,7 +100,7 @@ const Reserve = () => {
             <form>
               <label>
                 Indica tu horario estimado de recogida
-                <select></select>
+              
               </label>
               <label>
                 Indica tu lugar de recogida
