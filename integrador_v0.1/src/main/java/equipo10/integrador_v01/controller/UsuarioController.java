@@ -19,7 +19,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
-    @Autowired
+   /* @Autowired
     private IUsuarioService usuarioService;
 
     @Autowired
@@ -33,7 +33,7 @@ public class UsuarioController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<UsuarioDTO> buscarUsuarioPorId(@PathVariable Long id) throws ResourceNotFoundException {
         return ResponseEntity.ok(usuarioService.buscarUsuarioPorId(id));
-    }
+    }*/
 
 
 }

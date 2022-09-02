@@ -25,10 +25,20 @@ public class UsuarioDTO {
 
     private Rol rol;
     //constructor sin id ni puntuación list
-    public UsuarioDTO(String nombre, String apellido, String email, String contrasenia) {
+    public UsuarioDTO(String nombre, String apellido, String email, String contrasenia, Rol rol) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.contrasenia = contrasenia;
+        this.rol = rol;
+    }
+
+    public UsuarioDTO(Long id, String nombre, String apellido, String email, String contrasenia, Rol rol) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.contrasenia = contrasenia;
+        this.rol = rol;
     }
 }

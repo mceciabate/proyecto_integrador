@@ -43,4 +43,5 @@ public class Usuario {
         this.email = email;
         this.contrasenia = contrasenia;
     }
+
 }
