@@ -1,0 +1,25 @@
+package equipo10.integrador_v01.service.jwt;
+
+import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
+import equipo10.integrador_v01.model.dto.CategoriaDTO;
+import equipo10.integrador_v01.model.dto.jwt.UsuarioDTO;
+
+import java.util.List;
+
+public interface IUsuarioService {
+    //find
+    List<UsuarioDTO> listarTodosUsuario();
+
+    UsuarioDTO buscarUsuarioPorId(Long id);
+
+    UsuarioDTO buscarUsuarioPorEmail(String email);
+
+    //create
+    UsuarioDTO guardarUsuario(UsuarioDTO usuarioDTO);
+
+    //delete
+    void eliminarUsuario(Long id) throws ResourceNotFoundException;
+
+    //update
+    void actualizarUsuario(UsuarioDTO usuarioDTO) throws ResourceNotFoundException;
+}

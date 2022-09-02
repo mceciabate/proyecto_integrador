@@ -1,5 +1,6 @@
-package equipo10.integrador_v01.model.entity;
+package equipo10.integrador_v01.model.entity.jwt;
 
+import equipo10.integrador_v01.model.entity.jwt.Rol;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

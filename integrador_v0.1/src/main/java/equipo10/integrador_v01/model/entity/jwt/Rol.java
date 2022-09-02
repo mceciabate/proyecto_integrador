@@ -1,4 +1,4 @@
-package equipo10.integrador_v01.model.entity;
+package equipo10.integrador_v01.model.entity.jwt;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

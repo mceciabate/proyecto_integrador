@@ -1,5 +1,6 @@
 package equipo10.integrador_v01.model.dto;
 
+import equipo10.integrador_v01.model.dto.jwt.UsuarioDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

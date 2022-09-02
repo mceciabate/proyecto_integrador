@@ -1,4 +1,4 @@
-package equipo10.integrador_v01.model.dto;
+package equipo10.integrador_v01.model.dto.jwt;
 
 import lombok.*;
 
