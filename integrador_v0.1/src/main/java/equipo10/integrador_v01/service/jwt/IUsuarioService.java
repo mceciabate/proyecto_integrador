@@ -10,7 +10,7 @@ public interface IUsuarioService {
     //find
     List<UsuarioDTO> listarTodosUsuario();
 
-    UsuarioDTO buscarUsuarioPorId(Long id);
+    UsuarioDTO buscarUsuarioPorId(Long id) throws ResourceNotFoundException;
 
     UsuarioDTO buscarUsuarioPorEmail(String email);
 

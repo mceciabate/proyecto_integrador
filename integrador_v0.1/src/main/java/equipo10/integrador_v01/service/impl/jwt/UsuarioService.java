@@ -34,8 +34,10 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public UsuarioDTO buscarUsuarioPorId(Long id) {
-        return mapper.convertValue(usuarioRepository.findById(id), UsuarioDTO.class);
+    public UsuarioDTO buscarUsuarioPorId(Long id) throws ResourceNotFoundException {
+        if (usuarioRepository.findById(id).isPresent()) {
+            return mapper.convertValue(usuarioRepository.findById(id), UsuarioDTO.class);
+        } else throw new ResourceNotFoundException("No se encontro ningun usuario con el id: " + id);
     }
 
     @Override
