@@ -1,5 +1,6 @@
 package equipo10.integrador_v01.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table
@@ -24,10 +26,12 @@ public class Reserva {
     private String horaInicio;
 
     @Column
-    private LocalDate fechaRecogida;
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    private Date fechaRecogida;
 
     @Column
-    private LocalDate fechaEntrega;
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    private Date fechaEntrega;
 
     @ManyToOne
     @JoinColumn(
@@ -43,7 +47,7 @@ public class Reserva {
             nullable = false)
     private Usuario usuario;
 
-    public Reserva(String horaInicio, LocalDate fechaRecogida, LocalDate fechaEntrega, Producto producto, Usuario usuario) {
+    public Reserva(String horaInicio, Date fechaRecogida, Date fechaEntrega, Producto producto, Usuario usuario) {
         this.horaInicio = horaInicio;
         this.fechaRecogida = fechaRecogida;
         this.fechaEntrega = fechaEntrega;
