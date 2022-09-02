@@ -18,7 +18,6 @@ public class Puntuacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
-
     @Column
     private Integer puntuacion;
 

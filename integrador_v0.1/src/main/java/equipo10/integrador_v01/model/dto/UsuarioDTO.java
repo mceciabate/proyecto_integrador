@@ -1,5 +1,6 @@
 package equipo10.integrador_v01.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -13,14 +14,9 @@ import java.util.List;
 @ToString
 public class UsuarioDTO {
     private Long id;
-
-
     private String nombre;
-
     private String apellido;
-
     private String email;
-
     private String contrasenia;
 
     private List<PuntuacionDTO> puntuacion = new ArrayList<>();
