@@ -16,13 +16,13 @@ public class ReservaDTO {
     private Long id;
     private String horaInicio;
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date fechaRecogida;
+    private LocalDate fechaRecogida;
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date fechaEntrega;
+    private LocalDate fechaEntrega;
     private Producto producto;
     private Usuario usuario;
 
-    public ReservaDTO(String horaInicio, Date fechaRecogida, Date fechaEntrega, Producto producto, Usuario usuario) {
+    public ReservaDTO(String horaInicio, LocalDate fechaRecogida, LocalDate fechaEntrega, Producto producto, Usuario usuario) {
         this.horaInicio = horaInicio;
         this.fechaRecogida = fechaRecogida;
         this.fechaEntrega = fechaEntrega;

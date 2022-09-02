@@ -27,11 +27,11 @@ public class Reserva {
 
     @Column
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date fechaRecogida;
+    private LocalDate fechaRecogida;
 
     @Column
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date fechaEntrega;
+    private LocalDate fechaEntrega;
 
     @ManyToOne
     @JoinColumn(
@@ -47,7 +47,7 @@ public class Reserva {
             nullable = false)
     private Usuario usuario;
 
-    public Reserva(String horaInicio, Date fechaRecogida, Date fechaEntrega, Producto producto, Usuario usuario) {
+    public Reserva(String horaInicio, LocalDate fechaRecogida, LocalDate fechaEntrega, Producto producto, Usuario usuario) {
         this.horaInicio = horaInicio;
         this.fechaRecogida = fechaRecogida;
         this.fechaEntrega = fechaEntrega;
