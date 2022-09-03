@@ -19,7 +19,6 @@ import java.util.Optional;
 public class UsuarioService implements IUsuarioService {
     @Autowired
     IUsuarioRepository usuarioRepository;
-
     @Autowired
     ObjectMapper mapper;
 
@@ -40,12 +39,11 @@ public class UsuarioService implements IUsuarioService {
         } else throw new ResourceNotFoundException("No se encontro ningun usuario con el id: " + id);
     }
 
-    /*
     @Override
     public UsuarioDTO buscarUsuarioPorEmail(String email) {
-        return mapper.convertValue(usuarioRepository.buscarporEmail(email), UsuarioDTO.class);
+        return mapper.convertValue(usuarioRepository.findByUsername(email), UsuarioDTO.class);
     }
-    */
+
 
     @Override
     public UsuarioDTO guardarUsuario(UsuarioDTO usuarioDTO) {

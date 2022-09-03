@@ -11,9 +11,7 @@ public interface IUsuarioService {
 
     UsuarioDTO buscarUsuarioPorId(Long id) throws ResourceNotFoundException;
 
-    /*
     UsuarioDTO buscarUsuarioPorEmail(String email);
-    */
 
     //create
     UsuarioDTO guardarUsuario(UsuarioDTO usuarioDTO);
