@@ -5,6 +5,7 @@ import equipo10.integrador_v01.model.entity.Producto;
 import equipo10.integrador_v01.model.entity.jwt.Usuario;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @NoArgsConstructor

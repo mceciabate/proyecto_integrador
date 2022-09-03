@@ -4,13 +4,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.ProductoDTO;
+import equipo10.integrador_v01.model.dto.ReservaDTO;
+import equipo10.integrador_v01.model.entity.Ciudad;
 import equipo10.integrador_v01.model.entity.Producto;
+import equipo10.integrador_v01.model.entity.Reserva;
 import equipo10.integrador_v01.repository.IProductoRepository;
+import equipo10.integrador_v01.repository.IReservaRepository;
 import equipo10.integrador_v01.service.IProductoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +28,8 @@ public class ProductoService implements IProductoService {
     //Inyección de dependencias
     @Autowired
     IProductoRepository productoRepository;
+    @Autowired
+    IReservaRepository reservaRepository;
 
     @Autowired
     ObjectMapper mapper;
@@ -114,4 +121,23 @@ public class ProductoService implements IProductoService {
         return listaProductosDTO;
 
     }
+
+    /*@Override
+    public List<ProductoDTO> filtrarProductoPorCiudadYDosFechas(Long ciudadId, LocalDate fechaRecogida, LocalDate fechaEntrega) throws ResourceNotFoundException {
+        List<ReservaDTO> disponiblesFecha = reservaRepository.encontrarDisponiblesPorFecha(fechaRecogida, fechaEntrega);
+        long disponiblesFechaSize = disponiblesFecha.size();
+        List<ProductoDTO> disponiblesFechaCiudad = new ArrayList<>();
+
+        if(disponiblesFechaSize != 0){
+
+            for (long i = 0; i >= disponiblesFechaSize; i++){
+
+
+            }
+
+        }
+        return disponiblesFechaCiudad;
+    }
+    */
+
 }

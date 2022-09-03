@@ -4,6 +4,7 @@ import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.ProductoDTO;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IProductoService {
@@ -24,5 +25,8 @@ public interface IProductoService {
     List<ProductoDTO> filtrarProductoPorCiudad(Long id) throws ResourceNotFoundException;
 
     List<ProductoDTO> filtrarProductoPorCategoria(Long id) throws ResourceNotFoundException;
+
+    /*
+    List<ProductoDTO> filtrarProductoPorCiudadYDosFechas(Long ciudadId, LocalDate fechaRecogida, LocalDate fechaEntrega) throws ResourceNotFoundException;*/
 
 }
