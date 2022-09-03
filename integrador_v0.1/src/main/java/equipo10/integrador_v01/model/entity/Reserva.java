@@ -1,6 +1,7 @@
 package equipo10.integrador_v01.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import equipo10.integrador_v01.model.jwt.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +9,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table

@@ -1,4 +1,4 @@
-package equipo10.integrador_v01.model.entity;
+package equipo10.integrador_v01.model.jwt;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,7 +28,7 @@ public class Usuario {
     @Column
     private String contrasenia;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(
             name = "rol_id",
             referencedColumnName = "id")

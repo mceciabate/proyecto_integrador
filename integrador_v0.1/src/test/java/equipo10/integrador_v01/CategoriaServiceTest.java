@@ -27,11 +27,11 @@ import java.util.Optional;
 public class CategoriaServiceTest {
 
     @Autowired
-    private CategoriaService categoriaService;
+    CategoriaService categoriaService;
     @Autowired
     ObjectMapper mapper;
     @MockBean
-    private ICategoriaRepository categoriaRepository;
+    ICategoriaRepository categoriaRepository;
 
     @Test
     public void aGuardarCategoriaTest() {
