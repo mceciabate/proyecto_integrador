@@ -19,6 +19,7 @@ import arrow from "../../assets/arrow.png";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
 import TimePicker from "react-bootstrap-time-picker";
+import moment from "react-moment";
 
 
 const Reserve = () => {
@@ -152,6 +153,7 @@ const Reserve = () => {
               </label>
               <label>
                 Inidica tu horario estimado de entrega
+
                 <TimePicker start="00:00" end="23:59" step={1} value = {hour1} onChange ={setHour1}/>
               </label>
               <label>
