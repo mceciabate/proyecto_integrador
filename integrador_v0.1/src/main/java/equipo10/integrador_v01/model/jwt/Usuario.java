@@ -28,7 +28,7 @@ public class Usuario {
     @Column
     private String contrasenia;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(
             name = "rol_id",
             referencedColumnName = "id")

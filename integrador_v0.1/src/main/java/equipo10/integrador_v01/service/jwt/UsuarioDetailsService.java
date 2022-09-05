@@ -1,6 +1,5 @@
 package equipo10.integrador_v01.service.jwt;
 
-import equipo10.integrador_v01.model.jwt.Usuario;
 import equipo10.integrador_v01.model.jwt.UsuarioAuth;
 import equipo10.integrador_v01.model.jwt.UsuarioDTO;
 import org.springframework.beans.factory.annotation.Autowired;

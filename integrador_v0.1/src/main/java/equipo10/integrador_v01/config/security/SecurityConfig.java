@@ -67,12 +67,12 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.GET, "/producto/**", "/categoria/**"
                         , "/ciudad/**", "/usuario/**", "/rol/**", "/reserva/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/producto/**", "/categoria/**"
-                        , "/ciudad/**", "/rol/**").hasAnyRole("admin")
+                        , "/ciudad/**", "/rol/**").hasAnyAuthority("ADMINISTRADOR")
                 .antMatchers(HttpMethod.PUT, "/producto/**", "/categoria/**"
-                        , "/ciudad/**", "/rol/**", "/usuario/**").hasAnyRole("admin")
+                        , "/ciudad/**", "/rol/**", "/usuario/**").hasAnyAuthority("ADMINISTRADOR")
                 .antMatchers(HttpMethod.DELETE, "/producto/**", "/categoria/**"
-                        , "/ciudad/**", "/rol/**", "/usuario/**").hasAnyRole("admin")
-                .antMatchers(HttpMethod.GET, "/rol/**", "/usuario/**").hasAnyRole("admin")
+                        , "/ciudad/**", "/rol/**", "/usuario/**").hasAnyAuthority("ADMINISTRADOR")
+                .antMatchers(HttpMethod.GET, "/rol/**", "/usuario/**").hasAnyAuthority("ADMINISTRADOR")
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPointConfig)
                 .and()
