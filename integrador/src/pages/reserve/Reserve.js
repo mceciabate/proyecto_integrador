@@ -6,18 +6,49 @@ import {
   LHeader,
   RHeader,
   BodyContainer,
-  FormContainer,
+  FormContainer as FormContainer,
   ReserveContainer,
   CalendarContainer,
   Schedule,
   Detail,
+  MainButton,
+  FormContainer2 
 } from "./ReserveStyles";
+import { useParams } from "react-router-dom";
 import arrow from "../../assets/arrow.png";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
+import TimePicker from "react-bootstrap-time-picker";
 
 
 const Reserve = () => {
+  const { id } = useParams();
+  const [product, setProduct] = useState({})
+  const [images, setImages] = useState([{}]);
+  const [hour,setHour] = useState();
+  const [hour1,setHour1] = useState();
+  useEffect(() => {
+    const request = async () => {
+      const response = await fetch(`http://13.59.92.254:8080/producto/${id}`);
+      const result = await response.json();
+      setProduct(result);
+      setImages(result.imagen);
+      /* setPolicy(result.politica); */
+    };
+    request();
+  }, [id]);
+  const [cities, setCities] = useState([{}]);
+  const [selectedCity, setSelectedCity] = useState(null);
+  const [selectedCity2, setSelectedCity2] = useState(null);
+  useEffect(() => {
+    const request = async () => {
+      const response = await fetch(`http://13.59.92.254:8080/ciudad`);
+      const result = await response.json();
+      setCities(result);
+    };
+    request();
+  },[]);
+  const updatedCities = [...cities].sort((a, b) => a.id - b.id);
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerWidth, innerHeight };
@@ -35,12 +66,13 @@ const Reserve = () => {
     };
   }, []);
 
+  console.log(images)
   return (
     <ReserveContainer>
       <HeaderContainer>
         <LHeader>
-          <p>P category</p>
-          <h1>p title</h1>
+          <p>{product.categoria && product.categoria.titulo}</p>
+          <h1>{product && product.titulo}</h1>
         </LHeader>
         <RHeader>
           <Link to="/">
@@ -50,13 +82,13 @@ const Reserve = () => {
       </HeaderContainer>
       <BodyContainer>
         <FormContainer>
-          <h2>Completa tus datos</h2>
-          <form>
-            <label>
+        <h2 >Completa tus datos</h2>
+          <form >
+            <label >
               Nombre
               <input required type="name" placeholder="Bruno" name="name" />
             </label>
-            <label>
+            <label >
               Apellido
               <input
                 required
@@ -65,7 +97,7 @@ const Reserve = () => {
                 name="lastname"
               />
             </label>
-            <label>
+            <label >
               Correo electronico
               <input
                 required
@@ -74,7 +106,7 @@ const Reserve = () => {
                 name="email"
               />
             </label>
-            <label>
+            <label id="label1">
               Ciudad
               <input
                 required
@@ -95,46 +127,66 @@ const Reserve = () => {
         </CalendarContainer>
         <Schedule>
           <h2>Tus horarios</h2>
-          <FormContainer>
-            <h4>Tu auto va a estar listo para ti entra las</h4>
+          <FormContainer2>
             <form>
+            <div class="form-title">
+            <h4>Tu auto va a estar listo para ti entra las {hour} y {hour1}</h4>
+            </div>
+            <div></div>
               <label>
                 Indica tu horario estimado de recogida
-              
+              <TimePicker start="00:00" end="23:59" step={1} value={hour} onChange={setHour}/>
               </label>
               <label>
                 Indica tu lugar de recogida
-                <select></select>
+                <select onChange={(e)=>{
+                const value = e.target.value;
+                setSelectedCity(value)}} required>
+                <option value="S">Recogida</option>
+                {updatedCities.map((city, index) => (
+                  <option key={index} value={city.localidad}>
+                    {city.localidad + " , " + city.provincia}
+                </option>
+                  ))}
+                </select>
               </label>
               <label>
                 Inidica tu horario estimado de entrega
-                <select></select>
+                <TimePicker start="00:00" end="23:59" step={1} value = {hour1} onChange ={setHour1}/>
               </label>
               <label>
                 Indica tu lugar de entrega
-                <select></select>
+                <select onChange={(e)=>{
+                const value = e.target.value;
+                setSelectedCity2(value)}} required><option value="S">Devolucion</option>
+                {updatedCities.map((city, index) => (
+                <option key={index} value={city.localidad}>
+                  {city.localidad + " , " + city.provincia}
+                </option>
+                ))}
+                </select>
               </label>
             </form>
-          </FormContainer>
+          </FormContainer2>
         </Schedule>
         <Detail>
           <h2 className="htop">Detalle de la reserva</h2>
-          <img src="" alt="auto" />
+          <img src={images && images[0].urlImg} alt="auto" />
           <div>
-            <p className="pcategory">cat</p>
-            <h2 className="hbottom">title</h2>
+            <p className="pcategory">{product.categoria && product.categoria.titulo}</p>
+            <h2 className="hbottom">{product && product.titulo}</h2>
             <p className="pstars">stars</p>
-            <p className="plocation">direction</p>
+            <p className="plocation">{product.ciudad && product.ciudad.provincia}</p>
           </div>
           <div>
-            <p className="paccion">Recogida</p>
-            <p className="plugar">Lugar</p>
+            <p className="paccion">Recogida: {hour}</p>
+            <p className="plugar">Lugar: {selectedCity}</p>
           </div>
           <div>
-            <p className="paccion">Entrega</p>
-            <p className="plugar">Lugar</p>
+            <p className="paccion">Entrega: {hour1}</p>
+            <p className="plugar">Lugar: {selectedCity2}</p>
           </div>
-          <button>Confirmar reserva</button>
+          <MainButton>Confirmar reserva</MainButton>
         </Detail>
       </BodyContainer>
     </ReserveContainer>

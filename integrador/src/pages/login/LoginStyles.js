@@ -8,6 +8,7 @@ export const LoginC = styled.div`
   flex-grow: 1;
   background: rgba(243, 241, 237, 0.5);
   backdrop-filter: blur(4px);
+  margin-top: 15px;
 `;
 
 export const LoginXButton = styled.button`
@@ -38,7 +39,8 @@ export const FormDiv = styled.div`
   border-radius: 10px;
   width: 584px;
   height: 428px;
-  margin-top: 100px;
+  margin-top: 70px;
+  margin-bottom:95px;
   h2 {
     color: #f0572d;
     font-weight: 700;
@@ -63,8 +65,9 @@ export const FormDiv2 = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   width: 584px;
-  height: 573px;
-  margin-top: 40px;
+  height: 569px;
+  margin-top: 30px;
+  margin-bottom: 70px;
   h2 {
     color: #f0572d;
     font-weight: 700;
@@ -95,6 +98,11 @@ export const UserForm = styled.form`
   }
     input {
       width: 100%;
+      height: 30px;
+      border: none;
+      border-radius:8px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      
     }
   }
 `;

@@ -6,6 +6,7 @@ import Login from "./pages/login/Login";
 import ProductPage from "./pages/product/ProductPage";
 import ScrollToTop from "./components/ScrollToTop";
 import Reserve from "./pages/reserve/Reserve";
+import React from "react";
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
@@ -18,7 +19,7 @@ function App() {
           <Route path="/login" element={<Login argument="login" setIsLogged={setIsLogged}/>} />
           <Route path="/register" element={<Login argument="register" setIsLogged={setIsLogged} />} />
           <Route path="/product/:id" element={<ProductPage />} />
-          <Route path="/reserve" element={<Reserve />} />
+          <Route path="/product/:id/reserve" element={<Reserve />} />
         </Routes>
       </Layout>
     </BrowserRouter>

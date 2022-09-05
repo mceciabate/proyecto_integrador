@@ -48,4 +48,5 @@ export const Logo = styled.div`
   background-repeat: no-repeat;
   width: 210px;
   height: 55px;
+  margin-top: 20px;
 `

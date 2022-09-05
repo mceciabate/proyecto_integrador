@@ -7,6 +7,7 @@ export const CategoriesContainer = styled.div`
   background-color: #ffffff;
   height: max-content;
   padding: 25px;
+  padding-top: 55px;
 `;
 
 export const CardContainer = styled.div`

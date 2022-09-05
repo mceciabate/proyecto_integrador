@@ -63,6 +63,7 @@ const Product = ({ images, product, policy }) => {
     setRating(rate);
   };
   const updatedImg = [...images].sort((a, b) => a.id - b.id);
+  updatedImg.pop();
   return (
     <ProductContainer>
       <HeaderContainer>
@@ -132,7 +133,9 @@ const Product = ({ images, product, policy }) => {
         <CalendarSection>
           <CalendarItem>
             <h3>Agregá tus fechas de viaje para obtener precios exactos</h3>
+            <Link to={`/product/${product.id}/reserve`}>
             <button>Iniciar reserva</button>
+            </Link>
           </CalendarItem>
         </CalendarSection>
       </CalendarContainer>

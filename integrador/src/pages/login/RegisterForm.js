@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FormDiv2, UserForm, MainButton, SecondButton } from "./LoginStyles";
+import { FormDiv2, UserForm, MainButton, SecondButton, nameLastname } from "./LoginStyles";
 
 const RegisterForm = ({ handleView }) => {
   const navigate = useNavigate();
@@ -13,14 +13,14 @@ const RegisterForm = ({ handleView }) => {
     <FormDiv2>
       <h2>Crea tu cuenta</h2>
       <UserForm onSubmit={handleSubmit}>
-        <label>
-          Nombre:
-          <input required type="text" />
-        </label>
-        <label>
-          Apellido:
-          <input required type="text" />
-        </label>
+          <label>
+            Nombre:
+            <input required type="text" />
+          </label>
+          <label>
+            Apellido:
+            <input required type="text" />
+          </label>
         <label>
           Email:
           <input required type="email" />

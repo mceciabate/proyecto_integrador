@@ -4,7 +4,8 @@ export const SearchContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  height: 92vh;
+  height: 82vh;
+  position: relative;
   h1 {
     font-weight: 700;
     font-size: 40px;
@@ -22,7 +23,7 @@ export const SearchContainer = styled.div`
 
 export const SearchForm = styled.form`
   grid-column: 2 / 4;
-  grid-row: 3 / 4;
+  grid-row: 4 / 5;
   width: 80vw;
   background-color: #FFFFFF;
   height: 151px;
@@ -30,28 +31,35 @@ export const SearchForm = styled.form`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 35px;
+  gap: 15px;
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 1px solid #dfe4ea;
+  position: relative;
   top: auto;
-  bottom: 100%;
+  bottom: -60px;
   @media only screen and (max-width: 800px) {
-    height: 110px;
-    width: 90vw;
+    height: 210px;
+    width: 120%;
+    gap: 10px;
+    flex-direction:column;
+    padding: 10px 0px 10px 0px;
+    margin-right: 40px;
+    margin-left:-25px;
   }
   @media only screen and (max-width: 500px) {
     height: max-content;
+    width: 350px;
     flex-direction: column;
-    gap: 5px;
-
+    gap: 4px;
+    margin-left: 40px;
   }
 `;
 
 export const SearchSelect = styled.select`
   width: 264px;
   height: 40px;
-  margin: 10px 0px 10px;
+  margin: 10px 0px 10px 0px;
   background-color: #FFFFFF;
   border: 1.5px solid #F3F1ED;
   border-radius: 10px;
@@ -66,10 +74,11 @@ export const SearchSelect = styled.select`
     line-height: 20px;
   }
   @media only screen and (max-width: 800px) {
-    width: 130px;
+    width: 350px;
+    margin: 0px;
   }
   @media only screen and (max-width: 500px) {
-    width: 90%;
+    width: 100%;
   }
 `;
 
@@ -87,6 +96,10 @@ export const SearchButton = styled.button`
   margin: 10px 0px 10px;
   margin-right: 32px;
   cursor: pointer;
+  @media only screen and (max-width: 800px) {
+    width: 50%;
+    margin: 0px;
+  }
   @media only screen and (max-width: 500px) {
     width: 90%;
     margin: 10px;
@@ -104,6 +117,7 @@ export const CalendarButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+
   @media (max-width: 500px) {
     width: 90%;
     justify-content: center;

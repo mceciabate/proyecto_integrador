@@ -17,8 +17,9 @@ import { BsCalendarCheck } from "react-icons/bs";
 import { BsFillPinMapFill } from "react-icons/bs";
 import { Icon } from "@iconify/react";
 
-const Searcher = () => {
+const Searcher = ( {setCity} ) => {
   const [cities, setCities] = useState([{}]);
+  const [selectedCity, setSelectedCity] = useState(null);
   useEffect(() => {
     const request = async () => {
       const response = await fetch(`http://13.59.92.254:8080/ciudad`);
@@ -26,7 +27,7 @@ const Searcher = () => {
       setCities(result);
     };
     request();
-  });
+  },[]);
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -36,20 +37,22 @@ const Searcher = () => {
   ]);
   const [showCalendar, setshowCalendar] = useState(false);
   const updatedCities = [...cities].sort((a, b) => a.id - b.id);
-  const handleClick = () => {
-    setshowCalendar(false);
-  };
   return (
     <SearchContainer>
       <h1>La forma mas facil y segura de rentar tu carro</h1>
-      <SearchForm>
+      <SearchForm onSubmit={(e)=>{
+            e.preventDefault();
+            setshowCalendar(false);
+            setCity(selectedCity);
+      }}>
         <IconSelect>
           <BsFillPinMapFill className="icon" />
-          <SearchSelect required>
+          <SearchSelect onChange={(e)=>{
+            const value = e.target.value;
+            setSelectedCity(value)}} required>
             <option value="S">Recogida</option>
-            {updatedCities.map((city) => (
-              <option key={city.id} value={city.localidad}>
-                <Icon icon="akar-icons:twitter-fill" />
+            {updatedCities.map((city, index) => (
+              <option key={index} value={city.localidad}>
                 {city.localidad + " , " + city.provincia}
               </option>
             ))}
@@ -58,10 +61,9 @@ const Searcher = () => {
         <IconSelect>
           <BsFillPinMapFill className="icon" />
           <SearchSelect required>
-          <option value="S">Recogida</option>
-            {updatedCities.map((city) => (
-              <option key={city.id} value={city.localidad}>
-                <Icon icon="akar-icons:twitter-fill" />
+          <option value="S">Devolucion</option>
+            {updatedCities.map((city, index) => (
+              <option key={index} value={city.localidad}>
                 {city.localidad + " , " + city.provincia}
               </option>
             ))}
@@ -83,7 +85,7 @@ const Searcher = () => {
             Recogida - Devolucion
           </CalendarButton>
         )}
-        <SearchButton type="submit" onClick={() => handleClick}>
+        <SearchButton type="submit">
           Buscar Carro
         </SearchButton>
       </SearchForm>
