@@ -156,7 +156,7 @@ const Reserve = () => {
             <div></div>
               <label>
                 Indica tu horario estimado de recogida
-              <TimePicker start="00:00" end="23:59" step={1} value={hour} onChange={handleHourChange}/>
+              <TimePicker start="00:00" end="23:59" step={60} value={hour} onChange={handleHourChange}/>
               </label>
               <label>
                 Indica tu lugar de recogida
@@ -173,7 +173,7 @@ const Reserve = () => {
               </label>
               <label>
                 Inidica tu horario estimado de entrega
-                <TimePicker start="00:00" end="23:59" step={1} value = {hour1} onChange={handleHourChange1}/>
+                <TimePicker start="00:00" end="23:59" step={60} value = {hour1} onChange={handleHourChange1}/>
               </label>
               <label>
                 Indica tu lugar de entrega
