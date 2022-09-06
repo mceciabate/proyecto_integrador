@@ -72,7 +72,7 @@ public class ReservaServiceTest {
         ReservaDTO reservaDTO1 = new ReservaDTO("4:00:00", LocalDate.now(), LocalDate.now(), producto, usuario);
         reservaService.guardarReserva(reservaDTO1);*/
         List<ReservaDTO> lista = reservaService.filtrarReservasPorProducto(20L);
-        Assert.assertNull(lista);
+        Assert.assertNotNull(lista);
     }
 
 
