@@ -118,6 +118,12 @@ export const MainButton = styled.button`
   border-radius: 10px;
   margin: 10px;
   cursor: pointer;
+  :hover {
+    opacity: 0.7;
+    color: white;
+    font-weight: bold;
+  }
+  
 `;
 
 export const SecondButton = styled.button`
@@ -128,4 +134,5 @@ export const SecondButton = styled.button`
   text-decoration: underline;
   background: rgba(255, 255, 255, 0.0);
   cursor: pointer;
+  
 `;

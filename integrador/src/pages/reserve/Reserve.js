@@ -88,7 +88,6 @@ const Reserve = () => {
     }
     setHour1(`${hour}:${minutes}`)
   }
-  console.log(hour, hour1)
   return (
     <ReserveContainer>
       <HeaderContainer>
