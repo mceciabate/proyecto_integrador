@@ -42,7 +42,7 @@ public class ReservaService implements IReservaService {
                 listaDTO.add(mapper.convertValue(reserva, ReservaDTO.class));
             }
         }
-        log.info("Rreservas que coinciden con el producto númro " + id);
+        log.info("Rreservas que coinciden con el producto número " + id);
         return listaDTO;
     }
 }

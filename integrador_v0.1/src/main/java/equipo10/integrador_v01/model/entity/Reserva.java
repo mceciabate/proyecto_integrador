@@ -8,7 +8,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table
@@ -26,12 +25,12 @@ public class Reserva {
     private String horaInicio;
 
     @Column
-    @JsonFormat(pattern = "dd-MM-yyyy")
-    private LocalDate fechaRecogida;
+    //@JsonFormat(pattern = "dd-MM-yyyy")
+    private LocalDate fechaFin;
 
     @Column
-    @JsonFormat(pattern = "dd-MM-yyyy")
-    private LocalDate fechaEntrega;
+    //@JsonFormat(pattern = "dd-MM-yyyy")
+    private LocalDate fechaInicio;
 
     @ManyToOne
     @JoinColumn(
@@ -47,10 +46,10 @@ public class Reserva {
             nullable = false)
     private Usuario usuario;
 
-    public Reserva(String horaInicio, LocalDate fechaRecogida, LocalDate fechaEntrega, Producto producto, Usuario usuario) {
+    public Reserva(String horaInicio, LocalDate fechaFin, LocalDate fechaInicio, Producto producto, Usuario usuario) {
         this.horaInicio = horaInicio;
-        this.fechaRecogida = fechaRecogida;
-        this.fechaEntrega = fechaEntrega;
+        this.fechaFin = fechaFin;
+        this.fechaInicio = fechaInicio;
         this.producto = producto;
         this.usuario = usuario;
     }

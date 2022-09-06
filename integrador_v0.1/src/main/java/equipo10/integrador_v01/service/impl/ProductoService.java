@@ -4,16 +4,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.ProductoDTO;
+import equipo10.integrador_v01.model.entity.Ciudad;
 import equipo10.integrador_v01.model.entity.Producto;
+import equipo10.integrador_v01.model.entity.Reserva;
 import equipo10.integrador_v01.repository.IProductoRepository;
 import equipo10.integrador_v01.service.IProductoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.time.LocalDate;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -113,5 +114,17 @@ public class ProductoService implements IProductoService {
         log.info("Productos seleccionados para la categoría número " + id);
         return listaProductosDTO;
 
+    }
+
+    @Override
+    public List<ProductoDTO> productoDisponibleCiudadFecha (LocalDate fechaFin, LocalDate fechaInicio, Long ciudadId){
+        List<Producto> productosDisponibles = productoRepository.productoDisponiblePorFechaYCiudad(fechaFin, fechaInicio, ciudadId);
+        List<ProductoDTO> productosDisponiblesDTO = new ArrayList<>();
+
+        for (Producto producto : productosDisponibles) {
+            productosDisponiblesDTO.add(mapper.convertValue(producto, ProductoDTO.class));
+        }
+
+        return productosDisponiblesDTO;
     }
 }
