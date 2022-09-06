@@ -19,8 +19,9 @@ export const ListH3 = styled.h3`
   font-size: 24px;
   font-weight: 700;
   line-height: 28px;
-  margin: 20px;
+  margin: 30px 0px 0px 50px;
   color: #191b1d;
+  padding: 10px 10px -15px 0px;
 `;
 
 export const CardC = styled.div`

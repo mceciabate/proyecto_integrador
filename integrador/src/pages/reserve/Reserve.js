@@ -6,7 +6,7 @@ import {
   LHeader,
   RHeader,
   BodyContainer,
-  FormContainer as FormContainer,
+  FormContainer,
   ReserveContainer,
   CalendarContainer,
   Schedule,
@@ -19,7 +19,6 @@ import arrow from "../../assets/arrow.png";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
 import TimePicker from "react-bootstrap-time-picker";
-import moment from "react-moment";
 
 
 const Reserve = () => {
@@ -136,7 +135,7 @@ const Reserve = () => {
             <div></div>
               <label>
                 Indica tu horario estimado de recogida
-              <TimePicker start="00:00" end="23:59" step={1} value={hour} onChange={setHour}/>
+              <TimePicker value={hour} onChange={setHour}/>
               </label>
               <label>
                 Indica tu lugar de recogida
@@ -154,7 +153,7 @@ const Reserve = () => {
               <label>
                 Inidica tu horario estimado de entrega
 
-                <TimePicker start="00:00" end="23:59" step={1} value = {hour1} onChange ={setHour1}/>
+                <TimePicker start="00:00" end="23:59" step={60} value = {hour1} onChange ={setHour1}/>
               </label>
               <label>
                 Indica tu lugar de entrega
