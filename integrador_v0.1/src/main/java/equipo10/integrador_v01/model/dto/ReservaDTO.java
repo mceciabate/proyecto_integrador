@@ -2,7 +2,7 @@ package equipo10.integrador_v01.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import equipo10.integrador_v01.model.entity.Producto;
-import equipo10.integrador_v01.model.entity.Usuario;
+import equipo10.integrador_v01.model.jwt.Usuario;
 import lombok.*;
 
 import java.time.LocalDate;
