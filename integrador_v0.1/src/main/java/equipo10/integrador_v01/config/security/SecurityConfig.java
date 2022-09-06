@@ -63,17 +63,27 @@ public class SecurityConfig {
 
         http.csrf().disable()
                 .authorizeRequests()
+
                 .antMatchers(HttpMethod.POST, "/auth/**", "/usuario/**").permitAll()
+
                 .antMatchers(HttpMethod.GET, "/producto/**", "/categoria/**"
-                        , "/ciudad/**", "/usuario/**", "/rol/**", "/reserva/**").permitAll()
+                        , "/ciudad/**", "/usuario/**", "/rol/**").permitAll()
+
                 .antMatchers(HttpMethod.POST, "/producto/**", "/categoria/**"
                         , "/ciudad/**", "/rol/**").hasAnyAuthority("ADMINISTRADOR")
+
                 .antMatchers(HttpMethod.PUT, "/producto/**", "/categoria/**"
                         , "/ciudad/**", "/rol/**", "/usuario/**").hasAnyAuthority("ADMINISTRADOR")
+
                 .antMatchers(HttpMethod.DELETE, "/producto/**", "/categoria/**"
                         , "/ciudad/**", "/rol/**", "/usuario/**").hasAnyAuthority("ADMINISTRADOR")
+
                 .antMatchers(HttpMethod.GET, "/rol/**", "/usuario/**").hasAnyAuthority("ADMINISTRADOR")
+
+                .antMatchers(HttpMethod.POST, "/reserva/**").hasAuthority("USUARIO")
+
                 .and()
+
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPointConfig)
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
