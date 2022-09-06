@@ -26,11 +26,11 @@ public class Reserva {
     private String horaInicio;
 
     @Column
-    //@JsonFormat(pattern = "dd-MM-yyyy")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate fechaFin;
 
     @Column
-    //@JsonFormat(pattern = "dd-MM-yyyy")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate fechaInicio;
 
     @ManyToOne
