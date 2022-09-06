@@ -15,7 +15,6 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { BsCalendarCheck } from "react-icons/bs";
 import { BsFillPinMapFill } from "react-icons/bs";
-import { Icon } from "@iconify/react";
 
 const Searcher = ( {setCity} ) => {
   const [cities, setCities] = useState([{}]);

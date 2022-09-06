@@ -6,7 +6,7 @@ import {
   LHeader,
   RHeader,
   BodyContainer,
-  FormContainer as FormContainer,
+  FormContainer,
   ReserveContainer,
   CalendarContainer,
   Schedule,
@@ -27,6 +27,9 @@ const Reserve = () => {
   const [images, setImages] = useState([{}]);
   const [hour,setHour] = useState();
   const [hour1,setHour1] = useState();
+  const [cities, setCities] = useState([{}]);
+  const [selectedCity, setSelectedCity] = useState(null);
+  const [selectedCity2, setSelectedCity2] = useState(null);
   useEffect(() => {
     const request = async () => {
       const response = await fetch(`http://13.59.92.254:8080/producto/${id}`);
@@ -36,10 +39,7 @@ const Reserve = () => {
       /* setPolicy(result.politica); */
     };
     request();
-  }, [id]);
-  const [cities, setCities] = useState([{}]);
-  const [selectedCity, setSelectedCity] = useState(null);
-  const [selectedCity2, setSelectedCity2] = useState(null);
+  },[id]);
   useEffect(() => {
     const request = async () => {
       const response = await fetch(`http://13.59.92.254:8080/ciudad`);
@@ -47,7 +47,7 @@ const Reserve = () => {
       setCities(result);
     };
     request();
-  },[]);
+  },[id]);
   const updatedCities = [...cities].sort((a, b) => a.id - b.id);
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
@@ -64,9 +64,31 @@ const Reserve = () => {
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  }, []);
+  },[id]);
 
-  console.log(images)
+  const handleHourChange = (newHour) => {
+    let hour = Math.floor(newHour / 3600);
+    let minutes = (newHour%3600)/60;
+    if(hour < 10){
+      hour = `0${hour}`
+    }
+    if(minutes < 10){
+      minutes = `0${minutes}`
+    }
+    setHour(`${hour}:${minutes}`)
+  }
+  const handleHourChange1 = (newHour) => {
+    let hour = Math.floor(newHour / 3600);
+    let minutes = (newHour%3600)/60;
+    if(hour < 10){
+      hour = `0${hour}`
+    }
+    if(minutes < 10){
+      minutes = `0${minutes}`
+    }
+    setHour1(`${hour}:${minutes}`)
+  }
+  console.log(hour, hour1)
   return (
     <ReserveContainer>
       <HeaderContainer>
@@ -135,7 +157,7 @@ const Reserve = () => {
             <div></div>
               <label>
                 Indica tu horario estimado de recogida
-              <TimePicker start="00:00" end="23:59" step={1} value={hour} onChange={setHour}/>
+              <TimePicker start="00:00" end="23:59" step={1} value={hour} onChange={handleHourChange}/>
               </label>
               <label>
                 Indica tu lugar de recogida
@@ -152,7 +174,7 @@ const Reserve = () => {
               </label>
               <label>
                 Inidica tu horario estimado de entrega
-                <TimePicker start="00:00" end="23:59" step={1} value = {hour1} onChange ={setHour1}/>
+                <TimePicker start="00:00" end="23:59" step={1} value = {hour1} onChange={handleHourChange1}/>
               </label>
               <label>
                 Indica tu lugar de entrega

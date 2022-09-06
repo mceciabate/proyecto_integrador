@@ -1,6 +1,5 @@
 import React from "react";
 import { CategoryCard, CategoryImage } from "../styles/CategoriesStyles";
-import { Link } from "react-router-dom";
 
 const CardCategories = ({ category }) => {
   return (

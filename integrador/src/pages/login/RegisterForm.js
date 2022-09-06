@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FormDiv2, UserForm, MainButton, SecondButton, nameLastname } from "./LoginStyles";
+import { FormDiv2, UserForm, MainButton, SecondButton } from "./LoginStyles";
 
 const RegisterForm = ({ handleView }) => {
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
 import React from "react";
-import { FooterC, FooterUl as FooterUl, FooterP } from "../styles/FooterStyles";
+import { FooterC, FooterUl, FooterP } from "../styles/FooterStyles";
 import { Icon } from "@iconify/react";
 
 const Footer = () => {
