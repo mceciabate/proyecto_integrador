@@ -5,18 +5,6 @@ import { useParams } from "react-router-dom";
 
 const ProductPage = () => {
   const { id } = useParams();
-  const [policy, setPolicy] = useState([
-    {
-      id: undefined,
-      titulo: "loading",
-      descripcion: "loading",
-    },
-    {
-      id: undefined,
-      titulo: "loading",
-      descripcion: "loading",
-    },
-  ]);
   const [images, setImages] = useState([{}]);
   const [product, setProduct] = useState({});
   useEffect(() => {
@@ -25,11 +13,10 @@ const ProductPage = () => {
       const result = await response.json();
       setProduct(result);
       setImages(result.imagen);
-      /* setPolicy(result.politica); */
     };
     request();
   }, [id]);
-  return <Product images={images} product={product} policy={policy} />;
+  return <Product images={images} product={product} />;
 };
 
 export default ProductPage;

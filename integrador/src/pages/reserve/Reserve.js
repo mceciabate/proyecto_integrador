@@ -14,6 +14,7 @@ import {
   MainButton,
   FormContainer2 
 } from "./ReserveStyles";
+import { FooterContainer, FooterItemContainer, FooterItem } from "../product/ProductStyles";
 import { useParams } from "react-router-dom";
 import arrow from "../../assets/arrow.png";
 import Calendar from "react-calendar";
@@ -210,6 +211,36 @@ const Reserve = () => {
           <MainButton>Confirmar reserva</MainButton>
         </Detail>
       </BodyContainer>
+      <FooterContainer>
+        <h2>Qué tenés que saber</h2>
+        <FooterItemContainer>
+          <FooterItem>
+            <h4>Seguros</h4>
+            <p>
+              Todos nuestros autos cuentan con Seguro de Vida todo Riesgo,
+              Seguro de Daños Parciales, Asistencia 24/7 con la aseguradora y
+              kilometraje ilimitado.
+            </p>
+          </FooterItem>
+          <FooterItem>
+            <h4>Tanque o Carga</h4>
+            <p>
+              El auto debe entregarse con el tanque o la batería en un 80% de
+              capacidad, tal cual le fue entregado. En caso de no ser así se
+              descontará un porcentaje equivalente al faltante del depósito.
+            </p>
+          </FooterItem>
+          <FooterItem>
+            <h4>Cancelacion</h4>
+            <p>
+              La cancelación no tendrá costo si se hace con 3 días de
+              anticipación, de lo contradio pagarás el 20% del alquiler. La
+              devolución se hará efectiva una vez aplicadas las políticas de
+              cancelación al medio original de pago dentro de 30 días hábiles.
+            </p>
+          </FooterItem>
+        </FooterItemContainer>
+      </FooterContainer>
     </ReserveContainer>
   );
 };
