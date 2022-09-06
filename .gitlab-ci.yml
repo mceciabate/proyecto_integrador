@@ -12,7 +12,7 @@ cache:
     - node_modules/
 
 build:
-  image: node:14.15.0
+  image: node:16.16.0
   stage: build
   before_script:
     - cd ./integrador
