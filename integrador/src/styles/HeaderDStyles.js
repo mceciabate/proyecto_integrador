@@ -41,6 +41,12 @@ export const HeaderButton = styled.button`
   width: 10rem;
   border-radius: 10px;
   cursor: pointer;
+  :hover {
+    background-color: white;
+    border: none;
+    color: #F0572D;
+    font-weight: bold;
+  }
 `;
 
 export const Logo = styled.div`

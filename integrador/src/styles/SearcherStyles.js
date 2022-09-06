@@ -104,6 +104,11 @@ export const SearchButton = styled.button`
     width: 90%;
     margin: 10px;
   }
+  :hover {
+    opacity: 0.7;
+    color: white;
+    font-weight: bold;
+  }
 
 `;
 

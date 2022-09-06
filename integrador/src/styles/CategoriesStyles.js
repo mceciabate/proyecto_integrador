@@ -40,6 +40,9 @@ export const CategoryCard = styled.div`
     font-size: 14px;
     font-weight: 400;
   }
+  :hover {
+    transform: scale(1.05);
+  }
 `;
 
 export const CategoryImage = styled.img`
