@@ -51,7 +51,8 @@ const RegisterForm = ({ handleView }) => {
           if(formValues) {
           await fetch("http://18.223.117.95:8080/usuario/guardar", {
             method: "POST",
-            mode: 'cors',
+            mode: 'no-cors',
+            headers: 'Access-Control-Allow-Origin',
             body: JSON.stringify(formValues),
           })
           const timeOut = setTimeout(() => {
