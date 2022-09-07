@@ -38,7 +38,7 @@ const Searcher = ( {setCity} ) => {
   const updatedCities = [...cities].sort((a, b) => a.id - b.id);
   return (
     <SearchContainer>
-      <h1>La forma mas facil y segura de rentar tu carro</h1>
+      <h1>La forma más fácil y segura de rentar tu auto</h1>
       <SearchForm onSubmit={(e)=>{
             e.preventDefault();
             setshowCalendar(false);
@@ -60,7 +60,7 @@ const Searcher = ( {setCity} ) => {
         <IconSelect>
           <BsFillPinMapFill className="icon" />
           <SearchSelect required>
-          <option value="S">Devolucion</option>
+          <option value="S">Devolución</option>
             {updatedCities.map((city, index) => (
               <option key={index} value={city.localidad}>
                 {city.localidad + " , " + city.provincia}
@@ -81,11 +81,11 @@ const Searcher = ( {setCity} ) => {
         ) : (
           <CalendarButton onClick={() => setshowCalendar(true)}>
             <BsCalendarCheck className="icon" />
-            Recogida - Devolucion
+            Recogida - Devolución
           </CalendarButton>
         )}
         <SearchButton type="submit">
-          Buscar Carro
+          Buscar auto
         </SearchButton>
       </SearchForm>
     </SearchContainer>

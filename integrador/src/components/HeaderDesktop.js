@@ -18,7 +18,7 @@ const Header = ({ isLogged, setIsLogged }) => {
       return (
         <SectionC>
           <Link to="/login">
-            <HeaderButton>Iniciar sesion</HeaderButton>
+            <HeaderButton>Iniciar sesión</HeaderButton>
           </Link>
           <Link to="/register">
             <HeaderButton>Crear cuenta</HeaderButton>

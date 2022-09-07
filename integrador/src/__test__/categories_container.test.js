@@ -1,16 +1,16 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import React from "react";
-import  {CardContainer}  from "../styles/CategoriesStyles";
+import { CardContainer } from "../styles/CategoriesStyles";
 
 
 
 afterEach(cleanup);
 
-describe('Card', () =>{
-    test('renders appropriately',  () =>{
+describe('Card', () => {
+    test('renders appropriately', () => {
         render(<CardContainer></CardContainer>);
         const cat = screen.findAllByTestId("card");
-       expect(cat).toBeInTheDocument();
+        expect(cat).toBeInTheDocument();
     })
 })
 
@@ -19,4 +19,3 @@ describe('Card', () =>{
 
 
 
-  
