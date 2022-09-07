@@ -20,6 +20,7 @@ const RegisterForm = ({ handleView }) => {
           apellido: "",
           email: "",
           contrasenia: "",
+          confirmContra: "",
           rol: { id: 1, nombre: "Usuario" },
         }}
         validationSchema={Yup.object().shape({
@@ -52,7 +53,6 @@ const RegisterForm = ({ handleView }) => {
           await fetch("http://18.223.117.95:8080/usuario/guardar", {
             method: "POST",
             mode: 'no-cors',
-            headers: 'Access-Control-Allow-Origin',
             body: JSON.stringify(formValues),
           })
           const timeOut = setTimeout(() => {
