@@ -20,7 +20,7 @@ const Login = ({argument, setIsLogged}) => {
       {view === "login" ? (
         <LoginForm handleView={handleView} setIsLogged={setIsLogged}  />
       ) : view === "register" ? (
-        <RegisterForm handleView={handleView} />
+        <RegisterForm handleView={handleView} setIsLogged={setIsLogged} />
       ) : null}
     </LoginC>
   );

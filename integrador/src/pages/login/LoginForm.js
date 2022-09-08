@@ -1,42 +1,71 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { FormDiv, UserForm, MainButton, SecondButton } from "./LoginStyles";
+import { useState } from "react";
+import { FormDiv, UserForm2, MainButton, SecondButton } from "./LoginStyles";
+import { LocalStorageHelper} from 'local-storage-helper'
 
 const LoginForm = ({ handleView, setIsLogged }) => {
-  const User = {
-    email: "simon@gmail.com",
-    password: "simon123"
-  }
-  const navigate = useNavigate();
-  const handleSubmit = (e) => {
+  const [email, setEmail] = useState("");
+  const [contrasenia, setContrasenia] = useState("");
+  LocalStorageHelper.setAppPrefix('Token');
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
-      e.target.email.value === User.email &&
-      e.target.password.value === User.password
-    ) {
-      setIsLogged(true);
-      navigate("/");
-    } else {
-      alert("Invalid credentials");
+    const loginValues = {
+      email: email,
+      contrasenia: contrasenia
     }
-  }
+    console.log(JSON.stringify(loginValues))
+    await fetch("http://18.223.117.95:8080/auth/token", {
+      method: "POST",
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      body: JSON.stringify(loginValues),
+    })
+      .then((response)=> {
+        if(response.status === 200) {
+          alert("Logged in")
+          console.log(response.body)
+        }
+      })
+      .then((respuesta) => {
+        console.log(respuesta)
+      })
+  };
   return (
     <FormDiv>
       <h2>Iniciar Sesion</h2>
-      <UserForm onSubmit={handleSubmit}>
+      <UserForm2 onSubmit={handleSubmit}>
         <label>
-          Email:                     
-          <input required type="email" placeholder="e-mail" name="email"/>
+          Email:
+          <input
+            required
+            type="text"
+            placeholder="e-mail"
+            name="email"
+            onChange={(event) => setEmail(event.target.value)}
+            value={email}
+          />
         </label>
         <label>
-          Contraeña:                      
-          <input required type="password" minLength={6} placeholder="password" name="password" />
+          Contraeña:
+          <input
+            required
+            type="text"
+            minLength={4}
+            placeholder="password"
+            name="password"
+            onChange={(event) => setContrasenia(event.target.value)}
+            value={contrasenia}
+          />
         </label>
         <MainButton type="submit">Ingresar</MainButton>
-      </UserForm>
-      <p>¿Aún no tienes cuenta?<SecondButton onClick={() => handleView("register")}>Registrate</SecondButton> </p>
+      </UserForm2>
+      <p>
+        ¿Aún no tienes cuenta?
+        <SecondButton onClick={() => handleView("register")}>
+          Registrate
+        </SecondButton>{" "}
+      </p>
     </FormDiv>
   );
-}
+};
 
 export default LoginForm;

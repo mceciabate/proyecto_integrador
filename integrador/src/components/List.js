@@ -29,7 +29,6 @@ const List = ({selectedCity,selectedCategory, cat}) => {
       } else return setProducts(apiProducts);
     })
   }, [selectedCategory, selectedCity, cat]);
-  console.log(products)
   return (
     <ListDiv>
       <ListH3>{title}</ListH3>
