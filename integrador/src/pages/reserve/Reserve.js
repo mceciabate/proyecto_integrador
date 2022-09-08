@@ -14,6 +14,7 @@ import {
   MainButton,
   FormContainer2 
 } from "./ReserveStyles";
+import { FooterContainer, FooterItemContainer, FooterItem } from "../product/ProductStyles";
 import { useParams } from "react-router-dom";
 import arrow from "../../assets/arrow.png";
 import Calendar from "react-calendar";
@@ -27,19 +28,18 @@ const Reserve = () => {
   const [images, setImages] = useState([{}]);
   const [hour,setHour] = useState();
   const [hour1,setHour1] = useState();
+  const [cities, setCities] = useState([{}]);
+  const [selectedCity, setSelectedCity] = useState(null);
+  const [selectedCity2, setSelectedCity2] = useState(null);
   useEffect(() => {
     const request = async () => {
       const response = await fetch(`http://13.59.92.254:8080/producto/${id}`);
       const result = await response.json();
       setProduct(result);
       setImages(result.imagen);
-      /* setPolicy(result.politica); */
     };
     request();
-  }, [id]);
-  const [cities, setCities] = useState([{}]);
-  const [selectedCity, setSelectedCity] = useState(null);
-  const [selectedCity2, setSelectedCity2] = useState(null);
+  },[id]);
   useEffect(() => {
     const request = async () => {
       const response = await fetch(`http://13.59.92.254:8080/ciudad`);
@@ -47,7 +47,7 @@ const Reserve = () => {
       setCities(result);
     };
     request();
-  },[]);
+  },[id]);
   const updatedCities = [...cities].sort((a, b) => a.id - b.id);
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
@@ -64,9 +64,30 @@ const Reserve = () => {
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  }, []);
+  },[id]);
 
-  console.log(images)
+  const handleHourChange = (newHour) => {
+    let hour = Math.floor(newHour / 3600);
+    let minutes = (newHour%3600)/60;
+    if(hour < 10){
+      hour = `0${hour}`
+    }
+    if(minutes < 10){
+      minutes = `0${minutes}`
+    }
+    setHour(`${hour}:${minutes}`)
+  }
+  const handleHourChange1 = (newHour) => {
+    let hour = Math.floor(newHour / 3600);
+    let minutes = (newHour%3600)/60;
+    if(hour < 10){
+      hour = `0${hour}`
+    }
+    if(minutes < 10){
+      minutes = `0${minutes}`
+    }
+    setHour1(`${hour}:${minutes}`)
+  }
   return (
     <ReserveContainer>
       <HeaderContainer>
@@ -135,7 +156,7 @@ const Reserve = () => {
             <div></div>
               <label>
                 Indica tu horario estimado de recogida
-              <TimePicker value={hour} onChange={setHour}/>
+              <TimePicker start="00:00" end="23:59" step={60} value={hour} onChange={handleHourChange}/>
               </label>
               <label>
                 Indica tu lugar de recogida
@@ -152,8 +173,7 @@ const Reserve = () => {
               </label>
               <label>
                 Inidica tu horario estimado de entrega
-
-                <TimePicker start="00:00" end="23:59" step={60} value = {hour1} onChange ={setHour1}/>
+                <TimePicker start="00:00" end="23:59" step={60} value = {hour1} onChange={handleHourChange1}/>
               </label>
               <label>
                 Indica tu lugar de entrega
@@ -190,6 +210,36 @@ const Reserve = () => {
           <MainButton>Confirmar reserva</MainButton>
         </Detail>
       </BodyContainer>
+      <FooterContainer>
+        <h2>Qué tenés que saber</h2>
+        <FooterItemContainer>
+          <FooterItem>
+            <h4>Seguros</h4>
+            <p>
+              Todos nuestros autos cuentan con Seguro de Vida todo Riesgo,
+              Seguro de Daños Parciales, Asistencia 24/7 con la aseguradora y
+              kilometraje ilimitado.
+            </p>
+          </FooterItem>
+          <FooterItem>
+            <h4>Tanque o Carga</h4>
+            <p>
+              El auto debe entregarse con el tanque o la batería en un 80% de
+              capacidad, tal cual le fue entregado. En caso de no ser así se
+              descontará un porcentaje equivalente al faltante del depósito.
+            </p>
+          </FooterItem>
+          <FooterItem>
+            <h4>Cancelacion</h4>
+            <p>
+              La cancelación no tendrá costo si se hace con 3 días de
+              anticipación, de lo contradio pagarás el 20% del alquiler. La
+              devolución se hará efectiva una vez aplicadas las políticas de
+              cancelación al medio original de pago dentro de 30 días hábiles.
+            </p>
+          </FooterItem>
+        </FooterItemContainer>
+      </FooterContainer>
     </ReserveContainer>
   );
 };

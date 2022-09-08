@@ -34,7 +34,7 @@ const LoginForm = ({ handleView, setIsLogged }) => {
         </label>
         <MainButton type="submit">Ingresar</MainButton>
       </UserForm>
-      <p>Aun no tienes cuenta?<SecondButton onClick={() => handleView("register")}>Registrate</SecondButton> </p>
+      <p>¿Aún no tienes cuenta?<SecondButton onClick={() => handleView("register")}>Registrate</SecondButton> </p>
     </FormDiv>
   );
 }

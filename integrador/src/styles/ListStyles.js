@@ -39,6 +39,9 @@ export const CardC = styled.div`
     height: fit-content;
     align-items: center;
   }
+  :hover {
+    transform: scale(1.05);
+  }
 `;
 
 export const StyledImg = styled.img`
@@ -63,6 +66,7 @@ export const CardDiv = styled.div`
     margin: 2px;
     margin: 0;
   }
+  
 `;
 
 export const StyledP1 = styled.p`
@@ -93,4 +97,7 @@ export const StyledButton = styled.button`
   height: 40px;
   border: none;
   cursor: pointer;
+  :hover {
+    opacity: 0.8;
+  }
 `;

@@ -9,7 +9,7 @@ const Header = ({ isLogged, setIsLogged }) => {
       <DeployMenu>
         <MenuButton onClick={()=> setDeployMenu(false)}/>
         <Link to="/login">
-          <HeaderButton>Iniciar Sesion</HeaderButton>
+          <HeaderButton>Iniciar Sesión</HeaderButton>
         </Link>
         <Link to="/register">
           <HeaderButton>Registrarse</HeaderButton>

@@ -25,7 +25,7 @@ import ProductGallery from "./ProductGallery";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
 import { Rating } from "react-simple-star-rating";
-const Product = ({ images, product, policy }) => {
+const Product = ({ images, product }) => {
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerWidth, innerHeight };
@@ -64,6 +64,7 @@ const Product = ({ images, product, policy }) => {
   };
   const updatedImg = [...images].sort((a, b) => a.id - b.id);
   updatedImg.pop();
+  const disabledDates = ["2022/9/15", "2022/10/16", "2022/11/17"];
   return (
     <ProductContainer>
       <HeaderContainer>
@@ -129,12 +130,16 @@ const Product = ({ images, product, policy }) => {
           showDoubleView={windowSize.innerWidth > 500 ? true : false}
           next2Label={null}
           prev2Label={null}
+          tileDisabled={({ date }) => {
+            const formatedDate = `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`;
+            return disabledDates.some((d) => d === formatedDate);
+          }}
         />
         <CalendarSection>
           <CalendarItem>
             <h3>Agregá tus fechas de viaje para obtener precios exactos</h3>
             <Link to={`/product/${product.id}/reserve`}>
-            <button>Iniciar reserva</button>
+              <button>Iniciar reserva</button>
             </Link>
           </CalendarItem>
         </CalendarSection>
@@ -144,30 +149,28 @@ const Product = ({ images, product, policy }) => {
         <h2>Qué tenés que saber</h2>
         <FooterItemContainer>
           <FooterItem>
-            <h4>
-              {policy[0].titulo === undefined ? "loading" : policy[0].titulo}
-            </h4>
+            <h4>Documentacion</h4>
+            <p>Para recoger el auto necesitarás:</p>
+            <p>Pasaporte o carnet de identidad</p>
+            <p>Permiso de conducir</p>
+            <p>Tarjeta de crédito o débito</p>
+          </FooterItem>
+          <FooterItem>
+            <h4>Deposito de seguridad</h4>
             <p>
-              {policy[0].descripcion === undefined
-                ? "loading"
-                : policy[0].descripcion}
+              Durante la recogida, al conductor principal se le bloqueará un
+              depósito de seguridad seguridad de ARS 1.295 en su tarjeta de
+              crédito o débito.
             </p>
           </FooterItem>
           <FooterItem>
-            <h4>
-              {policy[1].titulo === undefined ? "loading" : policy[1].titulo}
-            </h4>
+            <h4>Política de daños</h4>
             <p>
-              {policy[1].descripcion === undefined
-                ? "loading"
-                : policy[1].descripcion}
+              Si la carrocería del vehículo resulta dañada, estarás protegido
+              por la Cobertura ARS 1.200 parcial por Colisión. La Cobertura
+              Parcial por Colisión sólo será válida si se cumplen los términos
+              del contrato de alquiler.
             </p>
-          </FooterItem>
-          <FooterItem>
-            <h4>Cancelacion</h4>
-            <p>cancelacion</p>
-            <p>cancelacion</p>
-            <p>cancelacion</p>
           </FooterItem>
         </FooterItemContainer>
       </FooterContainer>

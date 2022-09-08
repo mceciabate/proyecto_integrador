@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Form } from "formik";
 
 export const LoginC = styled.div`
   display: flex;
@@ -84,7 +85,7 @@ export const FormDiv2 = styled.div`
   }
 `;
 
-export const UserForm = styled.form`
+export const UserForm = styled(Form)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,6 +119,12 @@ export const MainButton = styled.button`
   border-radius: 10px;
   margin: 10px;
   cursor: pointer;
+  :hover {
+    opacity: 0.7;
+    color: white;
+    font-weight: bold;
+  }
+  
 `;
 
 export const SecondButton = styled.button`
@@ -128,4 +135,15 @@ export const SecondButton = styled.button`
   text-decoration: underline;
   background: rgba(255, 255, 255, 0.0);
   cursor: pointer;
+  
+`;
+
+export const StyledInlineErrorMessage = styled.div`
+  background-color: rgb(255, 245, 245);
+  color: rgb(120, 27, 0);
+  display: block;
+
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.5rem;
+  white-space: pre-line;
 `;

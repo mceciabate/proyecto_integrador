@@ -294,6 +294,7 @@ export const FooterContainer = styled.div`
     line-height: 28px;
     color: #1a1a1a;
     margin-top: 25px;
+    margin-left: 35px;
   }
 `;
 export const FooterItemContainer = styled.div`
