@@ -1,5 +1,6 @@
 package equipo10.integrador_v01.config.security;
 
+import com.sun.tools.javac.util.List;
 import equipo10.integrador_v01.config.security.jwt.JwtEntryPointConfig;
 import equipo10.integrador_v01.config.security.jwt.JwtTokenFilterConfig;
 import equipo10.integrador_v01.service.jwt.UsuarioDetailsService;
@@ -100,8 +101,8 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList("http://*:8080", "*"));
-        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedOrigins(List.of("*"));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowCredentials(true);
         config.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
         UrlBasedCorsConfigurationSource cors = new UrlBasedCorsConfigurationSource();
