@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -52,9 +53,9 @@ public class UsuarioController {
         return ResponseEntity.ok("Usuario: " + id + " fue actualizado con exito.");
     }
 
-    @RequestMapping(value = "/email", method = RequestMethod.GET)
-    public ResponseEntity<UsuarioDTO> buscarUserPorEmail(@RequestBody UsuarioDTO usuarioDTO) throws ResourceNotFoundException{
-        return ResponseEntity.ok(usuarioService.buscarUsuarioPorEmail(usuarioDTO.getEmail()));
+    @RequestMapping(value = "/email/{email}", method = RequestMethod.GET)
+    public ResponseEntity<UsuarioDTO> buscarUserPorEmail(@PathVariable("email") String email) throws ResourceNotFoundException{
+        return ResponseEntity.ok(usuarioService.buscarUsuarioPorEmail(email));
     }
 
 }
