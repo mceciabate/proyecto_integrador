@@ -25,9 +25,6 @@ const LoginForm = ({ handleView, setIsLogged }) => {
           console.log(response.body)
         }
       })
-      .then((respuesta) => {
-        console.log(respuesta)
-      })
   };
   return (
     <FormDiv>
