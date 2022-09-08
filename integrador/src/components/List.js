@@ -9,11 +9,27 @@ const List = ({ selectedCity, selectedCategory, cat, selectedDates }) => {
   useEffect(() => {
     let apiProducts = [];
     const request = async () => {
-      if (selectedDates && !selectedCity) {
-        const formatedStartDate = `${selectedDates[0].startDate.getDate()}-${selectedDates[0].startDate.getMonth()}-${selectedDates[0].startDate.getFullYear()}`;
-        const formatedEndDate = `${selectedDates[0].endDate.getDate()}-${selectedDates[0].endDate.getMonth()}-${selectedDates[0].endDate.getFullYear()}`;
+      if (selectedDates && selectedCity) {
+        let startDate = selectedDates[0].startDate.getDate()
+        if(startDate < 10) {
+          startDate = `0${startDate}`
+        }
+        let startMonth = selectedDates[0].startDate.getMonth()
+        if(startMonth < 10) {
+          startMonth = `0${startMonth}`
+        }
+        let endDate = selectedDates[0].endDate.getDate()
+        if(endDate < 10) {
+          endDate = `0${endDate}`
+        }
+        let endMonth = selectedDates[0].endDate.getMonth()
+        if(endMonth < 10) {
+          endMonth = `0${endMonth}`
+        }
+        const formatedStartDate = `${selectedDates[0].startDate.getFullYear()}-${startMonth}-${startDate}`;
+        const formatedEndDate = `${selectedDates[0].endDate.getFullYear()}-${endMonth}-${endDate}`;
         const response = await fetch(
-          `http://13.59.92.254:8080/disponible/${formatedEndDate}/${formatedStartDate}/${selectedCity}`,
+          `http://18.223.117.95:8080/producto/disponible/${formatedEndDate}/${formatedStartDate}/${selectedCity}`,
           {
             method: "GET",
             headers: { "Content-Type": "application/json; charset=utf-8" },

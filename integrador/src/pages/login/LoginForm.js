@@ -8,44 +8,54 @@ const LoginForm = ({ handleView, setIsLogged }) => {
   const [email, setEmail] = useState("");
   const [contrasenia, setContrasenia] = useState("");
   const [token, setToken] = useState();
-  const [user, setUser] = useState();
+  const [username, setUsername] = useState("");
+  const [lastname, setLastname] = useState("");
   const navigate = useNavigate();
-  useEffect(()=>{
-    if(token) {
-      window.localStorage.setItem('Token', token)
-      window.localStorage.setItem('User', user)
-      setIsLogged(true);
-      navigate('/')
-    } else {
-      console.log('a')
-    }
-  },[token, setIsLogged, user, navigate])
-
-  const handleSubmit =  (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const loginValues = {
       email: email,
-      contrasenia: contrasenia
-    }
-    console.log(JSON.stringify(loginValues))
+      contrasenia: contrasenia,
+    };
+    console.log(JSON.stringify(loginValues));
     fetch("http://18.223.117.95:8080/auth/token", {
       method: "POST",
       headers: { "Content-Type": "application/json; charset=utf-8" },
       body: JSON.stringify(loginValues),
-    })
-      .then((response)=> {
-        if(response.status === 200) {
-          const json = response.json().then((resp)=>{
-            console.log(resp.respuesta)
-            setToken(resp.respuesta.token)
-            setUser(resp.respuesta.username)
-          });
-          return json;
-        } else {
-          alert("Lamentablemente no ha podido iniciar sesión. Por favor intente más tarde")
-        }
-      })
+    }).then((response) => {
+      if (response.status === 200) {
+        const json = response.json().then((resp) => {
+          console.log(resp.respuesta);
+          setToken(resp.respuesta.token);
+        });
+        return json;
+      } else {
+        alert(
+          "Lamentablemente no ha podido iniciar sesión. Por favor intente más tarde"
+        );
+      }
+    });
   };
+  useEffect(() => {
+    if (token) {
+      const request = async () => {
+        const response = await fetch(
+          `http://18.223.117.95:8080/usuario/email/${email}`
+        );
+        const result = await response.json();
+        setUsername(result.nombre);
+        setLastname(result.apellido);
+      };
+      request();
+      window.localStorage.setItem("Token", token);
+      window.localStorage.setItem("Username", username);
+      window.localStorage.setItem("Lastname", lastname);
+      if (window.localStorage.getItem("Username")) {
+        setIsLogged(true);
+        navigate("/")
+      }
+    }
+  }, [token, setIsLogged, email, username, lastname, navigate]);
   return (
     <FormDiv>
       <h2>Iniciar Sesion</h2>
