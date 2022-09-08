@@ -64,7 +64,7 @@ const Product = ({ images, product }) => {
   };
   const updatedImg = [...images].sort((a, b) => a.id - b.id);
   updatedImg.pop();
-  const disabledDates = ["2022/10/15", "2022/10/16", "2022/10/17"];
+  const disabledDates = ["2022/9/15", "2022/10/16", "2022/11/17"];
   return (
     <ProductContainer>
       <HeaderContainer>
@@ -132,7 +132,6 @@ const Product = ({ images, product }) => {
           prev2Label={null}
           tileDisabled={({ date }) => {
             const formatedDate = `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`;
-            console.log(disabledDates);
             return disabledDates.some((d) => d === formatedDate);
           }}
         />
