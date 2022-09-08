@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { HeaderC, SectionC, HeaderButton, Logo } from "../styles/HeaderDStyles";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const Header = ({ isLogged, setIsLogged }) => {
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    setUser(window.localStorage.getItem("User"));
+  }, [isLogged, user]);
   const handleLoggin = () => {
     if (isLogged) {
       return (
         <SectionC>
-          <h3>Hola Simon</h3>
+          <h3>{`Hola ${user}`}</h3>
           <span>SL</span>
-          <HeaderButton onClick={() => setIsLogged(false)}>
+          <HeaderButton
+            onClick={() => {
+              setIsLogged(false);
+              window.localStorage.removeItem('User');
+              window.localStorage.removeItem('Token');
+            }}
+          >
             Log out
           </HeaderButton>
         </SectionC>

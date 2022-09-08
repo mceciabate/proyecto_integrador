@@ -16,9 +16,10 @@ import "react-date-range/dist/theme/default.css";
 import { BsCalendarCheck } from "react-icons/bs";
 import { BsFillPinMapFill } from "react-icons/bs";
 
-const Searcher = ( {setCity} ) => {
+const Searcher = ( {setCity, setDates} ) => {
   const [cities, setCities] = useState([{}]);
   const [selectedCity, setSelectedCity] = useState(null);
+  console.log(selectedCity)
   useEffect(() => {
     const request = async () => {
       const response = await fetch(`http://13.59.92.254:8080/ciudad`);
@@ -30,7 +31,7 @@ const Searcher = ( {setCity} ) => {
   const [state, setState] = useState([
     {
       startDate: new Date(),
-      endDate: null,
+      endDate: new Date(),
       key: "selection",
     },
   ]);
@@ -43,6 +44,7 @@ const Searcher = ( {setCity} ) => {
             e.preventDefault();
             setshowCalendar(false);
             setCity(selectedCity);
+            setDates(state)
       }}>
         <IconSelect>
           <BsFillPinMapFill className="icon" />
@@ -51,7 +53,7 @@ const Searcher = ( {setCity} ) => {
             setSelectedCity(value)}} required>
             <option value="S">Recogida</option>
             {updatedCities.map((city, index) => (
-              <option key={index} value={city.localidad}>
+              <option key={index} value={city.id}>
                 {city.localidad + " , " + city.provincia}
               </option>
             ))}
@@ -72,7 +74,8 @@ const Searcher = ( {setCity} ) => {
           <CalendarDiv>
             <DateRange
               editableDateInputs={true}
-              onChange={(item) => setState([item.selection])}
+              onChange={(item) => {
+                setState([item.selection])}}
               moveRangeOnFirstSelection={false}
               ranges={state}
               rangeColors={["#F0572D"]}

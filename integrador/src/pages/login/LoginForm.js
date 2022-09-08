@@ -1,28 +1,48 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { FormDiv, UserForm2, MainButton, SecondButton } from "./LoginStyles";
-import { LocalStorageHelper} from 'local-storage-helper'
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = ({ handleView, setIsLogged }) => {
   const [email, setEmail] = useState("");
   const [contrasenia, setContrasenia] = useState("");
-  LocalStorageHelper.setAppPrefix('Token');
-  const handleSubmit = async (e) => {
+  const [token, setToken] = useState();
+  const [user, setUser] = useState();
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if(token) {
+      window.localStorage.setItem('Token', token)
+      window.localStorage.setItem('User', user)
+      setIsLogged(true);
+      navigate('/')
+    } else {
+      console.log('a')
+    }
+  },[token, setIsLogged, user, navigate])
+
+  const handleSubmit =  (e) => {
     e.preventDefault();
     const loginValues = {
       email: email,
       contrasenia: contrasenia
     }
     console.log(JSON.stringify(loginValues))
-    await fetch("http://18.223.117.95:8080/auth/token", {
+    fetch("http://18.223.117.95:8080/auth/token", {
       method: "POST",
       headers: { "Content-Type": "application/json; charset=utf-8" },
       body: JSON.stringify(loginValues),
     })
       .then((response)=> {
         if(response.status === 200) {
-          alert("Logged in")
-          console.log(response.body)
+          const json = response.json().then((resp)=>{
+            console.log(resp.respuesta)
+            setToken(resp.respuesta.token)
+            setUser(resp.respuesta.username)
+          });
+          return json;
+        } else {
+          alert("Lamentablemente no ha podido iniciar sesión. Por favor intente más tarde")
         }
       })
   };
@@ -45,7 +65,7 @@ const LoginForm = ({ handleView, setIsLogged }) => {
           Contraeña:
           <input
             required
-            type="text"
+            type="password"
             minLength={4}
             placeholder="password"
             name="password"
