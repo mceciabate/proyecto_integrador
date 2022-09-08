@@ -15,7 +15,7 @@ const Card = ({ product, images }) => {
         <StyledP2>{product.ciudad.localidad}</StyledP2>
         <StyledP2>{product.descripcion}</StyledP2>
         <Link to={`product/${product.id}`} >
-        <StyledButton>ver mas</StyledButton>
+        <StyledButton>Ver más</StyledButton>
         </Link>
       </CardDiv>
     </CardC>
