@@ -95,12 +95,12 @@ public class SecurityConfig {
      * Registro de cors origin para el libre consumo de los endpoints desde el front
      */
 
-    // http://18.223.117.95:8080/**, http://localhost:3000/**
+    // http://ubicarfront.s3-website.us-east-2.amazonaws.com/, http://localhost:3000/**
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList("http://ubicarfront.s3-website.us-east-2.amazonaws.com/**", "http://localhost:3000/**", "*"));
+        config.setAllowedOrigins(Arrays.asList("http://18.223.117.95:8080/", "*"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowCredentials(true);
         config.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
