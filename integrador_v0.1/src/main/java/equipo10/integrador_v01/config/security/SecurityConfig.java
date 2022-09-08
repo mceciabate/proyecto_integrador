@@ -100,7 +100,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList("http://ubicarfront.s3-website.us-east-2.amazonaws.com/", "http://localhost:3000/", "*"));
+        config.setAllowedOrigins(Arrays.asList("http://ubicarfront.s3-website.us-east-2.amazonaws.com/**", "http://localhost:3000/**", "*"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowCredentials(true);
         config.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
