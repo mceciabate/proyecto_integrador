@@ -1,6 +1,8 @@
 package equipo10.integrador_v01.config.security.jwt;
 
 import equipo10.integrador_v01.model.jwt.UsuarioAuth;
+
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.SneakyThrows;
@@ -40,7 +42,7 @@ public class JwtProviderConfig {
 
     /**
      * Metodo que obtiene el usuario configurado en el token
-     * */
+     */
     public String getUserNameFromToken(String token) {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().getSubject();
     }
@@ -54,3 +56,4 @@ public class JwtProviderConfig {
         return true;
     }
 }
+

@@ -67,7 +67,7 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.POST, "/auth/**", "/usuario/**").permitAll()
 
                 .antMatchers(HttpMethod.GET, "/producto/**", "/categoria/**"
-                        , "/ciudad/**", "/usuario/**", "/rol/**").permitAll()
+                        , "/ciudad/**", "/usuario/listar", "/usuario/email", "usuario/{id}", "/rol/**").permitAll()
 
                 .antMatchers(HttpMethod.POST, "/producto/**", "/categoria/**"
                         , "/ciudad/**", "/rol/**").hasAnyAuthority("ADMINISTRADOR")
@@ -78,7 +78,7 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.DELETE, "/producto/**", "/categoria/**"
                         , "/ciudad/**", "/rol/**", "/usuario/**").hasAnyAuthority("ADMINISTRADOR")
 
-                .antMatchers(HttpMethod.GET, "/rol/**", "/usuario/**").hasAnyAuthority("ADMINISTRADOR")
+                //.antMatchers(HttpMethod.GET, "/rol/**", "/usuario/**").hasAnyAuthority("ADMINISTRADOR")
 
                 .antMatchers(HttpMethod.POST, "/reserva/**").hasAuthority("USUARIO")
 

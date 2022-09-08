@@ -52,4 +52,9 @@ public class UsuarioController {
         return ResponseEntity.ok("Usuario: " + id + " fue actualizado con exito.");
     }
 
+    @RequestMapping(value = "/email", method = RequestMethod.GET)
+    public ResponseEntity<UsuarioDTO> buscarUserPorEmail(@RequestBody UsuarioDTO usuarioDTO) throws ResourceNotFoundException{
+        return ResponseEntity.ok(usuarioService.buscarUsuarioPorEmail(usuarioDTO.getEmail()));
+    }
+
 }
