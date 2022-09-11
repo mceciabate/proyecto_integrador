@@ -36,7 +36,7 @@ public class ProductoService implements IProductoService {
         for (Producto producto : listaProductos) {
             listaProductosDTO.add(mapper.convertValue(producto, ProductoDTO.class));
         }
-        log.info("Listado de categorías: " + listaProductos.toString());
+        log.info("Listado de productos: " + listaProductos.toString());
         return listaProductosDTO;
     }
 
