@@ -54,7 +54,7 @@ public class CategoriaServiceTest {
         //Mockito.doThrow(new SQLException("No")).when(categoriaRepository).deleteById(2L);
         //Mockito.when(asasas).thenThrow(new NullPointerException);
         categoriaService.eliminarCategoria(2L);
-        Assert.assertTrue(categoriaRepository.findById(2L).isEmpty());
+        Assert.assertFalse(categoriaRepository.findById(2L).isPresent());
     }
 
     @Test
