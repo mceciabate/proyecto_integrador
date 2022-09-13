@@ -40,7 +40,8 @@ public class UsuarioController {
         usuarioDTO.setContrasenia(contraseniaEncriptada);
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(usuarioDTO.getEmail());
-        mailMessage.setSubject("Se registro se ha completado exitosamente");
+        mailMessage.setSubject("Bienvenido a Ubicar");
+        mailMessage.setText("Su usuario ha sido creado exitosamente");
         mailMessage.setFrom("${spring.mail.username}");
         emailSenderService.sendEmail(mailMessage);
         return ResponseEntity.ok(usuarioService.guardarUsuario(usuarioDTO));
