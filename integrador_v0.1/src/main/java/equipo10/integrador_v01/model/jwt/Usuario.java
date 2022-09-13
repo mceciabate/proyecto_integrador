@@ -34,6 +34,7 @@ public class Usuario {
             referencedColumnName = "id")
     private Rol rol;
 
+
     //constructor sin id ni puntuación list
 
     public Usuario(String nombre, String apellido, String email, String contrasenia) {

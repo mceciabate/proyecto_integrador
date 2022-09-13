@@ -1,18 +1,15 @@
 package equipo10.integrador_v01.controller;
 
-import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
-import equipo10.integrador_v01.model.dto.ProductoDTO;
 import equipo10.integrador_v01.model.jwt.UsuarioDTO;
-import equipo10.integrador_v01.service.IProductoService;
+import equipo10.integrador_v01.service.jwt.EmailSenderService;
 import equipo10.integrador_v01.service.jwt.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,6 +20,11 @@ public class UsuarioController {
 
     @Autowired
     PasswordEncoder passwordEncoder;
+
+
+
+    @Autowired
+    private EmailSenderService emailSenderService;
 
     @RequestMapping(value = "/listar", method = RequestMethod.GET)
     public ResponseEntity<List<UsuarioDTO>> traerTodosUsuarios() {
@@ -36,6 +38,11 @@ public class UsuarioController {
     public ResponseEntity<UsuarioDTO> guardarUsuario(@RequestBody UsuarioDTO usuarioDTO){
         String contraseniaEncriptada = passwordEncoder.encode(usuarioDTO.getContrasenia());
         usuarioDTO.setContrasenia(contraseniaEncriptada);
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setTo(usuarioDTO.getEmail());
+        mailMessage.setSubject("Se registro se ha completado exitosamente");
+        mailMessage.setFrom("${spring.mail.username}");
+        emailSenderService.sendEmail(mailMessage);
         return ResponseEntity.ok(usuarioService.guardarUsuario(usuarioDTO));
     }
 

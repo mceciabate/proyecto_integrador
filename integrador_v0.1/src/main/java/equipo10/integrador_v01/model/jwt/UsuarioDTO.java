@@ -22,6 +22,8 @@ public class UsuarioDTO {
     private String contrasenia;
     private RolDTO rol;
 
+
+
     @JsonIgnore
     private List<PuntuacionDTO> puntuacion = new ArrayList<>();
 
