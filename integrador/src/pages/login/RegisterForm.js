@@ -17,6 +17,16 @@ import * as Yup from "yup";
 
 const RegisterForm = ({ handleView }) => {
   const [formValues, setFormValues] = useState({});
+  const handleResponse = (response) => {
+    if (response < 300) {
+      console.log(response)
+      alert("Usuario creado exitosamente")
+      handleView("login")
+    } else {
+      console.log(`Error con respuesta ${response}`)
+      alert("Lamentablemente no ha podido registrarse. Por favor intente más tarde")
+    }
+  } 
   return (
     <FormDiv2>
       <h2>Crea tu cuenta</h2>
@@ -47,7 +57,7 @@ const RegisterForm = ({ handleView }) => {
             "Las contrasenias deben coincidir"
           ),
         })}
-        onSubmit={async({ nombre, apellido, email, contrasenia }, actions) => {
+        onSubmit={({ nombre, apellido, email, contrasenia }, actions) => {
           setFormValues({
             nombre: nombre,
             apellido: apellido,
@@ -56,18 +66,17 @@ const RegisterForm = ({ handleView }) => {
             rol: { id: 1, nombre: "Usuario" }
           });
           console.log(formValues)
-          if(formValues) {
-          await fetch("http://18.223.117.95:8080/usuario/guardar", {
+
+          fetch("http://18.223.117.95:8080/usuario/guardar", {
             method: "POST",
-            mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formValues),
           })
+          .then((response) => handleResponse(response.status))
           const timeOut = setTimeout(() => {
             actions.setSubmitting(false);
             clearTimeout(timeOut);
           }, 1000);
-        } else console.log("error para registrar usuario")
         }}
       >
         {({
@@ -135,7 +144,7 @@ const RegisterForm = ({ handleView }) => {
       </Formik>
       <p>
         Ya tienes una cuenta?{" "}
-        <SecondButton onClick={() => handleView("login")}>
+        <SecondButton onClick={()=>handleView("login")}>
           Inicia Sesion
         </SecondButton>{" "}
       </p>

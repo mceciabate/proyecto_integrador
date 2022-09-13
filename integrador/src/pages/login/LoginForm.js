@@ -1,42 +1,98 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { FormDiv, UserForm2, MainButton, SecondButton } from "./LoginStyles";
 import { useNavigate } from "react-router-dom";
-import { FormDiv, UserForm, MainButton, SecondButton } from "./LoginStyles";
 
 const LoginForm = ({ handleView, setIsLogged }) => {
-  const User = {
-    email: "simon@gmail.com",
-    password: "simon123"
-  }
+  const [email, setEmail] = useState("");
+  const [contrasenia, setContrasenia] = useState("");
+  const [token, setToken] = useState();
+  const [username, setUsername] = useState("");
+  const [lastname, setLastname] = useState("");
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      e.target.email.value === User.email &&
-      e.target.password.value === User.password
-    ) {
-      setIsLogged(true);
-      navigate("/");
-    } else {
-      alert("Invalid credentials");
+    const loginValues = {
+      email: email,
+      contrasenia: contrasenia,
+    };
+    console.log(JSON.stringify(loginValues));
+    fetch("http://18.223.117.95:8080/auth/token", {
+      method: "POST",
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      body: JSON.stringify(loginValues),
+    }).then((response) => {
+      if (response.status === 200) {
+        const json = response.json().then((resp) => {
+          console.log(resp.respuesta);
+          setToken(resp.respuesta.token);
+        });
+        return json;
+      } else {
+        alert(
+          "Lamentablemente no ha podido iniciar sesión. Por favor intente más tarde"
+        );
+      }
+    });
+  };
+  useEffect(() => {
+    if (token) {
+      const request = async () => {
+        const response = await fetch(
+          `http://18.223.117.95:8080/usuario/email/${email}`
+        );
+        const result = await response.json();
+        setUsername(result.nombre);
+        setLastname(result.apellido);
+      };
+      request();
+      window.localStorage.setItem("Token", token);
+      window.localStorage.setItem("Username", username);
+      window.localStorage.setItem("Lastname", lastname);
+      if (window.localStorage.getItem("Username")) {
+        setIsLogged(true);
+        navigate("/")
+      }
     }
-  }
+  }, [token, setIsLogged, email, username, lastname, navigate]);
   return (
     <FormDiv>
       <h2>Iniciar Sesion</h2>
-      <UserForm onSubmit={handleSubmit}>
+      <UserForm2 onSubmit={handleSubmit}>
         <label>
-          Email:                     
-          <input required type="email" placeholder="e-mail" name="email"/>
+          Email:
+          <input
+            required
+            type="text"
+            placeholder="e-mail"
+            name="email"
+            onChange={(event) => setEmail(event.target.value)}
+            value={email}
+          />
         </label>
         <label>
-          Contraeña:                      
-          <input required type="password" minLength={6} placeholder="password" name="password" />
+          Contraeña:
+          <input
+            required
+            type="password"
+            minLength={4}
+            placeholder="password"
+            name="password"
+            onChange={(event) => setContrasenia(event.target.value)}
+            value={contrasenia}
+          />
         </label>
         <MainButton type="submit">Ingresar</MainButton>
-      </UserForm>
-      <p>¿Aún no tienes cuenta?<SecondButton onClick={() => handleView("register")}>Registrate</SecondButton> </p>
+      </UserForm2>
+      <p>
+        ¿Aún no tienes cuenta?
+        <SecondButton onClick={() => handleView("register")}>
+          Registrate
+        </SecondButton>{" "}
+      </p>
     </FormDiv>
   );
-}
+};
 
 export default LoginForm;

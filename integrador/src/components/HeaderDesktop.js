@@ -4,12 +4,17 @@ import { Link } from "react-router-dom";
 
 const Header = ({ isLogged, setIsLogged }) => {
   const handleLoggin = () => {
-    if (isLogged) {
+    if(isLogged) {
       return (
         <SectionC>
-          <h3>Hola Simon</h3>
-          <span>SL</span>
-          <HeaderButton onClick={() => setIsLogged(false)}>
+          <h3>{`Hola ${window.localStorage.getItem("Username")} ${window.localStorage.getItem("Lastname")}`}</h3>
+          <span>{`${window.localStorage.getItem("Username").charAt(0).toUpperCase()}${window.localStorage.getItem("Lastname").charAt(0).toUpperCase()}`}</span>
+          <HeaderButton
+            onClick={() => {
+              setIsLogged(false);
+              window.localStorage.removeItem('Token');
+            }}
+          >
             Log out
           </HeaderButton>
         </SectionC>

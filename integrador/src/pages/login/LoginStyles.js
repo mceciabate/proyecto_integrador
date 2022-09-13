@@ -108,6 +108,29 @@ export const UserForm = styled(Form)`
   }
 `;
 
+export const UserForm2 = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 30vw;
+  label {
+    width: 448px;
+    margin: 10px;
+    @media only screen and (max-width: 800px) {
+    width: 70vw;
+  }
+    input {
+      width: 100%;
+      height: 30px;
+      border: none;
+      border-radius:8px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      
+    }
+  }
+`;
+
 export const MainButton = styled.button`
   font-weight: 100;
   border: 1px solid #f0572d;

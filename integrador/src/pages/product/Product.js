@@ -25,7 +25,7 @@ import ProductGallery from "./ProductGallery";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
 import { Rating } from "react-simple-star-rating";
-const Product = ({ images, product }) => {
+const Product = ({ images, product, isLogged }) => {
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerWidth, innerHeight };
@@ -138,7 +138,7 @@ const Product = ({ images, product }) => {
         <CalendarSection>
           <CalendarItem>
             <h3>Agregá tus fechas de viaje para obtener precios exactos</h3>
-            <Link to={`/product/${product.id}/reserve`}>
+            <Link to={(window.localStorage.getItem('Token')) ? `/product/${product.id}/reserve` : '/'}>
               <button>Iniciar reserva</button>
             </Link>
           </CalendarItem>

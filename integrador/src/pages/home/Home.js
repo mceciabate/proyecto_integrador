@@ -7,6 +7,7 @@ const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [title, setTitle] = useState("");
   const [selectedCity, setSelectedCity] = useState(null);
+  const [selectedDates, setSelectedDates] = useState(null);
   const handleCategory = (category) => {
     setSelectedCategory(category.id);
     setTitle(category.titulo);
@@ -14,9 +15,9 @@ const Home = () => {
   return (
     <div>
 
-      <Searcher setCity={setSelectedCity}/>
+      <Searcher setCity={setSelectedCity} setDates={setSelectedDates}/>
       <Categories handleCategory={handleCategory} />
-      <List cat={title} selectedCity={selectedCity} selectedCategory={selectedCategory}/>
+      <List cat={title} selectedCity={selectedCity} selectedCategory={selectedCategory} selectedDates={selectedDates} />
     </div>
   );
 };
