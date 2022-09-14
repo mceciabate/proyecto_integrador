@@ -2,12 +2,18 @@ package equipo10.integrador_v01;
 
 import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
-import equipo10.integrador_v01.model.dto.ReservaDTO;
+import equipo10.integrador_v01.model.dto.*;
 import equipo10.integrador_v01.model.entity.*;
+import equipo10.integrador_v01.model.jwt.RolDTO;
 import equipo10.integrador_v01.model.jwt.Usuario;
+import equipo10.integrador_v01.model.jwt.UsuarioDTO;
 import equipo10.integrador_v01.repository.IReservaRepository;
 import equipo10.integrador_v01.repository.jwt.IUsuarioRepository;
+import equipo10.integrador_v01.service.impl.CategoriaService;
+import equipo10.integrador_v01.service.impl.CiudadService;
+import equipo10.integrador_v01.service.impl.ProductoService;
 import equipo10.integrador_v01.service.impl.ReservaService;
+import equipo10.integrador_v01.service.jwt.RolService;
 import equipo10.integrador_v01.service.jwt.UsuarioService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -35,43 +41,57 @@ public class ReservaServiceTest {
     private IUsuarioRepository usuarioRepository;
     @Autowired
     private UsuarioService usuarioService;
+    @Autowired
+    ProductoService productoService;
+    @Autowired
+    RolService rolService;
+
+    @Autowired
+    CategoriaService categoriaService;
+    @Autowired
+    CiudadService ciudadService;
+
+    public void cargarData() throws BadRequestException{
+        CategoriaDTO categoria = new CategoriaDTO("la categoria", "una categoria", null);
+        categoriaService.guardarCategoria(categoria);
+        CiudadDTO ciudad = new CiudadDTO("ciudad", "provincia");
+        ciudadService.guardarCiudad(ciudad);
+
+        RolDTO rolDTO = new RolDTO("USUARIO");
+        rolService.guardarRol(rolDTO);
+        UsuarioDTO usuarioDTO = new UsuarioDTO("Cecilia", "Abate", "correo@correo", "123456", new RolDTO( 1L,"USUARIO"));
+        usuarioService.guardarUsuario(usuarioDTO);
+        ProductoDTO productoDTO = new ProductoDTO("auto", "la descrpcion", new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new CiudadDTO(1L, "localidad", "provincia", new ArrayList<>()), null);
+        productoService.guardarProductos(productoDTO);
 
 
+    }
 
     @Test
     public void aGuardarReserva() throws BadRequestException{
-        List<Imagen> imagens =new ArrayList<>();
-        List<Caracteristica> caracteristicas = new ArrayList<>();
-        List<Politica> politicas = new ArrayList<>();
-        Ciudad ciudad = new Ciudad("Buenos Aires", "Mar chiquita");
-        Producto producto = new Producto(1L, "un auto", "un auto para alquilar", imagens, caracteristicas, politicas,ciudad, new Categoria("categoria", "cagoria", new Imagen("laimagen", "abc"))  );
-        Usuario usuario = new Usuario("Cecilia", "Abate", "correo@correo.com", "1234");
-        usuarioRepository.save(usuario);
-        ReservaDTO reservaDTO = new ReservaDTO("3:00:00", LocalDate.now(), LocalDate.now(), producto, usuario);
+        this.cargarData();
+
+        //productoService.listarProductos();
+        ReservaDTO reservaDTO = new ReservaDTO("3:00:00",
+                                                LocalDate.now(),
+                                                LocalDate.now(),
+                                                new ProductoDTO(1L, "auto", "el auto", new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new CiudadDTO(1L, "ciudad", "provincia", new ArrayList<>()), new CategoriaDTO(1L, "la categoria", "categoria", null, new ArrayList<>())),
+                                                new UsuarioDTO(1L,"Cecilia", "Abate", "correo@correo", "123456", new RolDTO(1L, "USUARIO")) );
         reservaService.guardarReserva(reservaDTO);
         Assert.assertNotNull(reservaDTO);
     }
 
     @Test
-    public void bEliminarReserva() throws ResourceNotFoundException{
-        reservaService.eliminarReserva(13L);
-        Assert.assertTrue(Optional.empty().isEmpty());
+    public void bEliminarReserva() throws ResourceNotFoundException, BadRequestException{
+        //this.aGuardarReserva();
+        reservaService.eliminarReserva(1L);
+        Assert.assertFalse(Optional.empty().isPresent());
     }
 
     @Test
     public void cFiltrarReservasPorProducto() throws BadRequestException, ResourceNotFoundException{
-        /*List<Imagen> imagens =new ArrayList<>();
-        List<Caracteristica> caracteristicas = new ArrayList<>();
-        List<Politica> politicas = new ArrayList<>();
-        Ciudad ciudad = new Ciudad("Buenos Aires", "Mar chiquita");
-        Producto producto = new Producto(20L, "un auto", "un auto para alquilar", imagens, caracteristicas, politicas,ciudad, new Categoria("categoria", "cagoria", new Imagen("laimagen", "abc"))  );
-        Usuario usuario = new Usuario("Cecilia", "Abate", "correo@correo.com", "1234");
-        usuarioRepository.save(usuario);
-        ReservaDTO reservaDTO = new ReservaDTO("3:00:00", LocalDate.now(), LocalDate.now(), producto, usuario);
-        reservaService.guardarReserva(reservaDTO);
-        ReservaDTO reservaDTO1 = new ReservaDTO("4:00:00", LocalDate.now(), LocalDate.now(), producto, usuario);
-        reservaService.guardarReserva(reservaDTO1);*/
-        List<ReservaDTO> lista = reservaService.filtrarReservasPorProducto(20L);
+        this.aGuardarReserva();
+        List<ReservaDTO> lista = reservaService.filtrarReservasPorProducto(1L);
         Assert.assertNotNull(lista);
     }
 

@@ -1,5 +1,6 @@
 package equipo10.integrador_v01.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,13 +35,15 @@ public class Producto {
     private Double longitud; 3
     */
 
+
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "producto_has_imagen",
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "imagen_id"))
     private List<Imagen> imagen = new ArrayList<>();
-
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "producto_has_caracteristica",
@@ -51,6 +54,7 @@ public class Producto {
     //@JsonManagedReference
     //@JsonIgnoreProperties(value = {"handler", "hibernateLazyInitializer"}, allowSetters = true)
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "producto_has_politica",

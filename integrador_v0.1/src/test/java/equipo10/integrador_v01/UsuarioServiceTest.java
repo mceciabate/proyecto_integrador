@@ -6,6 +6,7 @@ import equipo10.integrador_v01.model.jwt.Rol;
 import equipo10.integrador_v01.model.jwt.RolDTO;
 import equipo10.integrador_v01.model.jwt.UsuarioDTO;
 import equipo10.integrador_v01.repository.jwt.IUsuarioRepository;
+import equipo10.integrador_v01.service.jwt.RolService;
 import equipo10.integrador_v01.service.jwt.UsuarioService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -27,10 +28,18 @@ public class UsuarioServiceTest {
     @Autowired
     IUsuarioRepository usuarioRepository;
 
+    @Autowired
+    RolService rolService;
+
+    public void cargarData(){
+        RolDTO rol = new RolDTO("USUARIO");
+        rolService.guardarRol(rol);
+    }
+
     @Test
     public void aGuardarUsuarioTest(){
-        RolDTO rol1 = new RolDTO("admin");
-        UsuarioDTO usuarioDTO1 = new UsuarioDTO("nombre1", "apellido1", "email1", "pass1", rol1);
+        this.cargarData();
+        UsuarioDTO usuarioDTO1 = new UsuarioDTO("nombre1", "apellido1", "email1", "pass1", new RolDTO(1L, "USUARIO"));
         usuarioService.guardarUsuario(usuarioDTO1);
         Assert.assertEquals(usuarioDTO1.getEmail(), usuarioRepository.findById(1L).get().getEmail());
         Assert.assertEquals(usuarioDTO1.getNombre(), usuarioRepository.findById(1L).get().getNombre());
@@ -41,15 +50,14 @@ public class UsuarioServiceTest {
     @Test
     public void bEliminarUsuarioTest() throws ResourceNotFoundException {
         usuarioService.eliminarUsuario(1L);
-        Assert.assertTrue(usuarioRepository.findById(1L).isEmpty());
+        Assert.assertFalse(usuarioRepository.findById(1L).isPresent());
     }
 
     @Test
     public void cListarUsuarioTest() {
-        RolDTO rol2 = new RolDTO();
-        RolDTO rol3 = new RolDTO();
-        UsuarioDTO usuarioDTO2 = new UsuarioDTO("nombre2", "apellido2", "email2", "pass2", rol2);
-        UsuarioDTO usuarioDTO3 = new UsuarioDTO("nombre3", "apellido3", "email3", "pass3", rol3);
+        this.cargarData();
+        UsuarioDTO usuarioDTO2 = new UsuarioDTO("nombre2", "apellido2", "email2", "pass2", new RolDTO(1L, "USUARIO"));
+        UsuarioDTO usuarioDTO3 = new UsuarioDTO("nombre3", "apellido3", "email3", "pass3", new RolDTO(1L, "USUARIO"));
         usuarioService.guardarUsuario(usuarioDTO2);
         usuarioService.guardarUsuario(usuarioDTO3);
 
@@ -59,20 +67,20 @@ public class UsuarioServiceTest {
     }
     @Test
     public void dBuscarUsuarioPorIdTest() throws ResourceNotFoundException {
-        RolDTO rol4 = new RolDTO();
-        UsuarioDTO usuarioDTO4 = new UsuarioDTO("nombre4", "apellido4", "email4", "pass4", rol4);
+        this.cargarData();
+        UsuarioDTO usuarioDTO4 = new UsuarioDTO("nombre4", "apellido4", "email4", "pass4", new RolDTO(1L, "USUARIO"));
         usuarioService.guardarUsuario(usuarioDTO4);
 
         Assert.assertEquals(usuarioDTO4.getNombre(), usuarioService.buscarUsuarioPorId(4L).getNombre());
     }
 
     @Test
-    public void eActualizarCategoriaTest() throws ResourceNotFoundException {
-        RolDTO rol5  = new RolDTO();
-        UsuarioDTO usuarioDTO5 = new UsuarioDTO("nombre5", "apellido5", "email5", "pass5", rol5);
+    public void eActualizarUsuarioTest() throws ResourceNotFoundException {
+        this.cargarData();
+        UsuarioDTO usuarioDTO5 = new UsuarioDTO("nombre5", "apellido5", "email5", "pass5", new RolDTO(1L, "USUARIO"));
         usuarioService.guardarUsuario(usuarioDTO5);
 
-        UsuarioDTO UsuarioDTO4modificado = new UsuarioDTO(5L, "nombre5", "apellidoMODIFICADO", "email5", "pass5", rol5);
+        UsuarioDTO UsuarioDTO4modificado = new UsuarioDTO(5L, "nombre5", "apellidoMODIFICADO", "email5", "pass5", new RolDTO(1L, "USUARIO"));
         usuarioService.actualizarUsuario(UsuarioDTO4modificado);
 
         Assert.assertEquals("apellidoMODIFICADO", usuarioRepository.findById(5L).get().getApellido());

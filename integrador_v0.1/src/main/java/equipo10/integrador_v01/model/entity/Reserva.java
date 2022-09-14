@@ -35,7 +35,7 @@ public class Reserva {
     private LocalDate fechaInicio;
 
     @ManyToOne
-    @JsonIgnore
+    //@JsonIgnore
     @JoinColumn(
             name = "producto_id",
             referencedColumnName = "id",

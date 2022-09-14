@@ -80,7 +80,7 @@ public class SecurityConfig {
 
                 //.antMatchers(HttpMethod.GET, "/rol/**", "/usuario/**").hasAnyAuthority("ADMINISTRADOR")
 
-                .antMatchers(HttpMethod.POST, "/reserva/**").hasAuthority("USUARIO")
+                .antMatchers(HttpMethod.POST, "/reserva/**", "/reserva/guardar").hasAnyAuthority("USUARIO")
 
                 .and()
 

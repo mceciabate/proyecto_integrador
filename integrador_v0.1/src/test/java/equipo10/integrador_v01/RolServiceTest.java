@@ -34,7 +34,7 @@ public class RolServiceTest {
     @Test
     public void bEliminarRolTest() throws ResourceNotFoundException {
         rolService.eliminarRol(1L);
-        Assert.assertTrue(rolRepository.findById(1L).isEmpty());
+        Assert.assertFalse(rolRepository.findById(1L).isPresent());
     }
 
     @Test

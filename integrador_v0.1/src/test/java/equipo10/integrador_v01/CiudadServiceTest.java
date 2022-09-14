@@ -39,7 +39,7 @@ public class CiudadServiceTest {
     public void aGuardarCiudadTest() {
         CiudadDTO ciudadDTO = new CiudadDTO("localidad1", "provincia1");
         ciudadService.guardarCiudad(ciudadDTO);
-        Assert.assertEquals(ciudadDTO.getLocalidad(), ciudadRepository.findById(ciudadDTO.getId()).get().getLocalidad());
+        Assert.assertTrue(ciudadRepository.findById(1L).get().getLocalidad() =="localidad1" );
     }
 
     @Test
