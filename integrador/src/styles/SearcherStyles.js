@@ -38,7 +38,17 @@ export const SearchForm = styled.form`
   position: relative;
   top: auto;
   bottom: -60px;
+  @media (max-width: 1000px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 0;
+  }
   @media only screen and (max-width: 800px) {
+    display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
     height: 210px;
     width: 120%;
     gap: 10px;
@@ -73,6 +83,9 @@ export const SearchSelect = styled.select`
     font-size: 16px;
     line-height: 20px;
   }
+  @media (max-width: 1000px) {
+    width: 180px;
+  }
   @media only screen and (max-width: 800px) {
     width: 350px;
     margin: 0px;
@@ -96,6 +109,11 @@ export const SearchButton = styled.button`
   margin: 10px 0px 10px;
   margin-right: 32px;
   cursor: pointer;
+  @media (max-width: 1000px) {
+    grid-column: 2;
+    align-self: center;
+    width: 100%;
+  }
   @media only screen and (max-width: 800px) {
     width: 50%;
     margin: 0px;
@@ -122,7 +140,9 @@ export const CalendarButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-
+  @media (max-width: 1000px) {
+    width: 180px;
+  }
   @media (max-width: 500px) {
     width: 90%;
     justify-content: center;
