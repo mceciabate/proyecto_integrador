@@ -38,12 +38,6 @@ export const SearchForm = styled.form`
   position: relative;
   top: auto;
   bottom: -60px;
-  @media (max-width: 1000px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-row-gap: 0;
-  }
   @media only screen and (max-width: 800px) {
     display: flex;
   flex-direction: row;

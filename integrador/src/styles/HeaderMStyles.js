@@ -9,7 +9,7 @@ export const HeaderC = styled.header`
   width: 100vw;
   height: 10vh;
   background-color: transparent;
-  @media only screen and (min-width: 500px) {
+  @media only screen and (min-width: 680px) {
     display: none;
   }
 `;

@@ -36,6 +36,7 @@ const List = ({ selectedCity, selectedCategory, cat, selectedDates }) => {
           }
         );
         const result = await response.json();
+        console.log(result)
         apiProducts = result;
       } else {
         const response = await fetch(
@@ -62,16 +63,16 @@ const List = ({ selectedCity, selectedCategory, cat, selectedDates }) => {
         {products &&
           products
             .sort((a, b) => a.id - b.id)
-            .map((product) => (
+            .map((product) => {
+              return (
               <Card
                 key={product.id}
                 product={product}
-                images={product.imagen}
+                image={product.imagen.length > 0 ? product.imagen[0] : null}
               />
-            ))}
+            )})}
       </ListC>
     </ListDiv>
   );
 };
-
 export default List;

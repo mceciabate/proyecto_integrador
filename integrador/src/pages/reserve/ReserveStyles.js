@@ -68,20 +68,33 @@ export const RHeader = styled.div`
 `;
 
 export const BodyContainer = styled.div`
-  display: grid;
-  width: 100vw;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  width: 100vw;
-  column-gap: 29px;
+  display: flex;
+  justify-content: space-between;
   margin: 50px 0px 50px 0px;
+  gap: 32px;
+  padding: 0 70px;
+
+  @media (max-width: 1200px) {
+    padding: 0 16px;
+    gap: 12px;
+  }
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
+
+export const LeftContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+`
+
 export const FormContainer = styled.div`
-  grid-column: 1 / span 2;
+  grid-column: 1;
   grid-row: 1;
   display: flex;
   flex-direction: column;
-  margin-left: 70px;
   h2 {
     font-weight: 700;
     font-size: 20px;
@@ -99,6 +112,9 @@ export const FormContainer = styled.div`
     grid-template-rows: 1fr 1fr;
     padding-top: 30px;
     padding-bottom: -40px;
+    @media (max-width: 650px) {
+      grid-template-columns: 1fr;
+    }
     label {
       height: 100px;
       width: 90%;
@@ -131,11 +147,11 @@ export const FormContainer = styled.div`
   }
 `;
 export const FormContainer2 = styled.div`
-  grid-column: 1 / span 2;
+  grid-column: 1 ;
   grid-row: 1;
   display: flex;
   flex-direction: column;
-  margin-left: 70px;
+  width: 100%;
 
   h2 {
     font-weight: 700;
@@ -148,16 +164,17 @@ export const FormContainer2 = styled.div`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
     min-height: 220px;
-    width: 800px;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    @media (max-width: 650px) {
+      grid-template-columns: 1fr;
+    }
     h4 {
       font-size: 15px;
       font-weight: bold;
-      width: 100%;
       padding: 10px 10px 10px 10px;
-      margin: 10px;
     }
     label {
       height: 100px;
@@ -193,27 +210,25 @@ export const FormContainer2 = styled.div`
 
 export const CalendarContainer = styled.div`
   height: 370px;
-  width: 800px;
-  grid-column: 1 / span 2;
+  width: 100%;
+  grid-column: 1;
   grid-row: 2;
   display: flex;
   flex-direction: column;
-  margin-left: 70px;
-  margin-top: -20px;
+  align-items: center;
   h2 {
     font-size: 20px;
     font-weight: 700;
     line-height: 25px;
+    align-self: flex-start;
   }
 `;
 
 export const Schedule = styled.div`
   display: flex;
   flex-direction: column;
-  grid-column: 1 / span 2;
-  grid-row: 3;
+  width: 100%;
   h2 {
-    margin-left: 70px;
     font-size: 20px;
     font-weight: 700;
     line-height: 25px;
@@ -229,14 +244,12 @@ export const MainButton = styled.button`
   height: 3rem;
   width: 15rem;
   border-radius: 10px;
-  margin-left: 95px;
+  align-self: center;
   margin-bottom: 10px;
   cursor: pointer;
 `;
 
 export const Detail = styled.div`
-  grid-column: 3;
-  grid-row: 1 / span 3;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -245,8 +258,9 @@ export const Detail = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   height: 945px;
-  width: 420px;
   margin-top: 55px;
+  flex: 1;
+  max-width: 420px;
   h2 {
     margin: 5px;
   }
@@ -258,7 +272,9 @@ export const Detail = styled.div`
   }
   img {
     height: 322px;
+    width: max-content;
     padding: 0px;
+    align-self: center;
   }
   div {
     margin-left: 21px;
