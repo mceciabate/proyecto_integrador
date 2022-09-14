@@ -88,7 +88,7 @@ export const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 600px;
-`
+`;
 
 export const FormContainer = styled.div`
   grid-column: 1;
@@ -147,7 +147,7 @@ export const FormContainer = styled.div`
   }
 `;
 export const FormContainer2 = styled.div`
-  grid-column: 1 ;
+  grid-column: 1;
   grid-row: 1;
   display: flex;
   flex-direction: column;
@@ -171,10 +171,13 @@ export const FormContainer2 = styled.div`
     @media (max-width: 650px) {
       grid-template-columns: 1fr;
     }
-    h4 {
-      font-size: 15px;
-      font-weight: bold;
-      padding: 10px 10px 10px 10px;
+    div {
+      grid-column: 1 / span 2;
+      h4 {
+        font-size: 15px;
+        font-weight: bold;
+        padding: 10px 10px 10px 10px;
+      }
     }
     label {
       height: 100px;
