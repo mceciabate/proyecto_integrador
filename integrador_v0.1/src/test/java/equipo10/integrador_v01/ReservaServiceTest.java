@@ -61,15 +61,17 @@ public class ReservaServiceTest {
         rolService.guardarRol(rolDTO);
         UsuarioDTO usuarioDTO = new UsuarioDTO("Cecilia", "Abate", "correo@correo", "123456", new RolDTO( 1L,"USUARIO"));
         usuarioService.guardarUsuario(usuarioDTO);
+        ProductoDTO productoDTO = new ProductoDTO("auto", "la descrpcion", new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new CiudadDTO(1L, "localidad", "provincia", new ArrayList<>()), null);
+        productoService.guardarProductos(productoDTO);
+
 
     }
 
     @Test
     public void aGuardarReserva() throws BadRequestException{
         this.cargarData();
-        ProductoDTO productoDTO = new ProductoDTO("auto", "la descrpcion", new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new CiudadDTO(1L, "localidad", "provincia", new ArrayList<>()), null);
-        productoService.guardarProductos(productoDTO);
-        productoService.listarProductos();
+
+        //productoService.listarProductos();
         ReservaDTO reservaDTO = new ReservaDTO("3:00:00",
                                                 LocalDate.now(),
                                                 LocalDate.now(),
@@ -80,25 +82,16 @@ public class ReservaServiceTest {
     }
 
     @Test
-    public void bEliminarReserva() throws ResourceNotFoundException{
+    public void bEliminarReserva() throws ResourceNotFoundException, BadRequestException{
+        //this.aGuardarReserva();
         reservaService.eliminarReserva(1L);
         Assert.assertFalse(Optional.empty().isPresent());
     }
 
     @Test
     public void cFiltrarReservasPorProducto() throws BadRequestException, ResourceNotFoundException{
-        /*List<Imagen> imagens =new ArrayList<>();
-        List<Caracteristica> caracteristicas = new ArrayList<>();
-        List<Politica> politicas = new ArrayList<>();
-        Ciudad ciudad = new Ciudad("Buenos Aires", "Mar chiquita");
-        Producto producto = new Producto(20L, "un auto", "un auto para alquilar", imagens, caracteristicas, politicas,ciudad, new Categoria("categoria", "cagoria", new Imagen("laimagen", "abc"))  );
-        Usuario usuario = new Usuario("Cecilia", "Abate", "correo@correo.com", "1234");
-        usuarioRepository.save(usuario);
-        ReservaDTO reservaDTO = new ReservaDTO("3:00:00", LocalDate.now(), LocalDate.now(), producto, usuario);
-        reservaService.guardarReserva(reservaDTO);
-        ReservaDTO reservaDTO1 = new ReservaDTO("4:00:00", LocalDate.now(), LocalDate.now(), producto, usuario);
-        reservaService.guardarReserva(reservaDTO1);*/
-        List<ReservaDTO> lista = reservaService.filtrarReservasPorProducto(20L);
+        this.aGuardarReserva();
+        List<ReservaDTO> lista = reservaService.filtrarReservasPorProducto(1L);
         Assert.assertNotNull(lista);
     }
 
