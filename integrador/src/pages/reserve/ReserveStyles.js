@@ -69,7 +69,8 @@ export const RHeader = styled.div`
 
 export const BodyContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 0.7fr 1fr;
+  width: 100vw;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   width: 100vw;
   column-gap: 29px;
@@ -81,24 +82,23 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 70px;
-
   h2 {
     font-weight: 700;
     font-size: 20px;
     line-height: 25px;
   }
-  form{
-  background: #ffffff;
-  border: 1px solid #dfe4ea;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
-  min-height:  220px ;
-  width: 800px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr ;
-  padding-top:30px;
-  padding-bottom:-40px;
+  form {
+    background: #ffffff;
+    border: 1px solid #dfe4ea;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    min-height: 220px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding-top: 30px;
+    padding-bottom: -40px;
     label {
       height: 100px;
       width: 90%;
@@ -129,7 +129,7 @@ export const FormContainer = styled.div`
       }
     }
   }
-`; 
+`;
 export const FormContainer2 = styled.div`
   grid-column: 1 / span 2;
   grid-row: 1;
@@ -142,23 +142,23 @@ export const FormContainer2 = styled.div`
     font-size: 20px;
     line-height: 25px;
   }
-  form{
-  background: #ffffff;
-  border: 1px solid #dfe4ea;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
-  min-height:  220px ;
-  width: 800px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr ;
-  h4 {
-    font-size: 15px;
-    font-weight: bold;
-    width: 100%;
-    padding: 10px 10px 10px 10px;
-    margin:10px;
-  }
+  form {
+    background: #ffffff;
+    border: 1px solid #dfe4ea;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    min-height: 220px;
+    width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    h4 {
+      font-size: 15px;
+      font-weight: bold;
+      width: 100%;
+      padding: 10px 10px 10px 10px;
+      margin: 10px;
+    }
     label {
       height: 100px;
       width: 90%;
@@ -189,8 +189,7 @@ export const FormContainer2 = styled.div`
       }
     }
   }
-`; 
-
+`;
 
 export const CalendarContainer = styled.div`
   height: 370px;
@@ -200,7 +199,7 @@ export const CalendarContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 70px;
-  margin-top:-20px;
+  margin-top: -20px;
   h2 {
     font-size: 20px;
     font-weight: 700;
@@ -248,7 +247,7 @@ export const Detail = styled.div`
   height: 945px;
   width: 420px;
   margin-top: 55px;
-  h2{
+  h2 {
     margin: 5px;
   }
   .htop {
@@ -275,7 +274,6 @@ export const Detail = styled.div`
       font-size: 24px;
       line-height: 28px;
       color: #1a1a1a;
-
     }
     .plocation {
       font-weight: 500;
@@ -283,5 +281,48 @@ export const Detail = styled.div`
       line-height: 16px;
       color: #1a1a1a;
     }
+  }
+`;
+
+export const SuccessContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  background: rgba(243, 241, 237, 0.5);
+  backdrop-filter: blur(4px);
+  margin-top: 15px;
+`;
+
+export const SuccessDiv = styled.div`
+  width: 60%;
+  height: 40%;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    width: 78px;
+  }
+  h4 {
+    font-size: 24px;
+    color: #f0572d;
+  }
+  p {
+    font-size: 20px;
+    color: #191b1d;
+  }
+  button {
+    width: 206px;
+    height: 40px;
+    background: #f0572d;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    border: none;
   }
 `;

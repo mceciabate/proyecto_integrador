@@ -16,6 +16,9 @@ const RegisterForm = ({ handleView }) => {
       console.log(response)
       alert("Usuario creado exitosamente")
       handleView("login")
+    } else if(response === 500) {
+      console.log(`Error con respuesta ${response}`)
+      alert("El servidor rechazo la peticion")
     } else {
       console.log(`Error con respuesta ${response}`)
       alert("Lamentablemente no ha podido registrarse. Por favor intente más tarde")

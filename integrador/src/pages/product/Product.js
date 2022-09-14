@@ -8,7 +8,12 @@ import {
   RHeader,
   ImageContainer,
   DescriptionContainer,
+  DescH2,
+  DescpP,
+  InfoDiv,
+  LeftDiv,
   FeaturesContainer,
+  FeatureImg,
   MyH2,
   CalendarContainer,
   CalendarSection,
@@ -25,7 +30,11 @@ import ProductGallery from "./ProductGallery";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
 import { Rating } from "react-simple-star-rating";
-const Product = ({ images, product, isLogged }) => {
+import ImgAsist from "../../assets/Asistencia.png"
+import ImgSeguro from "../../assets/KmIlimitado.png"
+import ImgKm from "../../assets/SeguroTodoRiesgo.png"
+
+const Product = ({ images, product, isLogged, features }) => {
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerWidth, innerHeight };
@@ -65,6 +74,7 @@ const Product = ({ images, product, isLogged }) => {
   const updatedImg = [...images].sort((a, b) => a.id - b.id);
   updatedImg.pop();
   const disabledDates = ["2022/9/15", "2022/10/16", "2022/11/17"];
+  console.log(features, images, product);
   return (
     <ProductContainer>
       <HeaderContainer>
@@ -110,18 +120,35 @@ const Product = ({ images, product, isLogged }) => {
         ))}
       </ImageContainer>
       <DescriptionContainer>
-        <h2>Disfruta un automóvil pensado para tus necesidades</h2>
-        <p>{product && product.descripcion}</p>
+        <LeftDiv>
+          <DescH2>Disfruta un automóvil pensado para tus necesidades</DescH2>
+          <DescpP>{product && product.descripcion}</DescpP>
+        </LeftDiv>
+        <InfoDiv>
+          <div>
+            <img src={ ImgAsist } alt='asistencia' />
+            <p>Asistencia 24/7</p>
+          </div>
+          <div>
+            <img src={ImgSeguro} alt='seguro' />
+            <p>Seguro todo riesgo</p>
+          </div>
+          <div>
+            <img src={ImgKm} alt='km' />
+            <p>Kilometraje ilimitado</p>
+          </div>
+        </InfoDiv>
       </DescriptionContainer>
       <FeaturesContainer>
         <h2>¿Qué ofrece este auto?</h2>
         <div>
-          git
-          <p>gps</p>
-          <p>automaticp</p>
-          <p>parking</p>
-          <p>feature</p>
-          <p>feature</p>
+          {features &&
+            features.map((feature, index) => (
+              <p key={index}>
+                <FeatureImg src={feature.icono} alt={feature.nombre} />
+                {feature.nombre}
+              </p>
+            ))}
         </div>
       </FeaturesContainer>
       <MyH2>Fechas disponibles</MyH2>
@@ -138,7 +165,13 @@ const Product = ({ images, product, isLogged }) => {
         <CalendarSection>
           <CalendarItem>
             <h3>Agregá tus fechas de viaje para obtener precios exactos</h3>
-            <Link to={(window.localStorage.getItem('Token')) ? `/product/${product.id}/reserve` : '/'}>
+            <Link
+              to={
+                window.localStorage.getItem("Token")
+                  ? `/product/${product.id}/reserve`
+                  : "/"
+              }
+            >
               <button>Iniciar reserva</button>
             </Link>
           </CalendarItem>

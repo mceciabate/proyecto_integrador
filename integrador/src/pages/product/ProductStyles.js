@@ -131,7 +131,6 @@ export const ImageContainer = styled.div`
       max-width: max-content;
     }
     @media (max-width: 800px) {
-      
     }
     @media (max-width: 500px) {
       display: none;
@@ -141,41 +140,85 @@ export const ImageContainer = styled.div`
 
 export const DescriptionContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-between;
   width: 90vw;
   height: 288px;
   background-color: #f3f1ed;
-  @media (max-width: 500px) {
+  @media (max-width: 550px) {
     height: 380px;
   }
-  h2 {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 30px;
-    color: #1a1a1a;
-    margin-top: 56px;
-    margin-left: 34px;
-    @media (max-width: 800px) {
-      margin-top: 40px;
-      margin-left: 28px;
+`;
+
+export const LeftDiv = styled.div`
+  width: 47%;
+`;
+
+export const InfoDiv = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  @media (max-width: 750px) {
+    flex-direction: column;
+  }
+  div {
+    width: 33%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 750px) {
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 100%;
+      height: 33%;
+      gap: 10px;
     }
-    @media (max-width: 500px) {
-      margin-top: 24px;
-      margin-left: 24px;
+    img {
+      @media (max-width: 1100px) {
+        height: 100px;
+        width: 100px;
+      }
+      @media (max-width: 750px) {
+        height: 70px;
+        width: 70px;
+      }
+    }
+    p {
+      text-align: center;
     }
   }
-  p {
-    font-size: 14px;
-    font-weight: 500;
-    color: #1a1a1a;
-    line-height: 16px;
-    margin-top: 18px;
-    margin-left: 34px;
-    @media (max-width: 500px) {
-      margin-top: 24px;
-      margin-left: 24px;
-    }
+`;
+
+export const DescpP = styled.p`
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 16px;
+  margin-top: 18px;
+  margin-left: 34px;
+  @media (max-width: 500px) {
+    margin-top: 24px;
+    margin-left: 24px;
+  }
+`;
+
+export const DescH2 = styled.h2`
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  color: #1a1a1a;
+  margin-top: 56px;
+  margin-left: 34px;
+  @media (max-width: 800px) {
+    margin-top: 40px;
+    margin-left: 28px;
+  }
+  @media (max-width: 500px) {
+    margin-top: 24px;
+    margin-left: 24px;
   }
 `;
 
@@ -186,10 +229,10 @@ export const FeaturesContainer = styled.div`
   width: 90vw;
   height: 288px;
   @media (max-width: 800px) {
-    height: 330px;
+    height: 370px;
   }
   @media (max-width: 500px) {
-      height: 400px;    
+    height: 670px;
   }
   h2 {
     font-weight: 700;
@@ -213,27 +256,33 @@ export const FeaturesContainer = styled.div`
   }
 `;
 
+export const FeatureImg = styled.img`
+  width: 40px;
+  height: auto;
+  margin-right: 15px;
+`;
+
 export const MyH2 = styled.h2`
-    text-align: start;
-    width: 90vw;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 28px;
-    color: #1a1a1a;
-    height: fit-content;
-    @media (max-width: 500px) {
-      margin-left: 20px;
-    }
-`
+  text-align: start;
+  width: 90vw;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #1a1a1a;
+  height: fit-content;
+  @media (max-width: 500px) {
+    margin-left: 20px;
+  }
+`;
 
 export const CalendarContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  width: 90vw;
+  width: 97vw;
   height: 488px;
   column-gap: 3vw;
-  @media (max-width: 800px) {
+  @media (max-width: 1100px) {
     height: 500px;
     grid-template-columns: 1fr 1fr;
   }
@@ -245,8 +294,8 @@ export const CalendarSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (max-width: 800px) {
-    grid-column: 1/ span 2;
+  @media (max-width: 1100px) {
+    grid-column: 1 / span 2;
     grid-row: 2;
   }
 `;
@@ -262,6 +311,14 @@ export const CalendarItem = styled.div`
   border: 1px solid #dfe4ea;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
+  @media (max-width: 1280px) {
+    width: 270px;
+    height: 200px;
+  }
+  @media (max-width: 1100px) {
+    width: 370px;
+    height: 150px;
+  }
   h3 {
     font-weight: 700;
     font-size: 16px;
@@ -274,7 +331,7 @@ export const CalendarItem = styled.div`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
     border-radius: 5px;
     color: #ffffff;
-    width: 90%;
+    width: 100%;
     height: 40px;
     border: none;
   }
@@ -286,8 +343,8 @@ export const FooterContainer = styled.div`
   align-items: flex-start;
   width: 90vw;
   @media (max-width: 800px) {
-      align-items: center;
-    }
+    align-items: center;
+  }
   h2 {
     font-weight: 700;
     font-size: 24px;
