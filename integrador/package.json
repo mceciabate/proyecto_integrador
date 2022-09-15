@@ -7,7 +7,6 @@
     "@date-io/date-fns": "^2.15.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@googlemaps/react-wrapper": "^1.1.35",
     "@material/textfield": "^14.0.0",
     "@mui/lab": "^5.0.0-alpha.98",
     "@mui/material": "^5.10.4",
@@ -23,10 +22,7 @@
     "local-storage-helper": "^1.2.5",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
-<<<<<<< HEAD
-=======
     "react-bootstrap-form": "^0.1.4-beta6",
->>>>>>> 9a59c557ea897266f0d213879674fab93788495a
     "react-bootstrap-time-picker": "^2.0.1",
     "react-calendar": "^3.7.0",
     "react-date-range": "^1.4.0",

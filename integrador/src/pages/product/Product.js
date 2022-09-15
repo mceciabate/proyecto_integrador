@@ -116,7 +116,6 @@ const Product = ({ images, product, isLogged }) => {
       <FeaturesContainer>
         <h2>¿Qué ofrece este auto?</h2>
         <div>
-          git
           <p>gps</p>
           <p>automaticp</p>
           <p>parking</p>
@@ -138,13 +137,16 @@ const Product = ({ images, product, isLogged }) => {
         <CalendarSection>
           <CalendarItem>
             <h3>Agregá tus fechas de viaje para obtener precios exactos</h3>
-            <Link to={(window.localStorage.getItem('Token')) ? `/product/${product.id}/reserve` : '/'}>
+            <Link to={(window.localStorage.getItem('Token')) ? `/product/${product.id}/reserve` : '/login'}>
               <button>Iniciar reserva</button>
             </Link>
           </CalendarItem>
         </CalendarSection>
       </CalendarContainer>
-      <div></div>
+      <div>
+        <h2>¿Donde puedes recoger tu auto?</h2>
+        <p></p>
+      </div>
       <FooterContainer>
         <h2>Qué tenés que saber</h2>
         <FooterItemContainer>

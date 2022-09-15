@@ -22,6 +22,7 @@ import "./calendarStyles.css";
 import TimePicker from "react-bootstrap-time-picker";
 
 
+
 const Reserve = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({})
@@ -31,6 +32,8 @@ const Reserve = () => {
   const [cities, setCities] = useState([{}]);
   const [selectedCity, setSelectedCity] = useState(null);
   const [selectedCity2, setSelectedCity2] = useState(null);
+  const [formulario, setFormulario] =useState();
+  const [fecha, setFecha] = useState(new Date());
   useEffect(() => {
     const request = async () => {
       const response = await fetch(`http://13.59.92.254:8080/producto/${id}`);
@@ -88,6 +91,25 @@ const Reserve = () => {
     }
     setHour1(`${hour}:${minutes}`)
   }
+  const handleSubmit = async e => {
+    e.preventDefaut()
+    try{ 
+      let config ={
+      method: 'POST',
+      headers:{
+        'Accept':'application/json',
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify(formulario)
+    }
+    let res = await fetch('http://13.59.92.254:8080/reserva/guardar', config)
+    let json = await res.json()
+    console.log(json)
+    }catch(error){
+    }
+  }
+
+
   return (
     <ReserveContainer>
       <HeaderContainer>
@@ -144,6 +166,8 @@ const Reserve = () => {
             showDoubleView={windowSize.innerWidth > 500 ? true : false}
             next2Label={null}
             prev2Label={null}
+            selectRange={true}
+            minDate ={fecha}
           />
         </CalendarContainer>
         <Schedule>
@@ -156,7 +180,7 @@ const Reserve = () => {
             <div></div>
               <label>
                 Indica tu horario estimado de recogida
-              <TimePicker start="00:00" end="23:59" step={60} value={hour} onChange={handleHourChange}/>
+              <TimePicker start="00:00" end="23:59" step={60} value={hour} onChange={handleHourChange} required/>
               </label>
               <label>
                 Indica tu lugar de recogida
@@ -173,7 +197,7 @@ const Reserve = () => {
               </label>
               <label>
                 Inidica tu horario estimado de entrega
-                <TimePicker start="00:00" end="23:59" step={60} value = {hour1} onChange={handleHourChange1}/>
+                <TimePicker start="00:00" end="23:59" step={60} value = {hour1} onChange={handleHourChange1} required/>
               </label>
               <label>
                 Indica tu lugar de entrega
@@ -196,18 +220,18 @@ const Reserve = () => {
           <div>
             <p className="pcategory">{product.categoria && product.categoria.titulo}</p>
             <h2 className="hbottom">{product && product.titulo}</h2>
-            <p className="pstars">stars</p>
+            <p className="pstars">Puntuacion: </p>
             <p className="plocation">{product.ciudad && product.ciudad.provincia}</p>
           </div>
           <div>
-            <p className="paccion">Recogida: {hour}</p>
+            <p className="paccion">Recogida: Dia y Hora: {},{hour}</p>
             <p className="plugar">Lugar: {selectedCity}</p>
           </div>
           <div>
-            <p className="paccion">Entrega: {hour1}</p>
+            <p className="paccion">Entrega: Dia y Hora: {},{hour1} </p>
             <p className="plugar">Lugar: {selectedCity2}</p>
           </div>
-          <MainButton>Confirmar reserva</MainButton>
+          <MainButton onSubmit={handleSubmit} >Confirmar reserva</MainButton>
         </Detail>
       </BodyContainer>
       <FooterContainer>

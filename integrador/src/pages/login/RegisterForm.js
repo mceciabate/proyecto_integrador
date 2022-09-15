@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { FormDiv2, UserForm, MainButton, SecondButton } from "./LoginStyles";
-=======
 import React, { useState } from "react";
 import {
   FormDiv2,
@@ -13,7 +8,6 @@ import {
 } from "./LoginStyles";
 import { Formik, Field } from "formik";
 import * as Yup from "yup";
->>>>>>> 9a59c557ea897266f0d213879674fab93788495a
 
 const RegisterForm = ({ handleView }) => {
   const [formValues, setFormValues] = useState({});
