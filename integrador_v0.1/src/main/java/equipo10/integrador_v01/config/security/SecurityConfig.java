@@ -64,7 +64,7 @@ public class SecurityConfig {
         http.csrf().disable()
                 .authorizeRequests()
 
-                .antMatchers(HttpMethod.POST, "/auth/**", "/usuario/").permitAll()
+                .antMatchers(HttpMethod.POST, "/auth/**", "/usuario/guardar").permitAll()
 
                 .antMatchers(HttpMethod.GET, "/producto/**", "/categoria/**"
                         , "/ciudad/**", "/usuario/listar", "/usuario/email/{email}", "usuario/{id}", "/rol/**").permitAll()
@@ -82,7 +82,7 @@ public class SecurityConfig {
 
                 .antMatchers(HttpMethod.POST, "/reserva/**", "/reserva/guardar").hasAnyAuthority("USUARIO")
 
-                .antMatchers(HttpMethod.POST, "/reserva/**", "/reserva/guardar").hasAnyAuthority("ADMINISTRADOR")
+                //.antMatchers(HttpMethod.POST, "/reserva/**", "/reserva/guardar").hasAnyAuthority("ADMINISTRADOR")
 
                 .and()
 
