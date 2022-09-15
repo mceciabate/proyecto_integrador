@@ -13,7 +13,7 @@ export const HeaderC = styled.header`
     justify-content: space-around;
     padding-top: 10px;
   }
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 680px) {
     display: none;
   }
 `;

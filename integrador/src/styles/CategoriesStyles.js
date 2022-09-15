@@ -22,8 +22,9 @@ export const CardContainer = styled.div`
 export const CategoryCard = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   width: 310px;
-  height: 246px;
+  height: 235px;
   border: 1px solid #f3f1ed;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;

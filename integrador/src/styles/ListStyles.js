@@ -33,7 +33,7 @@ export const CardC = styled.div`
   border: 1px solid #dfe4ea;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 640px) {
     width: 80vw;
     flex-direction: column;
     height: fit-content;

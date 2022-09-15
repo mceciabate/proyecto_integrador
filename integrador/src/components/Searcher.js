@@ -19,7 +19,6 @@ import { BsFillPinMapFill } from "react-icons/bs";
 const Searcher = ( {setCity, setDates} ) => {
   const [cities, setCities] = useState([{}]);
   const [selectedCity, setSelectedCity] = useState(null);
-  console.log(selectedCity)
   useEffect(() => {
     const request = async () => {
       const response = await fetch(`http://13.59.92.254:8080/ciudad`);

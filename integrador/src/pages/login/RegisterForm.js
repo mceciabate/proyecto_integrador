@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   FormDiv2,
   UserForm,
@@ -10,12 +10,14 @@ import { Formik, Field } from "formik";
 import * as Yup from "yup";
 
 const RegisterForm = ({ handleView }) => {
-  const [formValues, setFormValues] = useState({});
   const handleResponse = (response) => {
     if (response < 300) {
       console.log(response)
       alert("Usuario creado exitosamente")
       handleView("login")
+    } else if(response === 500) {
+      console.log(`Error con respuesta ${response}`)
+      alert("El servidor rechazo la peticion")
     } else {
       console.log(`Error con respuesta ${response}`)
       alert("Lamentablemente no ha podido registrarse. Por favor intente más tarde")
@@ -52,19 +54,16 @@ const RegisterForm = ({ handleView }) => {
           ),
         })}
         onSubmit={({ nombre, apellido, email, contrasenia }, actions) => {
-          setFormValues({
-            nombre: nombre,
-            apellido: apellido,
-            email: email,
-            contrasenia: contrasenia,
-            rol: { id: 1, nombre: "Usuario" }
-          });
-          console.log(formValues)
-
           fetch("http://18.223.117.95:8080/usuario/guardar", {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formValues),
+            body: JSON.stringify({
+              nombre: nombre,
+              apellido: apellido,
+              email: email,
+              contrasenia: contrasenia,
+              rol: { id: 1, nombre: "Usuario" }
+            }),
           })
           .then((response) => handleResponse(response.status))
           const timeOut = setTimeout(() => {

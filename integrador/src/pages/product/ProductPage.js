@@ -7,16 +7,18 @@ const ProductPage = () => {
   const { id } = useParams();
   const [images, setImages] = useState([{}]);
   const [product, setProduct] = useState({});
+  const [features, setFeatures] = useState([{}]);
   useEffect(() => {
     const request = async () => {
       const response = await fetch(`http://13.59.92.254:8080/producto/${id}`);
       const result = await response.json();
       setProduct(result);
       setImages(result.imagen);
+      setFeatures(result.caracteristica)
     };
     request();
   }, [id]);
-  return <Product images={images} product={product} />;
+  return <Product images={images} product={product} features={features} />;
 };
 
 export default ProductPage;
