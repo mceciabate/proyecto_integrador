@@ -62,7 +62,7 @@ const RegisterForm = ({ handleView }) => {
               apellido: apellido,
               email: email,
               contrasenia: contrasenia,
-              rol: { id: 1, nombre: "Usuario" }
+              rol: { id: 2, nombre: "USUARIO" }
             }),
           })
           .then((response) => handleResponse(response.status))

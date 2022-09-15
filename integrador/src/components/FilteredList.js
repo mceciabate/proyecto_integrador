@@ -15,7 +15,6 @@ const FilteredList = ({ selectedCategory, title }) => {
   }, [selectedCategory]);
   
   const updatedProducts = [...products].sort((a, b) => a.id - b.id);
-  console.log("yeah")
   return (
     <ListDiv>
       <ListH3>{(title !== "") ? `Autos ${title}` : `Recomendaciones`}</ListH3>
