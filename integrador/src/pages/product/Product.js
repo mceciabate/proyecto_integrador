@@ -169,7 +169,7 @@ const Product = ({ images, product, isLogged, features }) => {
               to={
                 window.localStorage.getItem("Token")
                   ? `/product/${product.id}/reserve`
-                  : "/"
+                  : "/login"
               }
             >
               <button>Iniciar reserva</button>
@@ -177,7 +177,10 @@ const Product = ({ images, product, isLogged, features }) => {
           </CalendarItem>
         </CalendarSection>
       </CalendarContainer>
-      <div></div>
+      <div>
+        <h2>¿Donde puedes recoger tu auto?</h2>
+        <p></p>
+      </div>
       <FooterContainer>
         <h2>Qué tenés que saber</h2>
         <FooterItemContainer>

@@ -6,8 +6,10 @@ export const CategoriesContainer = styled.div`
   flex-wrap: wrap;
   background-color: #ffffff;
   height: max-content;
-  padding: 25px;
-  padding-top: 55px;
+  padding: 85px 25px 25px 25px;
+  h2{
+    padding: 10px 10px 15px 20px;
+  }
 `;
 
 export const CardContainer = styled.div`

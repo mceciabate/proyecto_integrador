@@ -153,6 +153,8 @@ export const FormContainer2 = styled.div`
   flex-direction: column;
   width: 100%;
 
+<<<<<<< HEAD
+=======
   h2 {
     font-weight: 700;
     font-size: 20px;
@@ -211,6 +213,7 @@ export const FormContainer2 = styled.div`
   }
 `;
 
+>>>>>>> ff7c368c4b2e2d7f05e9bd7537e181727bab6218
 export const CalendarContainer = styled.div`
   height: 370px;
   width: 100%;

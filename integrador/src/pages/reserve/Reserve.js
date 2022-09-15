@@ -37,12 +37,17 @@ const Reserve = () => {
   const [cities, setCities] = useState([{}]);
   const [selectedCity, setSelectedCity] = useState(null);
   const [selectedCity2, setSelectedCity2] = useState(null);
+<<<<<<< HEAD
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [user, setUser] = useState({});
   const [formatedStartDate, setFormatedStartDate] = useState("");
   const [formatedEndDate, setFormatedEndDate] = useState("");
   const navigate = useNavigate();
+=======
+  const [formulario, setFormulario] =useState();
+  const [fecha, setFecha] = useState(new Date());
+>>>>>>> 0bdf8d20689e77fefd3836c0166f6eea12ea72b9
   useEffect(() => {
     const request = async () => {
       const response = await fetch(`http://13.59.92.254:8080/producto/${id}`);
@@ -95,6 +100,7 @@ const Reserve = () => {
     }
     setHour1(`${hour}:${minutes}`);
   };
+<<<<<<< HEAD
   useEffect(() => {
     if (startDate && endDate) {
       let fStartDay = startDate.getDate();
@@ -151,6 +157,25 @@ const Reserve = () => {
       }
     });
   };
+=======
+  const handleSubmit = async e => {
+    e.preventDefaut()
+    try{ 
+      let config ={
+      method: 'POST',
+      headers:{
+        'Accept':'application/json',
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify(formulario)
+    }
+    let res = await fetch('http://13.59.92.254:8080/reserva/guardar', config)
+    let json = await res.json()
+    console.log(json)
+    }catch(error){
+    }
+  }
+>>>>>>> 0bdf8d20689e77fefd3836c0166f6eea12ea72b9
   return (
     <ReserveContainer>
       <HeaderContainer>
@@ -303,14 +328,18 @@ const Reserve = () => {
             </p>
           </div>
           <div>
-            <p className="paccion">Recogida: {hour}</p>
+            <p className="paccion">Recogida: Dia y Hora: {},{hour}</p>
             <p className="plugar">Lugar: {selectedCity}</p>
           </div>
           <div>
-            <p className="paccion">Entrega: {hour1}</p>
+            <p className="paccion">Entrega: Dia y Hora: {},{hour1} </p>
             <p className="plugar">Lugar: {selectedCity2}</p>
           </div>
+<<<<<<< HEAD
           <MainButton onClick={handleReserve}>Confirmar reserva</MainButton>
+=======
+          <MainButton onSubmit={handleSubmit} >Confirmar reserva</MainButton>
+>>>>>>> 0bdf8d20689e77fefd3836c0166f6eea12ea72b9
         </Detail>
       </BodyContainer>
       <FooterContainer>
