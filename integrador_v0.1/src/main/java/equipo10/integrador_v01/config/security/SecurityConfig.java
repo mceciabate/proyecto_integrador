@@ -82,6 +82,8 @@ public class SecurityConfig {
 
                 .antMatchers(HttpMethod.POST, "/reserva/**", "/reserva/guardar").hasAnyAuthority("USUARIO")
 
+                .antMatchers(HttpMethod.POST, "/reserva/**", "/reserva/guardar").hasAnyAuthority("ADMINISTRADOR")
+
                 .and()
 
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPointConfig)
