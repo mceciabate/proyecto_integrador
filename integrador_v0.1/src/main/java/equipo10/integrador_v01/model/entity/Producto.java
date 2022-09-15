@@ -36,14 +36,14 @@ public class Producto {
     */
 
 
-    @JsonIgnore
+    //@JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "producto_has_imagen",
             joinColumns = @JoinColumn(name = "producto_id"),
             inverseJoinColumns = @JoinColumn(name = "imagen_id"))
     private List<Imagen> imagen = new ArrayList<>();
-    @JsonIgnore
+    //@JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "producto_has_caracteristica",
