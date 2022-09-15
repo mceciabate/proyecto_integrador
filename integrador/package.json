@@ -27,6 +27,7 @@
     "react-bootstrap-time-picker": "^2.0.1",
     "react-calendar": "^3.7.0",
     "react-date-range": "^1.4.0",
+    "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-moment": "^1.1.2",

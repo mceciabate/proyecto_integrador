@@ -50,6 +50,7 @@ const LoginForm = ({ handleView, setIsLogged }) => {
       window.localStorage.setItem("Token", token);
       window.localStorage.setItem("Username", username);
       window.localStorage.setItem("Lastname", lastname);
+      window.localStorage.setItem("Email", email)
       if (window.localStorage.getItem("Username")) {
         setIsLogged(true);
         navigate("/")

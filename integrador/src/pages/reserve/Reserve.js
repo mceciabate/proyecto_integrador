@@ -22,9 +22,11 @@ import {
 } from "../product/ProductStyles";
 import { useParams } from "react-router-dom";
 import arrow from "../../assets/arrow.png";
-import Calendar from "react-calendar";
+/* import Calendar from "react-calendar"; */
 import "./calendarStyles.css";
 import TimePicker from "react-bootstrap-time-picker";
+import Calendar from "../../components/Calendar";
+import { useNavigate } from "react-router-dom";
 
 const Reserve = () => {
   const { id } = useParams();
@@ -35,6 +37,12 @@ const Reserve = () => {
   const [cities, setCities] = useState([{}]);
   const [selectedCity, setSelectedCity] = useState(null);
   const [selectedCity2, setSelectedCity2] = useState(null);
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const [user, setUser] = useState({});
+  const [formatedStartDate, setFormatedStartDate] = useState("");
+  const [formatedEndDate, setFormatedEndDate] = useState("");
+  const navigate = useNavigate();
   useEffect(() => {
     const request = async () => {
       const response = await fetch(`http://13.59.92.254:8080/producto/${id}`);
@@ -53,23 +61,18 @@ const Reserve = () => {
     request();
   }, [id]);
   const updatedCities = [...cities].sort((a, b) => a.id - b.id);
-  const getWindowSize = () => {
-    const { innerWidth, innerHeight } = window;
-    return { innerWidth, innerHeight };
-  };
-  const [windowSize, setWindowSize] = useState(getWindowSize());
   useEffect(() => {
-    function handleWindowResize() {
-      setWindowSize(getWindowSize());
-    }
-
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
+    const request = async () => {
+      const response = await fetch(
+        `http://18.223.117.95:8080/usuario/email/${window.localStorage.getItem(
+          "Email"
+        )}`
+      );
+      const result = await response.json();
+      setUser(result);
     };
+    request();
   }, [id]);
-
   const handleHourChange = (newHour) => {
     let hour = Math.floor(newHour / 3600);
     let minutes = (newHour % 3600) / 60;
@@ -92,6 +95,62 @@ const Reserve = () => {
     }
     setHour1(`${hour}:${minutes}`);
   };
+  useEffect(() => {
+    if (startDate && endDate) {
+      let fStartDay = startDate.getDate();
+      if (fStartDay < 10) {
+        fStartDay = `0${fStartDay}`;
+      }
+      let fStartMonth = startDate.getMonth();
+      if (fStartMonth < 10) {
+        fStartMonth = `0${fStartMonth}`;
+      }
+      let fEndDay = endDate.getDate();
+      if (fEndDay < 10) {
+        fEndDay = `0${fEndDay}`;
+      }
+      let fEndMonth = endDate.getMonth();
+      if (fEndMonth < 10) {
+        fEndMonth = `0${fEndMonth}`;
+      }
+      setFormatedStartDate(
+        `${fStartDay}-${fStartMonth}-${startDate.getFullYear()}`
+      );
+      setFormatedEndDate(`${fEndDay}-${fEndMonth}-${startDate.getFullYear()}`);
+    }
+  }, [startDate, endDate]);
+  const handleReserve = () => {
+    fetch("http://18.223.117.95:8080/reserva/guardar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + window.localStorage.getItem("Token"),
+      },
+      body: JSON.stringify({
+        horaInicio: hour,
+        fechaFin: formatedEndDate,
+        fechaInicio: formatedStartDate,
+        producto: product,
+        usuario: {
+          id: user.id,
+          nombre: user.nombre,
+          apellido: user.apellido,
+          email: user.email,
+          contrasenia: user.contrasenia,
+          rol:{
+            id: 2,
+            nombre: 'USUARIO'
+          }
+        }
+      }),
+    }).then((response) => {
+      if (response.status < 300) {
+        navigate("/product/:id/reserve/success");
+      } else {
+        alert(`Error con respuesta: ${response.status}`);
+      }
+    });
+  };
   return (
     <ReserveContainer>
       <HeaderContainer>
@@ -112,15 +171,22 @@ const Reserve = () => {
             <form>
               <label>
                 Nombre
-                <input required type="name" placeholder="Bruno" name="name" />
+                <input
+                  required
+                  type="name"
+                  value={window.localStorage.getItem("Username")}
+                  name="name"
+                  readOnly
+                />
               </label>
               <label>
                 Apellido
                 <input
                   required
                   type="lastname"
-                  placeholder="Rodriguez"
                   name="lastname"
+                  value={window.localStorage.getItem("Lastname")}
+                  readOnly
                 />
               </label>
               <label>
@@ -128,7 +194,8 @@ const Reserve = () => {
                 <input
                   required
                   type="e-mail"
-                  placeholder="brodriguez@gmail.com"
+                  value={window.localStorage.getItem("Email")}
+                  readOnly
                   name="email"
                 />
               </label>
@@ -146,10 +213,10 @@ const Reserve = () => {
           <CalendarContainer>
             <h2>Selecciona tu fecha de reserva</h2>
             <Calendar
-              className="calendar"
-              showDoubleView={windowSize.innerWidth > 600 ? true : false}
-              next2Label={null}
-              prev2Label={null}
+              startDate={startDate}
+              endDate={endDate}
+              setStartDate={setStartDate}
+              setEndDate={setEndDate}
             />
           </CalendarContainer>
           <Schedule>
@@ -227,9 +294,12 @@ const Reserve = () => {
               {product.categoria && product.categoria.titulo}
             </p>
             <h2 className="hbottom">{product && product.titulo}</h2>
-            <p className="pstars">stars</p>
             <p className="plocation">
               {product.ciudad && product.ciudad.provincia}
+            </p>
+            <p className="pstars">
+              Fecha de recogida:{" "}
+              {`${startDate.getDate()}/${startDate.getMonth()}/${startDate.getFullYear()}`}
             </p>
           </div>
           <div>
@@ -240,7 +310,7 @@ const Reserve = () => {
             <p className="paccion">Entrega: {hour1}</p>
             <p className="plugar">Lugar: {selectedCity2}</p>
           </div>
-          <MainButton>Confirmar reserva</MainButton>
+          <MainButton onClick={handleReserve}>Confirmar reserva</MainButton>
         </Detail>
       </BodyContainer>
       <FooterContainer>
