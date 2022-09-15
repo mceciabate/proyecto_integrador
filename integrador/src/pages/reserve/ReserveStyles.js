@@ -152,68 +152,8 @@ export const FormContainer2 = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+`
 
-<<<<<<< HEAD
-=======
-  h2 {
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 25px;
-  }
-  form {
-    background: #ffffff;
-    border: 1px solid #dfe4ea;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-    min-height: 220px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    @media (max-width: 650px) {
-      grid-template-columns: 1fr;
-    }
-    div {
-      grid-column: 1 / span 2;
-      h4 {
-        font-size: 15px;
-        font-weight: bold;
-        padding: 10px 10px 10px 10px;
-      }
-    }
-    label {
-      height: 100px;
-      width: 90%;
-      display: flex;
-      flex-direction: column;
-      font-weight: 500;
-      size: 12px;
-      justify-content: center;
-      justify-self: center;
-      margin-top: -20px;
-      input {
-        height: 40px;
-        width: 100%;
-        background: #f3f1ed;
-        opacity: 0.4;
-        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
-        border-radius: 5px;
-        border: none;
-      }
-      select {
-        height: 40px;
-        width: 100%;
-        background: #f3f1ed;
-        opacity: 0.4;
-        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
-        border-radius: 5px;
-        border: none;
-      }
-    }
-  }
-`;
-
->>>>>>> ff7c368c4b2e2d7f05e9bd7537e181727bab6218
 export const CalendarContainer = styled.div`
   height: 370px;
   width: 100%;
