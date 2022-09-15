@@ -5,9 +5,11 @@ import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.ReservaDTO;
 import equipo10.integrador_v01.service.IReservaService;
+import equipo10.integrador_v01.service.jwt.EmailSenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,9 +20,17 @@ public class ReservaController {
 
     @Autowired
     IReservaService reservaService;
+    @Autowired
+    private EmailSenderService emailSenderService;
 
     @RequestMapping(value = "/guardar", method = RequestMethod.POST)
     public ResponseEntity<ReservaDTO> guardarReserva (@RequestBody  ReservaDTO reservaDTO) throws BadRequestException {
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setTo(reservaDTO.getUsuario().getEmail());
+        mailMessage.setSubject("Sus reservas");
+        mailMessage.setText("Su reserva ha sido creada exitosamente, para mas información visite: ");
+        mailMessage.setFrom("${spring.mail.username}");
+        emailSenderService.sendEmail(mailMessage);
         return ResponseEntity.ok(reservaService.guardarReserva(reservaDTO));
     }
 
