@@ -33,6 +33,9 @@ import { Rating } from "react-simple-star-rating";
 import ImgAsist from "../../assets/Asistencia.png"
 import ImgSeguro from "../../assets/KmIlimitado.png"
 import ImgKm from "../../assets/SeguroTodoRiesgo.png"
+import { Skeleton } from "@mui/material";
+import {StyledButton}  from "../../styles/ListStyles";
+
 
 const Product = ({ images, product, isLogged, features }) => {
   const getWindowSize = () => {
@@ -43,7 +46,15 @@ const Product = ({ images, product, isLogged, features }) => {
   const [windowSize, setWindowSize] = useState(getWindowSize());
   const [showModal, setShowModal] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading, setLoading] = useState(true)
 
+ 
+  useEffect(()=>{
+    setTimeout(()=>{
+        setLoading(false)
+    }, 5000)
+  }, [])
+  
   useEffect(() => {
     if (showModal) {
       document.body.style.overflow = "hidden";
@@ -75,6 +86,37 @@ const Product = ({ images, product, isLogged, features }) => {
   updatedImg.pop();
   const disabledDates = ["2022/9/15", "2022/10/16", "2022/11/17"];
   console.log(features, images, product);
+  
+  const loader= ()=>{
+    return(
+      <ProductContainer>
+        <br/>
+        <br/>
+        <Skeleton sx={{ bgcolor: 'grey.200' }} variant="rounded" width={1800} height={80}><HeaderContainer></HeaderContainer></Skeleton>
+        <br/>
+        <Skeleton sx={{ bgcolor: 'grey.200' }} variant="rounded" width={1700} height={500}><ImageContainer/></Skeleton>
+        <br/>
+        <br/>
+        <br/>
+        <Skeleton sx={{ bgcolor: 'grey.200' }} variant="rounded" width={1700} height={300}><FeaturesContainer></FeaturesContainer></Skeleton>
+        <br/>
+        <Skeleton sx={{ bgcolor: 'grey.200' }} variant="rounded" width={1700} height={300}><DescriptionContainer></DescriptionContainer></Skeleton>
+        <br/>
+        <Skeleton sx={{ bgcolor: 'grey.200' }} width={1700} height={400}><CalendarContainer></CalendarContainer></Skeleton>
+      
+        <FooterContainer>
+        <Skeleton sx={{ bgcolor: 'grey.200' }} width={1700} height={600}></Skeleton>   
+        </FooterContainer>
+     
+    </ProductContainer>
+    )
+  }
+  if (loading){
+    return(loader())
+  }
+  else{
+
+  
   return (
     <ProductContainer>
       <HeaderContainer>
@@ -146,7 +188,7 @@ const Product = ({ images, product, isLogged, features }) => {
             features.map((feature, index) => (
               <p key={index}>
                 <FeatureImg src={feature.icono} alt={feature.nombre} />
-                {feature.nombre}
+                {feature.nombre} : {feature.valor}
               </p>
             ))}
         </div>
@@ -169,18 +211,15 @@ const Product = ({ images, product, isLogged, features }) => {
               to={
                 window.localStorage.getItem("Token")
                   ? `/product/${product.id}/reserve`
-                  : "/login"
+                  : "/"
               }
             >
-              <button>Iniciar reserva</button>
+              <StyledButton>Iniciar reserva</StyledButton>
             </Link>
           </CalendarItem>
         </CalendarSection>
       </CalendarContainer>
-      <div>
-        <h2>¿Donde puedes recoger tu auto?</h2>
-        <p></p>
-      </div>
+      <div></div>
       <FooterContainer>
         <h2>Qué tenés que saber</h2>
         <FooterItemContainer>
@@ -211,7 +250,7 @@ const Product = ({ images, product, isLogged, features }) => {
         </FooterItemContainer>
       </FooterContainer>
     </ProductContainer>
-  );
+  );}
 };
 
 export default Product;
