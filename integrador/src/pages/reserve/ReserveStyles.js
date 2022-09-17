@@ -214,6 +214,11 @@ export const MainButton = styled.button`
   align-self: center;
   margin-bottom: 10px;
   cursor: pointer;
+  :hover {
+    opacity: 0.7;
+    color: white;
+    font-weight: bold;
+  }
 `;
 
 export const Detail = styled.div`
