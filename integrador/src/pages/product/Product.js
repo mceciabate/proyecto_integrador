@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {
   ProductContainer,
   HeaderContainer,
@@ -30,9 +30,10 @@ import ProductGallery from "./ProductGallery";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
 import { Rating } from "react-simple-star-rating";
-import ImgAsist from "../../assets/Asistencia.png"
-import ImgSeguro from "../../assets/KmIlimitado.png"
-import ImgKm from "../../assets/SeguroTodoRiesgo.png"
+import ImgAsist from "../../assets/Asistencia.png";
+import ImgSeguro from "../../assets/KmIlimitado.png";
+import ImgKm from "../../assets/SeguroTodoRiesgo.png";
+import ProductChoice from "./ProductChoice";
 
 const Product = ({ images, product, isLogged, features }) => {
   const getWindowSize = () => {
@@ -42,7 +43,9 @@ const Product = ({ images, product, isLogged, features }) => {
   const [rating, setRating] = useState(0);
   const [windowSize, setWindowSize] = useState(getWindowSize());
   const [showModal, setShowModal] = useState(false);
+  const [showChoice, setShowChoice] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (showModal) {
@@ -74,7 +77,6 @@ const Product = ({ images, product, isLogged, features }) => {
   const updatedImg = [...images].sort((a, b) => a.id - b.id);
   updatedImg.pop();
   const disabledDates = ["2022/9/15", "2022/10/16", "2022/11/17"];
-  console.log(features, images, product);
   return (
     <ProductContainer>
       <HeaderContainer>
@@ -126,15 +128,15 @@ const Product = ({ images, product, isLogged, features }) => {
         </LeftDiv>
         <InfoDiv>
           <div>
-            <img src={ ImgAsist } alt='asistencia' />
+            <img src={ImgAsist} alt="asistencia" />
             <p>Asistencia 24/7</p>
           </div>
           <div>
-            <img src={ImgSeguro} alt='seguro' />
+            <img src={ImgSeguro} alt="seguro" />
             <p>Seguro todo riesgo</p>
           </div>
           <div>
-            <img src={ImgKm} alt='km' />
+            <img src={ImgKm} alt="km" />
             <p>Kilometraje ilimitado</p>
           </div>
         </InfoDiv>
@@ -146,7 +148,7 @@ const Product = ({ images, product, isLogged, features }) => {
             features.map((feature, index) => (
               <p key={index}>
                 <FeatureImg src={feature.icono} alt={feature.nombre} />
-                {feature.nombre}
+                {`${feature.nombre}: ${feature.valor}`}
               </p>
             ))}
         </div>
@@ -165,22 +167,23 @@ const Product = ({ images, product, isLogged, features }) => {
         <CalendarSection>
           <CalendarItem>
             <h3>Agregá tus fechas de viaje para obtener precios exactos</h3>
-            <Link
-              to={
-                window.localStorage.getItem("Token")
-                  ? `/product/${product.id}/reserve`
-                  : "/login"
-              }
-            >
-              <button>Iniciar reserva</button>
-            </Link>
+{/*             {`/product/${product.id}/reserve`} */}
+              <button onClick={()=>{
+                if(window.localStorage.getItem('Token')){
+                  navigate(`/product/${product.id}/reserve`)
+                } else {
+                  setShowChoice(true)
+                }
+              }}>Iniciar reserva</button>
+      {showChoice && (
+        <ProductChoice
+          handleClose={() => setShowChoice(false)}
+        />
+      )}
           </CalendarItem>
         </CalendarSection>
       </CalendarContainer>
-      <div>
-        <h2>¿Donde puedes recoger tu auto?</h2>
-        <p></p>
-      </div>
+      <div></div>
       <FooterContainer>
         <h2>Qué tenés que saber</h2>
         <FooterItemContainer>

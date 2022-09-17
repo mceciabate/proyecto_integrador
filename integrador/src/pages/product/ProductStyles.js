@@ -331,7 +331,8 @@ export const CalendarItem = styled.div`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
     border-radius: 5px;
     color: #ffffff;
-    width: 100%;
+    width: 50%;
+    min-width: 100px;
     height: 40px;
     border: none;
   }
@@ -493,3 +494,43 @@ export const CarrouselImg = styled.img`
     margin-bottom: 15px;
   }
 `;
+
+export const ChoiceDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 400px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  @media (max-width: 500px) {
+    width: 100%;
+    height: 100%;
+  }
+  h2{
+    text-align: center;
+    font-size: 20px;
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  button{
+    width: 35%;
+    font-weight: 100;
+  border: 1px solid #f0572d;
+  background-color: #f0572d;
+  box-shadow: 0 0 30px rgba(125, 33, 129, 0.4);
+  border-radius: 10px;
+  cursor: pointer;
+  :hover {
+    background-color: white;
+    border: none;
+    color: #f0572d;
+    font-weight: bold;
+  }
+  }
+`

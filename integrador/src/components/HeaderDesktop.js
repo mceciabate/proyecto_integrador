@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Header = ({ isLogged, setIsLogged }) => {
   const handleLoggin = () => {
-    if(isLogged) {
+    if(window.localStorage.getItem('Token')) {
       return (
         <SectionC>
           <h3>{`Hola ${window.localStorage.getItem("Username")} ${window.localStorage.getItem("Lastname")}`}</h3>

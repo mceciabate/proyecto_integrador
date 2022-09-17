@@ -147,11 +147,29 @@ export const FormContainer = styled.div`
   }
 `;
 export const FormContainer2 = styled.div`
-  grid-column: 1;
-  grid-row: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 200px;
+  background: #ffffff;
+    border: 1px solid #dfe4ea;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    gap: 2px;
+    label{
+      display: flex;
+      justify-content: space-between;
+      select{
+        width: 35%;
+        margin-left: 3px;
+        align-self: flex-end;
+      }
+    }
+  }
 `
 
 export const CalendarContainer = styled.div`
@@ -162,6 +180,9 @@ export const CalendarContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-height: 514px) {
+    height: 570px;
+  }
   h2 {
     font-size: 20px;
     font-weight: 700;

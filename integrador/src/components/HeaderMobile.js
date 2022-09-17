@@ -1,9 +1,18 @@
 import React from "react";
 import { HeaderC, SectionC, HeaderButton, Logo, MenuButton, DeployMenu } from "../styles/HeaderMStyles";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const Header = ({ isLogged, setIsLogged }) => {
-  const [ deployMenu, setDeployMenu ] = React.useState(false);
+  const [ deployMenu, setDeployMenu ] = useState(false);
+  useEffect(()=>{
+    if(window.localStorage.getItem('Token')){
+      setIsLogged(true)
+    } else {
+      setIsLogged(false)
+    }
+  },[isLogged, setIsLogged])
   const menu = () => {
     return(
       <DeployMenu>

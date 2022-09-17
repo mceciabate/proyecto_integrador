@@ -10,7 +10,7 @@ const Calendar = ({ startDate, endDate, setStartDate, setEndDate }) => {
     setEndDate(end);
   };
   return (
-    <div>
+    <div className="hola">
       <DatePicker
         selected={startDate}
         onChange={handleChange}
