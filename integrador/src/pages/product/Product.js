@@ -30,15 +30,11 @@ import ProductGallery from "./ProductGallery";
 import Calendar from "react-calendar";
 import "./calendarStyles.css";
 import { Rating } from "react-simple-star-rating";
-import ImgAsist from "../../assets/Asistencia.png";
-import ImgSeguro from "../../assets/KmIlimitado.png";
-import ImgKm from "../../assets/SeguroTodoRiesgo.png";
 import ProductChoice from "./ProductChoice";
 import ImgAsist from "../../assets/Asistencia.png"
 import ImgSeguro from "../../assets/KmIlimitado.png"
 import ImgKm from "../../assets/SeguroTodoRiesgo.png"
 import { Skeleton } from "@mui/material";
-import {StyledButton}  from "../../styles/ListStyles";
 
 
 const Product = ({ images, product, isLogged, features }) => {
