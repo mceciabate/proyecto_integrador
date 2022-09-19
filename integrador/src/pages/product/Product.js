@@ -83,6 +83,7 @@ const Product = ({ images, product, isLogged, features }) => {
     setDisabledDates(current => [...current, end])
   }
   useEffect(()=> {
+    if(!loading) {
       const request = async () => {
         const response = await fetch(`http://18.223.117.95:8080/reserva/producto/${id}`, {
           headers: {
@@ -117,6 +118,7 @@ const Product = ({ images, product, isLogged, features }) => {
         AddDisableDates(formatedStartDate, formatedEndDate)
       }
       request();
+    }
   },[loading, id, reserves])
 
   const handleModal = (index) => {
