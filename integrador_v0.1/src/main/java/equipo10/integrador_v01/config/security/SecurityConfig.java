@@ -103,8 +103,8 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         //config.addAllowedOriginPattern("http://ubicar.ddns.net/**");
-        config.addAllowedOrigin("http://ubicar.ddns.net/");
-        config.addAllowedOrigin("http://ubicar.ddns.net.s3-website.us-east-2.amazonaws.com");
+        //config.addAllowedOrigin("http://ubicar.ddns.net/");
+        //config.addAllowedOrigin("http://ubicar.ddns.net.s3-website.us-east-2.amazonaws.com");
         config.setAllowedOriginPatterns(Arrays.asList("*"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowCredentials(true);
