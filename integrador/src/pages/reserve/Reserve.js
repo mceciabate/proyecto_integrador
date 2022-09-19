@@ -217,7 +217,6 @@ const Reserve = () => {
               endDate={endDate}
               setStartDate={setStartDate}
               setEndDate={setEndDate}
-              className='calendarioReserva'
             />
           </CalendarContainer>
           <Schedule>

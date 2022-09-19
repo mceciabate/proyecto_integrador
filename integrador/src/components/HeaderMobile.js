@@ -30,8 +30,8 @@ const Header = ({ isLogged, setIsLogged }) => {
     if (isLogged) {
       return (
         <SectionC>
-          <h3>Hola Simon</h3>
-          <span>SL</span>
+          <h3>{`Hola ${window.localStorage.getItem("Username")}`}</h3>
+          <span>{`${window.localStorage.getItem("Username").charAt(0).toUpperCase()}${window.localStorage.getItem("Lastname").charAt(0).toUpperCase()}`}</span>
           <HeaderButton onClick={() => setIsLogged(false)}>
             Log out
           </HeaderButton>

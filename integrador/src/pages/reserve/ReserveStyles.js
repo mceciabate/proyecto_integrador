@@ -152,25 +152,30 @@ export const FormContainer2 = styled.div`
   width: 100%;
   height: 200px;
   background: #ffffff;
-    border: 1px solid #dfe4ea;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
+  border: 1px solid #dfe4ea;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
   form {
     display: flex;
     flex-direction: column;
     margin: 15px;
     gap: 2px;
-    label{
+    label {
       display: flex;
       justify-content: space-between;
-      select{
+      min-width: 90px;
+      select {
         width: 35%;
         margin-left: 3px;
         align-self: flex-end;
+        min-width: 90px;
       }
     }
   }
-`
+  @media (max-width:400px) {
+    height: 300px;
+  }
+`;
 
 export const CalendarContainer = styled.div`
   height: 370px;
@@ -180,7 +185,7 @@ export const CalendarContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (max-height: 514px) {
+  @media (max-width: 515px) {
     height: 570px;
   }
   h2 {
@@ -247,6 +252,9 @@ export const Detail = styled.div`
     width: max-content;
     padding: 0px;
     align-self: center;
+    @media (max-width: 365px) {
+    width: 100vw;
+  }
   }
   div {
     margin-left: 21px;
@@ -269,6 +277,9 @@ export const Detail = styled.div`
       line-height: 16px;
       color: #1a1a1a;
     }
+  }
+  @media (max-width: 365px) {
+    width: 95vw;
   }
 `;
 
@@ -312,5 +323,14 @@ export const SuccessDiv = styled.div`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
     border-radius: 5px;
     border: none;
+  }
+`;
+
+export const CustomHeader = styled.div`
+  div {
+    color: black;
+    :focus {
+      background-color: #f0572d;
+    }
   }
 `;

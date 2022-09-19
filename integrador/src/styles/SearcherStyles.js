@@ -56,7 +56,7 @@ export const SearchForm = styled.form`
     width: 350px;
     flex-direction: column;
     gap: 4px;
-    margin-left: 40px;
+    margin: 5px;
   }
 `;
 

@@ -1,7 +1,7 @@
 import React from "react";
 import DatePicker from "react-datepicker";
-
-import "react-datepicker/dist/react-datepicker.css";
+import { CustomHeader } from "../pages/reserve/ReserveStyles";
+import "../pages/reserve/calendarStyles.css";
 
 const Calendar = ({ startDate, endDate, setStartDate, setEndDate }) => {
   const handleChange = (dates) => {
@@ -10,7 +10,7 @@ const Calendar = ({ startDate, endDate, setStartDate, setEndDate }) => {
     setEndDate(end);
   };
   return (
-    <div className="hola">
+    <CustomHeader className="hola">
       <DatePicker
         selected={startDate}
         onChange={handleChange}
@@ -69,7 +69,7 @@ const Calendar = ({ startDate, endDate, setStartDate, setEndDate }) => {
         endDate={endDate}
         dateFormat="yyyy-MM-dd"
       />
-    </div>
+    </CustomHeader>
   );
 };
 

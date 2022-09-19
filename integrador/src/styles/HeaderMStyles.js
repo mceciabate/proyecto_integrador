@@ -5,9 +5,9 @@ import menu from "../assets/menu.png";
 export const HeaderC = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100vw;
-  height: 10vh;
+  height: 12vh;
   background-color: transparent;
   @media only screen and (min-width: 680px) {
     display: none;
@@ -15,11 +15,19 @@ export const HeaderC = styled.header`
 `;
 
 export const SectionC = styled.section`
-  margin: 15px 30px 15px;
+  padding: 5px 15px 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 25px;
+  gap: 15px;
+  span{
+    background-color: #F0572D;
+    border-radius: 25px;
+    padding: 10px 10px;
+  }
+  @media (max-width:400px) {
+    padding: 0;
+  }
 `;
 
 export const MenuButton = styled.button`
@@ -36,7 +44,7 @@ export const HeaderButton = styled.button`
   color: white;
   box-shadow: 0 0 30px rgba(125, 33, 129, 0.4);
   height: 2rem;
-  width: 10rem;
+  width: 20vw;
   border-radius: 10px;
   cursor: pointer;
 `;
