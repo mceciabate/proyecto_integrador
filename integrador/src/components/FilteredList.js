@@ -7,7 +7,7 @@ const FilteredList = ({ selectedCategory, title }) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const request = async () => {
-      const response = await fetch(`http://13.59.92.254:8080/producto/categoria/${selectedCategory}`);
+      const response = await fetch(`http://18.223.117.95:8080/producto/categoria/${selectedCategory}`);
       const result = await response.json();
       setProducts(result);
     };
