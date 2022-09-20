@@ -2,10 +2,11 @@ package equipo10.integrador_v01;
 
 import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
-import equipo10.integrador_v01.model.dto.*;
-import equipo10.integrador_v01.model.entity.*;
+import equipo10.integrador_v01.model.dto.CategoriaDTO;
+import equipo10.integrador_v01.model.dto.CiudadDTO;
+import equipo10.integrador_v01.model.dto.ProductoDTO;
+import equipo10.integrador_v01.model.dto.ReservaDTO;
 import equipo10.integrador_v01.model.jwt.RolDTO;
-import equipo10.integrador_v01.model.jwt.Usuario;
 import equipo10.integrador_v01.model.jwt.UsuarioDTO;
 import equipo10.integrador_v01.repository.IReservaRepository;
 import equipo10.integrador_v01.repository.jwt.IUsuarioRepository;
@@ -34,6 +35,14 @@ import java.util.Optional;
 @SpringBootTest
 public class ReservaServiceTest {
     @Autowired
+    ProductoService productoService;
+    @Autowired
+    RolService rolService;
+    @Autowired
+    CategoriaService categoriaService;
+    @Autowired
+    CiudadService ciudadService;
+    @Autowired
     private ReservaService reservaService;
     @Autowired
     private IReservaRepository reservaRepository;
@@ -41,17 +50,8 @@ public class ReservaServiceTest {
     private IUsuarioRepository usuarioRepository;
     @Autowired
     private UsuarioService usuarioService;
-    @Autowired
-    ProductoService productoService;
-    @Autowired
-    RolService rolService;
 
-    @Autowired
-    CategoriaService categoriaService;
-    @Autowired
-    CiudadService ciudadService;
-
-    public void cargarData() throws BadRequestException{
+    public void cargarData() throws BadRequestException {
         CategoriaDTO categoria = new CategoriaDTO("la categoria", "una categoria", null);
         categoriaService.guardarCategoria(categoria);
         CiudadDTO ciudad = new CiudadDTO("ciudad", "provincia", "Direccion");
@@ -59,7 +59,7 @@ public class ReservaServiceTest {
 
         RolDTO rolDTO = new RolDTO("USUARIO");
         rolService.guardarRol(rolDTO);
-        UsuarioDTO usuarioDTO = new UsuarioDTO("Cecilia", "Abate", "correo@correo", "123456", new RolDTO( 1L,"USUARIO"));
+        UsuarioDTO usuarioDTO = new UsuarioDTO("Cecilia", "Abate", "correo@correo", "123456", new RolDTO(1L, "USUARIO"));
         usuarioService.guardarUsuario(usuarioDTO);
         ProductoDTO productoDTO = new ProductoDTO("auto", "la descripcion", new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new CiudadDTO(1L, "localidad", "provincia", "Direccion", new ArrayList<>()), null);
         productoService.guardarProductos(productoDTO);
@@ -68,34 +68,32 @@ public class ReservaServiceTest {
     }
 
     @Test
-    public void aGuardarReserva() throws BadRequestException{
+    public void aGuardarReserva() throws BadRequestException {
         this.cargarData();
 
         //productoService.listarProductos();
         ReservaDTO reservaDTO = new ReservaDTO("3:00:00",
-                                                LocalDate.now(),
-                                                LocalDate.now(),
-                                                new ProductoDTO(1L, "auto", "el auto", new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new CiudadDTO(1L, "ciudad", "provincia", "Direccion", new ArrayList<>()), new CategoriaDTO(1L, "la categoria", "categoria", null, new ArrayList<>())),
-                                                new UsuarioDTO(1L,"Cecilia", "Abate", "correo@correo", "123456", new RolDTO(1L, "USUARIO")) );
+                LocalDate.now(),
+                LocalDate.now(),
+                new ProductoDTO(1L, "auto", "el auto", new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new CiudadDTO(1L, "ciudad", "provincia", "Direccion", new ArrayList<>()), new CategoriaDTO(1L, "la categoria", "categoria", null, new ArrayList<>())),
+                new UsuarioDTO(1L, "Cecilia", "Abate", "correo@correo", "123456", new RolDTO(1L, "USUARIO")));
         reservaService.guardarReserva(reservaDTO);
         Assert.assertNotNull(reservaDTO);
     }
 
     @Test
-    public void bEliminarReserva() throws ResourceNotFoundException, BadRequestException{
+    public void bEliminarReserva() throws ResourceNotFoundException, BadRequestException {
         //this.aGuardarReserva();
         reservaService.eliminarReserva(1L);
         Assert.assertFalse(Optional.empty().isPresent());
     }
 
     @Test
-    public void cFiltrarReservasPorProducto() throws BadRequestException, ResourceNotFoundException{
+    public void cFiltrarReservasPorProducto() throws BadRequestException, ResourceNotFoundException {
         this.aGuardarReserva();
         List<ReservaDTO> lista = reservaService.filtrarReservasPorProducto(1L);
         Assert.assertNotNull(lista);
     }
-
-
 
 
 }
