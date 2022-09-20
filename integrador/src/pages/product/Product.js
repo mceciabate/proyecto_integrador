@@ -51,6 +51,7 @@ const Product = ({ images, product, isLogged, features }) => {
   const { id } = useParams();
   const [reserves, setReserves] = useState([])
   const [disabledDates, setDisabledDates] = useState([])
+  const moment = require('moment')
 
   useEffect(() => {
     setTimeout(() => {
@@ -83,6 +84,7 @@ const Product = ({ images, product, isLogged, features }) => {
     setDisabledDates(current => [...current, end])
   }
   useEffect(()=> {
+    let invalidDates = []
     if(!loading) {
       const request = async () => {
         const response = await fetch(`http://18.223.117.95:8080/reserva/producto/${id}`, {
@@ -108,6 +110,8 @@ const Product = ({ images, product, isLogged, features }) => {
             formatedStartDate = formatedStartDate.substring(1)
           }
         }
+        const date = moment(formatedStartDate,'DD/MM/YYYY').format('YYYY-MM-DD[T]HH:mm:ss');
+        
         let formatedEndDate = endDate.replaceAll('-', '/')
         if(formatedEndDate.length === 10) {
           formatedEndDate = formatedEndDate.slice(0, 3) + formatedEndDate.slice(4);
@@ -115,11 +119,15 @@ const Product = ({ images, product, isLogged, features }) => {
             formatedEndDate = formatedEndDate.substring(1)
           }
         }
+        const date2 = moment(formatedEndDate,'DD/MM/YYYY').format('YYYY-MM-DD[T]HH:mm:ss');
+        invalidDates.push(date)
+        invalidDates.push(date2)
         AddDisableDates(formatedStartDate, formatedEndDate)
       }
       request();
+      window.localStorage.setItem('Dates', JSON.stringify(invalidDates));
     }
-  },[loading, id, reserves])
+  },[loading, id, reserves, moment])
 
   const handleModal = (index) => {
     setCurrentIndex(index);
