@@ -12,9 +12,9 @@ public interface IReservaService {
 
     List<ReservaDTO> filtrarReservasPorProducto(Long id) throws ResourceNotFoundException;
 
-    void eliminarReserva (Long id) throws ResourceNotFoundException;
+    void eliminarReserva(Long id) throws ResourceNotFoundException;
 
-    void actualizarReserva (ReservaDTO reservaDTO) throws ResourceNotFoundException;
+    void actualizarReserva(ReservaDTO reservaDTO) throws ResourceNotFoundException;
 
     List<ReservaDTO> filtrarReservasPorUsuario(Long id) throws ResourceNotFoundException;
 }

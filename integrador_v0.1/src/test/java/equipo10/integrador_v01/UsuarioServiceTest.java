@@ -1,8 +1,6 @@
 package equipo10.integrador_v01;
 
-import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
-import equipo10.integrador_v01.model.jwt.Rol;
 import equipo10.integrador_v01.model.jwt.RolDTO;
 import equipo10.integrador_v01.model.jwt.UsuarioDTO;
 import equipo10.integrador_v01.repository.jwt.IUsuarioRepository;
@@ -31,13 +29,13 @@ public class UsuarioServiceTest {
     @Autowired
     RolService rolService;
 
-    public void cargarData(){
+    public void cargarData() {
         RolDTO rol = new RolDTO("USUARIO");
         rolService.guardarRol(rol);
     }
 
     @Test
-    public void aGuardarUsuarioTest(){
+    public void aGuardarUsuarioTest() {
         this.cargarData();
         UsuarioDTO usuarioDTO1 = new UsuarioDTO("nombre1", "apellido1", "email1", "pass1", new RolDTO(1L, "USUARIO"));
         usuarioService.guardarUsuario(usuarioDTO1);
@@ -65,6 +63,7 @@ public class UsuarioServiceTest {
 
         Assert.assertEquals(2, usuariosListadoDTO.size());
     }
+
     @Test
     public void dBuscarUsuarioPorIdTest() throws ResourceNotFoundException {
         this.cargarData();

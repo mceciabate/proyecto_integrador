@@ -2,7 +2,6 @@ package equipo10.integrador_v01.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import equipo10.integrador_v01.model.jwt.UsuarioDTO;
-import equipo10.integrador_v01.model.dto.ProductoDTO;
 import lombok.*;
 
 import java.time.LocalDate;

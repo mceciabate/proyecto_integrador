@@ -1,8 +1,6 @@
 package equipo10.integrador_v01.config.security.jwt;
 
 import equipo10.integrador_v01.model.jwt.UsuarioAuth;
-
-
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.SneakyThrows;
@@ -26,12 +24,12 @@ public class JwtProviderConfig {
     /**
      * Metodo que nos ayudara a generar el token a partir de un usuario existente en la base de datos
      * nos creara un usuario principal que será entrega como objeto al front
-     * */
+     */
     public String generateToken(Authentication auth) {
         UsuarioAuth usuarioAuth = (UsuarioAuth) auth.getPrincipal();
         Map<String, Object> claims = new HashMap<>();
-        claims.put("apellido",usuarioAuth.getApellido());
-        claims.put("nombre",usuarioAuth.getNombre());
+        claims.put("apellido", usuarioAuth.getApellido());
+        claims.put("nombre", usuarioAuth.getNombre());
         return Jwts.builder()
                 .setSubject(usuarioAuth.getUsername())
                 .addClaims(claims)
@@ -49,7 +47,7 @@ public class JwtProviderConfig {
 
     /**
      * Metodo que valida si el token esta correctamente armado y si aun cuenta con tiempo y no ha expirado
-     * */
+     */
     @SneakyThrows
     public boolean validateToken(String token) {
         Jwts.parser().setSigningKey(secret).parseClaimsJws(token);

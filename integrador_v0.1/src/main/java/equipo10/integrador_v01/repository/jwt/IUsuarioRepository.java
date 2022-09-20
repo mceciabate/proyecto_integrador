@@ -13,7 +13,7 @@ import java.util.Optional;
 @Transactional
 public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
 
-   // Creamos una query para buscar al usuario por email (su username)
-   @Query("from Usuario u where u.email =:email")
-   Optional<Usuario> findByUsername(@Param("email") String email);
+    // Creamos una query para buscar al usuario por email (su username)
+    @Query("from Usuario u where u.email =:email")
+    Optional<Usuario> findByUsername(@Param("email") String email);
 }

@@ -24,7 +24,7 @@ public class RolService implements IRolService {
     public List<RolDTO> listarTodosRoles() {
         List<Rol> rolesEncontrados = rolRepository.findAll();
         List<RolDTO> rolesEncontradosDTO = new ArrayList<>();
-        for(Rol rol: rolesEncontrados){
+        for (Rol rol : rolesEncontrados) {
             rolesEncontradosDTO.add(mapper.convertValue(rol, RolDTO.class));
         }
         return rolesEncontradosDTO;
@@ -37,15 +37,15 @@ public class RolService implements IRolService {
 
     @Override
     public RolDTO guardarRol(RolDTO rolDTO) {
-        return mapper.convertValue(rolRepository.save(mapper.convertValue(rolDTO, Rol.class)),RolDTO.class);
+        return mapper.convertValue(rolRepository.save(mapper.convertValue(rolDTO, Rol.class)), RolDTO.class);
     }
 
     @Override
     public void eliminarRol(Long id) throws ResourceNotFoundException {
         Optional<Rol> rolEncontrado = rolRepository.findById(id);
-        if(rolEncontrado.isPresent()){
+        if (rolEncontrado.isPresent()) {
             rolRepository.deleteById(id);
-        }else
+        } else
             throw new ResourceNotFoundException("No se encontro ningun usuario con el id: " + id);
     }
 
@@ -53,7 +53,7 @@ public class RolService implements IRolService {
     @Override
     public void actualizarRol(RolDTO rolDTO) throws ResourceNotFoundException {
         Optional<Rol> rolEncontrado = rolRepository.findById(rolDTO.getId());
-        if(rolEncontrado.isPresent()){
+        if (rolEncontrado.isPresent()) {
             Rol rolAActualizar = mapper.convertValue(rolDTO, Rol.class);
             rolAActualizar.setId(rolDTO.getId());
             rolAActualizar.setNombre(rolDTO.getNombre());

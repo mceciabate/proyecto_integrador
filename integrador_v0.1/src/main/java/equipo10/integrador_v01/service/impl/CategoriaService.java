@@ -16,13 +16,11 @@ import java.util.Optional;
 @Service
 public class CategoriaService implements ICategoriaService {
 
+    final static Logger log = Logger.getLogger(ICategoriaService.class);
     //Inyección de dependencias
     //repository de hibernate (donde esta todos los metodos)
     @Autowired
     ICategoriaRepository categoriaRepository;
-
-    final static Logger log = Logger.getLogger(ICategoriaService.class);
-
     @Autowired
     ObjectMapper mapper;
 

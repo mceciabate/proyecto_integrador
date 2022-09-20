@@ -25,7 +25,7 @@ public class RolServiceTest {
     IRolRepository rolRepository;
 
     @Test
-    public void aGuardarRolTest(){
+    public void aGuardarRolTest() {
         RolDTO rol1 = new RolDTO("admin");
         rolService.guardarRol(rol1);
         Assert.assertEquals(rol1.getNombre(), rolRepository.findById(1L).get().getNombre());
@@ -48,6 +48,7 @@ public class RolServiceTest {
 
         Assert.assertEquals(2, rolesListadoDTO.size());
     }
+
     @Test
     public void dBuscarRolPorIdTest() throws ResourceNotFoundException {
         RolDTO rol4 = new RolDTO();
@@ -58,7 +59,7 @@ public class RolServiceTest {
 
     @Test
     public void eActualizarRolTest() throws ResourceNotFoundException {
-        RolDTO rol5  = new RolDTO("nombre");
+        RolDTO rol5 = new RolDTO("nombre");
         rolService.guardarRol(rol5);
 
         RolDTO rolModificado = new RolDTO(5L, "nombreModificado");

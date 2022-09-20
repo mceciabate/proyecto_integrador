@@ -2,9 +2,7 @@ package equipo10.integrador_v01.controller;
 
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.jwt.RolDTO;
-import equipo10.integrador_v01.model.jwt.UsuarioDTO;
 import equipo10.integrador_v01.service.jwt.IRolService;
-import equipo10.integrador_v01.service.jwt.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +26,7 @@ public class RolController {
     }
 
     @RequestMapping(value = "/guardar", method = RequestMethod.POST)
-    public ResponseEntity<RolDTO> guardarRol(@RequestBody RolDTO rolDTO){
+    public ResponseEntity<RolDTO> guardarRol(@RequestBody RolDTO rolDTO) {
         return ResponseEntity.ok(rolService.guardarRol(rolDTO));
     }
 

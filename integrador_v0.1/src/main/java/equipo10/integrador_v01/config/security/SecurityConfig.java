@@ -64,10 +64,19 @@ public class SecurityConfig {
         http.csrf().disable()
                 .authorizeRequests()
 
+       // http.authorizeRequests().antMatchers("/swagger/**","/v3/**").permitAll();
+
+                .antMatchers(HttpMethod.GET, "/v3/**", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
+
+                .antMatchers(HttpMethod.POST, "/v3/**", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
+
+                .antMatchers(HttpMethod.DELETE, "/v3/**", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
+
+                .antMatchers(HttpMethod.PUT, "/v3/**", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
+
                 .antMatchers(HttpMethod.POST, "/auth/**", "/usuario/guardar").permitAll()
 
-                .antMatchers(HttpMethod.GET, "/producto/**", "/categoria/**"
-                        , "/ciudad/**", "/usuario/listar", "/usuario/email/{email}", "usuario/{id}", "/rol/**", "/reserva/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/producto/**", "/categoria/**", "/ciudad/**", "/usuario/listar", "/usuario/email/{email}", "usuario/{id}", "/rol/**", "/reserva/producto/{id}").permitAll()
 
                 .antMatchers(HttpMethod.POST, "/producto/**", "/categoria/**"
                         , "/ciudad/**", "/rol/**").hasAnyAuthority("ADMINISTRADOR")
@@ -90,7 +99,7 @@ public class SecurityConfig {
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-        return  http;
+        return http;
     }
 
     /*

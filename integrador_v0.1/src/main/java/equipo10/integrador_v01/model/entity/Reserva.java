@@ -1,7 +1,6 @@
 package equipo10.integrador_v01.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import equipo10.integrador_v01.model.jwt.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

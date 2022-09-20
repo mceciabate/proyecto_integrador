@@ -16,11 +16,13 @@ public class CiudadDTO {
     private Long id;
     private String localidad;
     private String provincia;
+    private String direccion;
     @JsonIgnore
     private List<ProductoDTO> producto = new ArrayList<>();
 
-    public CiudadDTO(String localidad, String provincia) {
+    public CiudadDTO(String localidad, String provincia, String direccion) {
         this.localidad = localidad;
         this.provincia = provincia;
+        this.direccion = direccion;
     }
 }

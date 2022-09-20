@@ -24,7 +24,7 @@ public class ReservaController {
     private EmailSenderService emailSenderService;
 
     @RequestMapping(value = "/guardar", method = RequestMethod.POST)
-    public ResponseEntity<ReservaDTO> guardarReserva (@RequestBody  ReservaDTO reservaDTO) throws BadRequestException {
+    public ResponseEntity<ReservaDTO> guardarReserva(@RequestBody ReservaDTO reservaDTO) throws BadRequestException {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(reservaDTO.getUsuario().getEmail());
         mailMessage.setSubject("Sus reservas");
@@ -35,7 +35,7 @@ public class ReservaController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> eliminarReserva(@PathVariable Long id) throws ResourceNotFoundException{
+    public ResponseEntity<?> eliminarReserva(@PathVariable Long id) throws ResourceNotFoundException {
         reservaService.eliminarReserva(id);
         return ResponseEntity.ok("Se ha eliminado la reserva " + id);
     }
@@ -46,13 +46,13 @@ public class ReservaController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<?> modificarReserva(@PathVariable Long id, @RequestBody ReservaDTO reservaDTO) throws ResourceNotFoundException{
+    public ResponseEntity<?> modificarReserva(@PathVariable Long id, @RequestBody ReservaDTO reservaDTO) throws ResourceNotFoundException {
         reservaService.actualizarReserva(reservaDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/usuario/{id}", method = RequestMethod.GET)
-    public ResponseEntity<List<ReservaDTO>> filtrarReservaPorUsuario(@PathVariable Long id) throws ResourceNotFoundException{
+    public ResponseEntity<List<ReservaDTO>> filtrarReservaPorUsuario(@PathVariable Long id) throws ResourceNotFoundException {
         return ResponseEntity.ok(reservaService.filtrarReservasPorUsuario(id));
     }
 
