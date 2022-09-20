@@ -10,27 +10,28 @@ const Calendar = ({ startDate, endDate, setStartDate, setEndDate }) => {
     setStartDate(start);
     setEndDate(end);
   };
+  let reservedDates = []
   let invalidDates = []
   invalidDates = JSON.parse(window.localStorage.getItem('Dates'))
-  invalidDates.pop()
-  let date1 = new Date(invalidDates[0])
-  let date2 = new Date(invalidDates[1])
-  let date3 = new Date(invalidDates[2])
-  let date4 = new Date(invalidDates[3])
-  let date5 = new Date(invalidDates[4])
-  let date6 = new Date(invalidDates[5])
-  let date7 = new Date(invalidDates[6])
-  let date8 = new Date(invalidDates[7])
-  let datearray = [date1, date2, date3, date4, date5, date6, date7, date8]
-  console.log(datearray)
+  invalidDates.shift()
+  const toDate = () => {
+    invalidDates.map((reserve) =>
+      reservedDates.push({
+        start: new Date(reserve.start),
+        end: new Date(reserve.end),
+      })
+    )
+  }
+  toDate()
+  console.log(reservedDates)
   return (
-    <CustomHeader className="hola">
+    <CustomHeader>
       <DatePicker
         selected={startDate}
         onChange={handleChange}
         monthsShown={2}
         inline={true}
-        excludeDates={datearray}
+        excludeDateIntervals={reservedDates}
         renderCustomHeader={({
           monthDate,
           customHeaderCount,

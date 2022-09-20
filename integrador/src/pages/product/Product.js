@@ -87,7 +87,7 @@ const Product = ({ images, product, isLogged, features }) => {
     setDisabledDates(current => [...current, end])
   }
   useEffect(()=> {
-    let invalidDates = []
+    let invalidDates = [{}]
     if(!loading) {
       const request = async () => {
         const response = await fetch(`http://18.223.117.95:8080/reserva/producto/${id}`, {
@@ -107,13 +107,13 @@ const Product = ({ images, product, isLogged, features }) => {
         const startDate = reserves[index].fechaInicio;
         const endDate = reserves[index].fechaFin;
         let formatedStartDate = startDate.replaceAll('-', '/')
-        if(formatedStartDate.length === 10) {
+        if(formatedStartDate.charAt() === 10) {
           formatedStartDate = formatedStartDate.slice(0, 3) + formatedStartDate.slice(4);
           if(formatedStartDate.charAt(0) === "0"){
             formatedStartDate = formatedStartDate.substring(1)
           }
         }
-        const date = moment(formatedStartDate,'DD/MM/YYYY').format('YYYY-MM-DD[T]HH:mm:ss');
+        const date = moment(startDate,'DD/MM/YYYY').format('YYYY-MM-DD[T]HH:mm:ss');
         
         let formatedEndDate = endDate.replaceAll('-', '/')
         if(formatedEndDate.length === 10) {
@@ -122,13 +122,13 @@ const Product = ({ images, product, isLogged, features }) => {
             formatedEndDate = formatedEndDate.substring(1)
           }
         }
-        const date2 = moment(formatedEndDate,'DD/MM/YYYY').format('YYYY-MM-DD[T]HH:mm:ss');
-        invalidDates.push(date)
-        invalidDates.push(date2)
+        const date2 = moment(endDate,'DD/MM/YYYY').format('YYYY-MM-DD[T]HH:mm:ss');
+        const myDates = {start: date, end: date2}
+        invalidDates.push(myDates)
         AddDisableDates(formatedStartDate, formatedEndDate)
       }
-      request();
       window.localStorage.setItem('Dates', JSON.stringify(invalidDates));
+      request();
     }
   },[loading, id, reserves, moment])
 
