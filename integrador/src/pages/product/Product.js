@@ -21,6 +21,9 @@ import {
   FooterContainer,
   FooterItemContainer,
   FooterItem,
+  FooterItem2,
+  FondoDiv,
+  FooterItem3
 } from "./ProductStyles";
 import { BsFillPinMapFill } from "react-icons/bs";
 import arrow from "../../assets/arrow.png";
@@ -260,82 +263,83 @@ const Product = ({ images, product, isLogged, features }) => {
             </div>
           </InfoDiv>
         </DescriptionContainer>
-        <FeaturesContainer>
-          <h2>¿Qué ofrece este auto?</h2>
-          <div>
-            {features &&
-              features.map((feature, index) => (
-                <p key={index}>
-                  <FeatureImg src={feature.icono} alt={feature.nombre} />
-                  {`${feature.nombre}: ${feature.valor}`}
-                </p>
-              ))}
-          </div>
-        </FeaturesContainer>
-        <MyH2>Fechas disponibles</MyH2>
-        <CalendarContainer>
-          <Calendar
-            showDoubleView={windowSize.innerWidth > 500 ? true : false}
-            next2Label={null}
-            prev2Label={null}
-            tileDisabled={({ date }) => {
-              const formatedDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
-              return disabledDates.some((d) => d === formatedDate);
-            }}
-          />
-          <CalendarSection>
-            <CalendarItem>
-              <h3>Agregá tus fechas de viaje para obtener precios exactos</h3>
-              <button
-                onClick={() => {
-                  if (window.localStorage.getItem("Token")) {
-                    navigate(`/product/${product.id}/reserve`);
-                  } else {
-                    setShowChoice(true);
-                  }
-                }}
-              >
-                Iniciar reserva
-              </button>
-              {showChoice && (
-                <ProductChoice handleClose={() => setShowChoice(false)} />
-              )}
-            </CalendarItem>
-          </CalendarSection>
-        </CalendarContainer>
-        <div></div>
-        <FooterContainer>
-          <h2>Qué tenés que saber</h2>
-          <FooterItemContainer>
-            <FooterItem>
-              <h4>Documentacion</h4>
-              <p>Para recoger el auto necesitarás:</p>
-              <p>Pasaporte o carnet de identidad</p>
-              <p>Permiso de conducir</p>
-              <p>Tarjeta de crédito o débito</p>
-            </FooterItem>
-            <FooterItem>
-              <h4>Deposito de seguridad</h4>
-              <p>
-                Durante la recogida, al conductor principal se le bloqueará un
-                depósito de seguridad seguridad de ARS 1.295 en su tarjeta de
-                crédito o débito.
-              </p>
-            </FooterItem>
-            <FooterItem>
-              <h4>Política de daños</h4>
-              <p>
-                Si la carrocería del vehículo resulta dañada, estarás protegido
-                por la Cobertura ARS 1.200 parcial por Colisión. La Cobertura
-                Parcial por Colisión sólo será válida si se cumplen los términos
-                del contrato de alquiler.
-              </p>
-            </FooterItem>
-          </FooterItemContainer>
-        </FooterContainer>
-      </ProductContainer>
-    );
-  }
+        <FondoDiv>
+          <FeaturesContainer>
+            <h2>¿Qué ofrece este auto?</h2>
+            <div>
+              {features &&
+                features.map((feature, index) => (
+                  <p key={index}>
+                    <FeatureImg src={feature.icono} alt={feature.nombre} />
+                    {`${feature.nombre}: ${feature.valor}`}
+                  </p>
+                ))}
+            </div>
+            
+          </FeaturesContainer>
+          <MyH2>Fechas disponibles</MyH2>
+          <CalendarContainer>
+            <Calendar
+              showDoubleView={windowSize.innerWidth > 500 ? true : false}
+              next2Label={null}
+              prev2Label={null}
+              tileDisabled={({ date }) => {
+                const formatedDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+                return disabledDates.some((d) => d === formatedDate);
+              }}
+            />
+            <CalendarSection>
+              <CalendarItem>
+                <h3>Agregá tus fechas de viaje para obtener precios exactos</h3>
+                  <button onClick={()=>{
+                    if(window.localStorage.getItem('Token')){
+                      navigate(`/product/${product.id}/reserve`)
+                    } else {
+                      setShowChoice(true)
+                    }
+                  }}>Iniciar reserva</button>
+          {showChoice && (
+            <ProductChoice handleClose={() => setShowChoice(false)} /> )}
+              </CalendarItem>
+            </CalendarSection>
+          </CalendarContainer>
+      </FondoDiv>
+      <div>
+        <p></p>
+      </div>
+      <FooterContainer>
+        <h2>Qué tenés que saber</h2>
+        <FooterItemContainer>
+          <FooterItem2>
+            <h4>Documentacion</h4>
+            <ul>
+            <dd>Para recoger el auto necesitarás: </dd>
+            <dd>Pasaporte o carnet de identidad</dd>
+            <dd>Permiso de conducir</dd>
+            <dd>Tarjeta de crédito o débito</dd>
+            </ul>
+          </FooterItem2>
+          <FooterItem3>
+            <h4>Deposito de seguridad</h4>
+            <p>
+              Durante la recogida, al conductor principal se le bloqueará un
+              depósito de seguridad seguridad de ARS 1.295 en su tarjeta de
+              crédito o débito.
+            </p>
+          </FooterItem3>
+          <FooterItem>
+            <h4>Política de daños</h4>
+            <p>
+              Si la carrocería del vehículo resulta dañada, estarás protegido
+              por la Cobertura ARS 1.200 parcial por Colisión. La Cobertura
+              Parcial por Colisión sólo será válida si se cumplen los términos
+              del contrato de alquiler.
+            </p>
+          </FooterItem>
+        </FooterItemContainer>
+      </FooterContainer>
+    </ProductContainer>
+  );}
 };
 
 export default Product;
