@@ -10,6 +10,7 @@ const LoginForm = ({ handleView, setIsLogged }) => {
   const [token, setToken] = useState();
   const [username, setUsername] = useState("");
   const [lastname, setLastname] = useState("");
+  const [userType, setUserType] = useState("");
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +26,6 @@ const LoginForm = ({ handleView, setIsLogged }) => {
     }).then((response) => {
       if (response.status === 200) {
         const json = response.json().then((resp) => {
-          console.log(resp.respuesta);
           setToken(resp.respuesta.token);
         });
         return json;
@@ -45,18 +45,20 @@ const LoginForm = ({ handleView, setIsLogged }) => {
         const result = await response.json();
         setUsername(result.nombre);
         setLastname(result.apellido);
+        setUserType(result.rol.nombre)
       };
       request();
       window.localStorage.setItem("Token", token);
       window.localStorage.setItem("Username", username);
       window.localStorage.setItem("Lastname", lastname);
       window.localStorage.setItem("Email", email)
+      window.localStorage.setItem("UserType", userType);
       if (window.localStorage.getItem("Username")) {
         setIsLogged(true);
         navigate("/")
       }
     }
-  }, [token, setIsLogged, email, username, lastname, navigate]);
+  }, [token, setIsLogged, email, username, lastname, navigate, userType]);
   return (
     <FormDiv>
       <h2>Iniciar Sesion</h2>

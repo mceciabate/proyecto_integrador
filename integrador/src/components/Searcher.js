@@ -21,7 +21,7 @@ const Searcher = ( {setCity, setDates} ) => {
   const [selectedCity, setSelectedCity] = useState(null);
   useEffect(() => {
     const request = async () => {
-      const response = await fetch(`http://13.59.92.254:8080/ciudad`);
+      const response = await fetch(`http://18.223.117.95:8080/ciudad`);
       const result = await response.json();
       setCities(result);
     };

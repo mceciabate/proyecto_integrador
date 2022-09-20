@@ -66,7 +66,11 @@ export const CardDiv = styled.div`
     margin: 2px;
     margin: 0;
   }
-  
+  @media (max-width: 500px) {
+    align-items: center;
+    margin: 0;
+    width: 95%;
+  }
 `;
 
 export const StyledP1 = styled.p`
@@ -84,6 +88,7 @@ export const StyledP2 = styled.p`
   font-weight: 500;
   margin: 1px;
   color: #191b1d;
+  width: 95%;
 `;
 
 export const StyledButton = styled.button`
@@ -99,5 +104,8 @@ export const StyledButton = styled.button`
   cursor: pointer;
   :hover {
     opacity: 0.8;
+  }
+  @media (max-width: 380px) {
+    width: 220px;
   }
 `;

@@ -10,7 +10,7 @@ const ProductPage = () => {
   const [features, setFeatures] = useState([{}]);
   useEffect(() => {
     const request = async () => {
-      const response = await fetch(`http://13.59.92.254:8080/producto/${id}`);
+      const response = await fetch(`http://18.223.117.95:8080/producto/${id}`);
       const result = await response.json();
       setProduct(result);
       setImages(result.imagen);

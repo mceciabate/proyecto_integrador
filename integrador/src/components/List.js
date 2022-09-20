@@ -4,6 +4,7 @@ import Card from "./Card";
 import { ListC, ListDiv, ListH3 } from "../styles/ListStyles";
 
 const List = ({ selectedCity, selectedCategory, cat, selectedDates }) => {
+  const [isAdmin, setIsAdmin] = useState(false)
   const [products, setProducts] = useState([]);
   const [title, setTitle] = useState("Recomendaciones");
   useEffect(() => {
@@ -56,6 +57,13 @@ const List = ({ selectedCity, selectedCategory, cat, selectedDates }) => {
       } else return setProducts(apiProducts);
     });
   }, [selectedCategory, selectedCity, cat, selectedDates]);
+  useEffect(()=> {
+    if(window.localStorage.getItem('UserType') === 'USUARIO') {
+      setIsAdmin(true);
+    } else {
+      setIsAdmin(false)
+    }
+  },[])
   return (
     <ListDiv>
       <ListH3>{title}</ListH3>
@@ -63,6 +71,7 @@ const List = ({ selectedCity, selectedCategory, cat, selectedDates }) => {
         {products &&
           products
             .sort((a, b) => a.id - b.id)
+            .slice(0,14)
             .map((product) => {
               return (
               <Card
@@ -72,6 +81,11 @@ const List = ({ selectedCity, selectedCategory, cat, selectedDates }) => {
               />
             )})}
       </ListC>
+      {isAdmin && (
+              <div>
+              <button>Crear Producto</button>
+            </div>
+      )}
     </ListDiv>
   );
 };

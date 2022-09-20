@@ -16,7 +16,7 @@ const Categories = ({ handleCategory }) => {
 
   useEffect(() => {
     const request = async () => {
-      const response = await fetch(`http://13.59.92.254:8080/categoria/listar`);
+      const response = await fetch(`http://18.223.117.95:8080/categoria/listar`);
       const result = await response.json();
       setCategories(result);
     };
