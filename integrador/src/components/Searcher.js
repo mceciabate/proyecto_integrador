@@ -53,7 +53,7 @@ const Searcher = ( {setCity, setDates} ) => {
             <option value="S">Recogida</option>
             {updatedCities.map((city, index) => (
               <option key={index} value={city.id}>
-                {city.localidad + " , " + city.provincia}
+                {city.direccion + " , " + city.provincia}
               </option>
             ))}
           </SearchSelect>
@@ -64,7 +64,7 @@ const Searcher = ( {setCity, setDates} ) => {
           <option value="S">Devolución</option>
             {updatedCities.map((city, index) => (
               <option key={index} value={city.localidad}>
-                {city.localidad + " , " + city.provincia}
+                {city.direccion + " , " + city.provincia}
               </option>
             ))}
           </SearchSelect>

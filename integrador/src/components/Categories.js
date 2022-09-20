@@ -19,6 +19,7 @@ const Categories = ({ handleCategory }) => {
       const response = await fetch(`http://18.223.117.95:8080/categoria/listar`);
       const result = await response.json();
       setCategories(result);
+      console.log(categories)
     };
     request();
   }, []);

@@ -1,22 +1,29 @@
 import React from "react";
-import { HeaderC, SectionC, HeaderButton, Logo, MenuButton, DeployMenu } from "../styles/HeaderMStyles";
+import {
+  HeaderC,
+  SectionC,
+  HeaderButton,
+  Logo,
+  MenuButton,
+  DeployMenu,
+} from "../styles/HeaderMStyles";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 
 const Header = ({ isLogged, setIsLogged }) => {
-  const [ deployMenu, setDeployMenu ] = useState(false);
-  useEffect(()=>{
-    if(window.localStorage.getItem('Token')){
-      setIsLogged(true)
+  const [deployMenu, setDeployMenu] = useState(false);
+  useEffect(() => {
+    if (window.localStorage.getItem("Token")) {
+      setIsLogged(true);
     } else {
-      setIsLogged(false)
+      setIsLogged(false);
     }
-  },[isLogged, setIsLogged])
+  }, [isLogged, setIsLogged]);
   const menu = () => {
-    return(
+    return (
       <DeployMenu>
-        <MenuButton onClick={()=> setDeployMenu(false)}/>
+        <MenuButton onClick={() => setDeployMenu(false)} />
         <Link to="/login">
           <HeaderButton>Iniciar Sesión</HeaderButton>
         </Link>
@@ -24,15 +31,26 @@ const Header = ({ isLogged, setIsLogged }) => {
           <HeaderButton>Registrarse</HeaderButton>
         </Link>
       </DeployMenu>
-    )
-  }
+    );
+  };
   const handleLoggin = () => {
-    if (isLogged) {
+    if (window.localStorage.getItem("Token")) {
       return (
         <SectionC>
           <h3>{`Hola ${window.localStorage.getItem("Username")}`}</h3>
-          <span>{`${window.localStorage.getItem("Username").charAt(0).toUpperCase()}${window.localStorage.getItem("Lastname").charAt(0).toUpperCase()}`}</span>
-          <HeaderButton onClick={() => setIsLogged(false)}>
+          <span>{`${window.localStorage
+            .getItem("Username")
+            .charAt(0)
+            .toUpperCase()}${window.localStorage
+            .getItem("Lastname")
+            .charAt(0)
+            .toUpperCase()}`}</span>
+          <HeaderButton
+            onClick={() => {
+              setIsLogged(false);
+              window.localStorage.removeItem("Token");
+            }}
+          >
             Log out
           </HeaderButton>
         </SectionC>
@@ -40,8 +58,8 @@ const Header = ({ isLogged, setIsLogged }) => {
     } else {
       return (
         <SectionC>
-          <MenuButton onClick={() => setDeployMenu(true)}/>
-          {(deployMenu) ? menu() : null}
+          <MenuButton onClick={() => setDeployMenu(true)} />
+          {deployMenu ? menu() : null}
         </SectionC>
       );
     }

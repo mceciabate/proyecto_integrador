@@ -11,7 +11,7 @@ const Footer = () => {
         </div>
         <div className="footerInfo">
             <section className="footerLogo">
-                <img src="https://ubicarbd.s3.us-east-2.amazonaws.com/logos/ubicar2.svg" className="imgLogo"></img>
+                <img src="https://ubicarbd.s3.us-east-2.amazonaws.com/logos/ubicar2.svg" className="imgLogo" alt="logo"></img>
                 <p>©2022 UbiCar ALL RIGTHS RESERVED</p>
             </section>
             <section className="footerContent">

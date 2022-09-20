@@ -44,7 +44,7 @@ export const HeaderButton = styled.button`
   color: white;
   box-shadow: 0 0 30px rgba(125, 33, 129, 0.4);
   height: 2rem;
-  width: 20vw;
+  width: 30vw;
   border-radius: 10px;
   cursor: pointer;
 `;
@@ -66,16 +66,16 @@ export const DeployMenu = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  width: 45vw;
+  width: 40vw;
   background-color: whitesmoke;
   border-radius: 10px;
   box-shadow: 0 0 30px rgba(125, 33, 129, 0.4);
   z-index: 1;
-  height: 50vh;
+  height: 40vh;
   background: rgba(243, 241, 237, 0.5);
   backdrop-filter: blur(4px);
   button{
     margin-top: 15px;
-    margin-right: 30px;
+    margin-right: 15px;
   }
   `;

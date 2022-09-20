@@ -7,6 +7,7 @@ import ProductPage from "./pages/product/ProductPage";
 import ScrollToTop from "./components/ScrollToTop";
 import Reserve from "./pages/reserve/Reserve";
 import ReserveSuccess from './pages/reserve/ReserveSuccess'
+import AdminProduct from "./pages/admin/AdminProduct";
 import React from "react";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/product/:id" element={<ProductPage isLogged={isLogged} />} />
           <Route path="/product/:id/reserve" element={<Reserve />} />
           <Route path="/product/:id/reserve/success" element={<ReserveSuccess/>} />
+          <Route path="/administracion" element={<AdminProduct />} />
         </Routes>
       </Layout>
     </BrowserRouter>
