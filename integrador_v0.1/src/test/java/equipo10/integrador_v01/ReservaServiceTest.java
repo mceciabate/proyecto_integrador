@@ -54,14 +54,14 @@ public class ReservaServiceTest {
     public void cargarData() throws BadRequestException{
         CategoriaDTO categoria = new CategoriaDTO("la categoria", "una categoria", null);
         categoriaService.guardarCategoria(categoria);
-        CiudadDTO ciudad = new CiudadDTO("ciudad", "provincia");
+        CiudadDTO ciudad = new CiudadDTO("ciudad", "provincia", "Direccion");
         ciudadService.guardarCiudad(ciudad);
 
         RolDTO rolDTO = new RolDTO("USUARIO");
         rolService.guardarRol(rolDTO);
         UsuarioDTO usuarioDTO = new UsuarioDTO("Cecilia", "Abate", "correo@correo", "123456", new RolDTO( 1L,"USUARIO"));
         usuarioService.guardarUsuario(usuarioDTO);
-        ProductoDTO productoDTO = new ProductoDTO("auto", "la descrpcion", new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new CiudadDTO(1L, "localidad", "provincia", new ArrayList<>()), null);
+        ProductoDTO productoDTO = new ProductoDTO("auto", "la descripcion", new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new CiudadDTO(1L, "localidad", "provincia", "Direccion", new ArrayList<>()), null);
         productoService.guardarProductos(productoDTO);
 
 
@@ -75,7 +75,7 @@ public class ReservaServiceTest {
         ReservaDTO reservaDTO = new ReservaDTO("3:00:00",
                                                 LocalDate.now(),
                                                 LocalDate.now(),
-                                                new ProductoDTO(1L, "auto", "el auto", new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new CiudadDTO(1L, "ciudad", "provincia", new ArrayList<>()), new CategoriaDTO(1L, "la categoria", "categoria", null, new ArrayList<>())),
+                                                new ProductoDTO(1L, "auto", "el auto", new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new CiudadDTO(1L, "ciudad", "provincia", "Direccion", new ArrayList<>()), new CategoriaDTO(1L, "la categoria", "categoria", null, new ArrayList<>())),
                                                 new UsuarioDTO(1L,"Cecilia", "Abate", "correo@correo", "123456", new RolDTO(1L, "USUARIO")) );
         reservaService.guardarReserva(reservaDTO);
         Assert.assertNotNull(reservaDTO);

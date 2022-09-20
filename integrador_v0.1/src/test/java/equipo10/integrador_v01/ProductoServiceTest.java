@@ -43,7 +43,7 @@ public class ProductoServiceTest {
         public void cargarData(){
             CategoriaDTO categoria = new CategoriaDTO("la categoria", "una categoria", null);
             categoriaService.guardarCategoria(categoria);
-            CiudadDTO ciudad = new CiudadDTO("ciudad", "provincia");
+            CiudadDTO ciudad = new CiudadDTO("ciudad", "provincia",  "Direccion");
             ciudadService.guardarCiudad(ciudad);
 
         }
@@ -54,7 +54,7 @@ public class ProductoServiceTest {
             List<ImagenDTO> imagenes = new ArrayList<>();
             List<CaracteristicaDTO> caracteristicas = new ArrayList<>();
             List<PoliticaDTO> politicas = new ArrayList<>();
-            ProductoDTO productoDTO = new ProductoDTO("titulo1", "descrip", imagenes, caracteristicas, politicas , new CiudadDTO(1L, "ciudad", "provincia", new ArrayList<>()), null);
+            ProductoDTO productoDTO = new ProductoDTO("titulo1", "descrip", imagenes, caracteristicas, politicas , new CiudadDTO(1L, "ciudad", "provincia",  "Direccion", new ArrayList<>()), null);
             productoService.guardarProductos(productoDTO);
             Assert.assertEquals(productoDTO.getTitulo(), productoRepository.findById(1L).get().getTitulo());
         }
@@ -70,7 +70,7 @@ public class ProductoServiceTest {
             List<ImagenDTO> imagenes = new ArrayList<>();
             List<CaracteristicaDTO> caracteristicas = new ArrayList<>();
             List<PoliticaDTO> politicas = new ArrayList<>();
-            ProductoDTO productoDTO = new ProductoDTO("titulo1", "descrip", imagenes, caracteristicas, politicas , new CiudadDTO(1L, "localidad", "provincia", new ArrayList<>()), null);
+            ProductoDTO productoDTO = new ProductoDTO("titulo1", "descrip", imagenes, caracteristicas, politicas , new CiudadDTO(1L, "localidad", "provincia",  "Direccion", new ArrayList<>()), null);
             productoService.guardarProductos(productoDTO);
 
             List<ImagenDTO> imagen2 = new ArrayList<>();
@@ -78,7 +78,7 @@ public class ProductoServiceTest {
             List<PoliticaDTO> politicas2 = new ArrayList<>();
             CiudadDTO ciudad2 = new CiudadDTO();
             CategoriaDTO categoria2 = new CategoriaDTO();
-            ProductoDTO productoDTO2 = new ProductoDTO("titulo2", "descrip2", imagen2, caracteristicas2, politicas2 ,new CiudadDTO(1L, "localidad", "provincia", new ArrayList<>()), null);
+            ProductoDTO productoDTO2 = new ProductoDTO("titulo2", "descrip2", imagen2, caracteristicas2, politicas2 ,new CiudadDTO(1L, "localidad", "provincia", "Direccion", new ArrayList<>()), null);
             productoService.guardarProductos(productoDTO2);
 
             List<ProductoDTO> listaProductosEncontrados = productoService.listarProductos();
@@ -93,7 +93,7 @@ public class ProductoServiceTest {
             List<PoliticaDTO> politicas2 = new ArrayList<>();
             CiudadDTO ciudad2 = new CiudadDTO();
             CategoriaDTO categoria2 = new CategoriaDTO();
-            ProductoDTO productoDTO2 = new ProductoDTO("titulo2", "descrip2", imagen2, caracteristicas2, politicas2 ,new CiudadDTO(1L, "localidad", "provincia", new ArrayList<>()), null);
+            ProductoDTO productoDTO2 = new ProductoDTO("titulo2", "descrip2", imagen2, caracteristicas2, politicas2 ,new CiudadDTO(1L, "localidad", "provincia",  "Direccion", new ArrayList<>()), null);
             productoService.guardarProductos(productoDTO2);
 
             Assert.assertEquals(productoDTO2.getTitulo(), productoService.buscarProductosPorId(3L).getTitulo());
@@ -107,10 +107,10 @@ public class ProductoServiceTest {
             List<PoliticaDTO> politicas2 = new ArrayList<>();
             CiudadDTO ciudad2 = new CiudadDTO();
             CategoriaDTO categoria2 = new CategoriaDTO();
-            ProductoDTO productoDTO2 = new ProductoDTO("titulo2", "descrip2", imagen2, caracteristicas2, politicas2 ,new CiudadDTO(1L, "alguna", "alguna", new ArrayList<>()), null);
+            ProductoDTO productoDTO2 = new ProductoDTO("titulo2", "descrip2", imagen2, caracteristicas2, politicas2 ,new CiudadDTO(1L, "alguna", "alguna",  "Direccion", new ArrayList<>()), null);
             productoService.guardarProductos(productoDTO2);
 
-            ProductoDTO productoDTO5M = new ProductoDTO(5L, "tituloMODIFICADO", "descrip5", imagen2, caracteristicas2, politicas2 ,new CiudadDTO(1L, "alguna", "alguna", new ArrayList<>()), null);
+            ProductoDTO productoDTO5M = new ProductoDTO(5L, "tituloMODIFICADO", "descrip5", imagen2, caracteristicas2, politicas2 ,new CiudadDTO(1L, "alguna", "alguna", "Direccion", new ArrayList<>()), null);
             productoService.actualizarProductos(productoDTO5M);
 
             Assert.assertEquals("tituloMODIFICADO", productoRepository.findById(5L).get().getTitulo());
