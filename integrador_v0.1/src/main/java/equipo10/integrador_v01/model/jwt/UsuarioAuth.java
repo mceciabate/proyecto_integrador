@@ -54,16 +54,19 @@ public class UsuarioAuth implements UserDetails {
     public boolean isAccountNonExpired() {
         return true;
     }
+
     //"message": "User account is locked",
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
+
     //"message": "User account has expired",
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
+
     //"message": "User is disabled",
     @Override
     public boolean isEnabled() {

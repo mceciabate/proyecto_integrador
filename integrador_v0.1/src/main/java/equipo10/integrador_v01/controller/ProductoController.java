@@ -3,7 +3,6 @@ package equipo10.integrador_v01.controller;
 import equipo10.integrador_v01.exceptions.BadRequestException;
 import equipo10.integrador_v01.exceptions.ResourceNotFoundException;
 import equipo10.integrador_v01.model.dto.ProductoDTO;
-import equipo10.integrador_v01.model.entity.Ciudad;
 import equipo10.integrador_v01.service.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -65,7 +64,7 @@ public class ProductoController {
 
 
     @RequestMapping(value = "/disponible/{fechaFin}/{fechaInicio}/{ciudadId}", method = RequestMethod.GET)
-    public ResponseEntity<List<ProductoDTO>> productoDisponibleCiudadFecha(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)@PathVariable LocalDate fechaFin, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)@PathVariable LocalDate fechaInicio, @PathVariable Long ciudadId) throws ResourceNotFoundException {
+    public ResponseEntity<List<ProductoDTO>> productoDisponibleCiudadFecha(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable LocalDate fechaFin, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable LocalDate fechaInicio, @PathVariable Long ciudadId) throws ResourceNotFoundException {
         return ResponseEntity.ok(productoService.productoDisponibleCiudadFecha(fechaFin, fechaInicio, ciudadId));
     }
 }

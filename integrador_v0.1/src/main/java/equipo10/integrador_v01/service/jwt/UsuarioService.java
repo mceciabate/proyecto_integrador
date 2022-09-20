@@ -26,7 +26,7 @@ public class UsuarioService implements IUsuarioService {
     public List<UsuarioDTO> listarTodosUsuario() {
         List<Usuario> usuariosEncontrados = usuarioRepository.findAll();
         List<UsuarioDTO> usuariosEncontradosDTO = new ArrayList<>();
-        for(Usuario usuario: usuariosEncontrados){
+        for (Usuario usuario : usuariosEncontrados) {
             usuariosEncontradosDTO.add(mapper.convertValue(usuario, UsuarioDTO.class));
         }
         return usuariosEncontradosDTO;
@@ -47,22 +47,22 @@ public class UsuarioService implements IUsuarioService {
 
     @Override
     public UsuarioDTO guardarUsuario(UsuarioDTO usuarioDTO) {
-        return mapper.convertValue(usuarioRepository.saveAndFlush(mapper.convertValue(usuarioDTO, Usuario.class)),UsuarioDTO.class);
+        return mapper.convertValue(usuarioRepository.saveAndFlush(mapper.convertValue(usuarioDTO, Usuario.class)), UsuarioDTO.class);
     }
 
     @Override
     public void eliminarUsuario(Long id) throws ResourceNotFoundException {
         Optional<Usuario> usuarioEncontrado = usuarioRepository.findById(id);
-        if(usuarioEncontrado.isPresent()){
+        if (usuarioEncontrado.isPresent()) {
             usuarioRepository.deleteById(id);
-        }else
+        } else
             throw new ResourceNotFoundException("No se encontro ningun usuario con el id: " + id);
     }
 
     @Override
     public void actualizarUsuario(UsuarioDTO usuarioDTO) throws ResourceNotFoundException {
         Optional<Usuario> usuarioEncontrado = usuarioRepository.findById(usuarioDTO.getId());
-        if(usuarioEncontrado.isPresent()){
+        if (usuarioEncontrado.isPresent()) {
             Usuario usuarioAActualizar = mapper.convertValue(usuarioDTO, Usuario.class);
             usuarioAActualizar.setApellido(usuarioDTO.getApellido());
             usuarioAActualizar.setNombre(usuarioDTO.getNombre());

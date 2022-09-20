@@ -2,7 +2,6 @@ package equipo10.integrador_v01.model.jwt;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import equipo10.integrador_v01.model.dto.PuntuacionDTO;
-import equipo10.integrador_v01.model.jwt.Rol;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -23,7 +22,6 @@ public class UsuarioDTO {
     private RolDTO rol;
 
 
-
     @JsonIgnore
     private List<PuntuacionDTO> puntuacion = new ArrayList<>();
 
@@ -35,6 +33,7 @@ public class UsuarioDTO {
         this.contrasenia = contrasenia;
         this.rol = rol;
     }
+
     // el test no me reconoce la anotacion de lombok, necesito un constructor con todos los args, set y get de rol
     public UsuarioDTO(Long id, String nombre, String apellido, String email, String contrasenia, RolDTO rol) {
         this.id = id;
@@ -44,6 +43,7 @@ public class UsuarioDTO {
         this.contrasenia = contrasenia;
         this.rol = rol;
     }
+
     public RolDTO getRol() {
         return rol;
     }

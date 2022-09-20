@@ -22,7 +22,6 @@ public class UsuarioController {
     PasswordEncoder passwordEncoder;
 
 
-
     @Autowired
     private EmailSenderService emailSenderService;
 
@@ -30,12 +29,14 @@ public class UsuarioController {
     public ResponseEntity<List<UsuarioDTO>> traerTodosUsuarios() {
         return ResponseEntity.ok(usuarioService.listarTodosUsuario());
     }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<UsuarioDTO> traerUnUsuario(@PathVariable Long id) throws ResourceNotFoundException {
         return ResponseEntity.ok(usuarioService.buscarUsuarioPorId(id));
     }
+
     @RequestMapping(value = "/guardar", method = RequestMethod.POST)
-    public ResponseEntity<UsuarioDTO> guardarUsuario(@RequestBody UsuarioDTO usuarioDTO){
+    public ResponseEntity<UsuarioDTO> guardarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
         String contraseniaEncriptada = passwordEncoder.encode(usuarioDTO.getContrasenia());
         usuarioDTO.setContrasenia(contraseniaEncriptada);
         SimpleMailMessage mailMessage = new SimpleMailMessage();
@@ -62,7 +63,7 @@ public class UsuarioController {
     }
 
     @RequestMapping(value = "/email/{email}", method = RequestMethod.GET)
-    public ResponseEntity<UsuarioDTO> buscarUserPorEmail(@PathVariable("email") String email) throws ResourceNotFoundException{
+    public ResponseEntity<UsuarioDTO> buscarUserPorEmail(@PathVariable("email") String email) throws ResourceNotFoundException {
         return ResponseEntity.ok(usuarioService.buscarUsuarioPorEmail(email));
     }
 

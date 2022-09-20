@@ -53,7 +53,7 @@ public class ReservaService implements IReservaService {
         if (reservaAEliminar.isPresent()) {
             log.info("Se ha eliminado la resrva " + id);
             reservaRepository.deleteById(id);
-        } else throw new  ResourceNotFoundException("No se ha encontrado la reserva que se desea eliminar");
+        } else throw new ResourceNotFoundException("No se ha encontrado la reserva que se desea eliminar");
 
     }
 
@@ -76,10 +76,11 @@ public class ReservaService implements IReservaService {
         List<Reserva> listaDeReservas = reservaRepository.findAll();
         List<ReservaDTO> listaDTO = new ArrayList<>();
         for (Reserva reserva : listaDeReservas) {
-            if (reserva.getUsuario().getId() == id){
+            if (reserva.getUsuario().getId() == id) {
                 listaDTO.add(mapper.convertValue(reserva, ReservaDTO.class));
             }
-        } log.info("Reservas del usuario: " + id);
+        }
+        log.info("Reservas del usuario: " + id);
         return listaDTO;
     }
 }
