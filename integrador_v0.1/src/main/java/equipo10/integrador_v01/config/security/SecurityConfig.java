@@ -64,6 +64,16 @@ public class SecurityConfig {
         http.csrf().disable()
                 .authorizeRequests()
 
+       // http.authorizeRequests().antMatchers("/swagger/**","/v3/**").permitAll();
+
+                .antMatchers(HttpMethod.GET, "/v3/**", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
+
+                .antMatchers(HttpMethod.POST, "/v3/**", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
+
+                .antMatchers(HttpMethod.DELETE, "/v3/**", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
+
+                .antMatchers(HttpMethod.PUT, "/v3/**", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
+
                 .antMatchers(HttpMethod.POST, "/auth/**", "/usuario/guardar").permitAll()
 
                 .antMatchers(HttpMethod.GET, "/producto/**", "/categoria/**"
