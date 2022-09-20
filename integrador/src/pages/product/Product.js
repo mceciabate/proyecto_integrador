@@ -267,14 +267,7 @@ const Product = ({ images, product, isLogged, features }) => {
                   </p>
                 ))}
             </div>
-            <div>
-              <img src={ImgSeguro} alt="seguro" />
-              <p>Seguro todo riesgo</p>
-            </div>
-            <div>
-              <img src={ImgKm} alt="km" />
-              <p>Kilometraje ilimitado</p>
-            </div>
+            
           </FeaturesContainer>
           <MyH2>Fechas disponibles</MyH2>
           <CalendarContainer>
