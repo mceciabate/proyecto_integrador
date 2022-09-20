@@ -32,9 +32,6 @@ const Home = () => {
       <div style={{backgroundColor: "white", margin: "0", padding: "0"}}>
       <Skeleton sx={{ bgcolor: 'grey.200', margin: "0", padding: "0" }} variant="rounded" width={1950} height={2000}>
         
-
-
-
       </Skeleton>
       </div>
       </div>

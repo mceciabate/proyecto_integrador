@@ -10,9 +10,11 @@ const Footer = () => {
         <li>UbiCar</li>
       </FooterUl>
       <FooterUl>
-        <FooterP><Icon icon="akar-icons:facebook-fill" />
-        <Icon icon="akar-icons:twitter-fill" />
-        <Icon icon="akar-icons:instagram-fill" /></FooterP>
+        <FooterP>
+          <Icon icon="akar-icons:facebook-fill" />
+          <Icon icon="akar-icons:twitter-fill" />
+          <Icon icon="akar-icons:instagram-fill" />
+        </FooterP>
       </FooterUl>
     </FooterC>
   );

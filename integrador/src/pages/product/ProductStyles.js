@@ -143,7 +143,7 @@ export const DescriptionContainer = styled.div`
   justify-content: space-between;
   width: 90vw;
   height: 288px;
-  background-color: #f3f1ed;
+
   @media (max-width: 550px) {
     height: 380px;
   }
@@ -159,6 +159,7 @@ export const InfoDiv = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  
   @media (max-width: 750px) {
     flex-direction: column;
   }
@@ -193,32 +194,50 @@ export const InfoDiv = styled.div`
 `;
 
 export const DescpP = styled.p`
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   color: #1a1a1a;
-  line-height: 16px;
+  line-height: 20px;
   margin-top: 18px;
   margin-left: 34px;
+  @media (max-width: 800px) {
+    margin-top: 24px;
+    margin-left: 24px;
+    font-size:14px;
+    line-height: 15px;
+  }
   @media (max-width: 500px) {
     margin-top: 24px;
     margin-left: 24px;
+    font-size:14px;
+    line-height: 15px;
   }
 `;
 
 export const DescH2 = styled.h2`
   font-weight: 700;
-  font-size: 24px;
+  font-size: 34px;
   line-height: 30px;
   color: #1a1a1a;
   margin-top: 56px;
   margin-left: 34px;
   @media (max-width: 800px) {
-    margin-top: 40px;
+    margin-top: 30px;
     margin-left: 28px;
+    font-size:24px;
   }
   @media (max-width: 500px) {
     margin-top: 24px;
     margin-left: 24px;
+  }
+`;
+export const FondoDiv = styled.div`
+  background-color: #F3F1ED ;
+  max-height: 500px;
+  width: 100%;
+  margin-bottom:150px; 
+  @media(max-width:500px){
+    max-height:900px;
   }
 `;
 
@@ -228,11 +247,19 @@ export const FeaturesContainer = styled.div`
   align-items: flex-start;
   width: 90vw;
   height: 288px;
+  margin-left: 100px;
+  margin-right: 30px;
+  @media (max-width: 1200px) {
+    height: 250px;
+    margin-left:50px;
+    margin-right:50px;
+  }
   @media (max-width: 800px) {
     height: 370px;
   }
   @media (max-width: 500px) {
-    height: 670px;
+    height: 600px;
+    margin-bottom:20px;
   }
   h2 {
     font-weight: 700;
@@ -243,11 +270,17 @@ export const FeaturesContainer = styled.div`
   div {
     width: 90vw;
     height: 288px;
+    margin-left:40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    @media (max-width: 800px) {
+    @media (max-width: 1200px) {
+    margin-left:20px;
+    margin-right:50px;
+  }
+    @media (max-width: 860px) {
       grid-template-columns: 1fr 1fr;
+
     }
     @media (max-width: 500px) {
       grid-template-columns: 1fr;
@@ -270,8 +303,14 @@ export const MyH2 = styled.h2`
   line-height: 28px;
   color: #1a1a1a;
   height: fit-content;
+  margin-left: 100px;
+  margin-right: 30px;
+  @media(max-width:860px){
+    margin-top:130px;
+    margin-left:40px;
+  }
   @media (max-width: 500px) {
-    margin-left: 20px;
+    margin-left: 50px;
   }
 `;
 
@@ -279,12 +318,22 @@ export const CalendarContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  width: 97vw;
-  height: 488px;
+  width: 90vw;
   column-gap: 3vw;
-  @media (max-width: 1100px) {
+  margin-left: 100px;
+  margin-right: 30px;
+  @media (max-width: 1200px) {
     height: 500px;
     grid-template-columns: 1fr 1fr;
+    margin-left:50px;
+  }
+  @media(max-width:860px){
+    margin-left:40px;
+    margin-top:20px;
+
+  }
+  @media (max-width:500px){
+    margin-left: 30px;
   }
 `;
 
@@ -298,6 +347,7 @@ export const CalendarSection = styled.div`
     grid-column: 1 / span 2;
     grid-row: 2;
   }
+  
 `;
 
 export const CalendarItem = styled.div`
@@ -311,6 +361,7 @@ export const CalendarItem = styled.div`
   border: 1px solid #dfe4ea;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
+  margin-bottom:10px;
   @media (max-width: 1280px) {
     width: 270px;
     height: 200px;
@@ -318,6 +369,12 @@ export const CalendarItem = styled.div`
   @media (max-width: 1100px) {
     width: 370px;
     height: 150px;
+  }
+
+  @media(max-width:500px){
+    margin-left:10px;
+    margin-right:20px;
+    
   }
   h3 {
     font-weight: 700;
@@ -334,6 +391,7 @@ export const CalendarItem = styled.div`
     width: 50%;
     min-width: 100px;
     height: 40px;
+    font-weight: bold;
     border: none;
   }
 `;
@@ -343,8 +401,10 @@ export const FooterContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 90vw;
+  margin-left:-50px; 
   @media (max-width: 800px) {
     align-items: center;
+    margin-left:10px;
   }
   h2 {
     font-weight: 700;
@@ -354,6 +414,15 @@ export const FooterContainer = styled.div`
     margin-top: 25px;
     margin-left: 35px;
   }
+  @media(max-width:860px){
+    margin-top:260px;
+    margin-left:10px;
+  }
+  @media(max-width:500px){
+    margin-top:210px;
+    padding:-20px;
+    margin-bottom:-30px;
+  }
 `;
 export const FooterItemContainer = styled.div`
   display: grid;
@@ -361,10 +430,13 @@ export const FooterItemContainer = styled.div`
   @media (max-width: 800px) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    margin-bottom:100px;
+    margin-left:10px;
   }
   @media (max-width: 500px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    margin-bottom:0px;
   }
   width: 100%;
 `;
@@ -373,7 +445,6 @@ export const FooterItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 25px;
   margin: 0 5vw 0 5vw;
   h4 {
     font-weight: 700;
@@ -386,6 +457,61 @@ export const FooterItem = styled.div`
     font-weight: 500;
     color: #1a1a1a;
     line-height: 16px;
+    font-weight: bold;
+  }
+  @media(max-width:500px){
+   width:350px;
+   height:200px;
+   margin-bottom:-50px;
+   margin-top:-80px;
+  }
+`;
+export const FooterItem3 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 5vw 0 5vw;
+  h4 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #1a1a1a;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    line-height: 16px;
+    font-weight: bold;
+  }
+  @media(max-width:500px){
+   width:350px;
+   height:100px;
+  }
+`;
+export const FooterItem2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 5vw 0 5vw;
+  h4 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #1a1a1a;
+  }
+  ul{
+    margin-top:10px;
+    font-size: 14px;
+  }
+  dd {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    line-height: 16px;
+    margin-left:-10px;
+    padding: 10px;
+    font-weight: bold;
   }
 `;
 
