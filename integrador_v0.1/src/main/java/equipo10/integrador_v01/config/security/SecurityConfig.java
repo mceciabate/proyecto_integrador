@@ -76,20 +76,18 @@ public class SecurityConfig {
 
                 .antMatchers(HttpMethod.POST, "/auth/**", "/usuario/guardar").permitAll()
 
-                .antMatchers(HttpMethod.GET, "/producto/**", "/categoria/**", "/ciudad/**", "/usuario/listar", "/usuario/email/{email}", "usuario/{id}", "/rol/**", "/reserva/producto/{id}", "/caracteristica/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/producto/**", "/categoria/**", "/ciudad/**", "/usuario/**",  "/rol/**", "/reserva/**", "/caracteristica/**").permitAll()
 
                 .antMatchers(HttpMethod.POST, "/producto/**", "/categoria/**"
                         , "/ciudad/**", "/rol/**").hasAnyAuthority("ADMINISTRADOR")
 
-                .antMatchers(HttpMethod.PUT, "/producto/**", "/categoria/**"
-                        , "/ciudad/**", "/rol/**", "/usuario/**").hasAnyAuthority("ADMINISTRADOR")
+                .antMatchers(HttpMethod.PUT, "/producto/**", "/categoria/**", "/rol/**", "/usuario/**").hasAnyAuthority("ADMINISTRADOR")
 
-                .antMatchers(HttpMethod.DELETE, "/producto/**", "/categoria/**"
-                        , "/ciudad/**", "/rol/**", "/usuario/**").hasAnyAuthority("ADMINISTRADOR")
+                .antMatchers(HttpMethod.DELETE, "/producto/**", "/categoria/**", "/rol/**", "/usuario/**").hasAnyAuthority("ADMINISTRADOR")
 
                 //.antMatchers(HttpMethod.GET, "/rol/**", "/usuario/**").hasAnyAuthority("ADMINISTRADOR")
 
-                .antMatchers(HttpMethod.POST, "/reserva/**", "/reserva/guardar").hasAnyAuthority("USUARIO")
+                .antMatchers(HttpMethod.POST, "/reserva/**").hasAnyAuthority("USUARIO")
 
                 //.antMatchers(HttpMethod.POST, "/reserva/**", "/reserva/guardar").hasAnyAuthority("ADMINISTRADOR")
 
