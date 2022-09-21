@@ -10,6 +10,7 @@ import ReserveSuccess from './pages/reserve/ReserveSuccess'
 import AdminProduct from "./pages/admin/AdminProduct";
 import React from "react";
 import AdminSuccess from "./pages/admin/AdminSuccess";
+import AdminProductEdit from "./pages/admin/AdminProductEdit";
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
@@ -25,6 +26,7 @@ function App() {
           <Route path="/product/:id/reserve" element={<Reserve />} />
           <Route path="/product/:id/reserve/success" element={<ReserveSuccess/>} />
           <Route path="/administracion" element={<AdminProduct />} />
+          <Route path="/editar" element={<AdminProductEdit />} />
           <Route path="/administracion/success" element={<AdminSuccess />} />
         </Routes>
       </Layout>

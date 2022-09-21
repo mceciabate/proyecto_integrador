@@ -14,8 +14,9 @@ import {
 } from "./AdminProductStyles";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const AdminProduct = () => {
+const AdminProductEdit = () => {
   const navigate = useNavigate();
+  const [id, setId] = useState();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
   const [categories, setCategories] = useState([]);
@@ -82,12 +83,9 @@ const AdminProduct = () => {
     if (e.target.value !== "no definido") {
       const newFeature = featuresResult.filter(
         (each) => each.id === parseInt(e.target.value)
-      )[0]
+      )[0];
       if (selectedFeatures) {
-        setSelectedFeatures((current) => [
-          ...current,
-          newFeature,
-        ]);
+        setSelectedFeatures((current) => [...current, newFeature]);
       } else {
         setSelectedFeatures(newFeature);
       }
@@ -96,8 +94,8 @@ const AdminProduct = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("http://18.223.117.95:8080/producto/guardar", {
-      method: "POST",
+    fetch(`http://18.223.117.95:8080/producto/${id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + window.localStorage.getItem("Token"),
@@ -153,10 +151,25 @@ const AdminProduct = () => {
     <AdminContainer>
       <HeaderContainer>
         <h1>Administracion</h1>
-        <button onClick={() => navigate("/editar")}>Editar producto</button>
+        <button onClick={() => navigate("/administracion")}>
+          Crear producto
+        </button>
       </HeaderContainer>
-      <StyledH2>Crear Producto</StyledH2>
+      <StyledH2>Editar Producto</StyledH2>
       <StyledForm onSubmit={handleSubmit}>
+        <TitleDesc>
+          <label>
+            ID
+            <StyledInput
+              required
+              type="number"
+              placeholder="id"
+              name="id"
+              value={id}
+              onChange={(event) => setId(event.target.value)}
+            />
+          </label>
+        </TitleDesc>
         <TitleDesc>
           <label>
             Titulo:
@@ -254,11 +267,11 @@ const AdminProduct = () => {
           )}
         </div>
         <DivButton>
-          <StyledButton type="submit">Editar Producto</StyledButton>
+          <StyledButton type="submit">Crear Producto</StyledButton>
         </DivButton>
       </StyledForm>
     </AdminContainer>
   );
 };
 
-export default AdminProduct;
+export default AdminProductEdit;

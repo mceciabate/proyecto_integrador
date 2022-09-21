@@ -14,11 +14,26 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   opacity: 0.8;
+  justify-content: space-between;
   h1 {
     color: antiquewhite;
     font-weight: 700;
     font-size: 28px;
     margin-left: 20px;
+  }
+  button {
+    margin-right: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid antiquewhite;
+    background-color: antiquewhite;
+    color: #f0572d;
+    box-shadow: 0 0 30px rgba(125, 33, 129, 0.4);
+    height: 2rem;
+    width: 190px%;
+    min-width: 170px;
+    border-radius: 10px;
+    cursor: pointer;
   }
 `;
 
@@ -122,7 +137,7 @@ export const Feature = styled.div`
     grid-template-columns: 1fr 1fr;
   }
   @media (max-width: 550px) {
-    grid-template-columns: 1fr ;
+    grid-template-columns: 1fr;
   }
 `;
 
