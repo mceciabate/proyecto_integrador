@@ -10,6 +10,10 @@ export const LoginC = styled.div`
   background: rgba(243, 241, 237, 0.5);
   backdrop-filter: blur(4px);
   margin-top: 15px;
+  height: 92vh;
+  @media (max-width: 800px) {
+    height: 87vh;
+  }
 `;
 
 export const LoginXButton = styled.button`
@@ -39,9 +43,8 @@ export const FormDiv = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   width: 584px;
-  height: 428px;
-  margin-top: 70px;
-  margin-bottom:95px;
+  height: 60vh;
+  margin-bottom:0px;
   h2 {
     color: #f0572d;
     font-weight: 700;
@@ -49,10 +52,11 @@ export const FormDiv = styled.div`
     line-height: 28px;
   }
   @media only screen and (max-width: 800px) {
-    margin-top: 20px;
+    margin-top: 50px;
   }
   @media only screen and (max-width: 500px) {
     width: 80vw;
+    height: 65vh;
   }
 `;
 
@@ -77,8 +81,7 @@ export const FormDiv2 = styled.div`
   }
   @media only screen and (max-width: 800px) {
     margin-top: 20px;
-    height: 480px;
-    margin-bottom: 20px;
+    height: 70vh;
   }
   @media only screen and (max-width: 500px) {
     width: 80vw;
@@ -95,7 +98,7 @@ export const UserForm = styled(Form)`
     width: 448px;
     margin: 10px;
     @media only screen and (max-width: 800px) {
-    width: 70vw;
+    width: 55vw;
   }
     input {
       width: 100%;
@@ -114,6 +117,7 @@ export const UserForm2 = styled.form`
   align-items: center;
   justify-content: space-around;
   width: 30vw;
+  max-height: 60vh;
   label {
     width: 448px;
     margin: 10px;
