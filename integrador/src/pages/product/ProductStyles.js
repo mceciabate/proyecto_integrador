@@ -233,11 +233,10 @@ export const DescH2 = styled.h2`
 `;
 export const FondoDiv = styled.div`
   background-color: #F3F1ED ;
-  max-height: 500px;
   width: 100%;
-  margin-bottom:150px; 
+  @media (max-width:1100px) {
+  }
   @media(max-width:500px){
-    max-height:900px;
   }
 `;
 
@@ -277,14 +276,14 @@ export const FeaturesContainer = styled.div`
     @media (max-width: 1200px) {
     margin-left:20px;
     margin-right:50px;
-  }
+    } 
     @media (max-width: 860px) {
       grid-template-columns: 1fr 1fr;
 
     }
     @media (max-width: 500px) {
       grid-template-columns: 1fr;
-      margin-left: 20px;
+      margin-left: 0px;
     }
   }
 `;
@@ -415,11 +414,9 @@ export const FooterContainer = styled.div`
     margin-left: 35px;
   }
   @media(max-width:860px){
-    margin-top:260px;
     margin-left:10px;
   }
   @media(max-width:500px){
-    margin-top:210px;
     padding:-20px;
     margin-bottom:-30px;
   }

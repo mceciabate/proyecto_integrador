@@ -23,7 +23,7 @@ import {
   FooterItem,
   FooterItem2,
   FondoDiv,
-  FooterItem3
+  FooterItem3,
 } from "./ProductStyles";
 import { BsFillPinMapFill } from "react-icons/bs";
 import arrow from "../../assets/arrow.png";
@@ -43,7 +43,7 @@ const Product = ({ images, product, isLogged, features }) => {
   const getWindowSize = () => {
     const { innerWidth, innerHeight } = window;
     return { innerWidth, innerHeight };
-  }
+  };
   const [rating, setRating] = useState(0);
   const [windowSize, setWindowSize] = useState(getWindowSize());
   const [showModal, setShowModal] = useState(false);
@@ -52,9 +52,9 @@ const Product = ({ images, product, isLogged, features }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
-  const [reserves, setReserves] = useState([])
-  const [disabledDates, setDisabledDates] = useState([])
-  const moment = require('moment')
+  const [reserves, setReserves] = useState([]);
+  const [disabledDates, setDisabledDates] = useState([]);
+  const moment = require("moment");
 
   useEffect(() => {
     setTimeout(() => {
@@ -83,54 +83,63 @@ const Product = ({ images, product, isLogged, features }) => {
   }, []);
 
   const AddDisableDates = (start, end) => {
-    setDisabledDates(current => [...current, start])
-    setDisabledDates(current => [...current, end])
-  }
-  useEffect(()=> {
-    let invalidDates = [{}]
-    if(!loading) {
+    setDisabledDates((current) => [...current, start]);
+    setDisabledDates((current) => [...current, end]);
+  };
+  useEffect(() => {
+    let invalidDates = [{}];
+    if (!loading) {
       const request = async () => {
-        const response = await fetch(`http://18.223.117.95:8080/reserva/producto/${id}`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + window.localStorage.getItem("Token"),
-          },
-        });
+        const response = await fetch(
+          `http://18.223.117.95:8080/reserva/producto/${id}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + window.localStorage.getItem("Token"),
+            },
+          }
+        );
         try {
-          const result = await response.json()
-          setReserves(result)
+          const result = await response.json();
+          setReserves(result);
         } catch (error) {
-          console.log(error)
+          console.log(error);
         }
       };
       for (let index = 0; index < reserves.length; index++) {
         const startDate = reserves[index].fechaInicio;
         const endDate = reserves[index].fechaFin;
-        let formatedStartDate = startDate.replaceAll('-', '/')
-        if(formatedStartDate.charAt() === 10) {
-          formatedStartDate = formatedStartDate.slice(0, 3) + formatedStartDate.slice(4);
-          if(formatedStartDate.charAt(0) === "0"){
-            formatedStartDate = formatedStartDate.substring(1)
+        let formatedStartDate = startDate.replaceAll("-", "/");
+        if (formatedStartDate.charAt() === 10) {
+          formatedStartDate =
+            formatedStartDate.slice(0, 3) + formatedStartDate.slice(4);
+          if (formatedStartDate.charAt(0) === "0") {
+            formatedStartDate = formatedStartDate.substring(1);
           }
         }
-        const date = moment(startDate,'DD/MM/YYYY').format('YYYY-MM-DD[T]HH:mm:ss');
-        
-        let formatedEndDate = endDate.replaceAll('-', '/')
-        if(formatedEndDate.length === 10) {
-          formatedEndDate = formatedEndDate.slice(0, 3) + formatedEndDate.slice(4);
-          if(formatedEndDate.charAt(0) === "0"){
-            formatedEndDate = formatedEndDate.substring(1)
+        const date = moment(startDate, "DD/MM/YYYY").format(
+          "YYYY-MM-DD[T]HH:mm:ss"
+        );
+
+        let formatedEndDate = endDate.replaceAll("-", "/");
+        if (formatedEndDate.length === 10) {
+          formatedEndDate =
+            formatedEndDate.slice(0, 3) + formatedEndDate.slice(4);
+          if (formatedEndDate.charAt(0) === "0") {
+            formatedEndDate = formatedEndDate.substring(1);
           }
         }
-        const date2 = moment(endDate,'DD/MM/YYYY').format('YYYY-MM-DD[T]HH:mm:ss');
-        const myDates = {start: date, end: date2}
-        invalidDates.push(myDates)
-        AddDisableDates(formatedStartDate, formatedEndDate)
+        const date2 = moment(endDate, "DD/MM/YYYY").format(
+          "YYYY-MM-DD[T]HH:mm:ss"
+        );
+        const myDates = { start: date, end: date2 };
+        invalidDates.push(myDates);
+        AddDisableDates(formatedStartDate, formatedEndDate);
       }
-      window.localStorage.setItem('Dates', JSON.stringify(invalidDates));
+      window.localStorage.setItem("Dates", JSON.stringify(invalidDates));
       request();
     }
-  },[loading, id, reserves, moment])
+  }, [loading, id, reserves, moment]);
 
   const handleModal = (index) => {
     setCurrentIndex(index);
@@ -275,12 +284,11 @@ const Product = ({ images, product, isLogged, features }) => {
                   </p>
                 ))}
             </div>
-            
           </FeaturesContainer>
           <MyH2>Fechas disponibles</MyH2>
           <CalendarContainer>
             <Calendar
-              showDoubleView={windowSize.innerWidth > 500 ? true : false}
+              showDoubleView={windowSize.innerWidth > 650 ? true : false}
               next2Label={null}
               prev2Label={null}
               tileDisabled={({ date }) => {
@@ -291,55 +299,61 @@ const Product = ({ images, product, isLogged, features }) => {
             <CalendarSection>
               <CalendarItem>
                 <h3>Agregá tus fechas de viaje para obtener precios exactos</h3>
-                  <button onClick={()=>{
-                    if(window.localStorage.getItem('Token')){
-                      navigate(`/product/${product.id}/reserve`)
+                <button
+                  onClick={() => {
+                    if (window.localStorage.getItem("Token")) {
+                      navigate(`/product/${product.id}/reserve`);
                     } else {
-                      setShowChoice(true)
+                      setShowChoice(true);
                     }
-                  }}>Iniciar reserva</button>
-          {showChoice && (
-            <ProductChoice handleClose={() => setShowChoice(false)} /> )}
+                  }}
+                >
+                  Iniciar reserva
+                </button>
+                {showChoice && (
+                  <ProductChoice handleClose={() => setShowChoice(false)} />
+                )}
               </CalendarItem>
             </CalendarSection>
           </CalendarContainer>
-      </FondoDiv>
-      <div>
-        <p></p>
-      </div>
-      <FooterContainer>
-        <h2>Qué tenés que saber</h2>
-        <FooterItemContainer>
-          <FooterItem2>
-            <h4>Documentacion</h4>
-            <ul>
-            <dd>Para recoger el auto necesitarás: </dd>
-            <dd>Pasaporte o carnet de identidad</dd>
-            <dd>Permiso de conducir</dd>
-            <dd>Tarjeta de crédito o débito</dd>
-            </ul>
-          </FooterItem2>
-          <FooterItem3>
-            <h4>Deposito de seguridad</h4>
-            <p>
-              Durante la recogida, al conductor principal se le bloqueará un
-              depósito de seguridad seguridad de ARS 1.295 en su tarjeta de
-              crédito o débito.
-            </p>
-          </FooterItem3>
-          <FooterItem>
-            <h4>Política de daños</h4>
-            <p>
-              Si la carrocería del vehículo resulta dañada, estarás protegido
-              por la Cobertura ARS 1.200 parcial por Colisión. La Cobertura
-              Parcial por Colisión sólo será válida si se cumplen los términos
-              del contrato de alquiler.
-            </p>
-          </FooterItem>
-        </FooterItemContainer>
-      </FooterContainer>
-    </ProductContainer>
-  );}
+        </FondoDiv>
+        <div>
+          <p></p>
+        </div>
+        <FooterContainer>
+          <h2>Qué tenés que saber</h2>
+          <FooterItemContainer>
+            <FooterItem2>
+              <h4>Documentacion</h4>
+              <ul>
+                <dd>Para recoger el auto necesitarás: </dd>
+                <dd>Pasaporte o carnet de identidad</dd>
+                <dd>Permiso de conducir</dd>
+                <dd>Tarjeta de crédito o débito</dd>
+              </ul>
+            </FooterItem2>
+            <FooterItem3>
+              <h4>Deposito de seguridad</h4>
+              <p>
+                Durante la recogida, al conductor principal se le bloqueará un
+                depósito de seguridad seguridad de ARS 1.295 en su tarjeta de
+                crédito o débito.
+              </p>
+            </FooterItem3>
+            <FooterItem>
+              <h4>Política de daños</h4>
+              <p>
+                Si la carrocería del vehículo resulta dañada, estarás protegido
+                por la Cobertura ARS 1.200 parcial por Colisión. La Cobertura
+                Parcial por Colisión sólo será válida si se cumplen los términos
+                del contrato de alquiler.
+              </p>
+            </FooterItem>
+          </FooterItemContainer>
+        </FooterContainer>
+      </ProductContainer>
+    );
+  }
 };
 
 export default Product;

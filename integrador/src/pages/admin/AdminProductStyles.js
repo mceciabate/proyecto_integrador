@@ -108,6 +108,21 @@ export const Feature = styled.div`
     flex-direction: column;
     font-size: 16px;
     margin-bottom: 10px;
+    select {
+      width: 100%;
+      background: #ffffff;
+      box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+      border-radius: 5px;
+      border: none;
+      height: 35px;
+      margin-top: 5px;
+    }
+  }
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 550px) {
+    grid-template-columns: 1fr ;
   }
 `;
 
@@ -116,6 +131,7 @@ export const DivButton = styled.div`
   justify-content: center;
   padding-top: 20px;
   padding-bottom: 10px;
+  width: 90vw;
 `;
 
 export const StyledButton = styled.button`
@@ -125,7 +141,8 @@ export const StyledButton = styled.button`
   color: white;
   box-shadow: 0 0 30px rgba(125, 33, 129, 0.4);
   height: 2rem;
-  width: 20vw;
+  width: 33%;
+  min-width: 170px;
   border-radius: 10px;
   cursor: pointer;
 `;
