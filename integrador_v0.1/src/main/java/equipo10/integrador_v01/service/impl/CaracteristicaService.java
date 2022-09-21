@@ -2,19 +2,18 @@ package equipo10.integrador_v01.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import equipo10.integrador_v01.model.dto.CaracteristicaDTO;
-import equipo10.integrador_v01.model.dto.CategoriaDTO;
 import equipo10.integrador_v01.model.entity.Caracteristica;
-import equipo10.integrador_v01.model.entity.Categoria;
 import equipo10.integrador_v01.repository.ICaracteristicaRepository;
-import equipo10.integrador_v01.repository.ICategoriaRepository;
 import equipo10.integrador_v01.service.ICaracteristicaService;
 import equipo10.integrador_v01.service.ICategoriaService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class CaracteristicaService implements ICaracteristicaService {
 
     final static Logger log = Logger.getLogger(ICategoriaService.class);
