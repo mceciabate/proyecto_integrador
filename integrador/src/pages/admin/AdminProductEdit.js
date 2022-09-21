@@ -101,6 +101,7 @@ const AdminProductEdit = () => {
         Authorization: "Bearer " + window.localStorage.getItem("Token"),
       },
       body: JSON.stringify({
+        id: id,
         titulo: title,
         descripcion: description,
         imagen: [
@@ -141,7 +142,7 @@ const AdminProductEdit = () => {
       }),
     }).then((response) => {
       if (response.status < 300) {
-        navigate("/edit/success");
+        navigate("/editar/success");
       } else {
         alert(`Error con respuesta: ${response.status}`);
       }
@@ -267,7 +268,7 @@ const AdminProductEdit = () => {
           )}
         </div>
         <DivButton>
-          <StyledButton type="submit">Crear Producto</StyledButton>
+          <StyledButton type="submit">Editar Producto</StyledButton>
         </DivButton>
       </StyledForm>
     </AdminContainer>
