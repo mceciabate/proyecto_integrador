@@ -4,7 +4,7 @@ export const AdminContainer = styled.div`
   background-color: #f3f1ed;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  padding-bottom: 15px;
 `;
 
 export const HeaderContainer = styled.div`
@@ -99,13 +99,14 @@ export const Images = styled.div`
 `;
 
 export const Feature = styled.div`
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
   label {
+    width: 100%;
     display: flex;
     flex-direction: column;
     font-size: 16px;
-    width: 28%;
     margin-bottom: 10px;
   }
 `;

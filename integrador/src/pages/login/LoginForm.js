@@ -18,7 +18,6 @@ const LoginForm = ({ handleView, setIsLogged }) => {
       email: email,
       contrasenia: contrasenia,
     };
-    console.log(JSON.stringify(loginValues));
     fetch("http://18.223.117.95:8080/auth/token", {
       method: "POST",
       headers: { "Content-Type": "application/json; charset=utf-8" },

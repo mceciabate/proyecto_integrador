@@ -292,6 +292,7 @@ export const SuccessContainer = styled.div`
   background: rgba(243, 241, 237, 0.5);
   backdrop-filter: blur(4px);
   margin-top: 15px;
+  height: 92vh;
 `;
 
 export const SuccessDiv = styled.div`

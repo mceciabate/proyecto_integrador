@@ -9,6 +9,7 @@ import Reserve from "./pages/reserve/Reserve";
 import ReserveSuccess from './pages/reserve/ReserveSuccess'
 import AdminProduct from "./pages/admin/AdminProduct";
 import React from "react";
+import AdminSuccess from "./pages/admin/AdminSuccess";
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
@@ -24,6 +25,7 @@ function App() {
           <Route path="/product/:id/reserve" element={<Reserve />} />
           <Route path="/product/:id/reserve/success" element={<ReserveSuccess/>} />
           <Route path="/administracion" element={<AdminProduct />} />
+          <Route path="/administracion/success" element={<AdminSuccess />} />
         </Routes>
       </Layout>
     </BrowserRouter>

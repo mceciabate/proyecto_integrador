@@ -36,7 +36,6 @@ const List = ({ selectedCity, selectedCategory, cat, selectedDates }) => {
           }
         );
         const result = await response.json();
-        console.log(result)
         apiProducts = result;
       } else {
         const response = await fetch(
@@ -56,7 +55,6 @@ const List = ({ selectedCity, selectedCategory, cat, selectedDates }) => {
       } else return setProducts(apiProducts);
     });
   }, [selectedCategory, selectedCity, cat, selectedDates]);
-  console.log(products)
   return (
     <ListDiv>
       <ListH3>{title}</ListH3>

@@ -23,7 +23,6 @@ const Calendar = ({ startDate, endDate, setStartDate, setEndDate }) => {
     )
   }
   toDate()
-  console.log(reservedDates)
   return (
     <CustomHeader>
       <DatePicker

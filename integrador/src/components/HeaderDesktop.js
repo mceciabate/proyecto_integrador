@@ -11,7 +11,7 @@ const Header = ({ isLogged, setIsLogged }) => {
     } else {
       setIsAdmin(false);
     }
-  }, []);
+  }, [isLogged]);
   const handleLoggin = () => {
     if (window.localStorage.getItem("Token")) {
       return (

@@ -13,8 +13,9 @@ import {
   DivButton,
 } from "./AdminProductStyles";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const AdminProduct = () => {
+  const navigate = useNavigate();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
   const [categories, setCategories] = useState([]);
@@ -59,41 +60,38 @@ const AdminProduct = () => {
     setSelectedCity({ obj: cities[e.target.value] });
   };
 
-  const [feature, setFeature] = useState({
-    nombre: "",
-    valor: "",
-    url: "",
-  });
-  const handleFeature = (e) => {
-    const { name, value } = e.target;
-    setFeature((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-  const [feature1, setFeature1] = useState({
-    nombre: "",
-    valor: "",
-    url: "",
-  });
-  const handleFeature1 = (e) => {
-    const { name, value } = e.target;
-    setFeature1((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-  const [feature2, setFeature2] = useState({
-    nombre: "",
-    valor: "",
-    url: "",
-  });
-  const handleFeature2 = (e) => {
-    const { name, value } = e.target;
-    setFeature2((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+  const [selectedFeatures, setSelectedFeatures] = useState([]);
+  const [features, setFeatures] = useState();
+  const [featuresResult, setFeaturesResult] = useState(0);
+
+  useEffect(() => {
+    const request = async () => {
+      const response = await fetch(
+        "http://18.223.117.95:8080/caracteristica/listar"
+      );
+      const result = await response.json();
+      return (
+        setFeatures([...new Set(result.map((item) => item?.nombre))]),
+        setFeaturesResult(result)
+      );
+    };
+    request();
+  }, []);
+
+  const handleFeatures = (e) => {
+    if (e.target.value !== "no definido") {
+      const newFeature = featuresResult.filter(
+        (each) => each.id === parseInt(e.target.value)
+      )[0]
+      if (selectedFeatures) {
+        setSelectedFeatures((current) => [
+          ...current,
+          newFeature,
+        ]);
+      } else {
+        setSelectedFeatures(newFeature);
+      }
+    }
   };
 
   const handleSubmit = (event) => {
@@ -138,50 +136,19 @@ const AdminProduct = () => {
               "https://ubicarbd.s3.us-east-2.amazonaws.com/imagenesCarros/deportivos/zInteriorDeportivo4.png",
           },
         ],
-        caracteristica: [
-          {
-            id: 17,
-            nombre: "Bolsas de Aire",
-            icono:
-              "https://ubicarbd.s3.us-east-2.amazonaws.com/icon/cloud-fog2.svg",
-            valor: "6",
-          },
-          {
-            id: 18,
-            nombre: "Bloqueo central",
-            icono: "https://ubicarbd.s3.us-east-2.amazonaws.com/icon/lock.svg",
-            valor: "Sí",
-          },
-          {
-            id: 20,
-            nombre: "Bluetooth",
-            icono:
-              "https://ubicarbd.s3.us-east-2.amazonaws.com/icon/bluetooth.svg",
-            valor: "Sí",
-          },
-        ],
+        caracteristica: selectedFeatures,
         politica: [],
         ciudad: selectedCity.obj,
         categoria: selectedCategory.obj,
       }),
     }).then((response) => {
       if (response.status < 300) {
-        alert("success");
+        navigate("/administracion/success");
       } else {
         alert(`Error con respuesta: ${response.status}`);
       }
     });
   };
-  console.log(
-    title,
-    description,
-    selectedCategory.obj,
-    selectedCity.obj,
-    image,
-    feature,
-    feature1,
-    feature2
-  );
   return (
     <AdminContainer>
       <HeaderContainer>
@@ -218,9 +185,9 @@ const AdminProduct = () => {
             Categoria
             <select onChange={handleCategory} required>
               <option value="s">Categorias</option>
-              {categories.map((Feature, index) => (
+              {categories.map((feature, index) => (
                 <option key={index} value={index}>
-                  {Feature.titulo + " , " + Feature.descripcion + "."}
+                  {feature.titulo + " , " + feature.descripcion + "."}
                 </option>
               ))}
             </select>
@@ -264,111 +231,26 @@ const AdminProduct = () => {
         </Images>
         <div>
           <h4>Caracteristicas</h4>
-          <Feature>
-            <label>
-              Nombre:
-              <StyledInput
-                required
-                type="text"
-                placeholder="nombre de la caracteristica"
-                name="nombre"
-                value={feature.nombre}
-                onChange={handleFeature}
-              />
-            </label>
-            <label>
-              Valor:
-              <StyledInput
-                required
-                type="text"
-                placeholder="valor de la caracteristica"
-                name="valor"
-                value={feature.valor}
-                onChange={handleFeature}
-              />
-            </label>
-            <label>
-              Icono (URL):
-              <StyledInput
-                required
-                type="text"
-                placeholder="icono de la caracteristica"
-                name="url"
-                value={feature.url}
-                onChange={handleFeature}
-              />
-            </label>
-          </Feature>
-          <Feature>
-            <label>
-              Nombre:
-              <StyledInput
-                required
-                type="text"
-                placeholder="nombre de la caracteristica"
-                name="nombre"
-                value={feature1.nombre}
-                onChange={handleFeature1}
-              />
-            </label>
-            <label>
-              Valor:
-              <StyledInput
-                required
-                type="text"
-                placeholder="valor de la caracteristica"
-                name="valor"
-                value={feature1.valor}
-                onChange={handleFeature1}
-              />
-            </label>
-            <label>
-              Icono (URL):
-              <StyledInput
-                required
-                type="text"
-                placeholder="icono de la caracteristica"
-                name="url"
-                value={feature1.url}
-                onChange={handleFeature1}
-              />
-            </label>
-          </Feature>
-          <Feature>
-            <label>
-              Nombre:
-              <StyledInput
-                required
-                type="text"
-                placeholder="nombre de la caracteristica"
-                name="nombre"
-                value={feature2.nombre}
-                onChange={handleFeature2}
-              />
-            </label>
-            <label>
-              Valor:
-              <StyledInput
-                required
-                type="text"
-                placeholder="valor de la caracteristica"
-                name="valor"
-                value={feature2.valor}
-                onChange={handleFeature2}
-              />
-            </label>
-            <label>
-              Icono (URL):
-              <StyledInput
-                required
-                type="text"
-                placeholder="icono de la caracteristica"
-                name="url"
-                value={feature2.url}
-                onChange={handleFeature2}
-              />
-            </label>
-          </Feature>
+          {features?.length > 0 && (
+            <Feature>
+              {features.map((f) => (
+                <label key={f}>
+                  <span>{f}</span>
+                  <select onChange={handleFeatures}>
+                    <option value="no definido">no definido</option>
+                    {featuresResult &&
+                      featuresResult
+                        .filter((each) => each.nombre === f)
+                        .map((feature, index) => (
+                          <option key={index} value={feature.id}>
+                            {feature.nombre + " : " + feature.valor}
+                          </option>
+                        ))}
+                  </select>
+                </label>
+              ))}
+            </Feature>
+          )}
         </div>
         <DivButton>
           <StyledButton type="submit">Crear Producto</StyledButton>
