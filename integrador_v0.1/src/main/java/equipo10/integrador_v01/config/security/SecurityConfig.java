@@ -76,7 +76,7 @@ public class SecurityConfig {
 
                 .antMatchers(HttpMethod.POST, "/auth/**", "/usuario/guardar").permitAll()
 
-                .antMatchers(HttpMethod.GET, "/producto/**", "/categoria/**", "/ciudad/**", "/usuario/listar", "/usuario/email/{email}", "usuario/{id}", "/rol/**", "/reserva/producto/{id}").permitAll()
+                .antMatchers(HttpMethod.GET, "/producto/**", "/categoria/**", "/ciudad/**", "/usuario/listar", "/usuario/email/{email}", "usuario/{id}", "/rol/**", "/reserva/producto/{id}", "/caracteristica/**").permitAll()
 
                 .antMatchers(HttpMethod.POST, "/producto/**", "/categoria/**"
                         , "/ciudad/**", "/rol/**").hasAnyAuthority("ADMINISTRADOR")
