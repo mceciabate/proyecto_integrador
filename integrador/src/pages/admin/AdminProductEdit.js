@@ -141,7 +141,7 @@ const AdminProductEdit = () => {
       }),
     }).then((response) => {
       if (response.status < 300) {
-        navigate("/administracion/success");
+        navigate("/edit/success");
       } else {
         alert(`Error con respuesta: ${response.status}`);
       }
