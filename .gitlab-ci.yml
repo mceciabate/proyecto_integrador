@@ -8,7 +8,7 @@ image: maven:latest
 
 stages:
   - build
-#  - test
+  - test
   - package
   - deploy
 
@@ -29,12 +29,12 @@ build_job:
     - cd ./integrador_v0.1
     - mvn compile
 
-#test_job:
-#  stage: test
-#  script:
-#    - echo "Maven test started"
-#    - cd ./integrador_v0.1
-#    - mvn clean test
+test_job:
+  stage: test
+  script:
+    - echo "Maven test started"
+    - cd ./integrador_v0.1
+    - mvn clean test
 #esto es una prueba
 
 package_job: 
