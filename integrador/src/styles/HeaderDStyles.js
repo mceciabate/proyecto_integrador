@@ -69,3 +69,14 @@ export const Logo = styled.div`
   height: 55px;
   margin-top: 20px;
 `
+
+export const LineButton = styled.button`
+  height: 40px;
+  width: 2px;
+  max-width: 2px;
+  border: none;
+  border-radius: 1px;
+  background-color: #F0572D;
+  opacity: 0.8;
+  padding: 0;
+`

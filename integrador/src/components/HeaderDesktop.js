@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderC, SectionC, HeaderButton, Logo, AdminButton } from "../styles/HeaderDStyles";
+import { HeaderC, SectionC, HeaderButton, Logo, AdminButton, LineButton } from "../styles/HeaderDStyles";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -17,9 +17,12 @@ const Header = ({ isLogged, setIsLogged }) => {
       return (
         <SectionC>
           {isAdmin && (
+            <>
             <Link to={"/administracion"}>
               <AdminButton><h4>Administracion</h4></AdminButton>
             </Link>
+            <LineButton/>
+            </>
           )}
           <span>{`${window.localStorage
             .getItem("Username")

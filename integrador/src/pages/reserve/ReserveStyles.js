@@ -4,6 +4,11 @@ export const ReserveContainer = styled.div`
   width: 100%;
   height: 100%;
   background: #f3f1ed;
+  @media (max-width: 550px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const HeaderContainer = styled.div`
@@ -69,7 +74,7 @@ export const RHeader = styled.div`
 
 export const BodyContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 50px 0px 50px 0px;
   gap: 32px;
   padding: 0 70px;
@@ -172,8 +177,8 @@ export const FormContainer2 = styled.div`
       }
     }
   }
-  @media (max-width:400px) {
-    height: 300px;
+  @media (max-width:500px) {
+    height: 220px;
   }
 `;
 
@@ -333,5 +338,74 @@ export const CustomHeader = styled.div`
     :focus {
       background-color: #f0572d;
     }
+  }
+`;
+
+export const FooterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 95vw;
+  margin-left: 2.5vw;
+  @media (max-width: 800px) {
+    align-items: center;
+  }
+  @media(max-width:500px){
+    height: 650px;
+    align-items: center;
+    margin: 0;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #1a1a1a;
+    margin-top: 25px;
+    margin-left: 35px;
+    @media(max-width:500px){
+      margin: 0;
+  }
+  }
+`;
+export const FooterItemContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+    height: 650px;
+    margin: 0;
+    padding: 0;
+  }
+  width: 100%;
+`;
+
+export const FooterItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h4 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #1a1a1a;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    line-height: 16px;
+    font-weight: bold;
+  }
+  @media (max-width: 800px) {
+      margin: 5px;
+    }
+  @media(max-width:500px){
+   width:100%;
+   height:200px;
   }
 `;

@@ -14,12 +14,10 @@ import {
   Detail,
   MainButton,
   FormContainer2,
-} from "./ReserveStyles";
-import {
   FooterContainer,
   FooterItemContainer,
   FooterItem,
-} from "../product/ProductStyles";
+} from "./ReserveStyles";
 import { useParams } from "react-router-dom";
 import arrow from "../../assets/arrow.png";
 /* import Calendar from "react-calendar"; */
@@ -303,11 +301,11 @@ const Reserve = () => {
             </p>
           </div>
           <div>
-            <p className="paccion">Recogida: Dia y Hora: {},{hour}</p>
+            <p className="paccion">Horario Recogida: {},{hour}</p>
             <p className="plugar">Lugar: {selectedCity}</p>
           </div>
           <div>
-            <p className="paccion">Entrega: Dia y Hora: {},{hour1} </p>
+            <p className="paccion">Horario Entrega: {},{hour1} </p>
             <p className="plugar">Lugar: {selectedCity2}</p>
           </div>
           <MainButton onClick={handleReserve}>Confirmar reserva</MainButton>

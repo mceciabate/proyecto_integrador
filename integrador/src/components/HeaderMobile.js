@@ -3,15 +3,27 @@ import {
   HeaderC,
   SectionC,
   HeaderButton,
+  HeaderButtonDeploy,
   Logo,
   MenuButton,
   DeployMenu,
+  AdminButton,
+  LineButton,
 } from "../styles/HeaderMStyles";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Icon } from '@iconify/react'
 
 const Header = ({ isLogged, setIsLogged }) => {
+  const [isAdmin, setIsAdmin] = useState(false);
+  useEffect(() => {
+    if (window.localStorage.getItem("UserType") === "ADMINISTRADOR") {
+      setIsAdmin(true);
+    } else {
+      setIsAdmin(false);
+    }
+  }, [isLogged]);
   const [deployMenu, setDeployMenu] = useState(false);
   useEffect(() => {
     if (window.localStorage.getItem("Token")) {
@@ -25,10 +37,10 @@ const Header = ({ isLogged, setIsLogged }) => {
       <DeployMenu>
         <MenuButton onClick={() => setDeployMenu(false)} />
         <Link to="/login">
-          <HeaderButton>Iniciar Sesión</HeaderButton>
+          <HeaderButtonDeploy>Iniciar Sesión</HeaderButtonDeploy>
         </Link>
         <Link to="/register">
-          <HeaderButton>Registrarse</HeaderButton>
+          <HeaderButtonDeploy>Registrarse</HeaderButtonDeploy>
         </Link>
       </DeployMenu>
     );
@@ -37,7 +49,16 @@ const Header = ({ isLogged, setIsLogged }) => {
     if (window.localStorage.getItem("Token")) {
       return (
         <SectionC>
-          <h3>{`Hola ${window.localStorage.getItem("Username")}`}</h3>
+          {isAdmin && (
+            <>
+            <Link to={"/administracion"}>
+              <AdminButton>
+                <h4>Admin</h4>
+              </AdminButton>
+            </Link>
+            <LineButton></LineButton>
+            </>
+          )}
           <span>{`${window.localStorage
             .getItem("Username")
             .charAt(0)
@@ -45,13 +66,14 @@ const Header = ({ isLogged, setIsLogged }) => {
             .getItem("Lastname")
             .charAt(0)
             .toUpperCase()}`}</span>
+          <h3>{`Hola ${window.localStorage.getItem("Username")}`}</h3>
           <HeaderButton
             onClick={() => {
               setIsLogged(false);
               window.localStorage.removeItem("Token");
             }}
           >
-            Log out
+            <Icon icon="bx:log-out" color="black"/>
           </HeaderButton>
         </SectionC>
       );

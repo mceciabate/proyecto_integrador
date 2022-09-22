@@ -326,7 +326,6 @@ const Product = ({ images, product, isLogged, features }) => {
             <FooterItem2>
               <h4>Documentacion</h4>
               <ul>
-                <dd>Para recoger el auto necesitarás: </dd>
                 <dd>Pasaporte o carnet de identidad</dd>
                 <dd>Permiso de conducir</dd>
                 <dd>Tarjeta de crédito o débito</dd>

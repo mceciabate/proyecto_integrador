@@ -13,6 +13,11 @@
     padding: 2%;
     justify-content: space-around;
 }
+@media(max-width: 430px) {
+  .footerContent{
+    padding: 0;
+  }
+}
 
 .footerLogo{
     background-color: white;
