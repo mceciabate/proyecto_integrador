@@ -202,9 +202,9 @@ const Reserve = () => {
                 <input
                   required
                   type="city"
-                  value={`${product?.ciudad?.provincia}, ${product?.ciudad?.localidad}`}
-                  placeholder="Rosario, Santa Fe"
+                  value={`${product?.ciudad?.direccion}`}
                   name="ciudad"
+                  readOnly
                 />
               </label>
             </form>
@@ -248,7 +248,7 @@ const Reserve = () => {
                   >
                     <option value="S">Recogida</option>
                     {updatedCities.map((city, index) => (
-                      <option key={index} value={city.localidad}>
+                      <option key={index} value={city.direccion}>
                         {city.localidad + " , " + city.provincia}
                       </option>
                     ))}
@@ -275,7 +275,7 @@ const Reserve = () => {
                   >
                     <option value="S">Devolucion</option>
                     {updatedCities.map((city, index) => (
-                      <option key={index} value={city.localidad}>
+                      <option key={index} value={city.direccion}>
                         {city.localidad + " , " + city.provincia}
                       </option>
                     ))}
@@ -302,11 +302,11 @@ const Reserve = () => {
             </p>
           </div>
           <div>
-            <p className="paccion">Horario Recogida: {},{hour}</p>
+            <p className="paccion">Horario Recogida: {hour}</p>
             <p className="plugar">Lugar: {selectedCity}</p>
           </div>
           <div>
-            <p className="paccion">Horario Entrega: {},{hour1} </p>
+            <p className="paccion">Horario Entrega: {hour1} </p>
             <p className="plugar">Lugar: {selectedCity2}</p>
           </div>
           <MainButton onClick={handleReserve}>Confirmar reserva</MainButton>

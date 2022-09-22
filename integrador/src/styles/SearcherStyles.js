@@ -43,7 +43,7 @@ export const SearchForm = styled.form`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-    height: 210px;
+    height: 260px;
     width: 120%;
     gap: 10px;
     flex-direction:column;
@@ -52,7 +52,9 @@ export const SearchForm = styled.form`
     margin-left:-25px;
   }
   @media only screen and (max-width: 500px) {
-    height: max-content;
+    justify-content: flex-start;
+    padding-top: 0;
+    height: 210px;
     width: 350px;
     flex-direction: column;
     gap: 4px;
@@ -113,6 +115,8 @@ export const SearchButton = styled.button`
   @media only screen and (max-width: 800px) {
     width: 50%;
     margin: 0px;
+    position: absolute;
+    bottom: 10px;
   }
   @media only screen and (max-width: 500px) {
     width: 90%;
@@ -153,12 +157,20 @@ export const CalendarButton = styled.button`
 
 export const CalendarDiv = styled.div`
   position: relative;
-  top: -120px;
-  @media only screen and (max-width: 500px) {
+  top: -130px;
+  padding: 0 10px;
+  background-color: white;
+  border-radius: 10px;
+  @media only screen and (max-width: 800px) {
     margin-left: 0;
-    width: 50vw;
     align-self: center;
     align-items: center;
+  }
+  @media only screen and (max-width: 500px) {
+    padding: 5px 15px 5px 15px;
+    width: 80vw;
+    align-items: center;
+    top: -300px;
   }
   `
 
