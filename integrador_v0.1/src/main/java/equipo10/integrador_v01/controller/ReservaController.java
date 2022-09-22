@@ -28,7 +28,7 @@ public class ReservaController {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(reservaDTO.getUsuario().getEmail());
         mailMessage.setSubject("Sus reservas");
-        mailMessage.setText("Su reserva ha sido creada exitosamente, para mas información visite: ");
+        mailMessage.setText("Su reserva ha sido creada exitosamente, para mas información visite: http://ubicar.ddns.net/");
         mailMessage.setFrom("${spring.mail.username}");
         emailSenderService.sendEmail(mailMessage);
         return ResponseEntity.ok(reservaService.guardarReserva(reservaDTO));

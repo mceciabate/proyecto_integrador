@@ -42,7 +42,7 @@ public class UsuarioController {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(usuarioDTO.getEmail());
         mailMessage.setSubject("Bienvenido a Ubicar");
-        mailMessage.setText("Su usuario ha sido creado exitosamente");
+        mailMessage.setText("Su usuario ha sido creado exitosamente, por favor inicie sesión ingresando a http://ubicar.ddns.net/");
         mailMessage.setFrom("${spring.mail.username}");
         emailSenderService.sendEmail(mailMessage);
         return ResponseEntity.ok(usuarioService.guardarUsuario(usuarioDTO));
