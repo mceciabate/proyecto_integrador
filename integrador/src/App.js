@@ -12,6 +12,7 @@ import AdminProduct from "./pages/admin/AdminProduct";
 import AdminSuccess from "./pages/admin/AdminSuccess";
 import AdminProductEdit from "./pages/admin/AdminProductEdit";
 import EditSuccess from "./pages/admin/EditSuccess";
+import UsuarioReserva from "./pages/usuario/UsuarioReserva";
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
@@ -30,6 +31,7 @@ function App() {
           <Route path="/editar" element={<AdminProductEdit />} />
           <Route path="/editar/success" element={<EditSuccess />} />
           <Route path="/administracion/success" element={<AdminSuccess />} />
+          <Route path="usuarioReserva" element={ <UsuarioReserva/> }/>
         </Routes>
       </Layout>
     </BrowserRouter>

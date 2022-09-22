@@ -45,6 +45,7 @@ const LoginForm = ({ handleView, setIsLogged }) => {
         setUsername(result.nombre);
         setLastname(result.apellido);
         setUserType(result.rol.nombre)
+        window.localStorage.setItem("ID", result.id)
       };
       request();
       window.localStorage.setItem("Token", token);

@@ -59,6 +59,16 @@ const Header = ({ isLogged, setIsLogged }) => {
             <LineButton></LineButton>
             </>
           )}
+          {!isAdmin && (
+            <>
+            <Link to={"/usuarioReserva"}>
+              <AdminButton>
+                <h4>Reservas</h4>
+              </AdminButton>
+            </Link>
+            <LineButton></LineButton>
+            </>
+          )}
           <span>{`${window.localStorage
             .getItem("Username")
             .charAt(0)

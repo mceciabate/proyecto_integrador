@@ -107,7 +107,7 @@ h4{
 }`;
 
 export const LineButton = styled.button`
-  height: 10vh;
+  height: 7vh;
   width: 2px;
   max-width: 2px;
   border: none;

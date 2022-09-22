@@ -1,5 +1,12 @@
 import React from "react";
-import { HeaderC, SectionC, HeaderButton, Logo, AdminButton, LineButton } from "../styles/HeaderDStyles";
+import {
+  HeaderC,
+  SectionC,
+  HeaderButton,
+  Logo,
+  AdminButton,
+  LineButton,
+} from "../styles/HeaderDStyles";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -18,10 +25,22 @@ const Header = ({ isLogged, setIsLogged }) => {
         <SectionC>
           {isAdmin && (
             <>
-            <Link to={"/administracion"}>
-              <AdminButton><h4>Administracion</h4></AdminButton>
-            </Link>
-            <LineButton/>
+              <Link to={"/administracion"}>
+                <AdminButton>
+                  <h4>Administracion</h4>
+                </AdminButton>
+              </Link>
+              <LineButton />
+            </>
+          )}
+          {!isAdmin && (
+            <>
+              <Link to={"/usuarioReserva"}>
+                <AdminButton>
+                  <h4>Reservas</h4>
+                </AdminButton>
+              </Link>
+              <LineButton />
             </>
           )}
           <span>{`${window.localStorage

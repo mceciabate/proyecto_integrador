@@ -39,7 +39,7 @@ const List = ({ selectedCity, selectedCategory, cat, selectedDates }) => {
         apiProducts = result;
       } else {
         const response = await fetch(
-          `http://13.59.92.254:8080/producto/listar`
+          `http://18.223.117.95:8080/producto/listar`
         );
         const result = await response.json();
         apiProducts = result;
