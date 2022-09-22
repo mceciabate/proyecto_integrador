@@ -12,8 +12,6 @@ import * as Yup from "yup";
 const RegisterForm = ({ handleView }) => {
   const handleResponse = (response) => {
     if (response < 300) {
-      console.log(response)
-      alert("Usuario creado exitosamente")
       handleView("login")
     } else if(response === 500) {
       console.log(`Error con respuesta ${response}`)

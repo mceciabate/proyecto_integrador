@@ -202,6 +202,7 @@ const Reserve = () => {
                 <input
                   required
                   type="city"
+                  value={`${product?.ciudad?.provincia}, ${product?.ciudad?.localidad}`}
                   placeholder="Rosario, Santa Fe"
                   name="ciudad"
                 />

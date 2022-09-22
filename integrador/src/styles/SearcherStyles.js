@@ -72,6 +72,8 @@ export const SearchSelect = styled.select`
   text-align: center;
   min-width: 100px;
   option{
+    box-sizing: border-box;
+    margin-left: 20px;
     text-align: center;
     font-weight: 700;
     font-size: 16px;

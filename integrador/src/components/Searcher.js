@@ -16,7 +16,7 @@ import "react-date-range/dist/theme/default.css";
 import { BsCalendarCheck } from "react-icons/bs";
 import { BsFillPinMapFill } from "react-icons/bs";
 
-const Searcher = ( {setCity, setDates} ) => {
+const Searcher = ({ setCity, setDates }) => {
   const [cities, setCities] = useState([{}]);
   const [selectedCity, setSelectedCity] = useState(null);
   useEffect(() => {
@@ -26,7 +26,7 @@ const Searcher = ( {setCity, setDates} ) => {
       setCities(result);
     };
     request();
-  },[]);
+  }, []);
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -39,21 +39,27 @@ const Searcher = ( {setCity, setDates} ) => {
   return (
     <SearchContainer>
       <h1>La forma más fácil y segura de rentar tu auto</h1>
-      <SearchForm onSubmit={(e)=>{
-            e.preventDefault();
-            setshowCalendar(false);
-            setCity(selectedCity);
-            setDates(state)
-      }}>
+      <SearchForm
+        onSubmit={(e) => {
+          e.preventDefault();
+          setshowCalendar(false);
+          setCity(selectedCity);
+          setDates(state);
+        }}
+      >
         <IconSelect>
           <BsFillPinMapFill className="icon" />
-          <SearchSelect onChange={(e)=>{
-            const value = e.target.value;
-            setSelectedCity(value)}} required>
+          <SearchSelect
+            onChange={(e) => {
+              const value = e.target.value;
+              setSelectedCity(value);
+            }}
+            required
+          >
             <option value="S">Recogida</option>
             {updatedCities.map((city, index) => (
               <option key={index} value={city.id}>
-                {city.direccion + " , " + city.provincia}
+                {`${city.localidad}`}
               </option>
             ))}
           </SearchSelect>
@@ -61,10 +67,10 @@ const Searcher = ( {setCity, setDates} ) => {
         <IconSelect>
           <BsFillPinMapFill className="icon" />
           <SearchSelect required>
-          <option value="S">Devolución</option>
+            <option value="S">Devolución</option>
             {updatedCities.map((city, index) => (
               <option key={index} value={city.localidad}>
-                {city.direccion + " , " + city.provincia}
+                {city.localidad}
               </option>
             ))}
           </SearchSelect>
@@ -74,7 +80,8 @@ const Searcher = ( {setCity, setDates} ) => {
             <DateRange
               editableDateInputs={true}
               onChange={(item) => {
-                setState([item.selection])}}
+                setState([item.selection]);
+              }}
               moveRangeOnFirstSelection={false}
               ranges={state}
               rangeColors={["#F0572D"]}
@@ -86,9 +93,7 @@ const Searcher = ( {setCity, setDates} ) => {
             Recogida - Devolución
           </CalendarButton>
         )}
-        <SearchButton type="submit">
-          Buscar auto
-        </SearchButton>
+        <SearchButton type="submit">Buscar auto</SearchButton>
       </SearchForm>
     </SearchContainer>
   );
