@@ -254,7 +254,7 @@ const AdminProduct = () => {
           )}
         </div>
         <DivButton>
-          <StyledButton type="submit">Editar Producto</StyledButton>
+          <StyledButton type="submit">Crear Producto</StyledButton>
         </DivButton>
       </StyledForm>
     </AdminContainer>

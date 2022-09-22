@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderC, SectionC, HeaderButton, Logo } from "../styles/HeaderDStyles";
+import { HeaderC, SectionC, HeaderButton, Logo, AdminButton } from "../styles/HeaderDStyles";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -16,9 +16,11 @@ const Header = ({ isLogged, setIsLogged }) => {
     if (window.localStorage.getItem("Token")) {
       return (
         <SectionC>
-          <h3>{`Hola ${window.localStorage.getItem(
-            "Username"
-          )} ${window.localStorage.getItem("Lastname")}`}</h3>
+          {isAdmin && (
+            <Link to={"/administracion"}>
+              <AdminButton><h4>Administracion</h4></AdminButton>
+            </Link>
+          )}
           <span>{`${window.localStorage
             .getItem("Username")
             .charAt(0)
@@ -26,13 +28,12 @@ const Header = ({ isLogged, setIsLogged }) => {
             .getItem("Lastname")
             .charAt(0)
             .toUpperCase()}`}</span>
-          {isAdmin && (
-            <Link to={'/administracion'}>
-              <span>
-                ADMIN
-              </span>
-            </Link>
-          )}
+          <h3>
+            Hola <br />
+            {`${window.localStorage.getItem(
+              "Username"
+            )} ${window.localStorage.getItem("Lastname")}`}
+          </h3>
           <HeaderButton
             onClick={() => {
               setIsLogged(false);

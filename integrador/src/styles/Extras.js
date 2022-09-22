@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import slider1 from "../assets/slider1.jpg";
 
+
 export const LayoutC = styled.div`
   display: flex;
   flex-direction: column;

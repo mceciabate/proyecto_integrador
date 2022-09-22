@@ -49,6 +49,19 @@ export const HeaderButton = styled.button`
   }
 `;
 
+export const AdminButton = styled.button`
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  h4{
+    font-size: 16px;
+    align-self: center;
+    :hover{
+      color: white;
+    }
+  }
+`
+
 export const Logo = styled.div`
   background: url(${logo1});
   background-repeat: no-repeat;
