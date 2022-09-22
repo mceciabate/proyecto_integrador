@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Layout from "./components/layout/Layout";
@@ -8,7 +9,6 @@ import ScrollToTop from "./components/ScrollToTop";
 import Reserve from "./pages/reserve/Reserve";
 import ReserveSuccess from './pages/reserve/ReserveSuccess'
 import AdminProduct from "./pages/admin/AdminProduct";
-import React from "react";
 import AdminSuccess from "./pages/admin/AdminSuccess";
 import AdminProductEdit from "./pages/admin/AdminProductEdit";
 import EditSuccess from "./pages/admin/EditSuccess";
